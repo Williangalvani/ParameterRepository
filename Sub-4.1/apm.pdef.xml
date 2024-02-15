@@ -2381,6 +2381,7 @@
 <value code="10">mode_circle</value>
 <value code="11">mode_guided</value>
 <value code="12">mode_acro</value>
+<value code="13">mode_surftrack</value>
 <value code="21">mount_center</value>
 <value code="22">mount_tilt_up</value>
 <value code="23">mount_tilt_down</value>
@@ -2469,6 +2470,7 @@
 <value code="10">mode_circle</value>
 <value code="11">mode_guided</value>
 <value code="12">mode_acro</value>
+<value code="13">mode_surftrack</value>
 <value code="21">mount_center</value>
 <value code="22">mount_tilt_up</value>
 <value code="23">mount_tilt_down</value>
@@ -2559,6 +2561,7 @@
 <value code="10">mode_circle</value>
 <value code="11">mode_guided</value>
 <value code="12">mode_acro</value>
+<value code="13">mode_surftrack</value>
 <value code="21">mount_center</value>
 <value code="22">mount_tilt_up</value>
 <value code="23">mount_tilt_down</value>
@@ -2647,6 +2650,7 @@
 <value code="10">mode_circle</value>
 <value code="11">mode_guided</value>
 <value code="12">mode_acro</value>
+<value code="13">mode_surftrack</value>
 <value code="21">mount_center</value>
 <value code="22">mount_tilt_up</value>
 <value code="23">mount_tilt_down</value>
@@ -2737,6 +2741,7 @@
 <value code="10">mode_circle</value>
 <value code="11">mode_guided</value>
 <value code="12">mode_acro</value>
+<value code="13">mode_surftrack</value>
 <value code="21">mount_center</value>
 <value code="22">mount_tilt_up</value>
 <value code="23">mount_tilt_down</value>
@@ -2825,6 +2830,7 @@
 <value code="10">mode_circle</value>
 <value code="11">mode_guided</value>
 <value code="12">mode_acro</value>
+<value code="13">mode_surftrack</value>
 <value code="21">mount_center</value>
 <value code="22">mount_tilt_up</value>
 <value code="23">mount_tilt_down</value>
@@ -2915,6 +2921,7 @@
 <value code="10">mode_circle</value>
 <value code="11">mode_guided</value>
 <value code="12">mode_acro</value>
+<value code="13">mode_surftrack</value>
 <value code="21">mount_center</value>
 <value code="22">mount_tilt_up</value>
 <value code="23">mount_tilt_down</value>
@@ -3003,6 +3010,7 @@
 <value code="10">mode_circle</value>
 <value code="11">mode_guided</value>
 <value code="12">mode_acro</value>
+<value code="13">mode_surftrack</value>
 <value code="21">mount_center</value>
 <value code="22">mount_tilt_up</value>
 <value code="23">mount_tilt_down</value>
@@ -3093,6 +3101,7 @@
 <value code="10">mode_circle</value>
 <value code="11">mode_guided</value>
 <value code="12">mode_acro</value>
+<value code="13">mode_surftrack</value>
 <value code="21">mount_center</value>
 <value code="22">mount_tilt_up</value>
 <value code="23">mount_tilt_down</value>
@@ -3181,6 +3190,7 @@
 <value code="10">mode_circle</value>
 <value code="11">mode_guided</value>
 <value code="12">mode_acro</value>
+<value code="13">mode_surftrack</value>
 <value code="21">mount_center</value>
 <value code="22">mount_tilt_up</value>
 <value code="23">mount_tilt_down</value>
@@ -3271,6 +3281,7 @@
 <value code="10">mode_circle</value>
 <value code="11">mode_guided</value>
 <value code="12">mode_acro</value>
+<value code="13">mode_surftrack</value>
 <value code="21">mount_center</value>
 <value code="22">mount_tilt_up</value>
 <value code="23">mount_tilt_down</value>
@@ -3359,6 +3370,7 @@
 <value code="10">mode_circle</value>
 <value code="11">mode_guided</value>
 <value code="12">mode_acro</value>
+<value code="13">mode_surftrack</value>
 <value code="21">mount_center</value>
 <value code="22">mount_tilt_up</value>
 <value code="23">mount_tilt_down</value>
@@ -3449,6 +3461,7 @@
 <value code="10">mode_circle</value>
 <value code="11">mode_guided</value>
 <value code="12">mode_acro</value>
+<value code="13">mode_surftrack</value>
 <value code="21">mount_center</value>
 <value code="22">mount_tilt_up</value>
 <value code="23">mount_tilt_down</value>
@@ -3537,6 +3550,7 @@
 <value code="10">mode_circle</value>
 <value code="11">mode_guided</value>
 <value code="12">mode_acro</value>
+<value code="13">mode_surftrack</value>
 <value code="21">mount_center</value>
 <value code="22">mount_tilt_up</value>
 <value code="23">mount_tilt_down</value>
@@ -3627,6 +3641,7 @@
 <value code="10">mode_circle</value>
 <value code="11">mode_guided</value>
 <value code="12">mode_acro</value>
+<value code="13">mode_surftrack</value>
 <value code="21">mount_center</value>
 <value code="22">mount_tilt_up</value>
 <value code="23">mount_tilt_down</value>
@@ -3715,6 +3730,7 @@
 <value code="10">mode_circle</value>
 <value code="11">mode_guided</value>
 <value code="12">mode_acro</value>
+<value code="13">mode_surftrack</value>
 <value code="21">mount_center</value>
 <value code="22">mount_tilt_up</value>
 <value code="23">mount_tilt_down</value>
@@ -3805,6 +3821,7 @@
 <value code="10">mode_circle</value>
 <value code="11">mode_guided</value>
 <value code="12">mode_acro</value>
+<value code="13">mode_surftrack</value>
 <value code="21">mount_center</value>
 <value code="22">mount_tilt_up</value>
 <value code="23">mount_tilt_down</value>
@@ -3893,6 +3910,7 @@
 <value code="10">mode_circle</value>
 <value code="11">mode_guided</value>
 <value code="12">mode_acro</value>
+<value code="13">mode_surftrack</value>
 <value code="21">mount_center</value>
 <value code="22">mount_tilt_up</value>
 <value code="23">mount_tilt_down</value>
@@ -3983,6 +4001,7 @@
 <value code="10">mode_circle</value>
 <value code="11">mode_guided</value>
 <value code="12">mode_acro</value>
+<value code="13">mode_surftrack</value>
 <value code="21">mount_center</value>
 <value code="22">mount_tilt_up</value>
 <value code="23">mount_tilt_down</value>
@@ -4071,6 +4090,7 @@
 <value code="10">mode_circle</value>
 <value code="11">mode_guided</value>
 <value code="12">mode_acro</value>
+<value code="13">mode_surftrack</value>
 <value code="21">mount_center</value>
 <value code="22">mount_tilt_up</value>
 <value code="23">mount_tilt_down</value>
@@ -4161,6 +4181,7 @@
 <value code="10">mode_circle</value>
 <value code="11">mode_guided</value>
 <value code="12">mode_acro</value>
+<value code="13">mode_surftrack</value>
 <value code="21">mount_center</value>
 <value code="22">mount_tilt_up</value>
 <value code="23">mount_tilt_down</value>
@@ -4249,6 +4270,7 @@
 <value code="10">mode_circle</value>
 <value code="11">mode_guided</value>
 <value code="12">mode_acro</value>
+<value code="13">mode_surftrack</value>
 <value code="21">mount_center</value>
 <value code="22">mount_tilt_up</value>
 <value code="23">mount_tilt_down</value>
@@ -4339,6 +4361,7 @@
 <value code="10">mode_circle</value>
 <value code="11">mode_guided</value>
 <value code="12">mode_acro</value>
+<value code="13">mode_surftrack</value>
 <value code="21">mount_center</value>
 <value code="22">mount_tilt_up</value>
 <value code="23">mount_tilt_down</value>
@@ -4427,6 +4450,7 @@
 <value code="10">mode_circle</value>
 <value code="11">mode_guided</value>
 <value code="12">mode_acro</value>
+<value code="13">mode_surftrack</value>
 <value code="21">mount_center</value>
 <value code="22">mount_tilt_up</value>
 <value code="23">mount_tilt_down</value>
@@ -4517,6 +4541,7 @@
 <value code="10">mode_circle</value>
 <value code="11">mode_guided</value>
 <value code="12">mode_acro</value>
+<value code="13">mode_surftrack</value>
 <value code="21">mount_center</value>
 <value code="22">mount_tilt_up</value>
 <value code="23">mount_tilt_down</value>
@@ -4605,6 +4630,7 @@
 <value code="10">mode_circle</value>
 <value code="11">mode_guided</value>
 <value code="12">mode_acro</value>
+<value code="13">mode_surftrack</value>
 <value code="21">mount_center</value>
 <value code="22">mount_tilt_up</value>
 <value code="23">mount_tilt_down</value>
@@ -4695,6 +4721,7 @@
 <value code="10">mode_circle</value>
 <value code="11">mode_guided</value>
 <value code="12">mode_acro</value>
+<value code="13">mode_surftrack</value>
 <value code="21">mount_center</value>
 <value code="22">mount_tilt_up</value>
 <value code="23">mount_tilt_down</value>
@@ -4783,6 +4810,7 @@
 <value code="10">mode_circle</value>
 <value code="11">mode_guided</value>
 <value code="12">mode_acro</value>
+<value code="13">mode_surftrack</value>
 <value code="21">mount_center</value>
 <value code="22">mount_tilt_up</value>
 <value code="23">mount_tilt_down</value>
@@ -4873,6 +4901,7 @@
 <value code="10">mode_circle</value>
 <value code="11">mode_guided</value>
 <value code="12">mode_acro</value>
+<value code="13">mode_surftrack</value>
 <value code="21">mount_center</value>
 <value code="22">mount_tilt_up</value>
 <value code="23">mount_tilt_down</value>
@@ -4961,6 +4990,7 @@
 <value code="10">mode_circle</value>
 <value code="11">mode_guided</value>
 <value code="12">mode_acro</value>
+<value code="13">mode_surftrack</value>
 <value code="21">mount_center</value>
 <value code="22">mount_tilt_up</value>
 <value code="23">mount_tilt_down</value>
@@ -5051,6 +5081,7 @@
 <value code="10">mode_circle</value>
 <value code="11">mode_guided</value>
 <value code="12">mode_acro</value>
+<value code="13">mode_surftrack</value>
 <value code="21">mount_center</value>
 <value code="22">mount_tilt_up</value>
 <value code="23">mount_tilt_down</value>
@@ -5139,6 +5170,7 @@
 <value code="10">mode_circle</value>
 <value code="11">mode_guided</value>
 <value code="12">mode_acro</value>
+<value code="13">mode_surftrack</value>
 <value code="21">mount_center</value>
 <value code="22">mount_tilt_up</value>
 <value code="23">mount_tilt_down</value>

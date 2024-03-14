@@ -20522,6 +20522,26 @@ This sets the amount of storage in kilobytes reserved on the microsd card in mis
 
 
 
+.. _BRD_SD_FENCE:
+
+BRD\_SD\_FENCE:  SDCard Fence size
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+| *Note: This parameter is for advanced users*
+| *Note: Reboot required after change*
+
+This sets the amount of storage in kilobytes reserved on the microsd card in fence\.stg for fence storage\.
+
+
++---------+
+| Range   |
++=========+
+| 0 to 64 |
++---------+
+
+
+
+
 .. _BRD_IO_DSHOT:
 
 BRD\_IO\_DSHOT: Load DShot FW on IO
@@ -22889,36 +22909,36 @@ CAN\_D1\_PROTOCOL: Enable use of specific protocol over virtual driver
 Enabling this option starts selected protocol that will use this virtual driver
 
 
-+-----------------------------+
-| Values                      |
-+=============================+
-| +-------+-----------------+ |
-| | Value | Meaning         | |
-| +=======+=================+ |
-| | 0     | Disabled        | |
-| +-------+-----------------+ |
-| | 1     | DroneCAN        | |
-| +-------+-----------------+ |
-| | 4     | PiccoloCAN      | |
-| +-------+-----------------+ |
-| | 6     | EFI_NWPMU       | |
-| +-------+-----------------+ |
-| | 7     | USD1            | |
-| +-------+-----------------+ |
-| | 8     | KDECAN          | |
-| +-------+-----------------+ |
-| | 10    | Scripting       | |
-| +-------+-----------------+ |
-| | 11    | Benewake        | |
-| +-------+-----------------+ |
-| | 12    | Scripting2      | |
-| +-------+-----------------+ |
-| | 13    | TOFSenseP       | |
-| +-------+-----------------+ |
-| | 14    | NanoRadar_NRA24 | |
-| +-------+-----------------+ |
-|                             |
-+-----------------------------+
++------------------------+
+| Values                 |
++========================+
+| +-------+------------+ |
+| | Value | Meaning    | |
+| +=======+============+ |
+| | 0     | Disabled   | |
+| +-------+------------+ |
+| | 1     | DroneCAN   | |
+| +-------+------------+ |
+| | 4     | PiccoloCAN | |
+| +-------+------------+ |
+| | 6     | EFI_NWPMU  | |
+| +-------+------------+ |
+| | 7     | USD1       | |
+| +-------+------------+ |
+| | 8     | KDECAN     | |
+| +-------+------------+ |
+| | 10    | Scripting  | |
+| +-------+------------+ |
+| | 11    | Benewake   | |
+| +-------+------------+ |
+| | 12    | Scripting2 | |
+| +-------+------------+ |
+| | 13    | TOFSenseP  | |
+| +-------+------------+ |
+| | 14    | NanoRadar  | |
+| +-------+------------+ |
+|                        |
++------------------------+
 
 
 
@@ -22934,28 +22954,28 @@ CAN\_D1\_PROTOCOL2: Secondary protocol with 11 bit CAN addressing
 Secondary protocol with 11 bit CAN addressing
 
 
-+-----------------------------+
-| Values                      |
-+=============================+
-| +-------+-----------------+ |
-| | Value | Meaning         | |
-| +=======+=================+ |
-| | 0     | Disabled        | |
-| +-------+-----------------+ |
-| | 7     | USD1            | |
-| +-------+-----------------+ |
-| | 10    | Scripting       | |
-| +-------+-----------------+ |
-| | 11    | Benewake        | |
-| +-------+-----------------+ |
-| | 12    | Scripting2      | |
-| +-------+-----------------+ |
-| | 13    | TOFSenseP       | |
-| +-------+-----------------+ |
-| | 14    | NanoRadar_NRA24 | |
-| +-------+-----------------+ |
-|                             |
-+-----------------------------+
++------------------------+
+| Values                 |
++========================+
+| +-------+------------+ |
+| | Value | Meaning    | |
+| +=======+============+ |
+| | 0     | Disabled   | |
+| +-------+------------+ |
+| | 7     | USD1       | |
+| +-------+------------+ |
+| | 10    | Scripting  | |
+| +-------+------------+ |
+| | 11    | Benewake   | |
+| +-------+------------+ |
+| | 12    | Scripting2 | |
+| +-------+------------+ |
+| | 13    | TOFSenseP  | |
+| +-------+------------+ |
+| | 14    | NanoRadar  | |
+| +-------+------------+ |
+|                        |
++------------------------+
 
 
 
@@ -24327,36 +24347,36 @@ CAN\_D2\_PROTOCOL: Enable use of specific protocol over virtual driver
 Enabling this option starts selected protocol that will use this virtual driver
 
 
-+-----------------------------+
-| Values                      |
-+=============================+
-| +-------+-----------------+ |
-| | Value | Meaning         | |
-| +=======+=================+ |
-| | 0     | Disabled        | |
-| +-------+-----------------+ |
-| | 1     | DroneCAN        | |
-| +-------+-----------------+ |
-| | 4     | PiccoloCAN      | |
-| +-------+-----------------+ |
-| | 6     | EFI_NWPMU       | |
-| +-------+-----------------+ |
-| | 7     | USD1            | |
-| +-------+-----------------+ |
-| | 8     | KDECAN          | |
-| +-------+-----------------+ |
-| | 10    | Scripting       | |
-| +-------+-----------------+ |
-| | 11    | Benewake        | |
-| +-------+-----------------+ |
-| | 12    | Scripting2      | |
-| +-------+-----------------+ |
-| | 13    | TOFSenseP       | |
-| +-------+-----------------+ |
-| | 14    | NanoRadar_NRA24 | |
-| +-------+-----------------+ |
-|                             |
-+-----------------------------+
++------------------------+
+| Values                 |
++========================+
+| +-------+------------+ |
+| | Value | Meaning    | |
+| +=======+============+ |
+| | 0     | Disabled   | |
+| +-------+------------+ |
+| | 1     | DroneCAN   | |
+| +-------+------------+ |
+| | 4     | PiccoloCAN | |
+| +-------+------------+ |
+| | 6     | EFI_NWPMU  | |
+| +-------+------------+ |
+| | 7     | USD1       | |
+| +-------+------------+ |
+| | 8     | KDECAN     | |
+| +-------+------------+ |
+| | 10    | Scripting  | |
+| +-------+------------+ |
+| | 11    | Benewake   | |
+| +-------+------------+ |
+| | 12    | Scripting2 | |
+| +-------+------------+ |
+| | 13    | TOFSenseP  | |
+| +-------+------------+ |
+| | 14    | NanoRadar  | |
+| +-------+------------+ |
+|                        |
++------------------------+
 
 
 
@@ -24372,28 +24392,28 @@ CAN\_D2\_PROTOCOL2: Secondary protocol with 11 bit CAN addressing
 Secondary protocol with 11 bit CAN addressing
 
 
-+-----------------------------+
-| Values                      |
-+=============================+
-| +-------+-----------------+ |
-| | Value | Meaning         | |
-| +=======+=================+ |
-| | 0     | Disabled        | |
-| +-------+-----------------+ |
-| | 7     | USD1            | |
-| +-------+-----------------+ |
-| | 10    | Scripting       | |
-| +-------+-----------------+ |
-| | 11    | Benewake        | |
-| +-------+-----------------+ |
-| | 12    | Scripting2      | |
-| +-------+-----------------+ |
-| | 13    | TOFSenseP       | |
-| +-------+-----------------+ |
-| | 14    | NanoRadar_NRA24 | |
-| +-------+-----------------+ |
-|                             |
-+-----------------------------+
++------------------------+
+| Values                 |
++========================+
+| +-------+------------+ |
+| | Value | Meaning    | |
+| +=======+============+ |
+| | 0     | Disabled   | |
+| +-------+------------+ |
+| | 7     | USD1       | |
+| +-------+------------+ |
+| | 10    | Scripting  | |
+| +-------+------------+ |
+| | 11    | Benewake   | |
+| +-------+------------+ |
+| | 12    | Scripting2 | |
+| +-------+------------+ |
+| | 13    | TOFSenseP  | |
+| +-------+------------+ |
+| | 14    | NanoRadar  | |
+| +-------+------------+ |
+|                        |
++------------------------+
 
 
 
@@ -25765,36 +25785,36 @@ CAN\_D3\_PROTOCOL: Enable use of specific protocol over virtual driver
 Enabling this option starts selected protocol that will use this virtual driver
 
 
-+-----------------------------+
-| Values                      |
-+=============================+
-| +-------+-----------------+ |
-| | Value | Meaning         | |
-| +=======+=================+ |
-| | 0     | Disabled        | |
-| +-------+-----------------+ |
-| | 1     | DroneCAN        | |
-| +-------+-----------------+ |
-| | 4     | PiccoloCAN      | |
-| +-------+-----------------+ |
-| | 6     | EFI_NWPMU       | |
-| +-------+-----------------+ |
-| | 7     | USD1            | |
-| +-------+-----------------+ |
-| | 8     | KDECAN          | |
-| +-------+-----------------+ |
-| | 10    | Scripting       | |
-| +-------+-----------------+ |
-| | 11    | Benewake        | |
-| +-------+-----------------+ |
-| | 12    | Scripting2      | |
-| +-------+-----------------+ |
-| | 13    | TOFSenseP       | |
-| +-------+-----------------+ |
-| | 14    | NanoRadar_NRA24 | |
-| +-------+-----------------+ |
-|                             |
-+-----------------------------+
++------------------------+
+| Values                 |
++========================+
+| +-------+------------+ |
+| | Value | Meaning    | |
+| +=======+============+ |
+| | 0     | Disabled   | |
+| +-------+------------+ |
+| | 1     | DroneCAN   | |
+| +-------+------------+ |
+| | 4     | PiccoloCAN | |
+| +-------+------------+ |
+| | 6     | EFI_NWPMU  | |
+| +-------+------------+ |
+| | 7     | USD1       | |
+| +-------+------------+ |
+| | 8     | KDECAN     | |
+| +-------+------------+ |
+| | 10    | Scripting  | |
+| +-------+------------+ |
+| | 11    | Benewake   | |
+| +-------+------------+ |
+| | 12    | Scripting2 | |
+| +-------+------------+ |
+| | 13    | TOFSenseP  | |
+| +-------+------------+ |
+| | 14    | NanoRadar  | |
+| +-------+------------+ |
+|                        |
++------------------------+
 
 
 
@@ -25810,28 +25830,28 @@ CAN\_D3\_PROTOCOL2: Secondary protocol with 11 bit CAN addressing
 Secondary protocol with 11 bit CAN addressing
 
 
-+-----------------------------+
-| Values                      |
-+=============================+
-| +-------+-----------------+ |
-| | Value | Meaning         | |
-| +=======+=================+ |
-| | 0     | Disabled        | |
-| +-------+-----------------+ |
-| | 7     | USD1            | |
-| +-------+-----------------+ |
-| | 10    | Scripting       | |
-| +-------+-----------------+ |
-| | 11    | Benewake        | |
-| +-------+-----------------+ |
-| | 12    | Scripting2      | |
-| +-------+-----------------+ |
-| | 13    | TOFSenseP       | |
-| +-------+-----------------+ |
-| | 14    | NanoRadar_NRA24 | |
-| +-------+-----------------+ |
-|                             |
-+-----------------------------+
++------------------------+
+| Values                 |
++========================+
+| +-------+------------+ |
+| | Value | Meaning    | |
+| +=======+============+ |
+| | 0     | Disabled   | |
+| +-------+------------+ |
+| | 7     | USD1       | |
+| +-------+------------+ |
+| | 10    | Scripting  | |
+| +-------+------------+ |
+| | 11    | Benewake   | |
+| +-------+------------+ |
+| | 12    | Scripting2 | |
+| +-------+------------+ |
+| | 13    | TOFSenseP  | |
+| +-------+------------+ |
+| | 14    | NanoRadar  | |
+| +-------+------------+ |
+|                        |
++------------------------+
 
 
 
@@ -30194,6 +30214,24 @@ External AHRS sensors bitmask
 | +-----+---------+ |
 |                   |
 +-------------------+
+
+
+
+
+.. _EAHRS_LOG_RATE:
+
+EAHRS\_LOG\_RATE: AHRS logging rate
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Logging rate for EARHS devices
+
+
++-------+
+| Units |
++=======+
+| hertz |
++-------+
 
 
 
@@ -36269,26 +36307,30 @@ GPS\_DRV\_OPTIONS: driver options
 Additional backend specific options
 
 
-+-------------------------------------------------------------------+
-| Bitmask                                                           |
-+===================================================================+
-| +-----+---------------------------------------------------------+ |
-| | Bit | Meaning                                                 | |
-| +=====+=========================================================+ |
-| | 0   | Use UART2 for moving baseline on ublox                  | |
-| +-----+---------------------------------------------------------+ |
-| | 1   | Use base station for GPS yaw on SBF                     | |
-| +-----+---------------------------------------------------------+ |
-| | 2   | Use baudrate 115200                                     | |
-| +-----+---------------------------------------------------------+ |
-| | 3   | Use dedicated CAN port b/w GPSes for moving baseline    | |
-| +-----+---------------------------------------------------------+ |
-| | 4   | Use ellipsoid height instead of AMSL                    | |
-| +-----+---------------------------------------------------------+ |
-| | 5   | Override GPS satellite health of L5 band from L1 health | |
-| +-----+---------------------------------------------------------+ |
-|                                                                   |
-+-------------------------------------------------------------------+
++---------------------------------------------------------------------------------------+
+| Bitmask                                                                               |
++=======================================================================================+
+| +-----+-----------------------------------------------------------------------------+ |
+| | Bit | Meaning                                                                     | |
+| +=====+=============================================================================+ |
+| | 0   | Use UART2 for moving baseline on ublox                                      | |
+| +-----+-----------------------------------------------------------------------------+ |
+| | 1   | Use base station for GPS yaw on SBF                                         | |
+| +-----+-----------------------------------------------------------------------------+ |
+| | 2   | Use baudrate 115200                                                         | |
+| +-----+-----------------------------------------------------------------------------+ |
+| | 3   | Use dedicated CAN port b/w GPSes for moving baseline                        | |
+| +-----+-----------------------------------------------------------------------------+ |
+| | 4   | Use ellipsoid height instead of AMSL                                        | |
+| +-----+-----------------------------------------------------------------------------+ |
+| | 5   | Override GPS satellite health of L5 band from L1 health                     | |
+| +-----+-----------------------------------------------------------------------------+ |
+| | 6   | Enable RTCM full parse even for a single channel                            | |
+| +-----+-----------------------------------------------------------------------------+ |
+| | 7   | Disable automatic full RTCM parsing when RTCM seen on more than one channel | |
+| +-----+-----------------------------------------------------------------------------+ |
+|                                                                                       |
++---------------------------------------------------------------------------------------+
 
 
 
@@ -63874,6 +63916,8 @@ What type of proximity sensor is connected
 | +-------+--------------------+ |
 | | 16    | LD06               | |
 | +-------+--------------------+ |
+| | 17    | MR72_CAN           | |
+| +-------+--------------------+ |
 |                                |
 +--------------------------------+
 
@@ -64124,6 +64168,32 @@ The bus address of the sensor\, where applicable\. Used for the I2C and DroneCAN
 
 
 
+.. _parameters_PRX1_:
+
+PRX1\_ Parameters
+-----------------
+
+
+.. _PRX1_RECV_ID:
+
+PRX1\_RECV\_ID: CAN receive ID
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+| *Note: This parameter is for advanced users*
+
+The receive ID of the CAN frames\. A value of zero means all IDs are accepted\.
+
+
++------------+
+| Range      |
++============+
+| 0 to 65535 |
++------------+
+
+
+
+
+
 .. _parameters_PRX2:
 
 PRX2 Parameters
@@ -64173,6 +64243,8 @@ What type of proximity sensor is connected
 | | 15    | Scripting          | |
 | +-------+--------------------+ |
 | | 16    | LD06               | |
+| +-------+--------------------+ |
+| | 17    | MR72_CAN           | |
 | +-------+--------------------+ |
 |                                |
 +--------------------------------+
@@ -64424,6 +64496,32 @@ The bus address of the sensor\, where applicable\. Used for the I2C and DroneCAN
 
 
 
+.. _parameters_PRX2_:
+
+PRX2\_ Parameters
+-----------------
+
+
+.. _PRX2_RECV_ID:
+
+PRX2\_RECV\_ID: CAN receive ID
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+| *Note: This parameter is for advanced users*
+
+The receive ID of the CAN frames\. A value of zero means all IDs are accepted\.
+
+
++------------+
+| Range      |
++============+
+| 0 to 65535 |
++------------+
+
+
+
+
+
 .. _parameters_PRX3:
 
 PRX3 Parameters
@@ -64473,6 +64571,8 @@ What type of proximity sensor is connected
 | | 15    | Scripting          | |
 | +-------+--------------------+ |
 | | 16    | LD06               | |
+| +-------+--------------------+ |
+| | 17    | MR72_CAN           | |
 | +-------+--------------------+ |
 |                                |
 +--------------------------------+
@@ -64724,6 +64824,32 @@ The bus address of the sensor\, where applicable\. Used for the I2C and DroneCAN
 
 
 
+.. _parameters_PRX3_:
+
+PRX3\_ Parameters
+-----------------
+
+
+.. _PRX3_RECV_ID:
+
+PRX3\_RECV\_ID: CAN receive ID
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+| *Note: This parameter is for advanced users*
+
+The receive ID of the CAN frames\. A value of zero means all IDs are accepted\.
+
+
++------------+
+| Range      |
++============+
+| 0 to 65535 |
++------------+
+
+
+
+
+
 .. _parameters_PRX4:
 
 PRX4 Parameters
@@ -64773,6 +64899,8 @@ What type of proximity sensor is connected
 | | 15    | Scripting          | |
 | +-------+--------------------+ |
 | | 16    | LD06               | |
+| +-------+--------------------+ |
+| | 17    | MR72_CAN           | |
 | +-------+--------------------+ |
 |                                |
 +--------------------------------+
@@ -65019,6 +65147,32 @@ The bus address of the sensor\, where applicable\. Used for the I2C and DroneCAN
 +===========+==========+
 | 1         | 0 to 127 |
 +-----------+----------+
+
+
+
+
+
+.. _parameters_PRX4_:
+
+PRX4\_ Parameters
+-----------------
+
+
+.. _PRX4_RECV_ID:
+
+PRX4\_RECV\_ID: CAN receive ID
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+| *Note: This parameter is for advanced users*
+
+The receive ID of the CAN frames\. A value of zero means all IDs are accepted\.
+
+
++------------+
+| Range      |
++============+
+| 0 to 65535 |
++------------+
 
 
 
@@ -95861,19 +96015,19 @@ Allows you to enable \(1\) or disable \(0\) the Preland simulation
 
 .. _SIM_PLD_HEIGHT:
 
-SIM\_PLD\_HEIGHT: Precland device center\'s height above sealevel
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+SIM\_PLD\_HEIGHT: Precland device center\'s height SITL origin
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 | *Note: This parameter is for advanced users*
 
-Precland device center\'s height above sealevel assume a 2x2m square as station base
+Precland device center\'s height above SITL origin\. Assumes a 2x2m square as station base
 
 
-+-----------+------------+-------------+
-| Increment | Range      | Units       |
-+===========+============+=============+
-| 1         | 0 to 10000 | centimeters |
-+-----------+------------+-------------+
++-----------+------------+--------+
+| Increment | Range      | Units  |
++===========+============+========+
+| 1         | 0 to 10000 | meters |
++-----------+------------+--------+
 
 
 
@@ -95983,6 +96137,32 @@ Precland device rate\. e\.g led patter refresh rate\, RF message rate\, etc\.
 +==========+=======+
 | 0 to 200 | hertz |
 +----------+-------+
+
+
+
+
+.. _SIM_PLD_SHIP:
+
+SIM\_PLD\_SHIP: SIM\_Precland follow ship
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+| *Note: This parameter is for advanced users*
+
+This makes the position of the landing beacon follow the simulated ship from SIM\_SHIP\. The ship movement is controlled with the SIM\_SHIP parameters
+
+
++----------------------+
+| Values               |
++======================+
+| +-------+----------+ |
+| | Value | Meaning  | |
+| +=======+==========+ |
+| | 0     | Disabled | |
+| +-------+----------+ |
+| | 1     | Enabled  | |
+| +-------+----------+ |
+|                      |
++----------------------+
 
 
 
@@ -96168,6 +96348,272 @@ Sets percentage of outgoing byte loss on UARTs
 +=========+
 | percent |
 +---------+
+
+
+
+
+.. _SIM_VICON_FAIL:
+
+SIM\_VICON\_FAIL: SITL vicon failure
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+| *Note: This parameter is for advanced users*
+
+SITL vicon failure
+
+
++---------------------------+
+| Values                    |
++===========================+
+| +-------+---------------+ |
+| | Value | Meaning       | |
+| +=======+===============+ |
+| | 0     | Vicon Healthy | |
+| +-------+---------------+ |
+| | 1     | Vicon Failed  | |
+| +-------+---------------+ |
+|                           |
++---------------------------+
+
+
+
+
+.. _SIM_VICON_GLIT_X:
+
+SIM\_VICON\_GLIT\_X: SITL vicon position glitch North
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+| *Note: This parameter is for advanced users*
+
+SITL vicon position glitch North
+
+
++--------+
+| Units  |
++========+
+| meters |
++--------+
+
+
+
+
+.. _SIM_VICON_GLIT_Y:
+
+SIM\_VICON\_GLIT\_Y: SITL vicon position glitch East
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+| *Note: This parameter is for advanced users*
+
+SITL vicon position glitch East
+
+
++--------+
+| Units  |
++========+
+| meters |
++--------+
+
+
+
+
+.. _SIM_VICON_GLIT_Z:
+
+SIM\_VICON\_GLIT\_Z: SITL vicon position glitch Down
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+| *Note: This parameter is for advanced users*
+
+SITL vicon position glitch Down
+
+
++--------+
+| Units  |
++========+
+| meters |
++--------+
+
+
+
+
+.. _SIM_VICON_POS_X:
+
+SIM\_VICON\_POS\_X: SITL vicon position on vehicle in Forward direction
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+| *Note: This parameter is for advanced users*
+
+SITL vicon position on vehicle in Forward direction
+
+
++---------+--------+
+| Range   | Units  |
++=========+========+
+| 0 to 10 | meters |
++---------+--------+
+
+
+
+
+.. _SIM_VICON_POS_Y:
+
+SIM\_VICON\_POS\_Y: SITL vicon position on vehicle in Right direction
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+| *Note: This parameter is for advanced users*
+
+SITL vicon position on vehicle in Right direction
+
+
++---------+--------+
+| Range   | Units  |
++=========+========+
+| 0 to 10 | meters |
++---------+--------+
+
+
+
+
+.. _SIM_VICON_POS_Z:
+
+SIM\_VICON\_POS\_Z: SITL vicon position on vehicle in Down direction
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+SITL vicon position on vehicle in Down direction
+
+
++---------+--------+
+| Range   | Units  |
++=========+========+
+| 0 to 10 | meters |
++---------+--------+
+
+
+
+
+.. _SIM_VICON_TMASK:
+
+SIM\_VICON\_TMASK: SITL vicon type mask
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+| *Note: This parameter is for advanced users*
+
+SITL vicon messages sent
+
+
++------------------------------------+
+| Bitmask                            |
++====================================+
+| +-----+--------------------------+ |
+| | Bit | Meaning                  | |
+| +=====+==========================+ |
+| | 0   | VISION_POSITION_ESTIMATE | |
+| +-----+--------------------------+ |
+| | 1   | VISION_SPEED_ESTIMATE    | |
+| +-----+--------------------------+ |
+| | 2   | VICON_POSITION_ESTIMATE  | |
+| +-----+--------------------------+ |
+| | 3   | VISION_POSITION_DELTA    | |
+| +-----+--------------------------+ |
+| | 4   | ODOMETRY                 | |
+| +-----+--------------------------+ |
+|                                    |
++------------------------------------+
+
+
+
+
+.. _SIM_VICON_VGLI_X:
+
+SIM\_VICON\_VGLI\_X: SITL vicon velocity glitch North
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+| *Note: This parameter is for advanced users*
+
+SITL vicon velocity glitch North
+
+
++-------------------+
+| Units             |
++===================+
+| meters per second |
++-------------------+
+
+
+
+
+.. _SIM_VICON_VGLI_Y:
+
+SIM\_VICON\_VGLI\_Y: SITL vicon velocity glitch East
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+| *Note: This parameter is for advanced users*
+
+SITL vicon velocity glitch East
+
+
++-------------------+
+| Units             |
++===================+
+| meters per second |
++-------------------+
+
+
+
+
+.. _SIM_VICON_VGLI_Z:
+
+SIM\_VICON\_VGLI\_Z: SITL vicon velocity glitch Down
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+| *Note: This parameter is for advanced users*
+
+SITL vicon velocity glitch Down
+
+
++-------------------+
+| Units             |
++===================+
+| meters per second |
++-------------------+
+
+
+
+
+.. _SIM_VICON_YAW:
+
+SIM\_VICON\_YAW: SITL vicon yaw angle in earth frame
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+| *Note: This parameter is for advanced users*
+
+SITL vicon yaw angle in earth frame
+
+
++----------+---------+
+| Range    | Units   |
++==========+=========+
+| 0 to 360 | degrees |
++----------+---------+
+
+
+
+
+.. _SIM_VICON_YAWERR:
+
+SIM\_VICON\_YAWERR: SITL vicon yaw error
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+| *Note: This parameter is for advanced users*
+
+SITL vicon yaw added to reported yaw sent to vehicle
+
+
++-------------+---------+
+| Range       | Units   |
++=============+=========+
+| -180 to 180 | degrees |
++-------------+---------+
 
 
 
@@ -100256,6 +100702,25 @@ Visual odometry yaw measurement noise minimum \(radians\)\, This value will be u
 +=============+=========+
 | 0.05 to 1.0 | radians |
 +-------------+---------+
+
+
+
+
+.. _VISO_QUAL_MIN:
+
+VISO\_QUAL\_MIN: Visual odometry minimum quality
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+| *Note: This parameter is for advanced users*
+
+Visual odometry will only be sent to EKF if over this value\. \-1 to always send \(even bad values\)\, 0 to send if good or unknown
+
+
++-----------+---------+
+| Range     | Units   |
++===========+=========+
+| -1 to 100 | percent |
++-----------+---------+
 
 
 

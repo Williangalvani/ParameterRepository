@@ -1251,6 +1251,258 @@ Bitmask of flight modes to disable for GCS selection. Mode can still be accessed
 
 # Lua Script Parameters
 
+## RCK_FORCEHL: Force enable High Latency mode
+
+Automatically enables High Latency mode if not already enabled
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
+
+## RCK_PERIOD: Update rate
+
+When in High Latency mode, send Rockblock updates every N seconds
+
+- Range: 0 600
+
+- Units: s
+
+## RCK_DEBUG: Display Rockblock debugging text
+
+Sends Rockblock debug text to GCS via statustexts
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
+
+## RCK_ENABLE: Enable Message transmission
+
+Enables the Rockblock sending and recieving
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
+
+## QUIK_ENABLE: Quicktune enable
+
+Enable quicktune system
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
+
+## QUIK_AXES: Quicktune axes
+
+axes to tune
+
+- Bitmask: 0:Roll,1:Pitch,2:Yaw
+
+## QUIK_DOUBLE_TIME: Quicktune doubling time
+
+Time to double a tuning parameter. Raise this for a slower tune.
+
+- Range: 5 20
+
+- Units: s
+
+## QUIK_GAIN_MARGIN: Quicktune gain margin
+
+Reduction in gain after oscillation detected. Raise this number to get a more conservative tune
+
+- Range: 20 80
+
+- Units: %
+
+## QUIK_OSC_SMAX: Quicktune oscillation rate threshold
+
+Threshold for oscillation detection. A lower value will lead to a more conservative tune.
+
+- Range: 1 10
+
+## QUIK_YAW_P_MAX: Quicktune Yaw P max
+
+Maximum value for yaw P gain
+
+- Range: 0.1 3
+
+## QUIK_YAW_D_MAX: Quicktune Yaw D max
+
+Maximum value for yaw D gain
+
+- Range: 0.001 1
+
+## QUIK_RP_PI_RATIO: Quicktune roll/pitch PI ratio
+
+Ratio between P and I gains for roll and pitch. Raise this to get a lower I gain
+
+- Range: 0.5 1.0
+
+## QUIK_Y_PI_RATIO: Quicktune Yaw PI ratio
+
+Ratio between P and I gains for yaw. Raise this to get a lower I gain
+
+- Range: 0.5 20
+
+## QUIK_AUTO_FILTER: Quicktune auto filter enable
+
+When enabled the PID filter settings are automatically set based on INS_GYRO_FILTER
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
+
+## QUIK_AUTO_SAVE: Quicktune auto save
+
+Number of seconds after completion of tune to auto-save. This is useful when using a 2 position switch for quicktune
+
+- Units: s
+
+## QUIK_RC_FUNC: Quicktune RC function
+
+RCn_OPTION number to use to control tuning stop/start/save
+
+## QUIK_MAX_REDUCE: Quicktune maximum gain reduction
+
+This controls how much quicktune is allowed to lower gains from the original gains. If the vehicle already has a reasonable tune and is not oscillating then you can set this to zero to prevent gain reductions. The default of 20% is reasonable for most vehicles. Using a maximum gain reduction lowers the chance of an angle P oscillation happening if quicktune gets a false positive oscillation at a low gain, which can result in very low rate gains and a dangerous angle P oscillation.
+
+- Units: %
+
+- Range: 0 100
+
+## QUIK_OPTIONS: Quicktune options
+
+Additional options. When the Two Position Switch option is enabled then a high switch position will start the tune, low will disable the tune. you should also set a QUIK_AUTO_SAVE time so that you will be able to save the tune.
+
+- Bitmask: 0:UseTwoPositionSwitch
+
+## ESRC_EXTN_THRESH: EKF Source ExternalNav Innovation Threshold
+
+ExternalNav may be used if innovations are below this threshold
+
+- Range: 0 1
+
+## ESRC_EXTN_QUAL: EKF Source ExternalNav Quality Threshold
+
+ExternalNav may be used if quality is above this threshold
+
+- Range: 0 100
+
+- Units: %
+
+## ESRC_FLOW_THRESH: EKF Source OpticalFlow Innovation Threshold
+
+OpticalFlow may be used if innovations are below this threshold
+
+- Range: 0 1
+
+## ESRC_FLOW_QUAL: EKF Source OpticalFlow Quality Threshold
+
+OpticalFlow may be used if quality is above this threshold
+
+- Range: 0 100
+
+- Units: %
+
+## ESRC_RNGFND_MAX: EKF Source Rangefinder Max
+
+OpticalFlow may be used if rangefinder distance is below this threshold
+
+- Range: 0 50
+
+- Units: m
+
+## RTUN_ENABLE: Rover Quicktune enable
+
+Enable quicktune system
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
+
+## RTUN_AXES: Rover Quicktune axes
+
+axes to tune
+
+- Bitmask: 0:Steering,1:Speed
+
+## RTUN_STR_FFRATIO: Rover Quicktune Steering Rate FeedForward ratio
+
+Ratio between measured response and FF gain. Raise this to get a higher FF gain
+
+- Range: 0 1.0
+
+## RTUN_STR_P_RATIO: Rover Quicktune Steering FF to P ratio
+
+Ratio between steering FF and P gains. Raise this to get a higher P gain, 0 to leave P unchanged
+
+- Range: 0 2.0
+
+## RTUN_STR_I_RATIO: Rover Quicktune Steering FF to I ratio
+
+Ratio between steering FF and I gains. Raise this to get a higher I gain, 0 to leave I unchanged
+
+- Range: 0 2.0
+
+## RTUN_SPD_FFRATIO: Rover Quicktune Speed FeedForward (equivalent) ratio
+
+Ratio between measured response and CRUISE_THROTTLE value. Raise this to get a higher CRUISE_THROTTLE value
+
+- Range: 0 1.0
+
+## RTUN_SPD_P_RATIO: Rover Quicktune Speed FF to P ratio
+
+Ratio between speed FF and P gain. Raise this to get a higher P gain, 0 to leave P unchanged
+
+- Range: 0 2.0
+
+## RTUN_SPD_I_RATIO: Rover Quicktune Speed FF to I ratio
+
+Ratio between speed FF and I gain. Raise this to get a higher I gain, 0 to leave I unchanged
+
+- Range: 0 2.0
+
+## RTUN_AUTO_FILTER: Rover Quicktune auto filter enable
+
+When enabled the PID filter settings are automatically set based on INS_GYRO_FILTER
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
+
+## RTUN_AUTO_SAVE: Rover Quicktune auto save
+
+Number of seconds after completion of tune to auto-save. This is useful when using a 2 position switch for quicktune
+
+- Units: s
+
+## RTUN_RC_FUNC: Rover Quicktune RC function
+
+RCn_OPTION number to use to control tuning stop/start/save
+
+|Value|Meaning|
+|:---:|:---:|
+|300|Scripting1|
+|301|Scripting2|
+|302|Scripting3|
+|303|Scripting4|
+|304|Scripting5|
+|305|Scripting6|
+|306|Scripting7|
+|307|Scripting8|
+
+## POI_DIST_MAX: Mount POI distance max
+
+POI's max distance (in meters) from the vehicle
+
+- Range: 0 10000
+
 ## BATT_SOC_COUNT: Count of SOC estimators
 
 Number of battery SOC estimators
@@ -1377,40 +1629,139 @@ Battery estimator coefficient3
 
 - Range: 0.01 0.5
 
-## RCK_FORCEHL: Force enable High Latency mode
+## PLND_ALT_CUTOFF: Precland altitude cutoff
 
-Automatically enables High Latency mode if not already enabled
+The altitude (rangefinder distance) below which we stop using the precision landing sensor and continue landing
+
+- Range: 0 20
+
+- Units: m
+
+## DIST_CUTOFF: Precland distance cutoff
+
+The distance from target beyond which the target is ignored
+
+- Range: 0 100
+
+- Units: m
+
+## WEB_ENABLE: enable web server
+
+enable web server
 
 |Value|Meaning|
 |:---:|:---:|
 |0|Disabled|
 |1|Enabled|
 
-## RCK_PERIOD: Update rate
+## WEB_BIND_PORT: web server TCP port
 
-When in High Latency mode, send Rockblock updates every N seconds
+web server TCP port
 
-- Range: 0 600
+- Range: 1 65535
+
+## WEB_DEBUG: web server debugging
+
+*Note: This parameter is for advanced users*
+
+web server debugging
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
+
+## WEB_BLOCK_SIZE: web server block size
+
+*Note: This parameter is for advanced users*
+
+web server block size for download
+
+- Range: 1 65535
+
+## WEB_TIMEOUT: web server timeout
+
+*Note: This parameter is for advanced users*
+
+timeout for inactive connections
 
 - Units: s
 
-## RCK_DEBUG: Display Rockblock debugging text
+- Range: 0.1 60
 
-Sends Rockblock debug text to GCS via statustexts
+## WEB_SENDFILE_MIN: web server minimum file size for sendfile
+
+*Note: This parameter is for advanced users*
+
+sendfile is an offloading mechanism for faster file download. If this is non-zero and the file is larger than this size then sendfile will be used for file download
+
+- Range: 0 10000000
+
+## SHIP_ENABLE: Ship landing enable
+
+Enable ship landing system
 
 |Value|Meaning|
 |:---:|:---:|
 |0|Disabled|
 |1|Enabled|
 
-## RCK_ENABLE: Enable Message transmission
+## SHIP_LAND_ANGLE: Ship landing angle
 
-Enables the Rockblock sending and recieving
+Angle from the stern of the ship for landing approach. Use this to ensure that on a go-around that ship superstructure and cables are avoided. A value of zero means to approach from the rear of the ship. A value of 90 means the landing will approach from the port (left) side of the ship. A value of -90 will mean approaching from the starboard (right) side of the ship. A value of 180 will approach from the bow of the ship. This parameter is combined with the sign of the RTL_RADIUS parameter to determine the holdoff pattern. If RTL_RADIUS is positive then a clockwise loiter is performed, if RTL_RADIUS is negative then a counter-clockwise loiter is used.
+
+- Range: -180 180
+
+- Units: deg
+
+## SHIP_AUTO_OFS: Ship automatic offset trigger
+
+Settings this parameter to one triggers an automatic follow offset calculation based on current position of the vehicle and the landing target. NOTE: This parameter will auto-reset to zero once the offset has been calculated.
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Trigger|
+
+## WINCH_RATE_UP: WinchControl Rate Up
+
+Maximum rate when retracting line
+
+- Range: 0.1 5.0
+
+## WINCH_RATE_DN: WinchControl Rate Down
+
+Maximum rate when releasing line
+
+- Range: 0.1 5.0
+
+## WINCH_RC_FUNC: Winch Rate Control RC function
+
+RCn_OPTION number to use to control winch rate
+
+|Value|Meaning|
+|:---:|:---:|
+|300|Scripting1|
+|301|Scripting2|
+|302|Scripting3|
+|303|Scripting4|
+|304|Scripting5|
+|305|Scripting6|
+|306|Scripting7|
+|307|Scripting8|
+
+## PREV_ENABLE: parameter reversion enable
+
+Enable parameter reversion system
 
 |Value|Meaning|
 |:---:|:---:|
 |0|Disabled|
 |1|Enabled|
+
+## PREV_RC_FUNC: param reversion RC function
+
+RCn_OPTION number to used to trigger parameter reversion
 
 ## DR_ENABLE: Deadreckoning Enable
 
@@ -1485,305 +1836,6 @@ Copter switch to this mode after GPS recovers or DR_FLY_TIMEOUT has elapsed.  De
 |20|Guided_NoGPS|
 |21|Smart_RTL|
 |27|Auto RTL|
-
-## POI_DIST_MAX: Mount POI distance max
-
-POI's max distance (in meters) from the vehicle
-
-- Range: 0 10000
-
-## WEB_ENABLE: enable web server
-
-enable web server
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|Enabled|
-
-## WEB_BIND_PORT: web server TCP port
-
-web server TCP port
-
-- Range: 1 65535
-
-## WEB_DEBUG: web server debugging
-
-*Note: This parameter is for advanced users*
-
-web server debugging
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|Enabled|
-
-## WEB_BLOCK_SIZE: web server block size
-
-*Note: This parameter is for advanced users*
-
-web server block size for download
-
-- Range: 1 65535
-
-## WEB_TIMEOUT: web server timeout
-
-*Note: This parameter is for advanced users*
-
-timeout for inactive connections
-
-- Units: s
-
-- Range: 0.1 60
-
-## WEB_SENDFILE_MIN: web server minimum file size for sendfile
-
-*Note: This parameter is for advanced users*
-
-sendfile is an offloading mechanism for faster file download. If this is non-zero and the file is larger than this size then sendfile will be used for file download
-
-- Range: 0 10000000
-
-## RTUN_ENABLE: Rover Quicktune enable
-
-Enable quicktune system
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|Enabled|
-
-## RTUN_AXES: Rover Quicktune axes
-
-axes to tune
-
-- Bitmask: 0:Steering,1:Speed
-
-## RTUN_STR_FFRATIO: Rover Quicktune Steering Rate FeedForward ratio
-
-Ratio between measured response and FF gain. Raise this to get a higher FF gain
-
-- Range: 0 1.0
-
-## RTUN_STR_P_RATIO: Rover Quicktune Steering FF to P ratio
-
-Ratio between steering FF and P gains. Raise this to get a higher P gain, 0 to leave P unchanged
-
-- Range: 0 2.0
-
-## RTUN_STR_I_RATIO: Rover Quicktune Steering FF to I ratio
-
-Ratio between steering FF and I gains. Raise this to get a higher I gain, 0 to leave I unchanged
-
-- Range: 0 2.0
-
-## RTUN_SPD_FFRATIO: Rover Quicktune Speed FeedForward (equivalent) ratio
-
-Ratio between measured response and CRUISE_THROTTLE value. Raise this to get a higher CRUISE_THROTTLE value
-
-- Range: 0 1.0
-
-## RTUN_SPD_P_RATIO: Rover Quicktune Speed FF to P ratio
-
-Ratio between speed FF and P gain. Raise this to get a higher P gain, 0 to leave P unchanged
-
-- Range: 0 2.0
-
-## RTUN_SPD_I_RATIO: Rover Quicktune Speed FF to I ratio
-
-Ratio between speed FF and I gain. Raise this to get a higher I gain, 0 to leave I unchanged
-
-- Range: 0 2.0
-
-## RTUN_AUTO_FILTER: Rover Quicktune auto filter enable
-
-When enabled the PID filter settings are automatically set based on INS_GYRO_FILTER
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|Enabled|
-
-## RTUN_AUTO_SAVE: Rover Quicktune auto save
-
-Number of seconds after completion of tune to auto-save. This is useful when using a 2 position switch for quicktune
-
-- Units: s
-
-## RTUN_RC_FUNC: Rover Quicktune RC function
-
-RCn_OPTION number to use to control tuning stop/start/save
-
-|Value|Meaning|
-|:---:|:---:|
-|300|Scripting1|
-|301|Scripting2|
-|302|Scripting3|
-|303|Scripting4|
-|304|Scripting5|
-|305|Scripting6|
-|306|Scripting7|
-|307|Scripting8|
-
-## WINCH_RATE_UP: WinchControl Rate Up
-
-Maximum rate when retracting line
-
-- Range: 0.1 5.0
-
-## WINCH_RATE_DN: WinchControl Rate Down
-
-Maximum rate when releasing line
-
-- Range: 0.1 5.0
-
-## WINCH_RC_FUNC: Winch Rate Control RC function
-
-RCn_OPTION number to use to control winch rate
-
-|Value|Meaning|
-|:---:|:---:|
-|300|Scripting1|
-|301|Scripting2|
-|302|Scripting3|
-|303|Scripting4|
-|304|Scripting5|
-|305|Scripting6|
-|306|Scripting7|
-|307|Scripting8|
-
-## QUIK_ENABLE: Quicktune enable
-
-Enable quicktune system
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|Enabled|
-
-## QUIK_AXES: Quicktune axes
-
-axes to tune
-
-- Bitmask: 0:Roll,1:Pitch,2:Yaw
-
-## QUIK_DOUBLE_TIME: Quicktune doubling time
-
-Time to double a tuning parameter. Raise this for a slower tune.
-
-- Range: 5 20
-
-- Units: s
-
-## QUIK_GAIN_MARGIN: Quicktune gain margin
-
-Reduction in gain after oscillation detected. Raise this number to get a more conservative tune
-
-- Range: 20 80
-
-- Units: %
-
-## QUIK_OSC_SMAX: Quicktune oscillation rate threshold
-
-Threshold for oscillation detection. A lower value will lead to a more conservative tune.
-
-- Range: 1 10
-
-## QUIK_YAW_P_MAX: Quicktune Yaw P max
-
-Maximum value for yaw P gain
-
-- Range: 0.1 3
-
-## QUIK_YAW_D_MAX: Quicktune Yaw D max
-
-Maximum value for yaw D gain
-
-- Range: 0.001 1
-
-## QUIK_RP_PI_RATIO: Quicktune roll/pitch PI ratio
-
-Ratio between P and I gains for roll and pitch. Raise this to get a lower I gain
-
-- Range: 0.5 1.0
-
-## QUIK_Y_PI_RATIO: Quicktune Yaw PI ratio
-
-Ratio between P and I gains for yaw. Raise this to get a lower I gain
-
-- Range: 0.5 20
-
-## QUIK_AUTO_FILTER: Quicktune auto filter enable
-
-When enabled the PID filter settings are automatically set based on INS_GYRO_FILTER
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|Enabled|
-
-## QUIK_AUTO_SAVE: Quicktune auto save
-
-Number of seconds after completion of tune to auto-save. This is useful when using a 2 position switch for quicktune
-
-- Units: s
-
-## QUIK_RC_FUNC: Quicktune RC function
-
-RCn_OPTION number to use to control tuning stop/start/save
-
-## QUIK_MAX_REDUCE: Quicktune maximum gain reduction
-
-This controls how much quicktune is allowed to lower gains from the original gains. If the vehicle already has a reasonable tune and is not oscillating then you can set this to zero to prevent gain reductions. The default of 20% is reasonable for most vehicles. Using a maximum gain reduction lowers the chance of an angle P oscillation happening if quicktune gets a false positive oscillation at a low gain, which can result in very low rate gains and a dangerous angle P oscillation.
-
-- Units: %
-
-- Range: 0 100
-
-## QUIK_OPTIONS: Quicktune options
-
-Additional options. When the Two Position Switch option is enabled then a high switch position will start the tune, low will disable the tune. you should also set a QUIK_AUTO_SAVE time so that you will be able to save the tune.
-
-- Bitmask: 0:UseTwoPositionSwitch
-
-## SHIP_ENABLE: Ship landing enable
-
-Enable ship landing system
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|Enabled|
-
-## SHIP_LAND_ANGLE: Ship landing angle
-
-Angle from the stern of the ship for landing approach. Use this to ensure that on a go-around that ship superstructure and cables are avoided. A value of zero means to approach from the rear of the ship. A value of 90 means the landing will approach from the port (left) side of the ship. A value of -90 will mean approaching from the starboard (right) side of the ship. A value of 180 will approach from the bow of the ship. This parameter is combined with the sign of the RTL_RADIUS parameter to determine the holdoff pattern. If RTL_RADIUS is positive then a clockwise loiter is performed, if RTL_RADIUS is negative then a counter-clockwise loiter is used.
-
-- Range: -180 180
-
-- Units: deg
-
-## SHIP_AUTO_OFS: Ship automatic offset trigger
-
-Settings this parameter to one triggers an automatic follow offset calculation based on current position of the vehicle and the landing target. NOTE: This parameter will auto-reset to zero once the offset has been calculated.
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|Trigger|
-
-## PREV_ENABLE: parameter reversion enable
-
-Enable parameter reversion system
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|Enabled|
-
-## PREV_RC_FUNC: param reversion RC function
-
-RCn_OPTION number to used to trigger parameter reversion
 
 ## AEROM_ANG_ACCEL: Angular acceleration limit
 
@@ -2006,6 +2058,24 @@ ANX CAN battery options
 
 - Bitmask: 0:LogAllFrames
 
+## EFI_SVF_ENABLE: Generator SVFFI enable
+
+Enable SVFFI generator support
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
+
+## EFI_SVF_ARMCHECK: Generator SVFFI arming check
+
+Check for Generator ARM state before arming
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
+
 ## EFI_DLA_ENABLE: EFI DLA enable
 
 Enable EFI DLA driver
@@ -2022,6 +2092,48 @@ EFI DLA litres of fuel per second of injection time
 - Range: 0.00001 1
 
 - Units: litres
+
+## DJIR_DEBUG: DJIRS2 debug
+
+*Note: This parameter is for advanced users*
+
+Enable DJIRS2 debug
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
+|2|Enabled with attitude reporting|
+
+## DJIR_UPSIDEDOWN: DJIRS2 upside down
+
+DJIRS2 upside down
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Right side up|
+|1|Upside down|
+
+## ESC_HW_ENABLE: Hobbywing ESC Enable
+
+Enable Hobbywing ESC telemetry
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
+
+## ESC_HW_POLES: Hobbywing ESC motor poles
+
+Number of motor poles for eRPM scaling
+
+- Range: 1 50
+
+## ESC_HW_OFS: Hobbywing ESC motor offset
+
+Motor number offset of first ESC
+
+- Range: 0 31
 
 ## EFI_H6K_ENABLE: Enable Halo6000 EFI driver
 
@@ -2214,75 +2326,6 @@ SkyPower EFI restart time. If engine should be running and it has stopped for th
 
 - Units: s
 
-## EFI_SVF_ENABLE: Generator SVFFI enable
-
-Enable SVFFI generator support
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|Enabled|
-
-## EFI_SVF_ARMCHECK: Generator SVFFI arming check
-
-Check for Generator ARM state before arming
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|Enabled|
-
-## ESC_HW_ENABLE: Hobbywing ESC Enable
-
-Enable Hobbywing ESC telemetry
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|Enabled|
-
-## ESC_HW_POLES: Hobbywing ESC motor poles
-
-Number of motor poles for eRPM scaling
-
-- Range: 1 50
-
-## ESC_HW_OFS: Hobbywing ESC motor offset
-
-Motor number offset of first ESC
-
-- Range: 0 31
-
-## EFI_INF_ENABLE: EFI INF-Inject enable
-
-Enable EFI INF-Inject driver
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|Enabled|
-
-## DJIR_DEBUG: DJIRS2 debug
-
-*Note: This parameter is for advanced users*
-
-Enable DJIRS2 debug
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|Enabled|
-|2|Enabled with attitude reporting|
-
-## DJIR_UPSIDEDOWN: DJIRS2 upside down
-
-DJIRS2 upside down
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Right side up|
-|1|Upside down|
-
 ## VIEP_DEBUG: ViewPro debug
 
 *Note: This parameter is for advanced users*
@@ -2352,6 +2395,34 @@ ViewPro Zoom Times Max
 
 - Range: 0 30
 
+## EFI_INF_ENABLE: EFI INF-Inject enable
+
+Enable EFI INF-Inject driver
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
+
+## TOFSENSE_S1_PRX: TOFSENSE-M to be used as Proximity sensor
+
+Set 0 if sensor is to be used as a 1-D rangefinder (minimum of all distances will be sent, typically used for height detection). Set 1 if it should be used as a 3-D proximity device (Eg. Obstacle Avoidance)
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Set as Rangefinder|
+|1|Set as Proximity sensor|
+
+## TOFSENSE_S1_SP: TOFSENSE-M serial port config
+
+UART instance sensor is connected to. Set 1 if sensor is connected to the port with fist SERIALx_PROTOCOL = 28. 
+
+- Range: 1 4
+
+## TOFSENSE_S1_BR: TOFSENSE-M serial port baudrate
+
+Serial Port baud rate. Sensor baud rate can be changed from Nassistant software
+
 ## TOFSENSE_PRX: TOFSENSE-M to be used as Proximity sensor
 
 Set 0 if sensor is to be used as a 1-D rangefinder (minimum of all distances will be sent, typically used for height detection). Set 1 if it should be used as a 3-D proximity device (Eg. Obstacle Avoidance)
@@ -2411,25 +2482,6 @@ Third TOFSENSE-M sensors backend Instance. Setting this to 3 will pick the secon
 Third TOFSENSE-M sensor ID. This cannot be 0. You can change ID of sensor from NAssistant Software
 
 - Range: 1 255
-
-## TOFSENSE_S1_PRX: TOFSENSE-M to be used as Proximity sensor
-
-Set 0 if sensor is to be used as a 1-D rangefinder (minimum of all distances will be sent, typically used for height detection). Set 1 if it should be used as a 3-D proximity device (Eg. Obstacle Avoidance)
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Set as Rangefinder|
-|1|Set as Proximity sensor|
-
-## TOFSENSE_S1_SP: TOFSENSE-M serial port config
-
-UART instance sensor is connected to. Set 1 if sensor is connected to the port with fist SERIALx_PROTOCOL = 28. 
-
-- Range: 1 4
-
-## TOFSENSE_S1_BR: TOFSENSE-M serial port baudrate
-
-Serial Port baud rate. Sensor baud rate can be changed from Nassistant software
 
 # ADSB Parameters
 
@@ -11706,6 +11758,16 @@ This sets the amount of storage in kilobytes reserved on the microsd card in mis
 
 - RebootRequired: True
 
+## BRD_SD_FENCE:  SDCard Fence size
+
+*Note: This parameter is for advanced users*
+
+This sets the amount of storage in kilobytes reserved on the microsd card in fence.stg for fence storage.
+
+- Range: 0 64
+
+- RebootRequired: True
+
 ## BRD_IO_DSHOT: Load DShot FW on IO
 
 *Note: This parameter is for advanced users*
@@ -12832,7 +12894,7 @@ Enabling this option starts selected protocol that will use this virtual driver
 |11|Benewake|
 |12|Scripting2|
 |13|TOFSenseP|
-|14|NanoRadar_NRA24|
+|14|NanoRadar|
 
 - RebootRequired: True
 
@@ -12850,7 +12912,7 @@ Secondary protocol with 11 bit CAN addressing
 |11|Benewake|
 |12|Scripting2|
 |13|TOFSenseP|
-|14|NanoRadar_NRA24|
+|14|NanoRadar|
 
 - RebootRequired: True
 
@@ -13371,7 +13433,7 @@ Enabling this option starts selected protocol that will use this virtual driver
 |11|Benewake|
 |12|Scripting2|
 |13|TOFSenseP|
-|14|NanoRadar_NRA24|
+|14|NanoRadar|
 
 - RebootRequired: True
 
@@ -13389,7 +13451,7 @@ Secondary protocol with 11 bit CAN addressing
 |11|Benewake|
 |12|Scripting2|
 |13|TOFSenseP|
-|14|NanoRadar_NRA24|
+|14|NanoRadar|
 
 - RebootRequired: True
 
@@ -13910,7 +13972,7 @@ Enabling this option starts selected protocol that will use this virtual driver
 |11|Benewake|
 |12|Scripting2|
 |13|TOFSenseP|
-|14|NanoRadar_NRA24|
+|14|NanoRadar|
 
 - RebootRequired: True
 
@@ -13928,7 +13990,7 @@ Secondary protocol with 11 bit CAN addressing
 |11|Benewake|
 |12|Scripting2|
 |13|TOFSenseP|
-|14|NanoRadar_NRA24|
+|14|NanoRadar|
 
 - RebootRequired: True
 
@@ -15888,6 +15950,12 @@ External AHRS options bitmask
 External AHRS sensors bitmask
 
 - Bitmask: 0:GPS,1:IMU,2:Baro,3:Compass
+
+## EAHRS_LOG_RATE: AHRS logging rate
+
+Logging rate for EARHS devices
+
+- Units: Hz
 
 # EFI Parameters
 
@@ -18891,7 +18959,7 @@ Determines which of the accuracy measures Horizontal position, Vertical Position
 
 Additional backend specific options
 
-- Bitmask: 0:Use UART2 for moving baseline on ublox,1:Use base station for GPS yaw on SBF,2:Use baudrate 115200,3:Use dedicated CAN port b/w GPSes for moving baseline,4:Use ellipsoid height instead of AMSL, 5:Override GPS satellite health of L5 band from L1 health
+- Bitmask: 0:Use UART2 for moving baseline on ublox,1:Use base station for GPS yaw on SBF,2:Use baudrate 115200,3:Use dedicated CAN port b/w GPSes for moving baseline,4:Use ellipsoid height instead of AMSL, 5:Override GPS satellite health of L5 band from L1 health, 6:Enable RTCM full parse even for a single channel, 7:Disable automatic full RTCM parsing when RTCM seen on more than one channel
 
 ## GPS_COM_PORT: GPS physical COM port
 
@@ -30826,6 +30894,7 @@ What type of proximity sensor is connected
 |14|DroneCAN|
 |15|Scripting|
 |16|LD06|
+|17|MR72_CAN|
 
 - RebootRequired: True
 
@@ -30938,6 +31007,16 @@ The bus address of the sensor, where applicable. Used for the I2C and DroneCAN s
 
 - Increment: 1
 
+# PRX1 Parameters
+
+## PRX1_RECV_ID: CAN receive ID
+
+*Note: This parameter is for advanced users*
+
+The receive ID of the CAN frames. A value of zero means all IDs are accepted.
+
+- Range: 0 65535
+
 # PRX2 Parameters
 
 ## PRX2_TYPE: Proximity type
@@ -30960,6 +31039,7 @@ What type of proximity sensor is connected
 |14|DroneCAN|
 |15|Scripting|
 |16|LD06|
+|17|MR72_CAN|
 
 - RebootRequired: True
 
@@ -31072,6 +31152,16 @@ The bus address of the sensor, where applicable. Used for the I2C and DroneCAN s
 
 - Increment: 1
 
+# PRX2 Parameters
+
+## PRX2_RECV_ID: CAN receive ID
+
+*Note: This parameter is for advanced users*
+
+The receive ID of the CAN frames. A value of zero means all IDs are accepted.
+
+- Range: 0 65535
+
 # PRX3 Parameters
 
 ## PRX3_TYPE: Proximity type
@@ -31094,6 +31184,7 @@ What type of proximity sensor is connected
 |14|DroneCAN|
 |15|Scripting|
 |16|LD06|
+|17|MR72_CAN|
 
 - RebootRequired: True
 
@@ -31206,6 +31297,16 @@ The bus address of the sensor, where applicable. Used for the I2C and DroneCAN s
 
 - Increment: 1
 
+# PRX3 Parameters
+
+## PRX3_RECV_ID: CAN receive ID
+
+*Note: This parameter is for advanced users*
+
+The receive ID of the CAN frames. A value of zero means all IDs are accepted.
+
+- Range: 0 65535
+
 # PRX4 Parameters
 
 ## PRX4_TYPE: Proximity type
@@ -31228,6 +31329,7 @@ What type of proximity sensor is connected
 |14|DroneCAN|
 |15|Scripting|
 |16|LD06|
+|17|MR72_CAN|
 
 - RebootRequired: True
 
@@ -31339,6 +31441,16 @@ The bus address of the sensor, where applicable. Used for the I2C and DroneCAN s
 - Range: 0 127
 
 - Increment: 1
+
+# PRX4 Parameters
+
+## PRX4_RECV_ID: CAN receive ID
+
+*Note: This parameter is for advanced users*
+
+The receive ID of the CAN frames. A value of zero means all IDs are accepted.
+
+- Range: 0 65535
 
 # PSC Parameters
 
@@ -37815,6 +37927,121 @@ Specifies vehicle's startup altitude (AMSL)
 
 Specifies vehicle's startup heading (0-360)
 
+## SIM_VICON_POS_X: SITL vicon position on vehicle in Forward direction
+
+*Note: This parameter is for advanced users*
+
+SITL vicon position on vehicle in Forward direction
+
+- Units: m
+
+- Range: 0 10
+
+## SIM_VICON_POS_Y: SITL vicon position on vehicle in Right direction
+
+*Note: This parameter is for advanced users*
+
+SITL vicon position on vehicle in Right direction
+
+- Units: m
+
+- Range: 0 10
+
+## SIM_VICON_POS_Z: SITL vicon position on vehicle in Down direction
+
+SITL vicon position on vehicle in Down direction
+
+- Units: m
+
+- Range: 0 10
+
+## SIM_VICON_GLIT_X: SITL vicon position glitch North
+
+*Note: This parameter is for advanced users*
+
+SITL vicon position glitch North
+
+- Units: m
+
+## SIM_VICON_GLIT_Y: SITL vicon position glitch East
+
+*Note: This parameter is for advanced users*
+
+SITL vicon position glitch East
+
+- Units: m
+
+## SIM_VICON_GLIT_Z: SITL vicon position glitch Down
+
+*Note: This parameter is for advanced users*
+
+SITL vicon position glitch Down
+
+- Units: m
+
+## SIM_VICON_FAIL: SITL vicon failure
+
+*Note: This parameter is for advanced users*
+
+SITL vicon failure
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Vicon Healthy|
+|1|Vicon Failed|
+
+## SIM_VICON_YAW: SITL vicon yaw angle in earth frame
+
+*Note: This parameter is for advanced users*
+
+SITL vicon yaw angle in earth frame
+
+- Units: deg
+
+- Range: 0 360
+
+## SIM_VICON_YAWERR: SITL vicon yaw error
+
+*Note: This parameter is for advanced users*
+
+SITL vicon yaw added to reported yaw sent to vehicle
+
+- Units: deg
+
+- Range: -180 180
+
+## SIM_VICON_TMASK: SITL vicon type mask
+
+*Note: This parameter is for advanced users*
+
+SITL vicon messages sent
+
+- Bitmask: 0:VISION_POSITION_ESTIMATE, 1:VISION_SPEED_ESTIMATE, 2:VICON_POSITION_ESTIMATE, 3:VISION_POSITION_DELTA, 4:ODOMETRY
+
+## SIM_VICON_VGLI_X: SITL vicon velocity glitch North
+
+*Note: This parameter is for advanced users*
+
+SITL vicon velocity glitch North
+
+- Units: m/s
+
+## SIM_VICON_VGLI_Y: SITL vicon velocity glitch East
+
+*Note: This parameter is for advanced users*
+
+SITL vicon velocity glitch East
+
+- Units: m/s
+
+## SIM_VICON_VGLI_Z: SITL vicon velocity glitch Down
+
+*Note: This parameter is for advanced users*
+
+SITL vicon velocity glitch Down
+
+- Units: m/s
+
 ## SIM_IMU_COUNT: IMU count
 
 Number of simulated IMUs to create
@@ -38970,13 +39197,13 @@ Precland device center's longitude
 
 - Range: -180 180
 
-## SIM_PLD_HEIGHT: Precland device center's height above sealevel
+## SIM_PLD_HEIGHT: Precland device center's height SITL origin
 
 *Note: This parameter is for advanced users*
 
-Precland device center's height above sealevel assume a 2x2m square as station base
+Precland device center's height above SITL origin. Assumes a 2x2m square as station base
 
-- Units: cm
+- Units: m
 
 - Increment: 1
 
@@ -39055,6 +39282,17 @@ Precland device orientation vector
 SIM_Precland extra options
 
 - Bitmask: 0: Enable target distance
+
+## SIM_PLD_SHIP: SIM_Precland follow ship
+
+*Note: This parameter is for advanced users*
+
+This makes the position of the landing beacon follow the simulated ship from SIM_SHIP. The ship movement is controlled with the SIM_SHIP parameters
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
 
 # SIMSPR Parameters
 
@@ -40768,6 +41006,16 @@ Visual odometry yaw measurement noise minimum (radians), This value will be used
 - Units: rad
 
 - Range: 0.05 1.0
+
+## VISO_QUAL_MIN: Visual odometry minimum quality
+
+*Note: This parameter is for advanced users*
+
+Visual odometry will only be sent to EKF if over this value. -1 to always send (even bad values), 0 to send if good or unknown
+
+- Units: %
+
+- Range: -1 100
 
 # VTX Parameters
 

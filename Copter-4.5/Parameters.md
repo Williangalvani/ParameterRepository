@@ -23223,7 +23223,7 @@ A bitmask to set some MSP specific options: EnableTelemetryMode-allows "push" mo
 
 # NET Parameters
 
-## NET_ENABLED: Networking Enable
+## NET_ENABLE: Networking Enable
 
 *Note: This parameter is for advanced users*
 
@@ -41054,6 +41054,7 @@ Video Transmitter Band
 |5|Low RaceBand|
 |6|1G3 Band A|
 |7|1G3 Band B|
+|8|Band X|
 
 ## VTX_FREQ: Video Transmitter Frequency
 

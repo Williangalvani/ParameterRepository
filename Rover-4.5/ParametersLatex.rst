@@ -43852,10 +43852,10 @@ NET\_ Parameters
 ----------------
 
 
-.. _NET_ENABLED:
+.. _NET_ENABLE:
 
-NET\_ENABLED: Networking Enable
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+NET\_ENABLE: Networking Enable
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 | *Note: This parameter is for advanced users*
 | *Note: Reboot required after change*
@@ -98376,6 +98376,8 @@ Video Transmitter Band
 | 6     | 1G3 Band A   |
 +-------+--------------+
 | 7     | 1G3 Band B   |
++-------+--------------+
+| 8     | Band X       |
 +-------+--------------+
 
 

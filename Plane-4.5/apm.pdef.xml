@@ -12315,7 +12315,7 @@
       </param>
     </parameters>
     <parameters name="NET_">
-      <param humanName="Networking Enable" name="NET_ENABLED" documentation="Networking Enable" user="Advanced">
+      <param humanName="Networking Enable" name="NET_ENABLE" documentation="Networking Enable" user="Advanced">
         <values>
           <value code="0">Disable</value>
           <value code="1">Enable</value>
@@ -31422,6 +31422,7 @@
           <value code="5">Low RaceBand</value>
           <value code="6">1G3 Band A</value>
           <value code="7">1G3 Band B</value>
+          <value code="8">Band X</value>
         </values>
       </param>
       <param humanName="Video Transmitter Frequency" name="VTX_FREQ" documentation="Video Transmitter Frequency. The frequency is derived from the setting of BAND and CHANNEL" user="Standard">

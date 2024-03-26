@@ -19905,7 +19905,7 @@
         "1": "Enable"
       }
     },
-    "NET_ENABLED": {
+    "NET_ENABLE": {
       "Description": "Networking Enable",
       "DisplayName": "Networking Enable",
       "RebootRequired": "True",
@@ -50795,7 +50795,8 @@
         "4": "RaceBand",
         "5": "Low RaceBand",
         "6": "1G3 Band A",
-        "7": "1G3 Band B"
+        "7": "1G3 Band B",
+        "8": "Band X"
       }
     },
     "VTX_CHANNEL": {

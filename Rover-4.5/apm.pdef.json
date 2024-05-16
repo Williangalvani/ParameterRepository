@@ -431,6 +431,15 @@
       "DisplayName": "Arm Checks to Perform (bitmask)",
       "User": "Standard"
     },
+    "ARMING_CRSDP_IGN": {
+      "Description": "Must have value \"1\" if crashdump data is present on the system, or a prearm failure will be raised.  Do not set this parameter unless the risks of doing so are fully understood.  The presence of a crash dump means that the firmware currently installed has suffered a critical software failure which resulted in the autopilot immediately rebooting.  The crashdump file gives diagnostic information which can help in finding the issue, please contact the ArduPIlot support team.  If this crashdump data is present, the vehicle is likely unsafe to fly.  Check the ArduPilot documentation for more details.",
+      "DisplayName": "Disable CrashDump Arming check",
+      "User": "Advanced",
+      "Values": {
+        "0": "Crash Dump arming check active",
+        "1": "Crash Dump arming check deactivated"
+      }
+    },
     "ARMING_MAGTHRESH": {
       "Description": "Compass magnetic field strength error threshold vs earth magnetic model.  X and y axis are compared using this threhold, Z axis uses 2x this threshold.  0 to disable check",
       "DisplayName": "Compass magnetic field strength error threshold vs earth magnetic model",
@@ -8354,6 +8363,7 @@
         "172": "Battery MPPT Enable",
         "174": "Camera Image Tracking",
         "175": "Camera Lens",
+        "177": "Mount LRF enable",
         "19": "Gripper Release",
         "201": "Roll",
         "202": "Pitch",
@@ -8446,6 +8456,7 @@
         "172": "Battery MPPT Enable",
         "174": "Camera Image Tracking",
         "175": "Camera Lens",
+        "177": "Mount LRF enable",
         "19": "Gripper Release",
         "201": "Roll",
         "202": "Pitch",
@@ -8538,6 +8549,7 @@
         "172": "Battery MPPT Enable",
         "174": "Camera Image Tracking",
         "175": "Camera Lens",
+        "177": "Mount LRF enable",
         "19": "Gripper Release",
         "201": "Roll",
         "202": "Pitch",
@@ -8630,6 +8642,7 @@
         "172": "Battery MPPT Enable",
         "174": "Camera Image Tracking",
         "175": "Camera Lens",
+        "177": "Mount LRF enable",
         "19": "Gripper Release",
         "201": "Roll",
         "202": "Pitch",
@@ -19047,6 +19060,14 @@
       "Units": "deg",
       "User": "Standard"
     },
+    "MNT1_OPTIONS": {
+      "Bitmask": {
+        "0": "RC lock state from previous mode"
+      },
+      "Description": "Mount options bitmask",
+      "DisplayName": "Mount options",
+      "User": "Standard"
+    },
     "MNT1_PITCH_MAX": {
       "Description": "Mount Pitch angle maximum",
       "DisplayName": "Mount Pitch angle maximum",
@@ -19257,6 +19278,14 @@
         "low": "-180.0"
       },
       "Units": "deg",
+      "User": "Standard"
+    },
+    "MNT2_OPTIONS": {
+      "Bitmask": {
+        "0": "RC lock state from previous mode"
+      },
+      "Description": "Mount options bitmask",
+      "DisplayName": "Mount options",
       "User": "Standard"
     },
     "MNT2_PITCH_MAX": {
@@ -29109,6 +29138,7 @@
         "172": "Battery MPPT Enable",
         "174": "Camera Image Tracking",
         "175": "Camera Lens",
+        "177": "Mount LRF enable",
         "19": "Gripper Release",
         "201": "Roll",
         "202": "Pitch",
@@ -29255,6 +29285,7 @@
         "172": "Battery MPPT Enable",
         "174": "Camera Image Tracking",
         "175": "Camera Lens",
+        "177": "Mount LRF enable",
         "19": "Gripper Release",
         "201": "Roll",
         "202": "Pitch",
@@ -29401,6 +29432,7 @@
         "172": "Battery MPPT Enable",
         "174": "Camera Image Tracking",
         "175": "Camera Lens",
+        "177": "Mount LRF enable",
         "19": "Gripper Release",
         "201": "Roll",
         "202": "Pitch",
@@ -29547,6 +29579,7 @@
         "172": "Battery MPPT Enable",
         "174": "Camera Image Tracking",
         "175": "Camera Lens",
+        "177": "Mount LRF enable",
         "19": "Gripper Release",
         "201": "Roll",
         "202": "Pitch",
@@ -29693,6 +29726,7 @@
         "172": "Battery MPPT Enable",
         "174": "Camera Image Tracking",
         "175": "Camera Lens",
+        "177": "Mount LRF enable",
         "19": "Gripper Release",
         "201": "Roll",
         "202": "Pitch",
@@ -29839,6 +29873,7 @@
         "172": "Battery MPPT Enable",
         "174": "Camera Image Tracking",
         "175": "Camera Lens",
+        "177": "Mount LRF enable",
         "19": "Gripper Release",
         "201": "Roll",
         "202": "Pitch",
@@ -29985,6 +30020,7 @@
         "172": "Battery MPPT Enable",
         "174": "Camera Image Tracking",
         "175": "Camera Lens",
+        "177": "Mount LRF enable",
         "19": "Gripper Release",
         "201": "Roll",
         "202": "Pitch",
@@ -30131,6 +30167,7 @@
         "172": "Battery MPPT Enable",
         "174": "Camera Image Tracking",
         "175": "Camera Lens",
+        "177": "Mount LRF enable",
         "19": "Gripper Release",
         "201": "Roll",
         "202": "Pitch",
@@ -30277,6 +30314,7 @@
         "172": "Battery MPPT Enable",
         "174": "Camera Image Tracking",
         "175": "Camera Lens",
+        "177": "Mount LRF enable",
         "19": "Gripper Release",
         "201": "Roll",
         "202": "Pitch",
@@ -30423,6 +30461,7 @@
         "172": "Battery MPPT Enable",
         "174": "Camera Image Tracking",
         "175": "Camera Lens",
+        "177": "Mount LRF enable",
         "19": "Gripper Release",
         "201": "Roll",
         "202": "Pitch",
@@ -30569,6 +30608,7 @@
         "172": "Battery MPPT Enable",
         "174": "Camera Image Tracking",
         "175": "Camera Lens",
+        "177": "Mount LRF enable",
         "19": "Gripper Release",
         "201": "Roll",
         "202": "Pitch",
@@ -30715,6 +30755,7 @@
         "172": "Battery MPPT Enable",
         "174": "Camera Image Tracking",
         "175": "Camera Lens",
+        "177": "Mount LRF enable",
         "19": "Gripper Release",
         "201": "Roll",
         "202": "Pitch",
@@ -30861,6 +30902,7 @@
         "172": "Battery MPPT Enable",
         "174": "Camera Image Tracking",
         "175": "Camera Lens",
+        "177": "Mount LRF enable",
         "19": "Gripper Release",
         "201": "Roll",
         "202": "Pitch",
@@ -31007,6 +31049,7 @@
         "172": "Battery MPPT Enable",
         "174": "Camera Image Tracking",
         "175": "Camera Lens",
+        "177": "Mount LRF enable",
         "19": "Gripper Release",
         "201": "Roll",
         "202": "Pitch",
@@ -31153,6 +31196,7 @@
         "172": "Battery MPPT Enable",
         "174": "Camera Image Tracking",
         "175": "Camera Lens",
+        "177": "Mount LRF enable",
         "19": "Gripper Release",
         "201": "Roll",
         "202": "Pitch",
@@ -31299,6 +31343,7 @@
         "172": "Battery MPPT Enable",
         "174": "Camera Image Tracking",
         "175": "Camera Lens",
+        "177": "Mount LRF enable",
         "19": "Gripper Release",
         "201": "Roll",
         "202": "Pitch",

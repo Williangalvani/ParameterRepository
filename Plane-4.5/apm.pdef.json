@@ -626,6 +626,15 @@
       "DisplayName": "Arm Checks to Perform (bitmask)",
       "User": "Standard"
     },
+    "ARMING_CRSDP_IGN": {
+      "Description": "Must have value \"1\" if crashdump data is present on the system, or a prearm failure will be raised.  Do not set this parameter unless the risks of doing so are fully understood.  The presence of a crash dump means that the firmware currently installed has suffered a critical software failure which resulted in the autopilot immediately rebooting.  The crashdump file gives diagnostic information which can help in finding the issue, please contact the ArduPIlot support team.  If this crashdump data is present, the vehicle is likely unsafe to fly.  Check the ArduPilot documentation for more details.",
+      "DisplayName": "Disable CrashDump Arming check",
+      "User": "Advanced",
+      "Values": {
+        "0": "Crash Dump arming check active",
+        "1": "Crash Dump arming check deactivated"
+      }
+    },
     "ARMING_MAGTHRESH": {
       "Description": "Compass magnetic field strength error threshold vs earth magnetic model.  X and y axis are compared using this threhold, Z axis uses 2x this threshold.  0 to disable check",
       "DisplayName": "Compass magnetic field strength error threshold vs earth magnetic model",
@@ -7978,6 +7987,7 @@
         "174": "Camera Image Tracking",
         "175": "Camera Lens",
         "176": "Quadplane Fwd Throttle Override enable",
+        "177": "Mount LRF enable",
         "208": "Flap",
         "209": "VTOL Forward Throttle",
         "210": "Airbrakes",
@@ -8081,6 +8091,7 @@
         "174": "Camera Image Tracking",
         "175": "Camera Lens",
         "176": "Quadplane Fwd Throttle Override enable",
+        "177": "Mount LRF enable",
         "208": "Flap",
         "209": "VTOL Forward Throttle",
         "210": "Airbrakes",
@@ -8184,6 +8195,7 @@
         "174": "Camera Image Tracking",
         "175": "Camera Lens",
         "176": "Quadplane Fwd Throttle Override enable",
+        "177": "Mount LRF enable",
         "208": "Flap",
         "209": "VTOL Forward Throttle",
         "210": "Airbrakes",
@@ -8287,6 +8299,7 @@
         "174": "Camera Image Tracking",
         "175": "Camera Lens",
         "176": "Quadplane Fwd Throttle Override enable",
+        "177": "Mount LRF enable",
         "208": "Flap",
         "209": "VTOL Forward Throttle",
         "210": "Airbrakes",
@@ -19468,6 +19481,14 @@
       "Units": "deg",
       "User": "Standard"
     },
+    "MNT1_OPTIONS": {
+      "Bitmask": {
+        "0": "RC lock state from previous mode"
+      },
+      "Description": "Mount options bitmask",
+      "DisplayName": "Mount options",
+      "User": "Standard"
+    },
     "MNT1_PITCH_MAX": {
       "Description": "Mount Pitch angle maximum",
       "DisplayName": "Mount Pitch angle maximum",
@@ -19678,6 +19699,14 @@
         "low": "-180.0"
       },
       "Units": "deg",
+      "User": "Standard"
+    },
+    "MNT2_OPTIONS": {
+      "Bitmask": {
+        "0": "RC lock state from previous mode"
+      },
+      "Description": "Mount options bitmask",
+      "DisplayName": "Mount options",
       "User": "Standard"
     },
     "MNT2_PITCH_MAX": {
@@ -29466,7 +29495,7 @@
         "high": "0",
         "low": "-90"
       },
-      "Units": "cdeg",
+      "Units": "deg",
       "User": "Standard"
     },
     "PTCH_TRIM_DEG": {
@@ -30455,7 +30484,7 @@
       "DisplayName": "Transition time",
       "Range": {
         "high": "30000",
-        "low": "2000"
+        "low": "500"
       },
       "Units": "ms",
       "User": "Advanced"
@@ -32520,6 +32549,7 @@
         "174": "Camera Image Tracking",
         "175": "Camera Lens",
         "176": "Quadplane Fwd Throttle Override enable",
+        "177": "Mount LRF enable",
         "208": "Flap",
         "209": "VTOL Forward Throttle",
         "210": "Airbrakes",
@@ -32677,6 +32707,7 @@
         "174": "Camera Image Tracking",
         "175": "Camera Lens",
         "176": "Quadplane Fwd Throttle Override enable",
+        "177": "Mount LRF enable",
         "208": "Flap",
         "209": "VTOL Forward Throttle",
         "210": "Airbrakes",
@@ -32834,6 +32865,7 @@
         "174": "Camera Image Tracking",
         "175": "Camera Lens",
         "176": "Quadplane Fwd Throttle Override enable",
+        "177": "Mount LRF enable",
         "208": "Flap",
         "209": "VTOL Forward Throttle",
         "210": "Airbrakes",
@@ -32991,6 +33023,7 @@
         "174": "Camera Image Tracking",
         "175": "Camera Lens",
         "176": "Quadplane Fwd Throttle Override enable",
+        "177": "Mount LRF enable",
         "208": "Flap",
         "209": "VTOL Forward Throttle",
         "210": "Airbrakes",
@@ -33148,6 +33181,7 @@
         "174": "Camera Image Tracking",
         "175": "Camera Lens",
         "176": "Quadplane Fwd Throttle Override enable",
+        "177": "Mount LRF enable",
         "208": "Flap",
         "209": "VTOL Forward Throttle",
         "210": "Airbrakes",
@@ -33305,6 +33339,7 @@
         "174": "Camera Image Tracking",
         "175": "Camera Lens",
         "176": "Quadplane Fwd Throttle Override enable",
+        "177": "Mount LRF enable",
         "208": "Flap",
         "209": "VTOL Forward Throttle",
         "210": "Airbrakes",
@@ -33462,6 +33497,7 @@
         "174": "Camera Image Tracking",
         "175": "Camera Lens",
         "176": "Quadplane Fwd Throttle Override enable",
+        "177": "Mount LRF enable",
         "208": "Flap",
         "209": "VTOL Forward Throttle",
         "210": "Airbrakes",
@@ -33619,6 +33655,7 @@
         "174": "Camera Image Tracking",
         "175": "Camera Lens",
         "176": "Quadplane Fwd Throttle Override enable",
+        "177": "Mount LRF enable",
         "208": "Flap",
         "209": "VTOL Forward Throttle",
         "210": "Airbrakes",
@@ -33776,6 +33813,7 @@
         "174": "Camera Image Tracking",
         "175": "Camera Lens",
         "176": "Quadplane Fwd Throttle Override enable",
+        "177": "Mount LRF enable",
         "208": "Flap",
         "209": "VTOL Forward Throttle",
         "210": "Airbrakes",
@@ -33933,6 +33971,7 @@
         "174": "Camera Image Tracking",
         "175": "Camera Lens",
         "176": "Quadplane Fwd Throttle Override enable",
+        "177": "Mount LRF enable",
         "208": "Flap",
         "209": "VTOL Forward Throttle",
         "210": "Airbrakes",
@@ -34090,6 +34129,7 @@
         "174": "Camera Image Tracking",
         "175": "Camera Lens",
         "176": "Quadplane Fwd Throttle Override enable",
+        "177": "Mount LRF enable",
         "208": "Flap",
         "209": "VTOL Forward Throttle",
         "210": "Airbrakes",
@@ -34247,6 +34287,7 @@
         "174": "Camera Image Tracking",
         "175": "Camera Lens",
         "176": "Quadplane Fwd Throttle Override enable",
+        "177": "Mount LRF enable",
         "208": "Flap",
         "209": "VTOL Forward Throttle",
         "210": "Airbrakes",
@@ -34404,6 +34445,7 @@
         "174": "Camera Image Tracking",
         "175": "Camera Lens",
         "176": "Quadplane Fwd Throttle Override enable",
+        "177": "Mount LRF enable",
         "208": "Flap",
         "209": "VTOL Forward Throttle",
         "210": "Airbrakes",
@@ -34561,6 +34603,7 @@
         "174": "Camera Image Tracking",
         "175": "Camera Lens",
         "176": "Quadplane Fwd Throttle Override enable",
+        "177": "Mount LRF enable",
         "208": "Flap",
         "209": "VTOL Forward Throttle",
         "210": "Airbrakes",
@@ -34718,6 +34761,7 @@
         "174": "Camera Image Tracking",
         "175": "Camera Lens",
         "176": "Quadplane Fwd Throttle Override enable",
+        "177": "Mount LRF enable",
         "208": "Flap",
         "209": "VTOL Forward Throttle",
         "210": "Airbrakes",
@@ -34875,6 +34919,7 @@
         "174": "Camera Image Tracking",
         "175": "Camera Lens",
         "176": "Quadplane Fwd Throttle Override enable",
+        "177": "Mount LRF enable",
         "208": "Flap",
         "209": "VTOL Forward Throttle",
         "210": "Airbrakes",

@@ -3323,9 +3323,9 @@ Avoidance behaviour (slide or stop)
 |0|Slide|
 |1|Stop|
 
-## AVOID_BACKUP_SPD: Avoidance maximum backup speed
+## AVOID_BACKUP_SPD: Avoidance maximum horizontal backup speed
 
-Maximum speed that will be used to back away from obstacles in GPS modes (m/s). Set zero to disable
+Maximum speed that will be used to back away from obstacles horizontally in position control modes (m/s). Set zero to disable horizontal backup.
 
 - Units: m/s
 
@@ -3344,6 +3344,14 @@ Maximum acceleration with which obstacles will be avoided with. Set zero to disa
 Distance beyond AVOID_MARGIN parameter, after which vehicle will backaway from obstacles. Increase this parameter if you see vehicle going back and forth in front of obstacle.
 
 - Units: m
+
+- Range: 0 2
+
+## AVOID_BACKZ_SPD: Avoidance maximum vertical backup speed
+
+Maximum speed that will be used to back away from obstacles vertically in height control modes (m/s). Set zero to disable vertical backup.
+
+- Units: m/s
 
 - Range: 0 2
 

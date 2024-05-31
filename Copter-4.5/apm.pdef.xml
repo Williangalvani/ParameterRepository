@@ -2804,7 +2804,7 @@
           <value code="1">Stop</value>
         </values>
       </param>
-      <param humanName="Avoidance maximum backup speed" name="AVOID_BACKUP_SPD" documentation="Maximum speed that will be used to back away from obstacles in GPS modes (m/s). Set zero to disable" user="Standard">
+      <param humanName="Avoidance maximum horizontal backup speed" name="AVOID_BACKUP_SPD" documentation="Maximum speed that will be used to back away from obstacles horizontally in position control modes (m/s). Set zero to disable horizontal backup." user="Standard">
         <field name="Units">m/s</field>
         <field name="UnitText">meters per second</field>
         <field name="Range">0 2</field>
@@ -2822,6 +2822,11 @@
       <param humanName="Avoidance deadzone between stopping and backing away from obstacle" name="AVOID_BACKUP_DZ" documentation="Distance beyond AVOID_MARGIN parameter, after which vehicle will backaway from obstacles. Increase this parameter if you see vehicle going back and forth in front of obstacle." user="Standard">
         <field name="Units">m</field>
         <field name="UnitText">meters</field>
+        <field name="Range">0 2</field>
+      </param>
+      <param humanName="Avoidance maximum vertical backup speed" name="AVOID_BACKZ_SPD" documentation="Maximum speed that will be used to back away from obstacles vertically in height control modes (m/s). Set zero to disable vertical backup." user="Standard">
+        <field name="Units">m/s</field>
+        <field name="UnitText">meters per second</field>
         <field name="Range">0 2</field>
       </param>
     </parameters>

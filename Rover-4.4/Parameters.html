@@ -688,48 +688,6 @@ DO NOT EDIT
 <h1>Lua Script Parameters</h1>
 
 
-<h2>Force enable High Latency mode (RCK_FORCEHL)</h2>
-
-<p>Automatically enables High Latency mode if not already enabled</p>
-<ul>
-<table><th>Value</th><th>Meaning</th>
-<tr><td>0</td><td>Disabled</td></tr>
-<tr><td>1</td><td>Enabled</td></tr>
-</table>
-</ul>
-
-
-<h2>Update rate (RCK_PERIOD)</h2>
-
-<p>When in High Latency mode, send Rockblock updates every N seconds</p>
-<ul>
-<li>Range: 0 600</li>
-<li>Units: seconds</li>
-</ul>
-
-
-<h2>Display Rockblock debugging text (RCK_DEBUG)</h2>
-
-<p>Sends Rockblock debug text to GCS via statustexts</p>
-<ul>
-<table><th>Value</th><th>Meaning</th>
-<tr><td>0</td><td>Disabled</td></tr>
-<tr><td>1</td><td>Enabled</td></tr>
-</table>
-</ul>
-
-
-<h2>Enable Message transmission (RCK_ENABLE)</h2>
-
-<p>Enables the Rockblock sending and recieving</p>
-<ul>
-<table><th>Value</th><th>Meaning</th>
-<tr><td>0</td><td>Disabled</td></tr>
-<tr><td>1</td><td>Enabled</td></tr>
-</table>
-</ul>
-
-
 <h2>Rover Quicktune enable (RTUN_ENABLE)</h2>
 
 <p>Enable quicktune system</p>
@@ -923,6 +881,48 @@ DO NOT EDIT
 </ul>
 
 
+<h2>Force enable High Latency mode (RCK_FORCEHL)</h2>
+
+<p>Automatically enables High Latency mode if not already enabled</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>0</td><td>Disabled</td></tr>
+<tr><td>1</td><td>Enabled</td></tr>
+</table>
+</ul>
+
+
+<h2>Update rate (RCK_PERIOD)</h2>
+
+<p>When in High Latency mode, send Rockblock updates every N seconds</p>
+<ul>
+<li>Range: 0 600</li>
+<li>Units: seconds</li>
+</ul>
+
+
+<h2>Display Rockblock debugging text (RCK_DEBUG)</h2>
+
+<p>Sends Rockblock debug text to GCS via statustexts</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>0</td><td>Disabled</td></tr>
+<tr><td>1</td><td>Enabled</td></tr>
+</table>
+</ul>
+
+
+<h2>Enable Message transmission (RCK_ENABLE)</h2>
+
+<p>Enables the Rockblock sending and recieving</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>0</td><td>Disabled</td></tr>
+<tr><td>1</td><td>Enabled</td></tr>
+</table>
+</ul>
+
+
 <h2>Quicktune enable (QUIK_ENABLE)</h2>
 
 <p>Enable quicktune system</p>
@@ -1066,6 +1066,29 @@ DO NOT EDIT
 </ul>
 
 
+<h2>DJIRS2 debug (DJIR_DEBUG)</h2><em>Note: This parameter is for advanced users</em><br>
+
+<p>Enable DJIRS2 debug</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>0</td><td>Disabled</td></tr>
+<tr><td>1</td><td>Enabled</td></tr>
+<tr><td>2</td><td>Enabled with attitude reporting</td></tr>
+</table>
+</ul>
+
+
+<h2>DJIRS2 upside down (DJIR_UPSIDEDOWN)</h2>
+
+<p>DJIRS2 upside down</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>0</td><td>Right side up</td></tr>
+<tr><td>1</td><td>Upside down</td></tr>
+</table>
+</ul>
+
+
 <h2>Enable SkyPower EFI support (EFI_SP_ENABLE)</h2>
 
 <p>Enable SkyPower EFI support</p>
@@ -1188,29 +1211,6 @@ DO NOT EDIT
 <table><th>Value</th><th>Meaning</th>
 <tr><td>0</td><td>Disabled</td></tr>
 <tr><td>1</td><td>Enabled</td></tr>
-</table>
-</ul>
-
-
-<h2>DJIRS2 debug (DJIR_DEBUG)</h2><em>Note: This parameter is for advanced users</em><br>
-
-<p>Enable DJIRS2 debug</p>
-<ul>
-<table><th>Value</th><th>Meaning</th>
-<tr><td>0</td><td>Disabled</td></tr>
-<tr><td>1</td><td>Enabled</td></tr>
-<tr><td>2</td><td>Enabled with attitude reporting</td></tr>
-</table>
-</ul>
-
-
-<h2>DJIRS2 upside down (DJIR_UPSIDEDOWN)</h2>
-
-<p>DJIRS2 upside down</p>
-<ul>
-<table><th>Value</th><th>Meaning</th>
-<tr><td>0</td><td>Right side up</td></tr>
-<tr><td>1</td><td>Upside down</td></tr>
 </table>
 </ul>
 

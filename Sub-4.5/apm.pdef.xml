@@ -245,6 +245,18 @@
         <field name="Units">cm</field>
         <field name="UnitText">centimeters</field>
       </param>
+      <param humanName="Backup latitude for EKF origin" name="ArduSub:ORIGIN_LAT" documentation=" Backup EKF origin latitude used when not using a positioning system." user="Standard">
+        <field name="Units">deg</field>
+        <field name="UnitText">degrees</field>
+      </param>
+      <param humanName="Backup longitude for EKF origin" name="ArduSub:ORIGIN_LON" documentation=" Backup EKF origin longitude used when not using a positioning system." user="Standard">
+        <field name="Units">deg</field>
+        <field name="UnitText">degrees</field>
+      </param>
+      <param humanName="Backup altitude (MSL) for EKF origin" name="ArduSub:ORIGIN_ALT" documentation=" Backup EKF origin altitude (MSL) used when not using a positioning system." user="Standard">
+        <field name="Units">m</field>
+        <field name="UnitText">meters</field>
+      </param>
     </parameters>
   </vehicles>
   <libraries>

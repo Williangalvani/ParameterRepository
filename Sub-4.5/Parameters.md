@@ -411,6 +411,24 @@ Minimum depth to engage SURFTRAK mode
 
 - Units: cm
 
+## ORIGIN_LAT: Backup latitude for EKF origin
+
+ Backup EKF origin latitude used when not using a positioning system.
+
+- Units: deg
+
+## ORIGIN_LON: Backup longitude for EKF origin
+
+ Backup EKF origin longitude used when not using a positioning system.
+
+- Units: deg
+
+## ORIGIN_ALT: Backup altitude (MSL) for EKF origin
+
+ Backup EKF origin altitude (MSL) used when not using a positioning system.
+
+- Units: m
+
 # Lua Script Parameters
 
 ## WINCH_RATE_UP: WinchControl Rate Up

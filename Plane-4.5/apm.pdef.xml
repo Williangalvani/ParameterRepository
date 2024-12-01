@@ -8772,6 +8772,10 @@
         <field name="Range">1 65535</field>
         <field name="RebootRequired">True</field>
       </param>
+      <param humanName="DDS DOMAIN ID" name="DDS_DOMAIN_ID" documentation="Set the ROS_DOMAIN_ID" user="Standard">
+        <field name="Range">0 232</field>
+        <field name="RebootRequired">True</field>
+      </param>
     </parameters>
     <parameters name="DDS_IP">
       <param humanName="IPv4 Address 1st byte" name="DDS_IP0" documentation="IPv4 address. Example: 192.xxx.xxx.xxx">

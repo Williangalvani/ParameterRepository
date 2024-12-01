@@ -14669,6 +14669,14 @@ UDP port number for DDS
 
 - RebootRequired: True
 
+## DDS_DOMAIN_ID: DDS DOMAIN ID
+
+Set the ROS_DOMAIN_ID
+
+- Range: 0 232
+
+- RebootRequired: True
+
 # DDSIP Parameters
 
 ## DDS_IP0: IPv4 Address 1st byte

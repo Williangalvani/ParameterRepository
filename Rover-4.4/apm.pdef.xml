@@ -425,6 +425,56 @@
   </vehicles>
   <libraries>
     <parameters name="Lua Script">
+      <param humanName="Deadreckoning Enable" name="DR_ENABLE" documentation="Deadreckoning Enable" user="Standard">
+        <values>
+          <value code="0">Disabled</value>
+          <value code="1">Enabled</value>
+        </values>
+      </param>
+      <param humanName="Deadreckoning Enable Distance" name="DR_ENABLE_DIST" documentation="Distance from home (in meters) beyond which the dead reckoning will be enabled" user="Standard">
+        <field name="Units">m</field>
+        <field name="UnitText">meters</field>
+      </param>
+      <param humanName="Deadreckoning GPS speed accuracy maximum threshold" name="DR_GPS_SACC_MAX" documentation="GPS speed accuracy maximum, above which deadreckoning home will begin (default is 0.8).  Lower values trigger with good GPS quality, higher values will allow poorer GPS before triggering. Set to 0 to disable use of GPS speed accuracy" user="Standard">
+        <field name="Range">0 10</field>
+      </param>
+      <param humanName="Deadreckoning GPS satellite count min threshold" name="DR_GPS_SAT_MIN" documentation="GPS satellite count threshold below which deadreckoning home will begin (default is 6).  Higher values trigger with good GPS quality, Lower values trigger with worse GPS quality. Set to 0 to disable use of GPS satellite count" user="Standard">
+        <field name="Range">0 30</field>
+      </param>
+      <param humanName="Deadreckoning GPS check trigger seconds" name="DR_GPS_TRIGG_SEC" documentation="GPS checks must fail for this many seconds before dead reckoning will be triggered" user="Standard">
+        <field name="Units">s</field>
+        <field name="UnitText">seconds</field>
+      </param>
+      <param humanName="Deadreckoning Lean Angle" name="DR_FLY_ANGLE" documentation="lean angle (in degrees) during deadreckoning" user="Standard">
+        <field name="Units">deg</field>
+        <field name="UnitText">degrees</field>
+        <field name="Range">0 45</field>
+      </param>
+      <param humanName="Deadreckoning Altitude Min" name="DR_FLY_ALT_MIN" documentation="Copter will fly at at least this altitude (in meters) above home during deadreckoning" user="Standard">
+        <field name="Units">m</field>
+        <field name="UnitText">meters</field>
+        <field name="Range">0 1000</field>
+      </param>
+      <param humanName="Deadreckoning flight timeout" name="DR_FLY_TIMEOUT" documentation="Copter will attempt to switch to NEXT_MODE after this many seconds of deadreckoning.  If it cannot switch modes it will continue in Guided_NoGPS.  Set to 0 to disable timeout" user="Standard">
+        <field name="Units">s</field>
+        <field name="UnitText">seconds</field>
+      </param>
+      <param humanName="Deadreckoning Next Mode" name="DR_NEXT_MODE" documentation="Copter switch to this mode after GPS recovers or DR_FLY_TIMEOUT has elapsed.  Default is 6/RTL.  Set to -1 to return to mode used before deadreckoning was triggered" user="Standard">
+        <values>
+          <value code="2">AltHold</value>
+          <value code="3">Auto</value>
+          <value code="4">Guided</value>
+          <value code="5">Loiter</value>
+          <value code="6">RTL</value>
+          <value code="7">Circle</value>
+          <value code="9">Land</value>
+          <value code="16">PosHold</value>
+          <value code="17">Brake</value>
+          <value code="20">Guided_NoGPS</value>
+          <value code="21">Smart_RTL</value>
+          <value code="27">Auto RTL</value>
+        </values>
+      </param>
       <param humanName="Rover Quicktune enable" name="RTUN_ENABLE" documentation="Enable quicktune system" user="Standard">
         <values>
           <value code="0">Disabled</value>
@@ -565,69 +615,6 @@
           <value code="1">Enabled</value>
         </values>
       </param>
-      <param humanName="Deadreckoning Enable" name="DR_ENABLE" documentation="Deadreckoning Enable" user="Standard">
-        <values>
-          <value code="0">Disabled</value>
-          <value code="1">Enabled</value>
-        </values>
-      </param>
-      <param humanName="Deadreckoning Enable Distance" name="DR_ENABLE_DIST" documentation="Distance from home (in meters) beyond which the dead reckoning will be enabled" user="Standard">
-        <field name="Units">m</field>
-        <field name="UnitText">meters</field>
-      </param>
-      <param humanName="Deadreckoning GPS speed accuracy maximum threshold" name="DR_GPS_SACC_MAX" documentation="GPS speed accuracy maximum, above which deadreckoning home will begin (default is 0.8).  Lower values trigger with good GPS quality, higher values will allow poorer GPS before triggering. Set to 0 to disable use of GPS speed accuracy" user="Standard">
-        <field name="Range">0 10</field>
-      </param>
-      <param humanName="Deadreckoning GPS satellite count min threshold" name="DR_GPS_SAT_MIN" documentation="GPS satellite count threshold below which deadreckoning home will begin (default is 6).  Higher values trigger with good GPS quality, Lower values trigger with worse GPS quality. Set to 0 to disable use of GPS satellite count" user="Standard">
-        <field name="Range">0 30</field>
-      </param>
-      <param humanName="Deadreckoning GPS check trigger seconds" name="DR_GPS_TRIGG_SEC" documentation="GPS checks must fail for this many seconds before dead reckoning will be triggered" user="Standard">
-        <field name="Units">s</field>
-        <field name="UnitText">seconds</field>
-      </param>
-      <param humanName="Deadreckoning Lean Angle" name="DR_FLY_ANGLE" documentation="lean angle (in degrees) during deadreckoning" user="Standard">
-        <field name="Units">deg</field>
-        <field name="UnitText">degrees</field>
-        <field name="Range">0 45</field>
-      </param>
-      <param humanName="Deadreckoning Altitude Min" name="DR_FLY_ALT_MIN" documentation="Copter will fly at at least this altitude (in meters) above home during deadreckoning" user="Standard">
-        <field name="Units">m</field>
-        <field name="UnitText">meters</field>
-        <field name="Range">0 1000</field>
-      </param>
-      <param humanName="Deadreckoning flight timeout" name="DR_FLY_TIMEOUT" documentation="Copter will attempt to switch to NEXT_MODE after this many seconds of deadreckoning.  If it cannot switch modes it will continue in Guided_NoGPS.  Set to 0 to disable timeout" user="Standard">
-        <field name="Units">s</field>
-        <field name="UnitText">seconds</field>
-      </param>
-      <param humanName="Deadreckoning Next Mode" name="DR_NEXT_MODE" documentation="Copter switch to this mode after GPS recovers or DR_FLY_TIMEOUT has elapsed.  Default is 6/RTL.  Set to -1 to return to mode used before deadreckoning was triggered" user="Standard">
-        <values>
-          <value code="2">AltHold</value>
-          <value code="3">Auto</value>
-          <value code="4">Guided</value>
-          <value code="5">Loiter</value>
-          <value code="6">RTL</value>
-          <value code="7">Circle</value>
-          <value code="9">Land</value>
-          <value code="16">PosHold</value>
-          <value code="17">Brake</value>
-          <value code="20">Guided_NoGPS</value>
-          <value code="21">Smart_RTL</value>
-          <value code="27">Auto RTL</value>
-        </values>
-      </param>
-      <param humanName="DJIRS2 debug" name="DJIR_DEBUG" documentation="Enable DJIRS2 debug" user="Advanced">
-        <values>
-          <value code="0">Disabled</value>
-          <value code="1">Enabled</value>
-          <value code="2">Enabled with attitude reporting</value>
-        </values>
-      </param>
-      <param humanName="DJIRS2 upside down" name="DJIR_UPSIDEDOWN" documentation="DJIRS2 upside down" user="Standard">
-        <values>
-          <value code="0">Right side up</value>
-          <value code="1">Upside down</value>
-        </values>
-      </param>
       <param humanName="Enable SkyPower EFI support" name="EFI_SP_ENABLE" documentation="Enable SkyPower EFI support" user="Standard">
         <values>
           <value code="0">Disabled</value>
@@ -701,6 +688,19 @@
         <values>
           <value code="0">Disabled</value>
           <value code="1">Enabled</value>
+        </values>
+      </param>
+      <param humanName="DJIRS2 debug" name="DJIR_DEBUG" documentation="Enable DJIRS2 debug" user="Advanced">
+        <values>
+          <value code="0">Disabled</value>
+          <value code="1">Enabled</value>
+          <value code="2">Enabled with attitude reporting</value>
+        </values>
+      </param>
+      <param humanName="DJIRS2 upside down" name="DJIR_UPSIDEDOWN" documentation="DJIRS2 upside down" user="Standard">
+        <values>
+          <value code="0">Right side up</value>
+          <value code="1">Upside down</value>
         </values>
       </param>
     </parameters>

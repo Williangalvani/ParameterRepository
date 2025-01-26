@@ -634,11 +634,168 @@ Bitmask of flight modes to disable for GCS selection. Mode can still be accessed
 
 # Lua Script Parameters
 
-## POI_DIST_MAX: Mount POI distance max
+## CAM1_THERM_PAL: Camera1 Thermal Palette
 
-POI's max distance (in meters) from the vehicle
+thermal image colour palette
 
-- Range: 0 10000
+|Value|Meaning|
+|:---:|:---:|
+|-1|Leave Unchanged|
+|0|WhiteHot|
+|2|Sepia|
+|3|IronBow|
+|4|Rainbow|
+|5|Night|
+|6|Aurora|
+|7|RedHot|
+|8|Jungle|
+|9|Medical|
+|10|BlackHot|
+|11|GloryHot|
+
+## CAM1_THERM_GAIN: Camera1 Thermal Gain
+
+thermal image temperature range
+
+|Value|Meaning|
+|:---:|:---:|
+|-1|Leave Unchanged|
+|0|LowGain (50C to 550C)|
+|1|HighGain (-20C to 150C)|
+
+## CAM1_THERM_RAW: Camera1 Thermal Raw Data
+
+save images with raw temperatures
+
+|Value|Meaning|
+|:---:|:---:|
+|-1|Leave Unchanged|
+|0|Disabled (30fps)|
+|1|Enabled (25 fps)|
+
+- Units: m
+
+## DR_ENABLE: Deadreckoning Enable
+
+Deadreckoning Enable
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
+
+## DR_ENABLE_DIST: Deadreckoning Enable Distance
+
+Distance from home (in meters) beyond which the dead reckoning will be enabled
+
+- Units: m
+
+## DR_GPS_SACC_MAX: Deadreckoning GPS speed accuracy maximum threshold
+
+GPS speed accuracy maximum, above which deadreckoning home will begin (default is 0.8).  Lower values trigger with good GPS quality, higher values will allow poorer GPS before triggering. Set to 0 to disable use of GPS speed accuracy
+
+- Range: 0 10
+
+## DR_GPS_SAT_MIN: Deadreckoning GPS satellite count min threshold
+
+GPS satellite count threshold below which deadreckoning home will begin (default is 6).  Higher values trigger with good GPS quality, Lower values trigger with worse GPS quality. Set to 0 to disable use of GPS satellite count
+
+- Range: 0 30
+
+## DR_GPS_TRIGG_SEC: Deadreckoning GPS check trigger seconds
+
+GPS checks must fail for this many seconds before dead reckoning will be triggered
+
+- Units: s
+
+## DR_FLY_ANGLE: Deadreckoning Lean Angle
+
+lean angle (in degrees) during deadreckoning
+
+- Units: deg
+
+- Range: 0 45
+
+## DR_FLY_ALT_MIN: Deadreckoning Altitude Min
+
+Copter will fly at at least this altitude (in meters) above home during deadreckoning
+
+- Units: m
+
+- Range: 0 1000
+
+## DR_FLY_TIMEOUT: Deadreckoning flight timeout
+
+Copter will attempt to switch to NEXT_MODE after this many seconds of deadreckoning.  If it cannot switch modes it will continue in Guided_NoGPS.  Set to 0 to disable timeout
+
+- Units: s
+
+## DR_NEXT_MODE: Deadreckoning Next Mode
+
+Copter switch to this mode after GPS recovers or DR_FLY_TIMEOUT has elapsed.  Default is 6/RTL.  Set to -1 to return to mode used before deadreckoning was triggered
+
+|Value|Meaning|
+|:---:|:---:|
+|2|AltHold|
+|3|Auto|
+|4|Guided|
+|5|Loiter|
+|6|RTL|
+|7|Circle|
+|9|Land|
+|16|PosHold|
+|17|Brake|
+|20|Guided_NoGPS|
+|21|Smart_RTL|
+|27|Auto RTL|
+
+## SLUP_ENABLE: Slung Payload enable
+
+Slung Payload enable
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
+
+## SLUP_VEL_P: Slung Payload Velocity P gain
+
+Slung Payload Velocity P gain, higher values will result in faster movements in sync with payload
+
+- Range: 0 0.8
+
+## SLUP_DIST_MAX: Slung Payload horizontal distance max
+
+Oscillation is suppressed when vehicle and payload are no more than this distance horizontally.  Set to 0 to always suppress
+
+- Range: 0 30
+
+## SLUP_SYSID: Slung Payload mavlink system id
+
+Slung Payload mavlink system id.  0 to use any/all system ids
+
+- Range: 0 255
+
+## SLUP_WP_POS_P: Slung Payload return to WP position P gain
+
+WP position P gain. higher values will result in vehicle moving more quickly back to the original waypoint
+
+- Range: 0 1
+
+## SLUP_RESTOFS_TC: Slung Payload resting offset estimate filter time constant
+
+payload's position estimator's time constant used to compensate for GPS errors and wind.  Higher values result in smoother estimate but slower response
+
+- Range: 1 20
+
+## SLUP_DEBUG: Slung Payload debug output
+
+Slung payload debug output, set to 1 to enable debug
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
 
 ## CGA_RATIO: CoG adjustment ratio
 
@@ -647,33 +804,6 @@ POI's max distance (in meters) from the vehicle
 The ratio between the front and back motor outputs during steady-state hover. Positive when the CoG is in front of the motors midpoint (front motors work harder).
 
 - Range: 0.5 2
-
-## WINCH_RATE_UP: WinchControl Rate Up
-
-Maximum rate when retracting line
-
-- Range: 0.1 5.0
-
-## WINCH_RATE_DN: WinchControl Rate Down
-
-Maximum rate when releasing line
-
-- Range: 0.1 5.0
-
-## WINCH_RC_FUNC: Winch Rate Control RC function
-
-RCn_OPTION number to use to control winch rate
-
-|Value|Meaning|
-|:---:|:---:|
-|300|Scripting1|
-|301|Scripting2|
-|302|Scripting3|
-|303|Scripting4|
-|304|Scripting5|
-|305|Scripting6|
-|306|Scripting7|
-|307|Scripting8|
 
 ## RTUN_ENABLE: Rover Quicktune enable
 
@@ -756,94 +886,11 @@ RCn_OPTION number to use to control tuning stop/start/save
 |306|Scripting7|
 |307|Scripting8|
 
-## CAM1_THERM_PAL: Camera1 Thermal Palette
+## POI_DIST_MAX: Mount POI distance max
 
-thermal image colour palette
+POI's max distance (in meters) from the vehicle
 
-|Value|Meaning|
-|:---:|:---:|
-|-1|Leave Unchanged|
-|0|WhiteHot|
-|2|Sepia|
-|3|IronBow|
-|4|Rainbow|
-|5|Night|
-|6|Aurora|
-|7|RedHot|
-|8|Jungle|
-|9|Medical|
-|10|BlackHot|
-|11|GloryHot|
-
-## CAM1_THERM_GAIN: Camera1 Thermal Gain
-
-thermal image temperature range
-
-|Value|Meaning|
-|:---:|:---:|
-|-1|Leave Unchanged|
-|0|LowGain (50C to 550C)|
-|1|HighGain (-20C to 150C)|
-
-## CAM1_THERM_RAW: Camera1 Thermal Raw Data
-
-save images with raw temperatures
-
-|Value|Meaning|
-|:---:|:---:|
-|-1|Leave Unchanged|
-|0|Disabled (30fps)|
-|1|Enabled (25 fps)|
-
-- Units: m
-
-## SLUP_ENABLE: Slung Payload enable
-
-Slung Payload enable
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|Enabled|
-
-## SLUP_VEL_P: Slung Payload Velocity P gain
-
-Slung Payload Velocity P gain, higher values will result in faster movements in sync with payload
-
-- Range: 0 0.8
-
-## SLUP_DIST_MAX: Slung Payload horizontal distance max
-
-Oscillation is suppressed when vehicle and payload are no more than this distance horizontally.  Set to 0 to always suppress
-
-- Range: 0 30
-
-## SLUP_SYSID: Slung Payload mavlink system id
-
-Slung Payload mavlink system id.  0 to use any/all system ids
-
-- Range: 0 255
-
-## SLUP_WP_POS_P: Slung Payload return to WP position P gain
-
-WP position P gain. higher values will result in vehicle moving more quickly back to the original waypoint
-
-- Range: 0 1
-
-## SLUP_RESTOFS_TC: Slung Payload resting offset estimate filter time constant
-
-payload's position estimator's time constant used to compensate for GPS errors and wind.  Higher values result in smoother estimate but slower response
-
-- Range: 1 20
-
-## SLUP_DEBUG: Slung Payload debug output
-
-Slung payload debug output, set to 1 to enable debug
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|Enabled|
+- Range: 0 10000
 
 ## QUIK_ENABLE: Quicktune enable
 
@@ -939,6 +986,202 @@ Additional options. When the Two Position Switch option is enabled then a high s
 
 - Bitmask: 0:UseTwoPositionSwitch
 
+## TERR_BRK_ENABLE: terrain brake enable
+
+terrain brake enable
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
+
+## TERR_BRK_ALT: terrain brake altitude
+
+terrain brake altitude. The altitude above the ground below which BRAKE mode will be engaged if in LOITER mode.
+
+- Range: 1 100
+
+- Units: m
+
+## TERR_BRK_HDIST: terrain brake home distance
+
+terrain brake home distance. The distance from home where the auto BRAKE will be enabled. When within this distance of home the script will not activate
+
+- Range: 0 1000
+
+- Units: m
+
+## TERR_BRK_SPD: terrain brake speed threshold
+
+terrain brake speed threshold. Don't trigger BRAKE if both horizontal speed and descent rate are below this threshold. By setting this to a small value this can be used to allow the user to climb up to a safe altitude in LOITER mode. A value of 0.5 is recommended if you want to use LOITER to recover from an emergency terrain BRAKE mode change.
+
+- Range: 0 5
+
+- Units: m/s
+
+## PREV_ENABLE: parameter reversion enable
+
+Enable parameter reversion system
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
+
+## PREV_RC_FUNC: param reversion RC function
+
+RCn_OPTION number to used to trigger parameter reversion
+
+## VID1_CAMMODEL: Camera1 Video Stream Camera Model
+
+Video stream camera model
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Unknown|
+|1|Siyi A8|
+|2|Siyi ZR10|
+|3|Siyi ZR30|
+|4|Siyi ZT30 Zoom|
+|5|Siyi ZT30 Wide|
+|6|Siyi ZT30 IR|
+|7|Siyi ZT6 RGB|
+|8|Siyi ZT6 IR|
+|9|Herelink WifiAP|
+|10|Herelink USB-tethering|
+|11|Topotek 1080p|
+|12|Topotek 480p|
+|13|Viewpro|
+
+## VID1_ID: Camera1 Video Stream Id
+
+Video stream id
+
+- Range: 0 50
+
+## VID1_TYPE: Camera1 Video Stream Type
+
+Video stream type
+
+|Value|Meaning|
+|:---:|:---:|
+|0|RTSP|
+|1|RTPUDP|
+|2|TCP_MPEG|
+|3|MPEG_TS|
+
+## VID1_FLAG: Camera1 Video Stream Flags
+
+Video stream flags
+
+- Bitmask: 0:Running,1:Thermal,2:Thermal Range Enabled
+
+## VID1_FRAME_RATE: Camera1 Video Stream Frame Rate
+
+Video stream frame rate
+
+- Range: 0 50
+
+## VID1_HRES: Camera1 Video Stream Horizontal Resolution
+
+Video stream horizontal resolution
+
+- Range: 0 4096
+
+## VID1_VRES: Camera1 Video Stream Vertical Resolution
+
+Video stream vertical resolution
+
+- Range: 0 4096
+
+## VID1_BITRATE: Camera1 Video Stream Bitrate
+
+Video stream bitrate
+
+- Range: 0 10000
+
+## VID1_HFOV: Camera1 Video Stream Horizontal FOV
+
+Video stream horizontal FOV
+
+- Range: 0 360
+
+## VID1_ENCODING: Camera1 Video Stream Encoding
+
+Video stream encoding
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Unknown|
+|1|H264|
+|2|H265|
+
+## VID1_IPADDR0: Camera1 Video Stream IP Address 0
+
+Video stream IP Address first octet
+
+- Range: 0 255
+
+## VID1_IPADDR1: Camera1 Video Stream IP Address 1
+
+Video stream IP Address second octet
+
+- Range: 0 255
+
+## VID1_IPADDR2: Camera1 Video Stream IP Address 2
+
+Video stream IP Address third octet
+
+- Range: 0 255
+
+## VID1_IPADDR3: Camera1 Video Stream IP Address 3
+
+Video stream IP Address fourth octet
+
+- Range: 0 255
+
+## VID1_IPPORT: Camera1 Video Stream IP Address Port
+
+Video stream IP Address Port
+
+- Range: 0 65535
+
+## ESRC_EXTN_THRESH: EKF Source ExternalNav Innovation Threshold
+
+ExternalNav may be used if innovations are below this threshold
+
+- Range: 0 1
+
+## ESRC_EXTN_QUAL: EKF Source ExternalNav Quality Threshold
+
+ExternalNav may be used if quality is above this threshold
+
+- Range: 0 100
+
+- Units: %
+
+## ESRC_FLOW_THRESH: EKF Source OpticalFlow Innovation Threshold
+
+OpticalFlow may be used if innovations are below this threshold
+
+- Range: 0 1
+
+## ESRC_FLOW_QUAL: EKF Source OpticalFlow Quality Threshold
+
+OpticalFlow may be used if quality is above this threshold
+
+- Range: 0 100
+
+- Units: %
+
+## ESRC_RNGFND_MAX: EKF Source Rangefinder Max
+
+OpticalFlow may be used if rangefinder distance is below this threshold
+
+- Range: 0 50
+
+- Units: m
+
 ## SHIP_ENABLE: Ship landing enable
 
 Enable ship landing system
@@ -964,6 +1207,136 @@ Settings this parameter to one triggers an automatic follow offset calculation b
 |:---:|:---:|
 |0|Disabled|
 |1|Trigger|
+
+## WEB_ENABLE: enable web server
+
+enable web server
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
+
+## WEB_BIND_PORT: web server TCP port
+
+web server TCP port
+
+- Range: 1 65535
+
+## WEB_DEBUG: web server debugging
+
+*Note: This parameter is for advanced users*
+
+web server debugging
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
+
+## WEB_BLOCK_SIZE: web server block size
+
+*Note: This parameter is for advanced users*
+
+web server block size for download
+
+- Range: 1 65535
+
+## WEB_TIMEOUT: web server timeout
+
+*Note: This parameter is for advanced users*
+
+timeout for inactive connections
+
+- Units: s
+
+- Range: 0.1 60
+
+## WEB_SENDFILE_MIN: web server minimum file size for sendfile
+
+*Note: This parameter is for advanced users*
+
+sendfile is an offloading mechanism for faster file download. If this is non-zero and the file is larger than this size then sendfile will be used for file download
+
+- Range: 0 10000000
+
+## RCK_FORCEHL: Force enable High Latency mode
+
+Automatically enables High Latency mode if not already enabled
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
+
+## RCK_PERIOD: Update rate
+
+When in High Latency mode, send Rockblock updates every N seconds
+
+- Range: 0 600
+
+- Units: s
+
+## RCK_DEBUG: Display Rockblock debugging text
+
+Sends Rockblock debug text to GCS via statustexts
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
+
+## RCK_ENABLE: Enable Message transmission
+
+Enables the Rockblock sending and recieving
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
+
+## PLND_ALT_CUTOFF: Precland altitude cutoff
+
+The altitude (rangefinder distance) below which we stop using the precision landing sensor and continue landing
+
+- Range: 0 20
+
+- Units: m
+
+## DIST_CUTOFF: Precland distance cutoff
+
+The distance from target beyond which the target is ignored
+
+- Range: 0 100
+
+- Units: m
+
+## WINCH_RATE_UP: WinchControl Rate Up
+
+Maximum rate when retracting line
+
+- Range: 0.1 5.0
+
+## WINCH_RATE_DN: WinchControl Rate Down
+
+Maximum rate when releasing line
+
+- Range: 0.1 5.0
+
+## WINCH_RC_FUNC: Winch Rate Control RC function
+
+RCn_OPTION number to use to control winch rate
+
+|Value|Meaning|
+|:---:|:---:|
+|300|Scripting1|
+|301|Scripting2|
+|302|Scripting3|
+|303|Scripting4|
+|304|Scripting5|
+|305|Scripting6|
+|306|Scripting7|
+|307|Scripting8|
 
 ## BATT_SOC_COUNT: Count of SOC estimators
 
@@ -1090,379 +1463,6 @@ Battery estimator coefficient2
 Battery estimator coefficient3
 
 - Range: 0.01 0.5
-
-## VID1_CAMMODEL: Camera1 Video Stream Camera Model
-
-Video stream camera model
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Unknown|
-|1|Siyi A8|
-|2|Siyi ZR10|
-|3|Siyi ZR30|
-|4|Siyi ZT30 Zoom|
-|5|Siyi ZT30 Wide|
-|6|Siyi ZT30 IR|
-|7|Siyi ZT6 RGB|
-|8|Siyi ZT6 IR|
-|9|Herelink WifiAP|
-|10|Herelink USB-tethering|
-|11|Topotek 1080p|
-|12|Topotek 480p|
-|13|Viewpro|
-
-## VID1_ID: Camera1 Video Stream Id
-
-Video stream id
-
-- Range: 0 50
-
-## VID1_TYPE: Camera1 Video Stream Type
-
-Video stream type
-
-|Value|Meaning|
-|:---:|:---:|
-|0|RTSP|
-|1|RTPUDP|
-|2|TCP_MPEG|
-|3|MPEG_TS|
-
-## VID1_FLAG: Camera1 Video Stream Flags
-
-Video stream flags
-
-- Bitmask: 0:Running,1:Thermal,2:Thermal Range Enabled
-
-## VID1_FRAME_RATE: Camera1 Video Stream Frame Rate
-
-Video stream frame rate
-
-- Range: 0 50
-
-## VID1_HRES: Camera1 Video Stream Horizontal Resolution
-
-Video stream horizontal resolution
-
-- Range: 0 4096
-
-## VID1_VRES: Camera1 Video Stream Vertical Resolution
-
-Video stream vertical resolution
-
-- Range: 0 4096
-
-## VID1_BITRATE: Camera1 Video Stream Bitrate
-
-Video stream bitrate
-
-- Range: 0 10000
-
-## VID1_HFOV: Camera1 Video Stream Horizontal FOV
-
-Video stream horizontal FOV
-
-- Range: 0 360
-
-## VID1_ENCODING: Camera1 Video Stream Encoding
-
-Video stream encoding
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Unknown|
-|1|H264|
-|2|H265|
-
-## VID1_IPADDR0: Camera1 Video Stream IP Address 0
-
-Video stream IP Address first octet
-
-- Range: 0 255
-
-## VID1_IPADDR1: Camera1 Video Stream IP Address 1
-
-Video stream IP Address second octet
-
-- Range: 0 255
-
-## VID1_IPADDR2: Camera1 Video Stream IP Address 2
-
-Video stream IP Address third octet
-
-- Range: 0 255
-
-## VID1_IPADDR3: Camera1 Video Stream IP Address 3
-
-Video stream IP Address fourth octet
-
-- Range: 0 255
-
-## VID1_IPPORT: Camera1 Video Stream IP Address Port
-
-Video stream IP Address Port
-
-- Range: 0 65535
-
-## PLND_ALT_CUTOFF: Precland altitude cutoff
-
-The altitude (rangefinder distance) below which we stop using the precision landing sensor and continue landing
-
-- Range: 0 20
-
-- Units: m
-
-## DIST_CUTOFF: Precland distance cutoff
-
-The distance from target beyond which the target is ignored
-
-- Range: 0 100
-
-- Units: m
-
-## ESRC_EXTN_THRESH: EKF Source ExternalNav Innovation Threshold
-
-ExternalNav may be used if innovations are below this threshold
-
-- Range: 0 1
-
-## ESRC_EXTN_QUAL: EKF Source ExternalNav Quality Threshold
-
-ExternalNav may be used if quality is above this threshold
-
-- Range: 0 100
-
-- Units: %
-
-## ESRC_FLOW_THRESH: EKF Source OpticalFlow Innovation Threshold
-
-OpticalFlow may be used if innovations are below this threshold
-
-- Range: 0 1
-
-## ESRC_FLOW_QUAL: EKF Source OpticalFlow Quality Threshold
-
-OpticalFlow may be used if quality is above this threshold
-
-- Range: 0 100
-
-- Units: %
-
-## ESRC_RNGFND_MAX: EKF Source Rangefinder Max
-
-OpticalFlow may be used if rangefinder distance is below this threshold
-
-- Range: 0 50
-
-- Units: m
-
-## WEB_ENABLE: enable web server
-
-enable web server
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|Enabled|
-
-## WEB_BIND_PORT: web server TCP port
-
-web server TCP port
-
-- Range: 1 65535
-
-## WEB_DEBUG: web server debugging
-
-*Note: This parameter is for advanced users*
-
-web server debugging
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|Enabled|
-
-## WEB_BLOCK_SIZE: web server block size
-
-*Note: This parameter is for advanced users*
-
-web server block size for download
-
-- Range: 1 65535
-
-## WEB_TIMEOUT: web server timeout
-
-*Note: This parameter is for advanced users*
-
-timeout for inactive connections
-
-- Units: s
-
-- Range: 0.1 60
-
-## WEB_SENDFILE_MIN: web server minimum file size for sendfile
-
-*Note: This parameter is for advanced users*
-
-sendfile is an offloading mechanism for faster file download. If this is non-zero and the file is larger than this size then sendfile will be used for file download
-
-- Range: 0 10000000
-
-## TERR_BRK_ENABLE: terrain brake enable
-
-terrain brake enable
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|Enabled|
-
-## TERR_BRK_ALT: terrain brake altitude
-
-terrain brake altitude. The altitude above the ground below which BRAKE mode will be engaged if in LOITER mode.
-
-- Range: 1 100
-
-- Units: m
-
-## TERR_BRK_HDIST: terrain brake home distance
-
-terrain brake home distance. The distance from home where the auto BRAKE will be enabled. When within this distance of home the script will not activate
-
-- Range: 0 1000
-
-- Units: m
-
-## TERR_BRK_SPD: terrain brake speed threshold
-
-terrain brake speed threshold. Don't trigger BRAKE if both horizontal speed and descent rate are below this threshold. By setting this to a small value this can be used to allow the user to climb up to a safe altitude in LOITER mode. A value of 0.5 is recommended if you want to use LOITER to recover from an emergency terrain BRAKE mode change.
-
-- Range: 0 5
-
-- Units: m/s
-
-## RCK_FORCEHL: Force enable High Latency mode
-
-Automatically enables High Latency mode if not already enabled
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|Enabled|
-
-## RCK_PERIOD: Update rate
-
-When in High Latency mode, send Rockblock updates every N seconds
-
-- Range: 0 600
-
-- Units: s
-
-## RCK_DEBUG: Display Rockblock debugging text
-
-Sends Rockblock debug text to GCS via statustexts
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|Enabled|
-
-## RCK_ENABLE: Enable Message transmission
-
-Enables the Rockblock sending and recieving
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|Enabled|
-
-## DR_ENABLE: Deadreckoning Enable
-
-Deadreckoning Enable
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|Enabled|
-
-## DR_ENABLE_DIST: Deadreckoning Enable Distance
-
-Distance from home (in meters) beyond which the dead reckoning will be enabled
-
-- Units: m
-
-## DR_GPS_SACC_MAX: Deadreckoning GPS speed accuracy maximum threshold
-
-GPS speed accuracy maximum, above which deadreckoning home will begin (default is 0.8).  Lower values trigger with good GPS quality, higher values will allow poorer GPS before triggering. Set to 0 to disable use of GPS speed accuracy
-
-- Range: 0 10
-
-## DR_GPS_SAT_MIN: Deadreckoning GPS satellite count min threshold
-
-GPS satellite count threshold below which deadreckoning home will begin (default is 6).  Higher values trigger with good GPS quality, Lower values trigger with worse GPS quality. Set to 0 to disable use of GPS satellite count
-
-- Range: 0 30
-
-## DR_GPS_TRIGG_SEC: Deadreckoning GPS check trigger seconds
-
-GPS checks must fail for this many seconds before dead reckoning will be triggered
-
-- Units: s
-
-## DR_FLY_ANGLE: Deadreckoning Lean Angle
-
-lean angle (in degrees) during deadreckoning
-
-- Units: deg
-
-- Range: 0 45
-
-## DR_FLY_ALT_MIN: Deadreckoning Altitude Min
-
-Copter will fly at at least this altitude (in meters) above home during deadreckoning
-
-- Units: m
-
-- Range: 0 1000
-
-## DR_FLY_TIMEOUT: Deadreckoning flight timeout
-
-Copter will attempt to switch to NEXT_MODE after this many seconds of deadreckoning.  If it cannot switch modes it will continue in Guided_NoGPS.  Set to 0 to disable timeout
-
-- Units: s
-
-## DR_NEXT_MODE: Deadreckoning Next Mode
-
-Copter switch to this mode after GPS recovers or DR_FLY_TIMEOUT has elapsed.  Default is 6/RTL.  Set to -1 to return to mode used before deadreckoning was triggered
-
-|Value|Meaning|
-|:---:|:---:|
-|2|AltHold|
-|3|Auto|
-|4|Guided|
-|5|Loiter|
-|6|RTL|
-|7|Circle|
-|9|Land|
-|16|PosHold|
-|17|Brake|
-|20|Guided_NoGPS|
-|21|Smart_RTL|
-|27|Auto RTL|
-
-## PREV_ENABLE: parameter reversion enable
-
-Enable parameter reversion system
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|Enabled|
-
-## PREV_RC_FUNC: param reversion RC function
-
-RCn_OPTION number to used to trigger parameter reversion
 
 ## AEROM_ANG_ACCEL: Angular acceleration limit
 
@@ -1652,79 +1652,92 @@ Number of tricks which can be selected over the range of the trik selection RC c
 
 - Range: 1 11
 
-## DJIR_DEBUG: DJIRS2 debug
+## EFI_SVF_ENABLE: Generator SVFFI enable
+
+Enable SVFFI generator support
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
+
+## EFI_SVF_ARMCHECK: Generator SVFFI arming check
+
+Check for Generator ARM state before arming
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
+
+## VIEP_DEBUG: ViewPro debug
 
 *Note: This parameter is for advanced users*
 
-Enable DJIRS2 debug
+ViewPro debug
 
 |Value|Meaning|
 |:---:|:---:|
 |0|Disabled|
 |1|Enabled|
-|2|Enabled with attitude reporting|
+|2|Enabled including attitude reporting|
 
-## DJIR_UPSIDEDOWN: DJIRS2 upside down
+## VIEP_CAM_SWLOW: ViewPro Camera For Switch Low
 
-DJIRS2 upside down
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Right side up|
-|1|Upside down|
-
-## EFI_H6K_ENABLE: Enable Halo6000 EFI driver
-
-Enable Halo6000 EFI driver
+Camera selection when switch is in low position
 
 |Value|Meaning|
 |:---:|:---:|
-|0|Disabled|
-|1|Enabled|
+|0|No change in camera selection|
+|1|EO1|
+|2|IR thermal|
+|3|EO1 + IR Picture-in-picture|
+|4|IR + EO1 Picture-in-picture|
+|5|Fusion|
+|6|IR1 13mm|
+|7|IR2 52mm|
 
-## EFI_H6K_CANDRV: Halo6000 CAN driver
+## VIEP_CAM_SWMID: ViewPro Camera For Switch Mid
 
-Halo6000 CAN driver. Use 1 for first CAN scripting driver, 2 for 2nd driver
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|FirstCAN|
-|2|SecondCAN|
-
-## EFI_H6K_START_FN: Halo6000 start auxilliary function
-
-The RC auxilliary function number for start/stop of the generator. Zero to disable start function
+Camera selection when switch is in middle position
 
 |Value|Meaning|
 |:---:|:---:|
-|0|Disabled|
-|300|300|
-|301|301|
-|302|302|
-|303|303|
-|304|304|
-|305|305|
-|306|306|
-|307|307|
+|0|No change in camera selection|
+|1|EO1|
+|2|IR thermal|
+|3|EO1 + IR Picture-in-picture|
+|4|IR + EO1 Picture-in-picture|
+|5|Fusion|
+|6|IR1 13mm|
+|7|IR2 52mm|
 
-## EFI_H6K_TELEM_RT: Halo6000 telemetry rate
+## VIEP_CAM_SWHIGH: ViewPro Camera For Switch High
 
-The rate that additional generator telemetry is sent
+Camera selection when switch is in high position
 
-- Units: Hz
+|Value|Meaning|
+|:---:|:---:|
+|0|No change in camera selection|
+|1|EO1|
+|2|IR thermal|
+|3|EO1 + IR Picture-in-picture|
+|4|IR + EO1 Picture-in-picture|
+|5|Fusion|
+|6|IR1 13mm|
+|7|IR2 52mm|
 
-## EFI_H6K_FUELTOT: Halo6000 total fuel capacity
+## VIEP_ZOOM_SPEED: ViewPro Zoom Speed
 
-The capacity of the tank in litres
+ViewPro Zoom Speed.  Higher numbers result in faster zooming
 
-- Units: litres
+- Range: 0 7
 
-## EFI_H6K_OPTIONS: Halo6000 options
+## VIEP_ZOOM_MAX: ViewPro Zoom Times Max
 
-Halo6000 options
+ViewPro Zoom Times Max
 
-- Bitmask: 0:LogAllCanPackets
+- Range: 0 30
 
 ## BATT_ANX_ENABLE: Enable ANX battery support
 
@@ -1784,44 +1797,32 @@ NMEA 2000 driver options
 
 - Bitmask: 0:EnableLogging
 
-## ESC_HW_ENABLE: Hobbywing ESC Enable
+## EFI_INF_ENABLE: EFI INF-Inject enable
 
-Enable Hobbywing ESC telemetry
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|Enabled|
-
-## ESC_HW_POLES: Hobbywing ESC motor poles
-
-Number of motor poles for eRPM scaling
-
-- Range: 1 50
-
-## ESC_HW_OFS: Hobbywing ESC motor offset
-
-Motor number offset of first ESC
-
-- Range: 0 31
-
-## EFI_SVF_ENABLE: Generator SVFFI enable
-
-Enable SVFFI generator support
+Enable EFI INF-Inject driver
 
 |Value|Meaning|
 |:---:|:---:|
 |0|Disabled|
 |1|Enabled|
 
-## EFI_SVF_ARMCHECK: Generator SVFFI arming check
+## EFI_INF_OPTIONS: EFI INF-Inject options
 
-Check for Generator ARM state before arming
+EFI INF driver options
 
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|Enabled|
+- Bitmask: 0:EnableLogging
+
+## EFI_INF_THR_HZ: EFI INF-Inject throttle rate
+
+EFI INF throttle output rate
+
+- Range: 0 50
+
+- Units: Hz
+
+## EFI_INF_IGN_AUX: EFI INF-Inject ignition aux function
+
+EFI INF throttle ignition aux function
 
 ## EFI_SP_ENABLE: Enable SkyPower EFI support
 
@@ -1967,74 +1968,58 @@ SkyPower EFI restart time. If engine should be running and it has stopped for th
 
 - Units: s
 
-## VIEP_DEBUG: ViewPro debug
+## EFI_H6K_ENABLE: Enable Halo6000 EFI driver
 
-*Note: This parameter is for advanced users*
-
-ViewPro debug
+Enable Halo6000 EFI driver
 
 |Value|Meaning|
 |:---:|:---:|
 |0|Disabled|
 |1|Enabled|
-|2|Enabled including attitude reporting|
 
-## VIEP_CAM_SWLOW: ViewPro Camera For Switch Low
+## EFI_H6K_CANDRV: Halo6000 CAN driver
 
-Camera selection when switch is in low position
-
-|Value|Meaning|
-|:---:|:---:|
-|0|No change in camera selection|
-|1|EO1|
-|2|IR thermal|
-|3|EO1 + IR Picture-in-picture|
-|4|IR + EO1 Picture-in-picture|
-|5|Fusion|
-|6|IR1 13mm|
-|7|IR2 52mm|
-
-## VIEP_CAM_SWMID: ViewPro Camera For Switch Mid
-
-Camera selection when switch is in middle position
+Halo6000 CAN driver. Use 1 for first CAN scripting driver, 2 for 2nd driver
 
 |Value|Meaning|
 |:---:|:---:|
-|0|No change in camera selection|
-|1|EO1|
-|2|IR thermal|
-|3|EO1 + IR Picture-in-picture|
-|4|IR + EO1 Picture-in-picture|
-|5|Fusion|
-|6|IR1 13mm|
-|7|IR2 52mm|
+|0|Disabled|
+|1|FirstCAN|
+|2|SecondCAN|
 
-## VIEP_CAM_SWHIGH: ViewPro Camera For Switch High
+## EFI_H6K_START_FN: Halo6000 start auxilliary function
 
-Camera selection when switch is in high position
+The RC auxilliary function number for start/stop of the generator. Zero to disable start function
 
 |Value|Meaning|
 |:---:|:---:|
-|0|No change in camera selection|
-|1|EO1|
-|2|IR thermal|
-|3|EO1 + IR Picture-in-picture|
-|4|IR + EO1 Picture-in-picture|
-|5|Fusion|
-|6|IR1 13mm|
-|7|IR2 52mm|
+|0|Disabled|
+|300|300|
+|301|301|
+|302|302|
+|303|303|
+|304|304|
+|305|305|
+|306|306|
+|307|307|
 
-## VIEP_ZOOM_SPEED: ViewPro Zoom Speed
+## EFI_H6K_TELEM_RT: Halo6000 telemetry rate
 
-ViewPro Zoom Speed.  Higher numbers result in faster zooming
+The rate that additional generator telemetry is sent
 
-- Range: 0 7
+- Units: Hz
 
-## VIEP_ZOOM_MAX: ViewPro Zoom Times Max
+## EFI_H6K_FUELTOT: Halo6000 total fuel capacity
 
-ViewPro Zoom Times Max
+The capacity of the tank in litres
 
-- Range: 0 30
+- Units: litres
+
+## EFI_H6K_OPTIONS: Halo6000 options
+
+Halo6000 options
+
+- Bitmask: 0:LogAllCanPackets
 
 ## EFI_DLA_ENABLE: EFI DLA enable
 
@@ -2053,51 +2038,47 @@ EFI DLA litres of fuel per second of injection time
 
 - Units: litres
 
-## EFI_INF_ENABLE: EFI INF-Inject enable
+## DJIR_DEBUG: DJIRS2 debug
 
-Enable EFI INF-Inject driver
+*Note: This parameter is for advanced users*
+
+Enable DJIRS2 debug
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
+|2|Enabled with attitude reporting|
+
+## DJIR_UPSIDEDOWN: DJIRS2 upside down
+
+DJIRS2 upside down
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Right side up|
+|1|Upside down|
+
+## ESC_HW_ENABLE: Hobbywing ESC Enable
+
+Enable Hobbywing ESC telemetry
 
 |Value|Meaning|
 |:---:|:---:|
 |0|Disabled|
 |1|Enabled|
 
-## EFI_INF_OPTIONS: EFI INF-Inject options
+## ESC_HW_POLES: Hobbywing ESC motor poles
 
-EFI INF driver options
+Number of motor poles for eRPM scaling
 
-- Bitmask: 0:EnableLogging
+- Range: 1 50
 
-## EFI_INF_THR_HZ: EFI INF-Inject throttle rate
+## ESC_HW_OFS: Hobbywing ESC motor offset
 
-EFI INF throttle output rate
+Motor number offset of first ESC
 
-- Range: 0 50
-
-- Units: Hz
-
-## EFI_INF_IGN_AUX: EFI INF-Inject ignition aux function
-
-EFI INF throttle ignition aux function
-
-## TOFSENSE_S1_PRX: TOFSENSE-M to be used as Proximity sensor
-
-Set 0 if sensor is to be used as a 1-D rangefinder (minimum of all distances will be sent, typically used for height detection). Set 1 if it should be used as a 3-D proximity device (Eg. Obstacle Avoidance)
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Set as Rangefinder|
-|1|Set as Proximity sensor|
-
-## TOFSENSE_S1_SP: TOFSENSE-M serial port config
-
-UART instance sensor is connected to. Set 1 if sensor is connected to the port with fist SERIALx_PROTOCOL = 28. 
-
-- Range: 1 4
-
-## TOFSENSE_S1_BR: TOFSENSE-M serial port baudrate
-
-Serial Port baud rate. Sensor baud rate can be changed from Nassistant software
+- Range: 0 31
 
 ## TOFSENSE_PRX: TOFSENSE-M to be used as Proximity sensor
 
@@ -2158,6 +2139,25 @@ Third TOFSENSE-M sensors backend Instance. Setting this to 3 will pick the secon
 Third TOFSENSE-M sensor ID. This cannot be 0. You can change ID of sensor from NAssistant Software
 
 - Range: 1 255
+
+## TOFSENSE_S1_PRX: TOFSENSE-M to be used as Proximity sensor
+
+Set 0 if sensor is to be used as a 1-D rangefinder (minimum of all distances will be sent, typically used for height detection). Set 1 if it should be used as a 3-D proximity device (Eg. Obstacle Avoidance)
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Set as Rangefinder|
+|1|Set as Proximity sensor|
+
+## TOFSENSE_S1_SP: TOFSENSE-M serial port config
+
+UART instance sensor is connected to. Set 1 if sensor is connected to the port with fist SERIALx_PROTOCOL = 28. 
+
+- Range: 1 4
+
+## TOFSENSE_S1_BR: TOFSENSE-M serial port baudrate
+
+Serial Port baud rate. Sensor baud rate can be changed from Nassistant software
 
 # AFS Parameters
 

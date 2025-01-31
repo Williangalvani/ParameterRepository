@@ -2283,6 +2283,24 @@ Additional options\. When the Two Position Switch option is enabled then a high 
 
 
 
+.. _QUIK_ANGLE_MAX:
+
+QUIK\_ANGLE\_MAX: maximum angle error for tune abort
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+If while tuning the angle error goes over this limit then the tune will aborts to prevent a bad oscillation in the case of the tuning algorithm failing\. If you get an error \"Tuning\: attitude error ABORTING\" and you think it is a false positive then you can either raise this parameter or you can try increasing the QUIK\_DOUBLE\_TIME to do the tune more slowly\. A value of zero disables this check\.
+
+
++---------+
+| Units   |
++=========+
+| degrees |
++---------+
+
+
+
+
 .. _TERR_BRK_ENABLE:
 
 TERR\_BRK\_ENABLE: terrain brake enable
@@ -9470,6 +9488,8 @@ This sets options to change the behaviour of the battery monitor
 +-----+---------------------------------------------------------+
 | 7   | Allow DroneCAN InfoAux to be from a different CAN node  |
 +-----+---------------------------------------------------------+
+| 8   | Battery is for internal autopilot use only              |
++-----+---------------------------------------------------------+
 | 9   | Sum monitor measures minimum voltage instead of average |
 +-----+---------------------------------------------------------+
 
@@ -10398,6 +10418,8 @@ This sets options to change the behaviour of the battery monitor
 | 6   | Send resistance compensated voltage to GCS              |
 +-----+---------------------------------------------------------+
 | 7   | Allow DroneCAN InfoAux to be from a different CAN node  |
++-----+---------------------------------------------------------+
+| 8   | Battery is for internal autopilot use only              |
 +-----+---------------------------------------------------------+
 | 9   | Sum monitor measures minimum voltage instead of average |
 +-----+---------------------------------------------------------+
@@ -11328,6 +11350,8 @@ This sets options to change the behaviour of the battery monitor
 +-----+---------------------------------------------------------+
 | 7   | Allow DroneCAN InfoAux to be from a different CAN node  |
 +-----+---------------------------------------------------------+
+| 8   | Battery is for internal autopilot use only              |
++-----+---------------------------------------------------------+
 | 9   | Sum monitor measures minimum voltage instead of average |
 +-----+---------------------------------------------------------+
 
@@ -12256,6 +12280,8 @@ This sets options to change the behaviour of the battery monitor
 | 6   | Send resistance compensated voltage to GCS              |
 +-----+---------------------------------------------------------+
 | 7   | Allow DroneCAN InfoAux to be from a different CAN node  |
++-----+---------------------------------------------------------+
+| 8   | Battery is for internal autopilot use only              |
 +-----+---------------------------------------------------------+
 | 9   | Sum monitor measures minimum voltage instead of average |
 +-----+---------------------------------------------------------+
@@ -13186,6 +13212,8 @@ This sets options to change the behaviour of the battery monitor
 +-----+---------------------------------------------------------+
 | 7   | Allow DroneCAN InfoAux to be from a different CAN node  |
 +-----+---------------------------------------------------------+
+| 8   | Battery is for internal autopilot use only              |
++-----+---------------------------------------------------------+
 | 9   | Sum monitor measures minimum voltage instead of average |
 +-----+---------------------------------------------------------+
 
@@ -14114,6 +14142,8 @@ This sets options to change the behaviour of the battery monitor
 | 6   | Send resistance compensated voltage to GCS              |
 +-----+---------------------------------------------------------+
 | 7   | Allow DroneCAN InfoAux to be from a different CAN node  |
++-----+---------------------------------------------------------+
+| 8   | Battery is for internal autopilot use only              |
 +-----+---------------------------------------------------------+
 | 9   | Sum monitor measures minimum voltage instead of average |
 +-----+---------------------------------------------------------+
@@ -15044,6 +15074,8 @@ This sets options to change the behaviour of the battery monitor
 +-----+---------------------------------------------------------+
 | 7   | Allow DroneCAN InfoAux to be from a different CAN node  |
 +-----+---------------------------------------------------------+
+| 8   | Battery is for internal autopilot use only              |
++-----+---------------------------------------------------------+
 | 9   | Sum monitor measures minimum voltage instead of average |
 +-----+---------------------------------------------------------+
 
@@ -15972,6 +16004,8 @@ This sets options to change the behaviour of the battery monitor
 | 6   | Send resistance compensated voltage to GCS              |
 +-----+---------------------------------------------------------+
 | 7   | Allow DroneCAN InfoAux to be from a different CAN node  |
++-----+---------------------------------------------------------+
+| 8   | Battery is for internal autopilot use only              |
 +-----+---------------------------------------------------------+
 | 9   | Sum monitor measures minimum voltage instead of average |
 +-----+---------------------------------------------------------+
@@ -16902,6 +16936,8 @@ This sets options to change the behaviour of the battery monitor
 +-----+---------------------------------------------------------+
 | 7   | Allow DroneCAN InfoAux to be from a different CAN node  |
 +-----+---------------------------------------------------------+
+| 8   | Battery is for internal autopilot use only              |
++-----+---------------------------------------------------------+
 | 9   | Sum monitor measures minimum voltage instead of average |
 +-----+---------------------------------------------------------+
 
@@ -17830,6 +17866,8 @@ This sets options to change the behaviour of the battery monitor
 | 6   | Send resistance compensated voltage to GCS              |
 +-----+---------------------------------------------------------+
 | 7   | Allow DroneCAN InfoAux to be from a different CAN node  |
++-----+---------------------------------------------------------+
+| 8   | Battery is for internal autopilot use only              |
 +-----+---------------------------------------------------------+
 | 9   | Sum monitor measures minimum voltage instead of average |
 +-----+---------------------------------------------------------+
@@ -18760,6 +18798,8 @@ This sets options to change the behaviour of the battery monitor
 +-----+---------------------------------------------------------+
 | 7   | Allow DroneCAN InfoAux to be from a different CAN node  |
 +-----+---------------------------------------------------------+
+| 8   | Battery is for internal autopilot use only              |
++-----+---------------------------------------------------------+
 | 9   | Sum monitor measures minimum voltage instead of average |
 +-----+---------------------------------------------------------+
 
@@ -19688,6 +19728,8 @@ This sets options to change the behaviour of the battery monitor
 | 6   | Send resistance compensated voltage to GCS              |
 +-----+---------------------------------------------------------+
 | 7   | Allow DroneCAN InfoAux to be from a different CAN node  |
++-----+---------------------------------------------------------+
+| 8   | Battery is for internal autopilot use only              |
 +-----+---------------------------------------------------------+
 | 9   | Sum monitor measures minimum voltage instead of average |
 +-----+---------------------------------------------------------+
@@ -20618,6 +20660,8 @@ This sets options to change the behaviour of the battery monitor
 +-----+---------------------------------------------------------+
 | 7   | Allow DroneCAN InfoAux to be from a different CAN node  |
 +-----+---------------------------------------------------------+
+| 8   | Battery is for internal autopilot use only              |
++-----+---------------------------------------------------------+
 | 9   | Sum monitor measures minimum voltage instead of average |
 +-----+---------------------------------------------------------+
 
@@ -21546,6 +21590,8 @@ This sets options to change the behaviour of the battery monitor
 | 6   | Send resistance compensated voltage to GCS              |
 +-----+---------------------------------------------------------+
 | 7   | Allow DroneCAN InfoAux to be from a different CAN node  |
++-----+---------------------------------------------------------+
+| 8   | Battery is for internal autopilot use only              |
 +-----+---------------------------------------------------------+
 | 9   | Sum monitor measures minimum voltage instead of average |
 +-----+---------------------------------------------------------+
@@ -22476,6 +22522,8 @@ This sets options to change the behaviour of the battery monitor
 +-----+---------------------------------------------------------+
 | 7   | Allow DroneCAN InfoAux to be from a different CAN node  |
 +-----+---------------------------------------------------------+
+| 8   | Battery is for internal autopilot use only              |
++-----+---------------------------------------------------------+
 | 9   | Sum monitor measures minimum voltage instead of average |
 +-----+---------------------------------------------------------+
 
@@ -23404,6 +23452,8 @@ This sets options to change the behaviour of the battery monitor
 | 6   | Send resistance compensated voltage to GCS              |
 +-----+---------------------------------------------------------+
 | 7   | Allow DroneCAN InfoAux to be from a different CAN node  |
++-----+---------------------------------------------------------+
+| 8   | Battery is for internal autopilot use only              |
 +-----+---------------------------------------------------------+
 | 9   | Sum monitor measures minimum voltage instead of average |
 +-----+---------------------------------------------------------+

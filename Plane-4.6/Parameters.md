@@ -1657,6 +1657,12 @@ Additional options. When the Two Position Switch option is enabled then a high s
 
 - Bitmask: 0:UseTwoPositionSwitch
 
+## QUIK_ANGLE_MAX: maximum angle error for tune abort
+
+If while tuning the angle error goes over this limit then the tune will aborts to prevent a bad oscillation in the case of the tuning algorithm failing. If you get an error "Tuning: attitude error ABORTING" and you think it is a false positive then you can either raise this parameter or you can try increasing the QUIK_DOUBLE_TIME to do the tune more slowly. A value of zero disables this check.
+
+- Units: deg
+
 ## TERR_BRK_ENABLE: terrain brake enable
 
 terrain brake enable
@@ -4534,7 +4540,7 @@ Battery capacity remaining which is required to arm the aircraft. Set to 0 to al
 
 This sets options to change the behaviour of the battery monitor
 
-- Bitmask: 0:Ignore DroneCAN SoC, 1:MPPT reports input voltage and current, 2:MPPT Powered off when disarmed, 3:MPPT Powered on when armed, 4:MPPT Powered off at boot, 5:MPPT Powered on at boot, 6:Send resistance compensated voltage to GCS, 7:Allow DroneCAN InfoAux to be from a different CAN node, 9:Sum monitor measures minimum voltage instead of average
+- Bitmask: 0:Ignore DroneCAN SoC, 1:MPPT reports input voltage and current, 2:MPPT Powered off when disarmed, 3:MPPT Powered on when armed, 4:MPPT Powered off at boot, 5:MPPT Powered on at boot, 6:Send resistance compensated voltage to GCS, 7:Allow DroneCAN InfoAux to be from a different CAN node, 8:Battery is for internal autopilot use only, 9:Sum monitor measures minimum voltage instead of average
 
 ## BATT2_ESC_INDEX: ESC Telemetry Index to write to
 
@@ -4939,7 +4945,7 @@ Battery capacity remaining which is required to arm the aircraft. Set to 0 to al
 
 This sets options to change the behaviour of the battery monitor
 
-- Bitmask: 0:Ignore DroneCAN SoC, 1:MPPT reports input voltage and current, 2:MPPT Powered off when disarmed, 3:MPPT Powered on when armed, 4:MPPT Powered off at boot, 5:MPPT Powered on at boot, 6:Send resistance compensated voltage to GCS, 7:Allow DroneCAN InfoAux to be from a different CAN node, 9:Sum monitor measures minimum voltage instead of average
+- Bitmask: 0:Ignore DroneCAN SoC, 1:MPPT reports input voltage and current, 2:MPPT Powered off when disarmed, 3:MPPT Powered on when armed, 4:MPPT Powered off at boot, 5:MPPT Powered on at boot, 6:Send resistance compensated voltage to GCS, 7:Allow DroneCAN InfoAux to be from a different CAN node, 8:Battery is for internal autopilot use only, 9:Sum monitor measures minimum voltage instead of average
 
 ## BATT3_ESC_INDEX: ESC Telemetry Index to write to
 
@@ -5344,7 +5350,7 @@ Battery capacity remaining which is required to arm the aircraft. Set to 0 to al
 
 This sets options to change the behaviour of the battery monitor
 
-- Bitmask: 0:Ignore DroneCAN SoC, 1:MPPT reports input voltage and current, 2:MPPT Powered off when disarmed, 3:MPPT Powered on when armed, 4:MPPT Powered off at boot, 5:MPPT Powered on at boot, 6:Send resistance compensated voltage to GCS, 7:Allow DroneCAN InfoAux to be from a different CAN node, 9:Sum monitor measures minimum voltage instead of average
+- Bitmask: 0:Ignore DroneCAN SoC, 1:MPPT reports input voltage and current, 2:MPPT Powered off when disarmed, 3:MPPT Powered on when armed, 4:MPPT Powered off at boot, 5:MPPT Powered on at boot, 6:Send resistance compensated voltage to GCS, 7:Allow DroneCAN InfoAux to be from a different CAN node, 8:Battery is for internal autopilot use only, 9:Sum monitor measures minimum voltage instead of average
 
 ## BATT4_ESC_INDEX: ESC Telemetry Index to write to
 
@@ -5749,7 +5755,7 @@ Battery capacity remaining which is required to arm the aircraft. Set to 0 to al
 
 This sets options to change the behaviour of the battery monitor
 
-- Bitmask: 0:Ignore DroneCAN SoC, 1:MPPT reports input voltage and current, 2:MPPT Powered off when disarmed, 3:MPPT Powered on when armed, 4:MPPT Powered off at boot, 5:MPPT Powered on at boot, 6:Send resistance compensated voltage to GCS, 7:Allow DroneCAN InfoAux to be from a different CAN node, 9:Sum monitor measures minimum voltage instead of average
+- Bitmask: 0:Ignore DroneCAN SoC, 1:MPPT reports input voltage and current, 2:MPPT Powered off when disarmed, 3:MPPT Powered on when armed, 4:MPPT Powered off at boot, 5:MPPT Powered on at boot, 6:Send resistance compensated voltage to GCS, 7:Allow DroneCAN InfoAux to be from a different CAN node, 8:Battery is for internal autopilot use only, 9:Sum monitor measures minimum voltage instead of average
 
 ## BATT5_ESC_INDEX: ESC Telemetry Index to write to
 
@@ -6154,7 +6160,7 @@ Battery capacity remaining which is required to arm the aircraft. Set to 0 to al
 
 This sets options to change the behaviour of the battery monitor
 
-- Bitmask: 0:Ignore DroneCAN SoC, 1:MPPT reports input voltage and current, 2:MPPT Powered off when disarmed, 3:MPPT Powered on when armed, 4:MPPT Powered off at boot, 5:MPPT Powered on at boot, 6:Send resistance compensated voltage to GCS, 7:Allow DroneCAN InfoAux to be from a different CAN node, 9:Sum monitor measures minimum voltage instead of average
+- Bitmask: 0:Ignore DroneCAN SoC, 1:MPPT reports input voltage and current, 2:MPPT Powered off when disarmed, 3:MPPT Powered on when armed, 4:MPPT Powered off at boot, 5:MPPT Powered on at boot, 6:Send resistance compensated voltage to GCS, 7:Allow DroneCAN InfoAux to be from a different CAN node, 8:Battery is for internal autopilot use only, 9:Sum monitor measures minimum voltage instead of average
 
 ## BATT6_ESC_INDEX: ESC Telemetry Index to write to
 
@@ -6559,7 +6565,7 @@ Battery capacity remaining which is required to arm the aircraft. Set to 0 to al
 
 This sets options to change the behaviour of the battery monitor
 
-- Bitmask: 0:Ignore DroneCAN SoC, 1:MPPT reports input voltage and current, 2:MPPT Powered off when disarmed, 3:MPPT Powered on when armed, 4:MPPT Powered off at boot, 5:MPPT Powered on at boot, 6:Send resistance compensated voltage to GCS, 7:Allow DroneCAN InfoAux to be from a different CAN node, 9:Sum monitor measures minimum voltage instead of average
+- Bitmask: 0:Ignore DroneCAN SoC, 1:MPPT reports input voltage and current, 2:MPPT Powered off when disarmed, 3:MPPT Powered on when armed, 4:MPPT Powered off at boot, 5:MPPT Powered on at boot, 6:Send resistance compensated voltage to GCS, 7:Allow DroneCAN InfoAux to be from a different CAN node, 8:Battery is for internal autopilot use only, 9:Sum monitor measures minimum voltage instead of average
 
 ## BATT7_ESC_INDEX: ESC Telemetry Index to write to
 
@@ -6964,7 +6970,7 @@ Battery capacity remaining which is required to arm the aircraft. Set to 0 to al
 
 This sets options to change the behaviour of the battery monitor
 
-- Bitmask: 0:Ignore DroneCAN SoC, 1:MPPT reports input voltage and current, 2:MPPT Powered off when disarmed, 3:MPPT Powered on when armed, 4:MPPT Powered off at boot, 5:MPPT Powered on at boot, 6:Send resistance compensated voltage to GCS, 7:Allow DroneCAN InfoAux to be from a different CAN node, 9:Sum monitor measures minimum voltage instead of average
+- Bitmask: 0:Ignore DroneCAN SoC, 1:MPPT reports input voltage and current, 2:MPPT Powered off when disarmed, 3:MPPT Powered on when armed, 4:MPPT Powered off at boot, 5:MPPT Powered on at boot, 6:Send resistance compensated voltage to GCS, 7:Allow DroneCAN InfoAux to be from a different CAN node, 8:Battery is for internal autopilot use only, 9:Sum monitor measures minimum voltage instead of average
 
 ## BATT8_ESC_INDEX: ESC Telemetry Index to write to
 
@@ -7369,7 +7375,7 @@ Battery capacity remaining which is required to arm the aircraft. Set to 0 to al
 
 This sets options to change the behaviour of the battery monitor
 
-- Bitmask: 0:Ignore DroneCAN SoC, 1:MPPT reports input voltage and current, 2:MPPT Powered off when disarmed, 3:MPPT Powered on when armed, 4:MPPT Powered off at boot, 5:MPPT Powered on at boot, 6:Send resistance compensated voltage to GCS, 7:Allow DroneCAN InfoAux to be from a different CAN node, 9:Sum monitor measures minimum voltage instead of average
+- Bitmask: 0:Ignore DroneCAN SoC, 1:MPPT reports input voltage and current, 2:MPPT Powered off when disarmed, 3:MPPT Powered on when armed, 4:MPPT Powered off at boot, 5:MPPT Powered on at boot, 6:Send resistance compensated voltage to GCS, 7:Allow DroneCAN InfoAux to be from a different CAN node, 8:Battery is for internal autopilot use only, 9:Sum monitor measures minimum voltage instead of average
 
 ## BATT9_ESC_INDEX: ESC Telemetry Index to write to
 
@@ -7774,7 +7780,7 @@ Battery capacity remaining which is required to arm the aircraft. Set to 0 to al
 
 This sets options to change the behaviour of the battery monitor
 
-- Bitmask: 0:Ignore DroneCAN SoC, 1:MPPT reports input voltage and current, 2:MPPT Powered off when disarmed, 3:MPPT Powered on when armed, 4:MPPT Powered off at boot, 5:MPPT Powered on at boot, 6:Send resistance compensated voltage to GCS, 7:Allow DroneCAN InfoAux to be from a different CAN node, 9:Sum monitor measures minimum voltage instead of average
+- Bitmask: 0:Ignore DroneCAN SoC, 1:MPPT reports input voltage and current, 2:MPPT Powered off when disarmed, 3:MPPT Powered on when armed, 4:MPPT Powered off at boot, 5:MPPT Powered on at boot, 6:Send resistance compensated voltage to GCS, 7:Allow DroneCAN InfoAux to be from a different CAN node, 8:Battery is for internal autopilot use only, 9:Sum monitor measures minimum voltage instead of average
 
 ## BATTA_ESC_INDEX: ESC Telemetry Index to write to
 
@@ -8179,7 +8185,7 @@ Battery capacity remaining which is required to arm the aircraft. Set to 0 to al
 
 This sets options to change the behaviour of the battery monitor
 
-- Bitmask: 0:Ignore DroneCAN SoC, 1:MPPT reports input voltage and current, 2:MPPT Powered off when disarmed, 3:MPPT Powered on when armed, 4:MPPT Powered off at boot, 5:MPPT Powered on at boot, 6:Send resistance compensated voltage to GCS, 7:Allow DroneCAN InfoAux to be from a different CAN node, 9:Sum monitor measures minimum voltage instead of average
+- Bitmask: 0:Ignore DroneCAN SoC, 1:MPPT reports input voltage and current, 2:MPPT Powered off when disarmed, 3:MPPT Powered on when armed, 4:MPPT Powered off at boot, 5:MPPT Powered on at boot, 6:Send resistance compensated voltage to GCS, 7:Allow DroneCAN InfoAux to be from a different CAN node, 8:Battery is for internal autopilot use only, 9:Sum monitor measures minimum voltage instead of average
 
 ## BATTB_ESC_INDEX: ESC Telemetry Index to write to
 
@@ -8584,7 +8590,7 @@ Battery capacity remaining which is required to arm the aircraft. Set to 0 to al
 
 This sets options to change the behaviour of the battery monitor
 
-- Bitmask: 0:Ignore DroneCAN SoC, 1:MPPT reports input voltage and current, 2:MPPT Powered off when disarmed, 3:MPPT Powered on when armed, 4:MPPT Powered off at boot, 5:MPPT Powered on at boot, 6:Send resistance compensated voltage to GCS, 7:Allow DroneCAN InfoAux to be from a different CAN node, 9:Sum monitor measures minimum voltage instead of average
+- Bitmask: 0:Ignore DroneCAN SoC, 1:MPPT reports input voltage and current, 2:MPPT Powered off when disarmed, 3:MPPT Powered on when armed, 4:MPPT Powered off at boot, 5:MPPT Powered on at boot, 6:Send resistance compensated voltage to GCS, 7:Allow DroneCAN InfoAux to be from a different CAN node, 8:Battery is for internal autopilot use only, 9:Sum monitor measures minimum voltage instead of average
 
 ## BATTC_ESC_INDEX: ESC Telemetry Index to write to
 
@@ -8989,7 +8995,7 @@ Battery capacity remaining which is required to arm the aircraft. Set to 0 to al
 
 This sets options to change the behaviour of the battery monitor
 
-- Bitmask: 0:Ignore DroneCAN SoC, 1:MPPT reports input voltage and current, 2:MPPT Powered off when disarmed, 3:MPPT Powered on when armed, 4:MPPT Powered off at boot, 5:MPPT Powered on at boot, 6:Send resistance compensated voltage to GCS, 7:Allow DroneCAN InfoAux to be from a different CAN node, 9:Sum monitor measures minimum voltage instead of average
+- Bitmask: 0:Ignore DroneCAN SoC, 1:MPPT reports input voltage and current, 2:MPPT Powered off when disarmed, 3:MPPT Powered on when armed, 4:MPPT Powered off at boot, 5:MPPT Powered on at boot, 6:Send resistance compensated voltage to GCS, 7:Allow DroneCAN InfoAux to be from a different CAN node, 8:Battery is for internal autopilot use only, 9:Sum monitor measures minimum voltage instead of average
 
 ## BATTD_ESC_INDEX: ESC Telemetry Index to write to
 
@@ -9394,7 +9400,7 @@ Battery capacity remaining which is required to arm the aircraft. Set to 0 to al
 
 This sets options to change the behaviour of the battery monitor
 
-- Bitmask: 0:Ignore DroneCAN SoC, 1:MPPT reports input voltage and current, 2:MPPT Powered off when disarmed, 3:MPPT Powered on when armed, 4:MPPT Powered off at boot, 5:MPPT Powered on at boot, 6:Send resistance compensated voltage to GCS, 7:Allow DroneCAN InfoAux to be from a different CAN node, 9:Sum monitor measures minimum voltage instead of average
+- Bitmask: 0:Ignore DroneCAN SoC, 1:MPPT reports input voltage and current, 2:MPPT Powered off when disarmed, 3:MPPT Powered on when armed, 4:MPPT Powered off at boot, 5:MPPT Powered on at boot, 6:Send resistance compensated voltage to GCS, 7:Allow DroneCAN InfoAux to be from a different CAN node, 8:Battery is for internal autopilot use only, 9:Sum monitor measures minimum voltage instead of average
 
 ## BATTE_ESC_INDEX: ESC Telemetry Index to write to
 
@@ -9799,7 +9805,7 @@ Battery capacity remaining which is required to arm the aircraft. Set to 0 to al
 
 This sets options to change the behaviour of the battery monitor
 
-- Bitmask: 0:Ignore DroneCAN SoC, 1:MPPT reports input voltage and current, 2:MPPT Powered off when disarmed, 3:MPPT Powered on when armed, 4:MPPT Powered off at boot, 5:MPPT Powered on at boot, 6:Send resistance compensated voltage to GCS, 7:Allow DroneCAN InfoAux to be from a different CAN node, 9:Sum monitor measures minimum voltage instead of average
+- Bitmask: 0:Ignore DroneCAN SoC, 1:MPPT reports input voltage and current, 2:MPPT Powered off when disarmed, 3:MPPT Powered on when armed, 4:MPPT Powered off at boot, 5:MPPT Powered on at boot, 6:Send resistance compensated voltage to GCS, 7:Allow DroneCAN InfoAux to be from a different CAN node, 8:Battery is for internal autopilot use only, 9:Sum monitor measures minimum voltage instead of average
 
 ## BATTF_ESC_INDEX: ESC Telemetry Index to write to
 
@@ -10204,7 +10210,7 @@ Battery capacity remaining which is required to arm the aircraft. Set to 0 to al
 
 This sets options to change the behaviour of the battery monitor
 
-- Bitmask: 0:Ignore DroneCAN SoC, 1:MPPT reports input voltage and current, 2:MPPT Powered off when disarmed, 3:MPPT Powered on when armed, 4:MPPT Powered off at boot, 5:MPPT Powered on at boot, 6:Send resistance compensated voltage to GCS, 7:Allow DroneCAN InfoAux to be from a different CAN node, 9:Sum monitor measures minimum voltage instead of average
+- Bitmask: 0:Ignore DroneCAN SoC, 1:MPPT reports input voltage and current, 2:MPPT Powered off when disarmed, 3:MPPT Powered on when armed, 4:MPPT Powered off at boot, 5:MPPT Powered on at boot, 6:Send resistance compensated voltage to GCS, 7:Allow DroneCAN InfoAux to be from a different CAN node, 8:Battery is for internal autopilot use only, 9:Sum monitor measures minimum voltage instead of average
 
 ## BATTG_ESC_INDEX: ESC Telemetry Index to write to
 
@@ -10609,7 +10615,7 @@ Battery capacity remaining which is required to arm the aircraft. Set to 0 to al
 
 This sets options to change the behaviour of the battery monitor
 
-- Bitmask: 0:Ignore DroneCAN SoC, 1:MPPT reports input voltage and current, 2:MPPT Powered off when disarmed, 3:MPPT Powered on when armed, 4:MPPT Powered off at boot, 5:MPPT Powered on at boot, 6:Send resistance compensated voltage to GCS, 7:Allow DroneCAN InfoAux to be from a different CAN node, 9:Sum monitor measures minimum voltage instead of average
+- Bitmask: 0:Ignore DroneCAN SoC, 1:MPPT reports input voltage and current, 2:MPPT Powered off when disarmed, 3:MPPT Powered on when armed, 4:MPPT Powered off at boot, 5:MPPT Powered on at boot, 6:Send resistance compensated voltage to GCS, 7:Allow DroneCAN InfoAux to be from a different CAN node, 8:Battery is for internal autopilot use only, 9:Sum monitor measures minimum voltage instead of average
 
 ## BATT_ESC_INDEX: ESC Telemetry Index to write to
 
@@ -11556,6 +11562,7 @@ Auxiliary RC Options function executed on pin change
 |177|Mount LRF enable|
 |179|ICEngine start / stop|
 |180|Test autotuned gains after tune is complete|
+|181|QuickTune|
 |208|Flap|
 |209|VTOL Forward Throttle|
 |210|Airbrakes|
@@ -11663,6 +11670,7 @@ Auxiliary RC Options function executed on pin change
 |177|Mount LRF enable|
 |179|ICEngine start / stop|
 |180|Test autotuned gains after tune is complete|
+|181|QuickTune|
 |208|Flap|
 |209|VTOL Forward Throttle|
 |210|Airbrakes|
@@ -11770,6 +11778,7 @@ Auxiliary RC Options function executed on pin change
 |177|Mount LRF enable|
 |179|ICEngine start / stop|
 |180|Test autotuned gains after tune is complete|
+|181|QuickTune|
 |208|Flap|
 |209|VTOL Forward Throttle|
 |210|Airbrakes|
@@ -11877,6 +11886,7 @@ Auxiliary RC Options function executed on pin change
 |177|Mount LRF enable|
 |179|ICEngine start / stop|
 |180|Test autotuned gains after tune is complete|
+|181|QuickTune|
 |208|Flap|
 |209|VTOL Forward Throttle|
 |210|Airbrakes|
@@ -22375,7 +22385,7 @@ A bitmask to set some MSP specific options: EnableTelemetryMode-allows "push" mo
 
 ## NAVL1_PERIOD: L1 control period
 
-Period in seconds of L1 tracking loop. This parameter is the primary control for agressiveness of turns in auto mode. This needs to be larger for less responsive airframes. The default of 20 is quite conservative, but for most RC aircraft will lead to reasonable flight. For smaller more agile aircraft a value closer to 15 is appropriate, or even as low as 10 for some very agile aircraft. When tuning, change this value in small increments, as a value that is much too small (say 5 or 10 below the right value) can lead to very radical turns, and a risk of stalling.
+Period in seconds of L1 tracking loop. This parameter is the primary control for agressiveness of turns in auto mode. This needs to be larger for less responsive airframes. The default is quite conservative, but for most RC aircraft will lead to reasonable flight. For smaller more agile aircraft a value closer to 15 is appropriate, or even as low as 10 for some very agile aircraft. When tuning, change this value in small increments, as a value that is much too small (say 5 or 10 below the right value) can lead to very radical turns, and a risk of stalling.
 
 - Units: s
 
@@ -33124,6 +33134,7 @@ Function assigned to this RC channel
 |177|Mount LRF enable|
 |179|ICEngine start / stop|
 |180|Test autotuned gains after tune is complete|
+|181|QuickTune|
 |208|Flap|
 |209|VTOL Forward Throttle|
 |210|Airbrakes|

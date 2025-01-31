@@ -1159,6 +1159,10 @@
         </bitmask>
         <field name="Bitmask">0:UseTwoPositionSwitch</field>
       </param>
+      <param humanName="maximum angle error for tune abort" name="QUIK_ANGLE_MAX" documentation="If while tuning the angle error goes over this limit then the tune will aborts to prevent a bad oscillation in the case of the tuning algorithm failing. If you get an error &quot;Tuning: attitude error ABORTING&quot; and you think it is a false positive then you can either raise this parameter or you can try increasing the QUIK_DOUBLE_TIME to do the tune more slowly. A value of zero disables this check." user="Standard">
+        <field name="Units">deg</field>
+        <field name="UnitText">degrees</field>
+      </param>
       <param humanName="terrain brake enable" name="TERR_BRK_ENABLE" documentation="terrain brake enable" user="Standard">
         <values>
           <value code="0">Disabled</value>
@@ -3573,9 +3577,10 @@
           <bit code="5">MPPT Powered on at boot</bit>
           <bit code="6">Send resistance compensated voltage to GCS</bit>
           <bit code="7">Allow DroneCAN InfoAux to be from a different CAN node</bit>
+          <bit code="8">Battery is for internal autopilot use only</bit>
           <bit code="9">Sum monitor measures minimum voltage instead of average</bit>
         </bitmask>
-        <field name="Bitmask">0:Ignore DroneCAN SoC, 1:MPPT reports input voltage and current, 2:MPPT Powered off when disarmed, 3:MPPT Powered on when armed, 4:MPPT Powered off at boot, 5:MPPT Powered on at boot, 6:Send resistance compensated voltage to GCS, 7:Allow DroneCAN InfoAux to be from a different CAN node, 9:Sum monitor measures minimum voltage instead of average</field>
+        <field name="Bitmask">0:Ignore DroneCAN SoC, 1:MPPT reports input voltage and current, 2:MPPT Powered off when disarmed, 3:MPPT Powered on when armed, 4:MPPT Powered off at boot, 5:MPPT Powered on at boot, 6:Send resistance compensated voltage to GCS, 7:Allow DroneCAN InfoAux to be from a different CAN node, 8:Battery is for internal autopilot use only, 9:Sum monitor measures minimum voltage instead of average</field>
       </param>
       <param humanName="ESC Telemetry Index to write to" name="BATT2_ESC_INDEX" documentation="ESC Telemetry Index to write voltage, current, consumption and temperature data to. Use 0 to disable." user="Advanced">
         <field name="Range">0 10</field>
@@ -3855,9 +3860,10 @@
           <bit code="5">MPPT Powered on at boot</bit>
           <bit code="6">Send resistance compensated voltage to GCS</bit>
           <bit code="7">Allow DroneCAN InfoAux to be from a different CAN node</bit>
+          <bit code="8">Battery is for internal autopilot use only</bit>
           <bit code="9">Sum monitor measures minimum voltage instead of average</bit>
         </bitmask>
-        <field name="Bitmask">0:Ignore DroneCAN SoC, 1:MPPT reports input voltage and current, 2:MPPT Powered off when disarmed, 3:MPPT Powered on when armed, 4:MPPT Powered off at boot, 5:MPPT Powered on at boot, 6:Send resistance compensated voltage to GCS, 7:Allow DroneCAN InfoAux to be from a different CAN node, 9:Sum monitor measures minimum voltage instead of average</field>
+        <field name="Bitmask">0:Ignore DroneCAN SoC, 1:MPPT reports input voltage and current, 2:MPPT Powered off when disarmed, 3:MPPT Powered on when armed, 4:MPPT Powered off at boot, 5:MPPT Powered on at boot, 6:Send resistance compensated voltage to GCS, 7:Allow DroneCAN InfoAux to be from a different CAN node, 8:Battery is for internal autopilot use only, 9:Sum monitor measures minimum voltage instead of average</field>
       </param>
       <param humanName="ESC Telemetry Index to write to" name="BATT3_ESC_INDEX" documentation="ESC Telemetry Index to write voltage, current, consumption and temperature data to. Use 0 to disable." user="Advanced">
         <field name="Range">0 10</field>
@@ -4137,9 +4143,10 @@
           <bit code="5">MPPT Powered on at boot</bit>
           <bit code="6">Send resistance compensated voltage to GCS</bit>
           <bit code="7">Allow DroneCAN InfoAux to be from a different CAN node</bit>
+          <bit code="8">Battery is for internal autopilot use only</bit>
           <bit code="9">Sum monitor measures minimum voltage instead of average</bit>
         </bitmask>
-        <field name="Bitmask">0:Ignore DroneCAN SoC, 1:MPPT reports input voltage and current, 2:MPPT Powered off when disarmed, 3:MPPT Powered on when armed, 4:MPPT Powered off at boot, 5:MPPT Powered on at boot, 6:Send resistance compensated voltage to GCS, 7:Allow DroneCAN InfoAux to be from a different CAN node, 9:Sum monitor measures minimum voltage instead of average</field>
+        <field name="Bitmask">0:Ignore DroneCAN SoC, 1:MPPT reports input voltage and current, 2:MPPT Powered off when disarmed, 3:MPPT Powered on when armed, 4:MPPT Powered off at boot, 5:MPPT Powered on at boot, 6:Send resistance compensated voltage to GCS, 7:Allow DroneCAN InfoAux to be from a different CAN node, 8:Battery is for internal autopilot use only, 9:Sum monitor measures minimum voltage instead of average</field>
       </param>
       <param humanName="ESC Telemetry Index to write to" name="BATT4_ESC_INDEX" documentation="ESC Telemetry Index to write voltage, current, consumption and temperature data to. Use 0 to disable." user="Advanced">
         <field name="Range">0 10</field>
@@ -4419,9 +4426,10 @@
           <bit code="5">MPPT Powered on at boot</bit>
           <bit code="6">Send resistance compensated voltage to GCS</bit>
           <bit code="7">Allow DroneCAN InfoAux to be from a different CAN node</bit>
+          <bit code="8">Battery is for internal autopilot use only</bit>
           <bit code="9">Sum monitor measures minimum voltage instead of average</bit>
         </bitmask>
-        <field name="Bitmask">0:Ignore DroneCAN SoC, 1:MPPT reports input voltage and current, 2:MPPT Powered off when disarmed, 3:MPPT Powered on when armed, 4:MPPT Powered off at boot, 5:MPPT Powered on at boot, 6:Send resistance compensated voltage to GCS, 7:Allow DroneCAN InfoAux to be from a different CAN node, 9:Sum monitor measures minimum voltage instead of average</field>
+        <field name="Bitmask">0:Ignore DroneCAN SoC, 1:MPPT reports input voltage and current, 2:MPPT Powered off when disarmed, 3:MPPT Powered on when armed, 4:MPPT Powered off at boot, 5:MPPT Powered on at boot, 6:Send resistance compensated voltage to GCS, 7:Allow DroneCAN InfoAux to be from a different CAN node, 8:Battery is for internal autopilot use only, 9:Sum monitor measures minimum voltage instead of average</field>
       </param>
       <param humanName="ESC Telemetry Index to write to" name="BATT5_ESC_INDEX" documentation="ESC Telemetry Index to write voltage, current, consumption and temperature data to. Use 0 to disable." user="Advanced">
         <field name="Range">0 10</field>
@@ -4701,9 +4709,10 @@
           <bit code="5">MPPT Powered on at boot</bit>
           <bit code="6">Send resistance compensated voltage to GCS</bit>
           <bit code="7">Allow DroneCAN InfoAux to be from a different CAN node</bit>
+          <bit code="8">Battery is for internal autopilot use only</bit>
           <bit code="9">Sum monitor measures minimum voltage instead of average</bit>
         </bitmask>
-        <field name="Bitmask">0:Ignore DroneCAN SoC, 1:MPPT reports input voltage and current, 2:MPPT Powered off when disarmed, 3:MPPT Powered on when armed, 4:MPPT Powered off at boot, 5:MPPT Powered on at boot, 6:Send resistance compensated voltage to GCS, 7:Allow DroneCAN InfoAux to be from a different CAN node, 9:Sum monitor measures minimum voltage instead of average</field>
+        <field name="Bitmask">0:Ignore DroneCAN SoC, 1:MPPT reports input voltage and current, 2:MPPT Powered off when disarmed, 3:MPPT Powered on when armed, 4:MPPT Powered off at boot, 5:MPPT Powered on at boot, 6:Send resistance compensated voltage to GCS, 7:Allow DroneCAN InfoAux to be from a different CAN node, 8:Battery is for internal autopilot use only, 9:Sum monitor measures minimum voltage instead of average</field>
       </param>
       <param humanName="ESC Telemetry Index to write to" name="BATT6_ESC_INDEX" documentation="ESC Telemetry Index to write voltage, current, consumption and temperature data to. Use 0 to disable." user="Advanced">
         <field name="Range">0 10</field>
@@ -4983,9 +4992,10 @@
           <bit code="5">MPPT Powered on at boot</bit>
           <bit code="6">Send resistance compensated voltage to GCS</bit>
           <bit code="7">Allow DroneCAN InfoAux to be from a different CAN node</bit>
+          <bit code="8">Battery is for internal autopilot use only</bit>
           <bit code="9">Sum monitor measures minimum voltage instead of average</bit>
         </bitmask>
-        <field name="Bitmask">0:Ignore DroneCAN SoC, 1:MPPT reports input voltage and current, 2:MPPT Powered off when disarmed, 3:MPPT Powered on when armed, 4:MPPT Powered off at boot, 5:MPPT Powered on at boot, 6:Send resistance compensated voltage to GCS, 7:Allow DroneCAN InfoAux to be from a different CAN node, 9:Sum monitor measures minimum voltage instead of average</field>
+        <field name="Bitmask">0:Ignore DroneCAN SoC, 1:MPPT reports input voltage and current, 2:MPPT Powered off when disarmed, 3:MPPT Powered on when armed, 4:MPPT Powered off at boot, 5:MPPT Powered on at boot, 6:Send resistance compensated voltage to GCS, 7:Allow DroneCAN InfoAux to be from a different CAN node, 8:Battery is for internal autopilot use only, 9:Sum monitor measures minimum voltage instead of average</field>
       </param>
       <param humanName="ESC Telemetry Index to write to" name="BATT7_ESC_INDEX" documentation="ESC Telemetry Index to write voltage, current, consumption and temperature data to. Use 0 to disable." user="Advanced">
         <field name="Range">0 10</field>
@@ -5265,9 +5275,10 @@
           <bit code="5">MPPT Powered on at boot</bit>
           <bit code="6">Send resistance compensated voltage to GCS</bit>
           <bit code="7">Allow DroneCAN InfoAux to be from a different CAN node</bit>
+          <bit code="8">Battery is for internal autopilot use only</bit>
           <bit code="9">Sum monitor measures minimum voltage instead of average</bit>
         </bitmask>
-        <field name="Bitmask">0:Ignore DroneCAN SoC, 1:MPPT reports input voltage and current, 2:MPPT Powered off when disarmed, 3:MPPT Powered on when armed, 4:MPPT Powered off at boot, 5:MPPT Powered on at boot, 6:Send resistance compensated voltage to GCS, 7:Allow DroneCAN InfoAux to be from a different CAN node, 9:Sum monitor measures minimum voltage instead of average</field>
+        <field name="Bitmask">0:Ignore DroneCAN SoC, 1:MPPT reports input voltage and current, 2:MPPT Powered off when disarmed, 3:MPPT Powered on when armed, 4:MPPT Powered off at boot, 5:MPPT Powered on at boot, 6:Send resistance compensated voltage to GCS, 7:Allow DroneCAN InfoAux to be from a different CAN node, 8:Battery is for internal autopilot use only, 9:Sum monitor measures minimum voltage instead of average</field>
       </param>
       <param humanName="ESC Telemetry Index to write to" name="BATT8_ESC_INDEX" documentation="ESC Telemetry Index to write voltage, current, consumption and temperature data to. Use 0 to disable." user="Advanced">
         <field name="Range">0 10</field>
@@ -5547,9 +5558,10 @@
           <bit code="5">MPPT Powered on at boot</bit>
           <bit code="6">Send resistance compensated voltage to GCS</bit>
           <bit code="7">Allow DroneCAN InfoAux to be from a different CAN node</bit>
+          <bit code="8">Battery is for internal autopilot use only</bit>
           <bit code="9">Sum monitor measures minimum voltage instead of average</bit>
         </bitmask>
-        <field name="Bitmask">0:Ignore DroneCAN SoC, 1:MPPT reports input voltage and current, 2:MPPT Powered off when disarmed, 3:MPPT Powered on when armed, 4:MPPT Powered off at boot, 5:MPPT Powered on at boot, 6:Send resistance compensated voltage to GCS, 7:Allow DroneCAN InfoAux to be from a different CAN node, 9:Sum monitor measures minimum voltage instead of average</field>
+        <field name="Bitmask">0:Ignore DroneCAN SoC, 1:MPPT reports input voltage and current, 2:MPPT Powered off when disarmed, 3:MPPT Powered on when armed, 4:MPPT Powered off at boot, 5:MPPT Powered on at boot, 6:Send resistance compensated voltage to GCS, 7:Allow DroneCAN InfoAux to be from a different CAN node, 8:Battery is for internal autopilot use only, 9:Sum monitor measures minimum voltage instead of average</field>
       </param>
       <param humanName="ESC Telemetry Index to write to" name="BATT9_ESC_INDEX" documentation="ESC Telemetry Index to write voltage, current, consumption and temperature data to. Use 0 to disable." user="Advanced">
         <field name="Range">0 10</field>
@@ -5829,9 +5841,10 @@
           <bit code="5">MPPT Powered on at boot</bit>
           <bit code="6">Send resistance compensated voltage to GCS</bit>
           <bit code="7">Allow DroneCAN InfoAux to be from a different CAN node</bit>
+          <bit code="8">Battery is for internal autopilot use only</bit>
           <bit code="9">Sum monitor measures minimum voltage instead of average</bit>
         </bitmask>
-        <field name="Bitmask">0:Ignore DroneCAN SoC, 1:MPPT reports input voltage and current, 2:MPPT Powered off when disarmed, 3:MPPT Powered on when armed, 4:MPPT Powered off at boot, 5:MPPT Powered on at boot, 6:Send resistance compensated voltage to GCS, 7:Allow DroneCAN InfoAux to be from a different CAN node, 9:Sum monitor measures minimum voltage instead of average</field>
+        <field name="Bitmask">0:Ignore DroneCAN SoC, 1:MPPT reports input voltage and current, 2:MPPT Powered off when disarmed, 3:MPPT Powered on when armed, 4:MPPT Powered off at boot, 5:MPPT Powered on at boot, 6:Send resistance compensated voltage to GCS, 7:Allow DroneCAN InfoAux to be from a different CAN node, 8:Battery is for internal autopilot use only, 9:Sum monitor measures minimum voltage instead of average</field>
       </param>
       <param humanName="ESC Telemetry Index to write to" name="BATTA_ESC_INDEX" documentation="ESC Telemetry Index to write voltage, current, consumption and temperature data to. Use 0 to disable." user="Advanced">
         <field name="Range">0 10</field>
@@ -6111,9 +6124,10 @@
           <bit code="5">MPPT Powered on at boot</bit>
           <bit code="6">Send resistance compensated voltage to GCS</bit>
           <bit code="7">Allow DroneCAN InfoAux to be from a different CAN node</bit>
+          <bit code="8">Battery is for internal autopilot use only</bit>
           <bit code="9">Sum monitor measures minimum voltage instead of average</bit>
         </bitmask>
-        <field name="Bitmask">0:Ignore DroneCAN SoC, 1:MPPT reports input voltage and current, 2:MPPT Powered off when disarmed, 3:MPPT Powered on when armed, 4:MPPT Powered off at boot, 5:MPPT Powered on at boot, 6:Send resistance compensated voltage to GCS, 7:Allow DroneCAN InfoAux to be from a different CAN node, 9:Sum monitor measures minimum voltage instead of average</field>
+        <field name="Bitmask">0:Ignore DroneCAN SoC, 1:MPPT reports input voltage and current, 2:MPPT Powered off when disarmed, 3:MPPT Powered on when armed, 4:MPPT Powered off at boot, 5:MPPT Powered on at boot, 6:Send resistance compensated voltage to GCS, 7:Allow DroneCAN InfoAux to be from a different CAN node, 8:Battery is for internal autopilot use only, 9:Sum monitor measures minimum voltage instead of average</field>
       </param>
       <param humanName="ESC Telemetry Index to write to" name="BATTB_ESC_INDEX" documentation="ESC Telemetry Index to write voltage, current, consumption and temperature data to. Use 0 to disable." user="Advanced">
         <field name="Range">0 10</field>
@@ -6393,9 +6407,10 @@
           <bit code="5">MPPT Powered on at boot</bit>
           <bit code="6">Send resistance compensated voltage to GCS</bit>
           <bit code="7">Allow DroneCAN InfoAux to be from a different CAN node</bit>
+          <bit code="8">Battery is for internal autopilot use only</bit>
           <bit code="9">Sum monitor measures minimum voltage instead of average</bit>
         </bitmask>
-        <field name="Bitmask">0:Ignore DroneCAN SoC, 1:MPPT reports input voltage and current, 2:MPPT Powered off when disarmed, 3:MPPT Powered on when armed, 4:MPPT Powered off at boot, 5:MPPT Powered on at boot, 6:Send resistance compensated voltage to GCS, 7:Allow DroneCAN InfoAux to be from a different CAN node, 9:Sum monitor measures minimum voltage instead of average</field>
+        <field name="Bitmask">0:Ignore DroneCAN SoC, 1:MPPT reports input voltage and current, 2:MPPT Powered off when disarmed, 3:MPPT Powered on when armed, 4:MPPT Powered off at boot, 5:MPPT Powered on at boot, 6:Send resistance compensated voltage to GCS, 7:Allow DroneCAN InfoAux to be from a different CAN node, 8:Battery is for internal autopilot use only, 9:Sum monitor measures minimum voltage instead of average</field>
       </param>
       <param humanName="ESC Telemetry Index to write to" name="BATTC_ESC_INDEX" documentation="ESC Telemetry Index to write voltage, current, consumption and temperature data to. Use 0 to disable." user="Advanced">
         <field name="Range">0 10</field>
@@ -6675,9 +6690,10 @@
           <bit code="5">MPPT Powered on at boot</bit>
           <bit code="6">Send resistance compensated voltage to GCS</bit>
           <bit code="7">Allow DroneCAN InfoAux to be from a different CAN node</bit>
+          <bit code="8">Battery is for internal autopilot use only</bit>
           <bit code="9">Sum monitor measures minimum voltage instead of average</bit>
         </bitmask>
-        <field name="Bitmask">0:Ignore DroneCAN SoC, 1:MPPT reports input voltage and current, 2:MPPT Powered off when disarmed, 3:MPPT Powered on when armed, 4:MPPT Powered off at boot, 5:MPPT Powered on at boot, 6:Send resistance compensated voltage to GCS, 7:Allow DroneCAN InfoAux to be from a different CAN node, 9:Sum monitor measures minimum voltage instead of average</field>
+        <field name="Bitmask">0:Ignore DroneCAN SoC, 1:MPPT reports input voltage and current, 2:MPPT Powered off when disarmed, 3:MPPT Powered on when armed, 4:MPPT Powered off at boot, 5:MPPT Powered on at boot, 6:Send resistance compensated voltage to GCS, 7:Allow DroneCAN InfoAux to be from a different CAN node, 8:Battery is for internal autopilot use only, 9:Sum monitor measures minimum voltage instead of average</field>
       </param>
       <param humanName="ESC Telemetry Index to write to" name="BATTD_ESC_INDEX" documentation="ESC Telemetry Index to write voltage, current, consumption and temperature data to. Use 0 to disable." user="Advanced">
         <field name="Range">0 10</field>
@@ -6957,9 +6973,10 @@
           <bit code="5">MPPT Powered on at boot</bit>
           <bit code="6">Send resistance compensated voltage to GCS</bit>
           <bit code="7">Allow DroneCAN InfoAux to be from a different CAN node</bit>
+          <bit code="8">Battery is for internal autopilot use only</bit>
           <bit code="9">Sum monitor measures minimum voltage instead of average</bit>
         </bitmask>
-        <field name="Bitmask">0:Ignore DroneCAN SoC, 1:MPPT reports input voltage and current, 2:MPPT Powered off when disarmed, 3:MPPT Powered on when armed, 4:MPPT Powered off at boot, 5:MPPT Powered on at boot, 6:Send resistance compensated voltage to GCS, 7:Allow DroneCAN InfoAux to be from a different CAN node, 9:Sum monitor measures minimum voltage instead of average</field>
+        <field name="Bitmask">0:Ignore DroneCAN SoC, 1:MPPT reports input voltage and current, 2:MPPT Powered off when disarmed, 3:MPPT Powered on when armed, 4:MPPT Powered off at boot, 5:MPPT Powered on at boot, 6:Send resistance compensated voltage to GCS, 7:Allow DroneCAN InfoAux to be from a different CAN node, 8:Battery is for internal autopilot use only, 9:Sum monitor measures minimum voltage instead of average</field>
       </param>
       <param humanName="ESC Telemetry Index to write to" name="BATTE_ESC_INDEX" documentation="ESC Telemetry Index to write voltage, current, consumption and temperature data to. Use 0 to disable." user="Advanced">
         <field name="Range">0 10</field>
@@ -7239,9 +7256,10 @@
           <bit code="5">MPPT Powered on at boot</bit>
           <bit code="6">Send resistance compensated voltage to GCS</bit>
           <bit code="7">Allow DroneCAN InfoAux to be from a different CAN node</bit>
+          <bit code="8">Battery is for internal autopilot use only</bit>
           <bit code="9">Sum monitor measures minimum voltage instead of average</bit>
         </bitmask>
-        <field name="Bitmask">0:Ignore DroneCAN SoC, 1:MPPT reports input voltage and current, 2:MPPT Powered off when disarmed, 3:MPPT Powered on when armed, 4:MPPT Powered off at boot, 5:MPPT Powered on at boot, 6:Send resistance compensated voltage to GCS, 7:Allow DroneCAN InfoAux to be from a different CAN node, 9:Sum monitor measures minimum voltage instead of average</field>
+        <field name="Bitmask">0:Ignore DroneCAN SoC, 1:MPPT reports input voltage and current, 2:MPPT Powered off when disarmed, 3:MPPT Powered on when armed, 4:MPPT Powered off at boot, 5:MPPT Powered on at boot, 6:Send resistance compensated voltage to GCS, 7:Allow DroneCAN InfoAux to be from a different CAN node, 8:Battery is for internal autopilot use only, 9:Sum monitor measures minimum voltage instead of average</field>
       </param>
       <param humanName="ESC Telemetry Index to write to" name="BATTF_ESC_INDEX" documentation="ESC Telemetry Index to write voltage, current, consumption and temperature data to. Use 0 to disable." user="Advanced">
         <field name="Range">0 10</field>
@@ -7521,9 +7539,10 @@
           <bit code="5">MPPT Powered on at boot</bit>
           <bit code="6">Send resistance compensated voltage to GCS</bit>
           <bit code="7">Allow DroneCAN InfoAux to be from a different CAN node</bit>
+          <bit code="8">Battery is for internal autopilot use only</bit>
           <bit code="9">Sum monitor measures minimum voltage instead of average</bit>
         </bitmask>
-        <field name="Bitmask">0:Ignore DroneCAN SoC, 1:MPPT reports input voltage and current, 2:MPPT Powered off when disarmed, 3:MPPT Powered on when armed, 4:MPPT Powered off at boot, 5:MPPT Powered on at boot, 6:Send resistance compensated voltage to GCS, 7:Allow DroneCAN InfoAux to be from a different CAN node, 9:Sum monitor measures minimum voltage instead of average</field>
+        <field name="Bitmask">0:Ignore DroneCAN SoC, 1:MPPT reports input voltage and current, 2:MPPT Powered off when disarmed, 3:MPPT Powered on when armed, 4:MPPT Powered off at boot, 5:MPPT Powered on at boot, 6:Send resistance compensated voltage to GCS, 7:Allow DroneCAN InfoAux to be from a different CAN node, 8:Battery is for internal autopilot use only, 9:Sum monitor measures minimum voltage instead of average</field>
       </param>
       <param humanName="ESC Telemetry Index to write to" name="BATTG_ESC_INDEX" documentation="ESC Telemetry Index to write voltage, current, consumption and temperature data to. Use 0 to disable." user="Advanced">
         <field name="Range">0 10</field>
@@ -7803,9 +7822,10 @@
           <bit code="5">MPPT Powered on at boot</bit>
           <bit code="6">Send resistance compensated voltage to GCS</bit>
           <bit code="7">Allow DroneCAN InfoAux to be from a different CAN node</bit>
+          <bit code="8">Battery is for internal autopilot use only</bit>
           <bit code="9">Sum monitor measures minimum voltage instead of average</bit>
         </bitmask>
-        <field name="Bitmask">0:Ignore DroneCAN SoC, 1:MPPT reports input voltage and current, 2:MPPT Powered off when disarmed, 3:MPPT Powered on when armed, 4:MPPT Powered off at boot, 5:MPPT Powered on at boot, 6:Send resistance compensated voltage to GCS, 7:Allow DroneCAN InfoAux to be from a different CAN node, 9:Sum monitor measures minimum voltage instead of average</field>
+        <field name="Bitmask">0:Ignore DroneCAN SoC, 1:MPPT reports input voltage and current, 2:MPPT Powered off when disarmed, 3:MPPT Powered on when armed, 4:MPPT Powered off at boot, 5:MPPT Powered on at boot, 6:Send resistance compensated voltage to GCS, 7:Allow DroneCAN InfoAux to be from a different CAN node, 8:Battery is for internal autopilot use only, 9:Sum monitor measures minimum voltage instead of average</field>
       </param>
       <param humanName="ESC Telemetry Index to write to" name="BATT_ESC_INDEX" documentation="ESC Telemetry Index to write voltage, current, consumption and temperature data to. Use 0 to disable." user="Advanced">
         <field name="Range">0 10</field>

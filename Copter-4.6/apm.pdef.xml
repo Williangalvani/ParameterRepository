@@ -728,9 +728,8 @@
           <bit code="0">Disable thrust loss check</bit>
           <bit code="1">Disable yaw imbalance warning</bit>
           <bit code="2">Release gripper on thrust loss</bit>
-          <bit code="3">Require position for arming</bit>
         </bitmask>
-        <field name="Bitmask">0:Disable thrust loss check, 1:Disable yaw imbalance warning, 2:Release gripper on thrust loss, 3:Require position for arming</field>
+        <field name="Bitmask">0:Disable thrust loss check, 1:Disable yaw imbalance warning, 2:Release gripper on thrust loss</field>
       </param>
       <param humanName="Rangefinder filter" name="ArduCopter:RNGFND_FILT" documentation="Rangefinder filter to smooth distance.  Set to zero to disable filtering" user="Standard">
         <field name="Units">Hz</field>
@@ -1566,6 +1565,43 @@
       <param humanName="Trik Count" name="TRIK_COUNT" documentation="Number of tricks which can be selected over the range of the trik selection RC channel">
         <field name="Range">1 11</field>
       </param>
+      <param humanName="Mask of UltraMotion servos" name="UM_SERVO_MASK" documentation="Mask of UltraMotion servos" user="Standard">
+        <bitmask>
+          <bit code="0">SERVO1</bit>
+          <bit code="1">SERVO2</bit>
+          <bit code="2">SERVO3</bit>
+          <bit code="3">SERVO4</bit>
+          <bit code="4">SERVO5</bit>
+          <bit code="5">SERVO6</bit>
+          <bit code="6">SERVO7</bit>
+          <bit code="7">SERVO8</bit>
+          <bit code="8">SERVO9</bit>
+          <bit code="9">SERVO10</bit>
+          <bit code="10">SERVO11</bit>
+          <bit code="11">SERVO12</bit>
+        </bitmask>
+        <field name="Bitmask">0:SERVO1,1:SERVO2,2:SERVO3,3:SERVO4,4:SERVO5,5:SERVO6,6:SERVO7,7:SERVO8,8:SERVO9,9:SERVO10,10:SERVO11,11:SERVO12</field>
+      </param>
+      <param humanName="Set CAN driver" name="UM_CANDRV" documentation="Set CAN driver" user="Standard">
+        <values>
+          <value code="0">None</value>
+          <value code="1">1stCANDriver</value>
+          <value code="2">2ndCanDriver</value>
+        </values>
+      </param>
+      <param humanName="Update rate for UltraMotion servos" name="UM_RATE_HZ" documentation="Update rate for UltraMotion servos" user="Standard">
+        <field name="Units">Hz</field>
+        <field name="UnitText">hertz</field>
+        <field name="Range">1 400</field>
+      </param>
+      <param humanName="Optional settings" name="UM_OPTIONS" documentation="Optional settings" user="Standard">
+        <bitmask>
+          <bit code="0">LogAllFrames</bit>
+          <bit code="1">ParseTelemetry</bit>
+          <bit code="2">SendPosAsNamedValueFloat</bit>
+        </bitmask>
+        <field name="Bitmask">0:LogAllFrames,1:ParseTelemetry,2:SendPosAsNamedValueFloat</field>
+      </param>
       <param humanName="Hobbywing ESC Enable" name="ESC_HW_ENABLE" documentation="Enable Hobbywing ESC telemetry" user="Standard">
         <values>
           <value code="0">Disabled</value>
@@ -2344,6 +2380,12 @@
         <values>
           <value code="0">Crash Dump arming check active</value>
           <value code="1">Crash Dump arming check deactivated</value>
+        </values>
+      </param>
+      <param humanName="Require vehicle location" name="ARMING_NEED_LOC" documentation="Require that the vehicle have an absolute position before it arms.  This can help ensure that the vehicle can Return To Launch." user="Advanced">
+        <values>
+          <value code="0">Do not require location</value>
+          <value code="1">Require Location</value>
         </values>
       </param>
     </parameters>
@@ -8071,6 +8113,26 @@
           <value code="3">RS-485 Driver enable RTS pin</value>
         </values>
       </param>
+      <param humanName="Serial 6 flow control" name="BRD_SER6_RTSCTS" documentation="Enable flow control on serial 6. You must have the RTS and CTS pins connected to your radio. The standard DF13 6 pin connector for a 3DR radio does have those pins connected. If this is set to 2 then flow control will be auto-detected by checking for the output buffer filling on startup." user="Advanced">
+        <field name="RebootRequired">True</field>
+        <values>
+          <value code="0">Disabled</value>
+          <value code="1">Enabled</value>
+          <value code="2">Auto</value>
+          <value code="3">RS-485 Driver enable RTS pin</value>
+        </values>
+      </param>
+      <param humanName="Serial 7 flow control" name="BRD_SER7_RTSCTS" documentation="Enable flow control on serial 7. You must have the RTS and CTS pins connected to your radio. The standard DF13 6 pin connector for a 3DR radio does have those pins connected. If this is set to 2 then flow control will be auto-detected by checking for the output buffer filling on startup." user="Advanced">
+        <field name="RebootRequired">True</field>
+        <values>
+          <value code="0">Disabled</value>
+          <value code="1">Enabled</value>
+          <value code="2">Auto</value>
+          <value code="3">RS-485 Driver enable RTS pin</value>
+        </values>
+      </param>
+      <param humanName="Serial 8 flow control" name="BRD_SER8_RTSCTS" documentation="Enable flow control on serial 8. You must have the RTS and CTS pins connected to your radio. The standard DF13 6 pin connector for a 3DR radio does have those pins connected. If this is set to 2 then flow control will be auto-detected by checking for the output buffer filling on startup.">
+</param>
       <param humanName="Sets default state of the safety switch" name="BRD_SAFETY_DEFLT" documentation="This controls the default state of the safety switch at startup. When set to 1 the safety switch will start in the safe state (flashing) at boot. When set to zero the safety switch will start in the unsafe state (solid) at startup. Note that if a safety switch is fitted the user can still control the safety state after startup using the switch. The safety state can also be controlled in software using a MAVLink message." user="Standard">
         <values>
           <value code="0">Disabled</value>
@@ -9502,6 +9564,7 @@
           <value code="45">DDS XRCE</value>
           <value code="46">IMUDATA</value>
           <value code="48">PPP</value>
+          <value code="49">i-BUS Telemetry</value>
         </values>
       </param>
       <param humanName="Serial CAN remote node number" name="CAN_D1_UC_S2_NOD" documentation="CAN remote node number for serial port" user="Advanced">
@@ -9592,6 +9655,7 @@
           <value code="45">DDS XRCE</value>
           <value code="46">IMUDATA</value>
           <value code="48">PPP</value>
+          <value code="49">i-BUS Telemetry</value>
         </values>
       </param>
       <param humanName="Serial CAN remote node number" name="CAN_D1_UC_S3_NOD" documentation="CAN node number for serial port" user="Advanced">
@@ -9682,6 +9746,7 @@
           <value code="45">DDS XRCE</value>
           <value code="46">IMUDATA</value>
           <value code="48">PPP</value>
+          <value code="49">i-BUS Telemetry</value>
         </values>
       </param>
     </parameters>
@@ -10039,6 +10104,7 @@
           <value code="45">DDS XRCE</value>
           <value code="46">IMUDATA</value>
           <value code="48">PPP</value>
+          <value code="49">i-BUS Telemetry</value>
         </values>
       </param>
       <param humanName="Serial CAN remote node number" name="CAN_D2_UC_S2_NOD" documentation="CAN remote node number for serial port" user="Advanced">
@@ -10129,6 +10195,7 @@
           <value code="45">DDS XRCE</value>
           <value code="46">IMUDATA</value>
           <value code="48">PPP</value>
+          <value code="49">i-BUS Telemetry</value>
         </values>
       </param>
       <param humanName="Serial CAN remote node number" name="CAN_D2_UC_S3_NOD" documentation="CAN node number for serial port" user="Advanced">
@@ -10219,6 +10286,7 @@
           <value code="45">DDS XRCE</value>
           <value code="46">IMUDATA</value>
           <value code="48">PPP</value>
+          <value code="49">i-BUS Telemetry</value>
         </values>
       </param>
     </parameters>
@@ -10576,6 +10644,7 @@
           <value code="45">DDS XRCE</value>
           <value code="46">IMUDATA</value>
           <value code="48">PPP</value>
+          <value code="49">i-BUS Telemetry</value>
         </values>
       </param>
       <param humanName="Serial CAN remote node number" name="CAN_D3_UC_S2_NOD" documentation="CAN remote node number for serial port" user="Advanced">
@@ -10666,6 +10735,7 @@
           <value code="45">DDS XRCE</value>
           <value code="46">IMUDATA</value>
           <value code="48">PPP</value>
+          <value code="49">i-BUS Telemetry</value>
         </values>
       </param>
       <param humanName="Serial CAN remote node number" name="CAN_D3_UC_S3_NOD" documentation="CAN node number for serial port" user="Advanced">
@@ -10756,6 +10826,7 @@
           <value code="45">DDS XRCE</value>
           <value code="46">IMUDATA</value>
           <value code="48">PPP</value>
+          <value code="49">i-BUS Telemetry</value>
         </values>
       </param>
     </parameters>
@@ -11597,8 +11668,8 @@
         <field name="RebootRequired">True</field>
         <field name="Increment">1</field>
       </param>
-      <param humanName="DDS ping max attempts" name="DDS_MAX_RETRY" documentation="The maximum number of times the DDS client will attempt to ping the XRCE agent before exiting." user="Standard">
-        <field name="Range">1 100</field>
+      <param humanName="DDS ping max attempts" name="DDS_MAX_RETRY" documentation="The maximum number of times the DDS client will attempt to ping the XRCE agent before exiting. Set to 0 to allow unlimited retries." user="Standard">
+        <field name="Range">0 100</field>
         <field name="RebootRequired">True</field>
         <field name="Increment">1</field>
       </param>
@@ -15652,6 +15723,7 @@
           <value code="10">Xacti</value>
           <value code="11">Viewpro</value>
           <value code="12">Topotek</value>
+          <value code="13">CADDX</value>
         </values>
         <field name="RebootRequired">True</field>
       </param>
@@ -15784,6 +15856,7 @@
           <value code="10">Xacti</value>
           <value code="11">Viewpro</value>
           <value code="12">Topotek</value>
+          <value code="13">CADDX</value>
         </values>
         <field name="RebootRequired">True</field>
       </param>
@@ -16105,10 +16178,12 @@
       <param humanName="Networking options" name="NET_OPTIONS" documentation="Networking options" user="Advanced">
         <bitmask>
           <bit code="0">EnablePPP Ethernet gateway</bit>
-          <bit code="1">Enable CAN1 multicast gateway</bit>
-          <bit code="2">Enable CAN2 multicast gateway</bit>
+          <bit code="1">Enable CAN1 multicast endpoint</bit>
+          <bit code="2">Enable CAN2 multicast endpoint</bit>
+          <bit code="3">Enable CAN1 multicast bridged</bit>
+          <bit code="4">Enable CAN2 multicast bridged</bit>
         </bitmask>
-        <field name="Bitmask">0:EnablePPP Ethernet gateway, 1:Enable CAN1 multicast gateway, 2:Enable CAN2 multicast gateway</field>
+        <field name="Bitmask">0:EnablePPP Ethernet gateway, 1:Enable CAN1 multicast endpoint, 2:Enable CAN2 multicast endpoint, 3:Enable CAN1 multicast bridged, 4:Enable CAN2 multicast bridged</field>
         <field name="RebootRequired">True</field>
       </param>
     </parameters>
@@ -16234,6 +16309,7 @@
           <value code="45">DDS XRCE</value>
           <value code="46">IMUDATA</value>
           <value code="48">PPP</value>
+          <value code="49">i-BUS Telemetry</value>
         </values>
       </param>
       <param humanName="Port number" name="NET_P1_PORT" documentation="Port number" user="Advanced">
@@ -16319,6 +16395,7 @@
           <value code="45">DDS XRCE</value>
           <value code="46">IMUDATA</value>
           <value code="48">PPP</value>
+          <value code="49">i-BUS Telemetry</value>
         </values>
       </param>
       <param humanName="Port number" name="NET_P2_PORT" documentation="Port number" user="Advanced">
@@ -16404,6 +16481,7 @@
           <value code="45">DDS XRCE</value>
           <value code="46">IMUDATA</value>
           <value code="48">PPP</value>
+          <value code="49">i-BUS Telemetry</value>
         </values>
       </param>
       <param humanName="Port number" name="NET_P3_PORT" documentation="Port number" user="Advanced">
@@ -16489,6 +16567,7 @@
           <value code="45">DDS XRCE</value>
           <value code="46">IMUDATA</value>
           <value code="48">PPP</value>
+          <value code="49">i-BUS Telemetry</value>
         </values>
       </param>
       <param humanName="Port number" name="NET_P4_PORT" documentation="Port number" user="Advanced">
@@ -27238,6 +27317,7 @@
           <value code="45">DDS XRCE</value>
           <value code="46">IMUDATA</value>
           <value code="48">PPP</value>
+          <value code="49">i-BUS Telemetry</value>
         </values>
       </param>
       <param humanName="Serial protocol of scripting serial device" name="SCR_SDEV2_PROTO" documentation="Serial protocol of scripting serial device" user="Advanced">
@@ -27289,6 +27369,7 @@
           <value code="45">DDS XRCE</value>
           <value code="46">IMUDATA</value>
           <value code="48">PPP</value>
+          <value code="49">i-BUS Telemetry</value>
         </values>
       </param>
       <param humanName="Serial protocol of scripting serial device" name="SCR_SDEV3_PROTO" documentation="Serial protocol of scripting serial device" user="Advanced">
@@ -27340,6 +27421,7 @@
           <value code="45">DDS XRCE</value>
           <value code="46">IMUDATA</value>
           <value code="48">PPP</value>
+          <value code="49">i-BUS Telemetry</value>
         </values>
       </param>
     </parameters>
@@ -27419,6 +27501,7 @@
           <value code="45">DDS XRCE</value>
           <value code="46">IMUDATA</value>
           <value code="48">PPP</value>
+          <value code="49">i-BUS Telemetry</value>
         </values>
         <field name="RebootRequired">True</field>
       </param>
@@ -27491,6 +27574,7 @@
           <value code="45">DDS XRCE</value>
           <value code="46">IMUDATA</value>
           <value code="48">PPP</value>
+          <value code="49">i-BUS Telemetry</value>
         </values>
       </param>
       <param humanName="Telemetry 2 Baud Rate" name="SERIAL2_BAUD" documentation="The baud rate of the Telem2 port. Most stm32-based boards can support rates of up to 1500. If you setup a rate you cannot support and then can't connect to your board you should load a firmware from a different vehicle type. That will reset all your parameters to defaults." user="Standard">
@@ -27562,6 +27646,7 @@
           <value code="45">DDS XRCE</value>
           <value code="46">IMUDATA</value>
           <value code="48">PPP</value>
+          <value code="49">i-BUS Telemetry</value>
         </values>
       </param>
       <param humanName="Serial 3 (GPS) Baud Rate" name="SERIAL3_BAUD" documentation="The baud rate used for the Serial 3 (GPS). Most stm32-based boards can support rates of up to 1500. If you setup a rate you cannot support and then can't connect to your board you should load a firmware from a different vehicle type. That will reset all your parameters to defaults." user="Standard">
@@ -27633,6 +27718,7 @@
           <value code="45">DDS XRCE</value>
           <value code="46">IMUDATA</value>
           <value code="48">PPP</value>
+          <value code="49">i-BUS Telemetry</value>
         </values>
       </param>
       <param humanName="Serial 4 Baud Rate" name="SERIAL4_BAUD" documentation="The baud rate used for Serial4. Most stm32-based boards can support rates of up to 1500. If you setup a rate you cannot support and then can't connect to your board you should load a firmware from a different vehicle type. That will reset all your parameters to defaults." user="Standard">
@@ -27704,6 +27790,7 @@
           <value code="45">DDS XRCE</value>
           <value code="46">IMUDATA</value>
           <value code="48">PPP</value>
+          <value code="49">i-BUS Telemetry</value>
         </values>
       </param>
       <param humanName="Serial 5 Baud Rate" name="SERIAL5_BAUD" documentation="The baud rate used for Serial5. Most stm32-based boards can support rates of up to 1500. If you setup a rate you cannot support and then can't connect to your board you should load a firmware from a different vehicle type. That will reset all your parameters to defaults." user="Standard">
@@ -27775,6 +27862,7 @@
           <value code="45">DDS XRCE</value>
           <value code="46">IMUDATA</value>
           <value code="48">PPP</value>
+          <value code="49">i-BUS Telemetry</value>
         </values>
       </param>
       <param humanName="Serial 6 Baud Rate" name="SERIAL6_BAUD" documentation="The baud rate used for Serial6. Most stm32-based boards can support rates of up to 1500. If you setup a rate you cannot support and then can't connect to your board you should load a firmware from a different vehicle type. That will reset all your parameters to defaults." user="Standard">
@@ -27989,6 +28077,7 @@
           <value code="45">DDS XRCE</value>
           <value code="46">IMUDATA</value>
           <value code="48">PPP</value>
+          <value code="49">i-BUS Telemetry</value>
         </values>
       </param>
       <param humanName="Serial 7 Baud Rate" name="SERIAL7_BAUD" documentation="The baud rate used for Serial7. Most stm32-based boards can support rates of up to 1500. If you setup a rate you cannot support and then can't connect to your board you should load a firmware from a different vehicle type. That will reset all your parameters to defaults." user="Standard">
@@ -28079,6 +28168,7 @@
           <value code="45">DDS XRCE</value>
           <value code="46">IMUDATA</value>
           <value code="48">PPP</value>
+          <value code="49">i-BUS Telemetry</value>
         </values>
       </param>
       <param humanName="Serial 8 Baud Rate" name="SERIAL8_BAUD" documentation="The baud rate used for Serial8. Most stm32-based boards can support rates of up to 1500. If you setup a rate you cannot support and then can't connect to your board you should load a firmware from a different vehicle type. That will reset all your parameters to defaults." user="Standard">
@@ -28169,6 +28259,7 @@
           <value code="45">DDS XRCE</value>
           <value code="46">IMUDATA</value>
           <value code="48">PPP</value>
+          <value code="49">i-BUS Telemetry</value>
         </values>
       </param>
       <param humanName="Serial 9 Baud Rate" name="SERIAL9_BAUD" documentation="The baud rate used for Serial8. Most stm32-based boards can support rates of up to 1500. If you setup a rate you cannot support and then can't connect to your board you should load a firmware from a different vehicle type. That will reset all your parameters to defaults." user="Standard">

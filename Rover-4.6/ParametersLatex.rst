@@ -4091,6 +4091,108 @@ Number of tricks which can be selected over the range of the trik selection RC c
 
 
 
+.. _UM_SERVO_MASK:
+
+UM\_SERVO\_MASK: Mask of UltraMotion servos
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Mask of UltraMotion servos
+
+
++-----+---------+
+| Bit | Meaning |
++=====+=========+
+| 0   | SERVO1  |
++-----+---------+
+| 1   | SERVO2  |
++-----+---------+
+| 2   | SERVO3  |
++-----+---------+
+| 3   | SERVO4  |
++-----+---------+
+| 4   | SERVO5  |
++-----+---------+
+| 5   | SERVO6  |
++-----+---------+
+| 6   | SERVO7  |
++-----+---------+
+| 7   | SERVO8  |
++-----+---------+
+| 8   | SERVO9  |
++-----+---------+
+| 9   | SERVO10 |
++-----+---------+
+| 10  | SERVO11 |
++-----+---------+
+| 11  | SERVO12 |
++-----+---------+
+
+
+
+
+.. _UM_CANDRV:
+
+UM\_CANDRV: Set CAN driver
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Set CAN driver
+
+
++-------+--------------+
+| Value | Meaning      |
++=======+==============+
+| 0     | None         |
++-------+--------------+
+| 1     | 1stCANDriver |
++-------+--------------+
+| 2     | 2ndCanDriver |
++-------+--------------+
+
+
+
+
+.. _UM_RATE_HZ:
+
+UM\_RATE\_HZ: Update rate for UltraMotion servos
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Update rate for UltraMotion servos
+
+
++----------+-------+
+| Range    | Units |
++==========+=======+
+| 1 to 400 | hertz |
++----------+-------+
+
+
+
+
+.. _UM_OPTIONS:
+
+UM\_OPTIONS: Optional settings
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Optional settings
+
+
++-----+--------------------------+
+| Bit | Meaning                  |
++=====+==========================+
+| 0   | LogAllFrames             |
++-----+--------------------------+
+| 1   | ParseTelemetry           |
++-----+--------------------------+
+| 2   | SendPosAsNamedValueFloat |
++-----+--------------------------+
+
+
+
+
 .. _ESC_HW_ENABLE:
 
 ESC\_HW\_ENABLE: Hobbywing ESC Enable
@@ -24288,6 +24390,67 @@ Enable flow control on serial 5\. You must have the RTS and CTS pins connected t
 
 
 
+.. _BRD_SER6_RTSCTS:
+
+BRD\_SER6\_RTSCTS: Serial 6 flow control
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+| *Note: This parameter is for advanced users*
+| *Note: Reboot required after change*
+
+Enable flow control on serial 6\. You must have the RTS and CTS pins connected to your radio\. The standard DF13 6 pin connector for a 3DR radio does have those pins connected\. If this is set to 2 then flow control will be auto\-detected by checking for the output buffer filling on startup\.
+
+
++-------+------------------------------+
+| Value | Meaning                      |
++=======+==============================+
+| 0     | Disabled                     |
++-------+------------------------------+
+| 1     | Enabled                      |
++-------+------------------------------+
+| 2     | Auto                         |
++-------+------------------------------+
+| 3     | RS-485 Driver enable RTS pin |
++-------+------------------------------+
+
+
+
+
+.. _BRD_SER7_RTSCTS:
+
+BRD\_SER7\_RTSCTS: Serial 7 flow control
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+| *Note: This parameter is for advanced users*
+| *Note: Reboot required after change*
+
+Enable flow control on serial 7\. You must have the RTS and CTS pins connected to your radio\. The standard DF13 6 pin connector for a 3DR radio does have those pins connected\. If this is set to 2 then flow control will be auto\-detected by checking for the output buffer filling on startup\.
+
+
++-------+------------------------------+
+| Value | Meaning                      |
++=======+==============================+
+| 0     | Disabled                     |
++-------+------------------------------+
+| 1     | Enabled                      |
++-------+------------------------------+
+| 2     | Auto                         |
++-------+------------------------------+
+| 3     | RS-485 Driver enable RTS pin |
++-------+------------------------------+
+
+
+
+
+.. _BRD_SER8_RTSCTS:
+
+BRD\_SER8\_RTSCTS: Serial 8 flow control
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Enable flow control on serial 8\. You must have the RTS and CTS pins connected to your radio\. The standard DF13 6 pin connector for a 3DR radio does have those pins connected\. If this is set to 2 then flow control will be auto\-detected by checking for the output buffer filling on startup\.
+
+
 .. _BRD_SAFETY_DEFLT:
 
 BRD\_SAFETY\_DEFLT: Sets default state of the safety switch
@@ -27928,6 +28091,8 @@ Serial protocol of DroneCAN serial port
 +-------+----------------------------------+
 | 48    | PPP                              |
 +-------+----------------------------------+
+| 49    | i-BUS Telemetry                  |
++-------+----------------------------------+
 
 
 
@@ -28151,6 +28316,8 @@ Serial protocol of DroneCAN serial port
 +-------+----------------------------------+
 | 48    | PPP                              |
 +-------+----------------------------------+
+| 49    | i-BUS Telemetry                  |
++-------+----------------------------------+
 
 
 
@@ -28373,6 +28540,8 @@ Serial protocol of DroneCAN serial port
 | 46    | IMUDATA                          |
 +-------+----------------------------------+
 | 48    | PPP                              |
++-------+----------------------------------+
+| 49    | i-BUS Telemetry                  |
 +-------+----------------------------------+
 
 
@@ -29311,6 +29480,8 @@ Serial protocol of DroneCAN serial port
 +-------+----------------------------------+
 | 48    | PPP                              |
 +-------+----------------------------------+
+| 49    | i-BUS Telemetry                  |
++-------+----------------------------------+
 
 
 
@@ -29534,6 +29705,8 @@ Serial protocol of DroneCAN serial port
 +-------+----------------------------------+
 | 48    | PPP                              |
 +-------+----------------------------------+
+| 49    | i-BUS Telemetry                  |
++-------+----------------------------------+
 
 
 
@@ -29756,6 +29929,8 @@ Serial protocol of DroneCAN serial port
 | 46    | IMUDATA                          |
 +-------+----------------------------------+
 | 48    | PPP                              |
++-------+----------------------------------+
+| 49    | i-BUS Telemetry                  |
 +-------+----------------------------------+
 
 
@@ -30694,6 +30869,8 @@ Serial protocol of DroneCAN serial port
 +-------+----------------------------------+
 | 48    | PPP                              |
 +-------+----------------------------------+
+| 49    | i-BUS Telemetry                  |
++-------+----------------------------------+
 
 
 
@@ -30917,6 +31094,8 @@ Serial protocol of DroneCAN serial port
 +-------+----------------------------------+
 | 48    | PPP                              |
 +-------+----------------------------------+
+| 49    | i-BUS Telemetry                  |
++-------+----------------------------------+
 
 
 
@@ -31139,6 +31318,8 @@ Serial protocol of DroneCAN serial port
 | 46    | IMUDATA                          |
 +-------+----------------------------------+
 | 48    | PPP                              |
++-------+----------------------------------+
+| 49    | i-BUS Telemetry                  |
 +-------+----------------------------------+
 
 
@@ -33751,13 +33932,13 @@ DDS\_MAX\_RETRY: DDS ping max attempts
 
 | *Note: Reboot required after change*
 
-The maximum number of times the DDS client will attempt to ping the XRCE agent before exiting\.
+The maximum number of times the DDS client will attempt to ping the XRCE agent before exiting\. Set to 0 to allow unlimited retries\.
 
 
 +-----------+----------+
 | Increment | Range    |
 +===========+==========+
-| 1         | 1 to 100 |
+| 1         | 0 to 100 |
 +-----------+----------+
 
 
@@ -45487,6 +45668,8 @@ Mount Type
 +-------+-----------------+
 | 12    | Topotek         |
 +-------+-----------------+
+| 13    | CADDX           |
++-------+-----------------+
 
 
 
@@ -45874,6 +46057,8 @@ Mount Type
 | 11    | Viewpro         |
 +-------+-----------------+
 | 12    | Topotek         |
++-------+-----------------+
+| 13    | CADDX           |
 +-------+-----------------+
 
 
@@ -46632,15 +46817,19 @@ NET\_OPTIONS: Networking options
 Networking options
 
 
-+-----+-------------------------------+
-| Bit | Meaning                       |
-+=====+===============================+
-| 0   | EnablePPP Ethernet gateway    |
-+-----+-------------------------------+
-| 1   | Enable CAN1 multicast gateway |
-+-----+-------------------------------+
-| 2   | Enable CAN2 multicast gateway |
-+-----+-------------------------------+
++-----+--------------------------------+
+| Bit | Meaning                        |
++=====+================================+
+| 0   | EnablePPP Ethernet gateway     |
++-----+--------------------------------+
+| 1   | Enable CAN1 multicast endpoint |
++-----+--------------------------------+
+| 2   | Enable CAN2 multicast endpoint |
++-----+--------------------------------+
+| 3   | Enable CAN1 multicast bridged  |
++-----+--------------------------------+
+| 4   | Enable CAN2 multicast bridged  |
++-----+--------------------------------+
 
 
 
@@ -47079,6 +47268,8 @@ Networked serial port protocol
 +-------+----------------------------------+
 | 48    | PPP                              |
 +-------+----------------------------------+
+| 49    | i-BUS Telemetry                  |
++-------+----------------------------------+
 
 
 
@@ -47326,6 +47517,8 @@ Networked serial port protocol
 | 46    | IMUDATA                          |
 +-------+----------------------------------+
 | 48    | PPP                              |
++-------+----------------------------------+
+| 49    | i-BUS Telemetry                  |
 +-------+----------------------------------+
 
 
@@ -47575,6 +47768,8 @@ Networked serial port protocol
 +-------+----------------------------------+
 | 48    | PPP                              |
 +-------+----------------------------------+
+| 49    | i-BUS Telemetry                  |
++-------+----------------------------------+
 
 
 
@@ -47822,6 +48017,8 @@ Networked serial port protocol
 | 46    | IMUDATA                          |
 +-------+----------------------------------+
 | 48    | PPP                              |
++-------+----------------------------------+
+| 49    | i-BUS Telemetry                  |
 +-------+----------------------------------+
 
 
@@ -84077,6 +84274,8 @@ Serial protocol of scripting serial device
 +-------+----------------------------------+
 | 48    | PPP                              |
 +-------+----------------------------------+
+| 49    | i-BUS Telemetry                  |
++-------+----------------------------------+
 
 
 
@@ -84187,6 +84386,8 @@ Serial protocol of scripting serial device
 +-------+----------------------------------+
 | 48    | PPP                              |
 +-------+----------------------------------+
+| 49    | i-BUS Telemetry                  |
++-------+----------------------------------+
 
 
 
@@ -84296,6 +84497,8 @@ Serial protocol of scripting serial device
 | 46    | IMUDATA                          |
 +-------+----------------------------------+
 | 48    | PPP                              |
++-------+----------------------------------+
+| 49    | i-BUS Telemetry                  |
 +-------+----------------------------------+
 
 
@@ -84482,6 +84685,8 @@ Control what protocol to use on the Telem1 port\. Note that the Frsky options re
 +-------+----------------------------------+
 | 48    | PPP                              |
 +-------+----------------------------------+
+| 49    | i-BUS Telemetry                  |
++-------+----------------------------------+
 
 
 
@@ -84638,6 +84843,8 @@ Control what protocol to use on the Telem2 port\. Note that the Frsky options re
 | 46    | IMUDATA                          |
 +-------+----------------------------------+
 | 48    | PPP                              |
++-------+----------------------------------+
+| 49    | i-BUS Telemetry                  |
 +-------+----------------------------------+
 
 
@@ -84796,6 +85003,8 @@ Control what protocol Serial 3 \(GPS\) should be used for\. Note that the Frsky 
 +-------+----------------------------------+
 | 48    | PPP                              |
 +-------+----------------------------------+
+| 49    | i-BUS Telemetry                  |
++-------+----------------------------------+
 
 
 
@@ -84952,6 +85161,8 @@ Control what protocol Serial4 port should be used for\. Note that the Frsky opti
 | 46    | IMUDATA                          |
 +-------+----------------------------------+
 | 48    | PPP                              |
++-------+----------------------------------+
+| 49    | i-BUS Telemetry                  |
 +-------+----------------------------------+
 
 
@@ -85110,6 +85321,8 @@ Control what protocol Serial5 port should be used for\. Note that the Frsky opti
 +-------+----------------------------------+
 | 48    | PPP                              |
 +-------+----------------------------------+
+| 49    | i-BUS Telemetry                  |
++-------+----------------------------------+
 
 
 
@@ -85266,6 +85479,8 @@ Control what protocol Serial6 port should be used for\. Note that the Frsky opti
 | 46    | IMUDATA                          |
 +-------+----------------------------------+
 | 48    | PPP                              |
++-------+----------------------------------+
+| 49    | i-BUS Telemetry                  |
 +-------+----------------------------------+
 
 
@@ -85773,6 +85988,8 @@ Control what protocol Serial7 port should be used for\. Note that the Frsky opti
 +-------+----------------------------------+
 | 48    | PPP                              |
 +-------+----------------------------------+
+| 49    | i-BUS Telemetry                  |
++-------+----------------------------------+
 
 
 
@@ -85974,6 +86191,8 @@ Control what protocol Serial8 port should be used for\. Note that the Frsky opti
 +-------+----------------------------------+
 | 48    | PPP                              |
 +-------+----------------------------------+
+| 49    | i-BUS Telemetry                  |
++-------+----------------------------------+
 
 
 
@@ -86174,6 +86393,8 @@ Control what protocol Serial9 port should be used for\. Note that the Frsky opti
 | 46    | IMUDATA                          |
 +-------+----------------------------------+
 | 48    | PPP                              |
++-------+----------------------------------+
+| 49    | i-BUS Telemetry                  |
 +-------+----------------------------------+
 
 

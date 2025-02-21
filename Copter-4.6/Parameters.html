@@ -1000,7 +1000,7 @@ DO NOT EDIT
 
 <p>Flight mode specific options</p>
 <ul>
-<li>Bitmask: 0:Disable thrust loss check, 1:Disable yaw imbalance warning, 2:Release gripper on thrust loss, 3:Require position for arming</li>
+<li>Bitmask: 0:Disable thrust loss check, 1:Disable yaw imbalance warning, 2:Release gripper on thrust loss</li>
 </ul>
 
 
@@ -2580,6 +2580,43 @@ DO NOT EDIT
 </ul>
 
 
+<h2>Mask of UltraMotion servos (UM_SERVO_MASK)</h2>
+
+<p>Mask of UltraMotion servos</p>
+<ul>
+<li>Bitmask: 0:SERVO1,1:SERVO2,2:SERVO3,3:SERVO4,4:SERVO5,5:SERVO6,6:SERVO7,7:SERVO8,8:SERVO9,9:SERVO10,10:SERVO11,11:SERVO12</li>
+</ul>
+
+
+<h2>Set CAN driver (UM_CANDRV)</h2>
+
+<p>Set CAN driver</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>0</td><td>None</td></tr>
+<tr><td>1</td><td>1stCANDriver</td></tr>
+<tr><td>2</td><td>2ndCanDriver</td></tr>
+</table>
+</ul>
+
+
+<h2>Update rate for UltraMotion servos (UM_RATE_HZ)</h2>
+
+<p>Update rate for UltraMotion servos</p>
+<ul>
+<li>Units: hertz</li>
+<li>Range: 1 400</li>
+</ul>
+
+
+<h2>Optional settings (UM_OPTIONS)</h2>
+
+<p>Optional settings</p>
+<ul>
+<li>Bitmask: 0:LogAllFrames,1:ParseTelemetry,2:SendPosAsNamedValueFloat</li>
+</ul>
+
+
 <h2>Hobbywing ESC Enable (ESC_HW_ENABLE)</h2>
 
 <p>Enable Hobbywing ESC telemetry</p>
@@ -3862,6 +3899,17 @@ DO NOT EDIT
 <table><th>Value</th><th>Meaning</th>
 <tr><td>0</td><td>Crash Dump arming check active</td></tr>
 <tr><td>1</td><td>Crash Dump arming check deactivated</td></tr>
+</table>
+</ul>
+
+
+<h2>Require vehicle location (ARMING_NEED_LOC)</h2><em>Note: This parameter is for advanced users</em><br>
+
+<p>Require that the vehicle have an absolute position before it arms.  This can help ensure that the vehicle can Return To Launch.</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>0</td><td>Do not require location</td></tr>
+<tr><td>1</td><td>Require Location</td></tr>
 </table>
 </ul>
 
@@ -12575,6 +12623,41 @@ DO NOT EDIT
 </ul>
 
 
+<h2>Serial 6 flow control (BRD_SER6_RTSCTS)</h2><em>Note: This parameter is for advanced users</em><br>
+
+<p>Enable flow control on serial 6. You must have the RTS and CTS pins connected to your radio. The standard DF13 6 pin connector for a 3DR radio does have those pins connected. If this is set to 2 then flow control will be auto-detected by checking for the output buffer filling on startup.</p>
+<ul>
+<li>RebootRequired: True</li>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>0</td><td>Disabled</td></tr>
+<tr><td>1</td><td>Enabled</td></tr>
+<tr><td>2</td><td>Auto</td></tr>
+<tr><td>3</td><td>RS-485 Driver enable RTS pin</td></tr>
+</table>
+</ul>
+
+
+<h2>Serial 7 flow control (BRD_SER7_RTSCTS)</h2><em>Note: This parameter is for advanced users</em><br>
+
+<p>Enable flow control on serial 7. You must have the RTS and CTS pins connected to your radio. The standard DF13 6 pin connector for a 3DR radio does have those pins connected. If this is set to 2 then flow control will be auto-detected by checking for the output buffer filling on startup.</p>
+<ul>
+<li>RebootRequired: True</li>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>0</td><td>Disabled</td></tr>
+<tr><td>1</td><td>Enabled</td></tr>
+<tr><td>2</td><td>Auto</td></tr>
+<tr><td>3</td><td>RS-485 Driver enable RTS pin</td></tr>
+</table>
+</ul>
+
+
+<h2>Serial 8 flow control (BRD_SER8_RTSCTS)</h2>
+
+<p>Enable flow control on serial 8. You must have the RTS and CTS pins connected to your radio. The standard DF13 6 pin connector for a 3DR radio does have those pins connected. If this is set to 2 then flow control will be auto-detected by checking for the output buffer filling on startup.</p>
+<ul>
+</ul>
+
+
 <h2>Sets default state of the safety switch (BRD_SAFETY_DEFLT)</h2>
 
 <p>This controls the default state of the safety switch at startup. When set to 1 the safety switch will start in the safe state (flashing) at boot. When set to zero the safety switch will start in the unsafe state (solid) at startup. Note that if a safety switch is fitted the user can still control the safety state after startup using the switch. The safety state can also be controlled in software using a MAVLink message.</p>
@@ -14311,6 +14394,7 @@ DO NOT EDIT
 <tr><td>45</td><td>DDS XRCE</td></tr>
 <tr><td>46</td><td>IMUDATA</td></tr>
 <tr><td>48</td><td>PPP</td></tr>
+<tr><td>49</td><td>i-BUS Telemetry</td></tr>
 </table>
 </ul>
 
@@ -14421,6 +14505,7 @@ DO NOT EDIT
 <tr><td>45</td><td>DDS XRCE</td></tr>
 <tr><td>46</td><td>IMUDATA</td></tr>
 <tr><td>48</td><td>PPP</td></tr>
+<tr><td>49</td><td>i-BUS Telemetry</td></tr>
 </table>
 </ul>
 
@@ -14531,6 +14616,7 @@ DO NOT EDIT
 <tr><td>45</td><td>DDS XRCE</td></tr>
 <tr><td>46</td><td>IMUDATA</td></tr>
 <tr><td>48</td><td>PPP</td></tr>
+<tr><td>49</td><td>i-BUS Telemetry</td></tr>
 </table>
 </ul>
 
@@ -14834,6 +14920,7 @@ DO NOT EDIT
 <tr><td>45</td><td>DDS XRCE</td></tr>
 <tr><td>46</td><td>IMUDATA</td></tr>
 <tr><td>48</td><td>PPP</td></tr>
+<tr><td>49</td><td>i-BUS Telemetry</td></tr>
 </table>
 </ul>
 
@@ -14944,6 +15031,7 @@ DO NOT EDIT
 <tr><td>45</td><td>DDS XRCE</td></tr>
 <tr><td>46</td><td>IMUDATA</td></tr>
 <tr><td>48</td><td>PPP</td></tr>
+<tr><td>49</td><td>i-BUS Telemetry</td></tr>
 </table>
 </ul>
 
@@ -15054,6 +15142,7 @@ DO NOT EDIT
 <tr><td>45</td><td>DDS XRCE</td></tr>
 <tr><td>46</td><td>IMUDATA</td></tr>
 <tr><td>48</td><td>PPP</td></tr>
+<tr><td>49</td><td>i-BUS Telemetry</td></tr>
 </table>
 </ul>
 
@@ -15357,6 +15446,7 @@ DO NOT EDIT
 <tr><td>45</td><td>DDS XRCE</td></tr>
 <tr><td>46</td><td>IMUDATA</td></tr>
 <tr><td>48</td><td>PPP</td></tr>
+<tr><td>49</td><td>i-BUS Telemetry</td></tr>
 </table>
 </ul>
 
@@ -15467,6 +15557,7 @@ DO NOT EDIT
 <tr><td>45</td><td>DDS XRCE</td></tr>
 <tr><td>46</td><td>IMUDATA</td></tr>
 <tr><td>48</td><td>PPP</td></tr>
+<tr><td>49</td><td>i-BUS Telemetry</td></tr>
 </table>
 </ul>
 
@@ -15577,6 +15668,7 @@ DO NOT EDIT
 <tr><td>45</td><td>DDS XRCE</td></tr>
 <tr><td>46</td><td>IMUDATA</td></tr>
 <tr><td>48</td><td>PPP</td></tr>
+<tr><td>49</td><td>i-BUS Telemetry</td></tr>
 </table>
 </ul>
 
@@ -16983,9 +17075,9 @@ DO NOT EDIT
 
 <h2>DDS ping max attempts (DDS_MAX_RETRY)</h2>
 
-<p>The maximum number of times the DDS client will attempt to ping the XRCE agent before exiting.</p>
+<p>The maximum number of times the DDS client will attempt to ping the XRCE agent before exiting. Set to 0 to allow unlimited retries.</p>
 <ul>
-<li>Range: 1 100</li>
+<li>Range: 0 100</li>
 <li>RebootRequired: True</li>
 <li>Increment: 1</li>
 </ul>
@@ -23853,6 +23945,7 @@ DO NOT EDIT
 <tr><td>10</td><td>Xacti</td></tr>
 <tr><td>11</td><td>Viewpro</td></tr>
 <tr><td>12</td><td>Topotek</td></tr>
+<tr><td>13</td><td>CADDX</td></tr>
 </table>
 <li>RebootRequired: True</li>
 </ul>
@@ -24068,6 +24161,7 @@ DO NOT EDIT
 <tr><td>10</td><td>Xacti</td></tr>
 <tr><td>11</td><td>Viewpro</td></tr>
 <tr><td>12</td><td>Topotek</td></tr>
+<tr><td>13</td><td>CADDX</td></tr>
 </table>
 <li>RebootRequired: True</li>
 </ul>
@@ -24595,7 +24689,7 @@ DO NOT EDIT
 
 <p>Networking options</p>
 <ul>
-<li>Bitmask: 0:EnablePPP Ethernet gateway, 1:Enable CAN1 multicast gateway, 2:Enable CAN2 multicast gateway</li>
+<li>Bitmask: 0:EnablePPP Ethernet gateway, 1:Enable CAN1 multicast endpoint, 2:Enable CAN2 multicast endpoint, 3:Enable CAN1 multicast bridged, 4:Enable CAN2 multicast bridged</li>
 <li>RebootRequired: True</li>
 </ul>
 
@@ -24805,6 +24899,7 @@ DO NOT EDIT
 <tr><td>45</td><td>DDS XRCE</td></tr>
 <tr><td>46</td><td>IMUDATA</td></tr>
 <tr><td>48</td><td>PPP</td></tr>
+<tr><td>49</td><td>i-BUS Telemetry</td></tr>
 </table>
 </ul>
 
@@ -24927,6 +25022,7 @@ DO NOT EDIT
 <tr><td>45</td><td>DDS XRCE</td></tr>
 <tr><td>46</td><td>IMUDATA</td></tr>
 <tr><td>48</td><td>PPP</td></tr>
+<tr><td>49</td><td>i-BUS Telemetry</td></tr>
 </table>
 </ul>
 
@@ -25049,6 +25145,7 @@ DO NOT EDIT
 <tr><td>45</td><td>DDS XRCE</td></tr>
 <tr><td>46</td><td>IMUDATA</td></tr>
 <tr><td>48</td><td>PPP</td></tr>
+<tr><td>49</td><td>i-BUS Telemetry</td></tr>
 </table>
 </ul>
 
@@ -25171,6 +25268,7 @@ DO NOT EDIT
 <tr><td>45</td><td>DDS XRCE</td></tr>
 <tr><td>46</td><td>IMUDATA</td></tr>
 <tr><td>48</td><td>PPP</td></tr>
+<tr><td>49</td><td>i-BUS Telemetry</td></tr>
 </table>
 </ul>
 
@@ -43855,6 +43953,7 @@ DO NOT EDIT
 <tr><td>45</td><td>DDS XRCE</td></tr>
 <tr><td>46</td><td>IMUDATA</td></tr>
 <tr><td>48</td><td>PPP</td></tr>
+<tr><td>49</td><td>i-BUS Telemetry</td></tr>
 </table>
 </ul>
 
@@ -43911,6 +44010,7 @@ DO NOT EDIT
 <tr><td>45</td><td>DDS XRCE</td></tr>
 <tr><td>46</td><td>IMUDATA</td></tr>
 <tr><td>48</td><td>PPP</td></tr>
+<tr><td>49</td><td>i-BUS Telemetry</td></tr>
 </table>
 </ul>
 
@@ -43967,6 +44067,7 @@ DO NOT EDIT
 <tr><td>45</td><td>DDS XRCE</td></tr>
 <tr><td>46</td><td>IMUDATA</td></tr>
 <tr><td>48</td><td>PPP</td></tr>
+<tr><td>49</td><td>i-BUS Telemetry</td></tr>
 </table>
 </ul>
 
@@ -44062,6 +44163,7 @@ DO NOT EDIT
 <tr><td>45</td><td>DDS XRCE</td></tr>
 <tr><td>46</td><td>IMUDATA</td></tr>
 <tr><td>48</td><td>PPP</td></tr>
+<tr><td>49</td><td>i-BUS Telemetry</td></tr>
 </table>
 <li>RebootRequired: True</li>
 </ul>
@@ -44144,6 +44246,7 @@ DO NOT EDIT
 <tr><td>45</td><td>DDS XRCE</td></tr>
 <tr><td>46</td><td>IMUDATA</td></tr>
 <tr><td>48</td><td>PPP</td></tr>
+<tr><td>49</td><td>i-BUS Telemetry</td></tr>
 </table>
 </ul>
 
@@ -44225,6 +44328,7 @@ DO NOT EDIT
 <tr><td>45</td><td>DDS XRCE</td></tr>
 <tr><td>46</td><td>IMUDATA</td></tr>
 <tr><td>48</td><td>PPP</td></tr>
+<tr><td>49</td><td>i-BUS Telemetry</td></tr>
 </table>
 </ul>
 
@@ -44306,6 +44410,7 @@ DO NOT EDIT
 <tr><td>45</td><td>DDS XRCE</td></tr>
 <tr><td>46</td><td>IMUDATA</td></tr>
 <tr><td>48</td><td>PPP</td></tr>
+<tr><td>49</td><td>i-BUS Telemetry</td></tr>
 </table>
 </ul>
 
@@ -44387,6 +44492,7 @@ DO NOT EDIT
 <tr><td>45</td><td>DDS XRCE</td></tr>
 <tr><td>46</td><td>IMUDATA</td></tr>
 <tr><td>48</td><td>PPP</td></tr>
+<tr><td>49</td><td>i-BUS Telemetry</td></tr>
 </table>
 </ul>
 
@@ -44468,6 +44574,7 @@ DO NOT EDIT
 <tr><td>45</td><td>DDS XRCE</td></tr>
 <tr><td>46</td><td>IMUDATA</td></tr>
 <tr><td>48</td><td>PPP</td></tr>
+<tr><td>49</td><td>i-BUS Telemetry</td></tr>
 </table>
 </ul>
 
@@ -44646,6 +44753,7 @@ DO NOT EDIT
 <tr><td>45</td><td>DDS XRCE</td></tr>
 <tr><td>46</td><td>IMUDATA</td></tr>
 <tr><td>48</td><td>PPP</td></tr>
+<tr><td>49</td><td>i-BUS Telemetry</td></tr>
 </table>
 </ul>
 
@@ -44736,6 +44844,7 @@ DO NOT EDIT
 <tr><td>45</td><td>DDS XRCE</td></tr>
 <tr><td>46</td><td>IMUDATA</td></tr>
 <tr><td>48</td><td>PPP</td></tr>
+<tr><td>49</td><td>i-BUS Telemetry</td></tr>
 </table>
 </ul>
 
@@ -44826,6 +44935,7 @@ DO NOT EDIT
 <tr><td>45</td><td>DDS XRCE</td></tr>
 <tr><td>46</td><td>IMUDATA</td></tr>
 <tr><td>48</td><td>PPP</td></tr>
+<tr><td>49</td><td>i-BUS Telemetry</td></tr>
 </table>
 </ul>
 

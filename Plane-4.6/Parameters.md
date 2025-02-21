@@ -2329,6 +2329,36 @@ Number of tricks which can be selected over the range of the trik selection RC c
 
 - Range: 1 11
 
+## UM_SERVO_MASK: Mask of UltraMotion servos
+
+Mask of UltraMotion servos
+
+- Bitmask: 0:SERVO1,1:SERVO2,2:SERVO3,3:SERVO4,4:SERVO5,5:SERVO6,6:SERVO7,7:SERVO8,8:SERVO9,9:SERVO10,10:SERVO11,11:SERVO12
+
+## UM_CANDRV: Set CAN driver
+
+Set CAN driver
+
+|Value|Meaning|
+|:---:|:---:|
+|0|None|
+|1|1stCANDriver|
+|2|2ndCanDriver|
+
+## UM_RATE_HZ: Update rate for UltraMotion servos
+
+Update rate for UltraMotion servos
+
+- Units: Hz
+
+- Range: 1 400
+
+## UM_OPTIONS: Optional settings
+
+Optional settings
+
+- Bitmask: 0:LogAllFrames,1:ParseTelemetry,2:SendPosAsNamedValueFloat
+
 ## ESC_HW_ENABLE: Hobbywing ESC Enable
 
 Enable Hobbywing ESC telemetry
@@ -10926,6 +10956,40 @@ Enable flow control on serial 5. You must have the RTS and CTS pins connected to
 |2|Auto|
 |3|RS-485 Driver enable RTS pin|
 
+## BRD_SER6_RTSCTS: Serial 6 flow control
+
+*Note: This parameter is for advanced users*
+
+Enable flow control on serial 6. You must have the RTS and CTS pins connected to your radio. The standard DF13 6 pin connector for a 3DR radio does have those pins connected. If this is set to 2 then flow control will be auto-detected by checking for the output buffer filling on startup.
+
+- RebootRequired: True
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
+|2|Auto|
+|3|RS-485 Driver enable RTS pin|
+
+## BRD_SER7_RTSCTS: Serial 7 flow control
+
+*Note: This parameter is for advanced users*
+
+Enable flow control on serial 7. You must have the RTS and CTS pins connected to your radio. The standard DF13 6 pin connector for a 3DR radio does have those pins connected. If this is set to 2 then flow control will be auto-detected by checking for the output buffer filling on startup.
+
+- RebootRequired: True
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
+|2|Auto|
+|3|RS-485 Driver enable RTS pin|
+
+## BRD_SER8_RTSCTS: Serial 8 flow control
+
+Enable flow control on serial 8. You must have the RTS and CTS pins connected to your radio. The standard DF13 6 pin connector for a 3DR radio does have those pins connected. If this is set to 2 then flow control will be auto-detected by checking for the output buffer filling on startup.
+
 ## BRD_SAFETY_DEFLT: Sets default state of the safety switch
 
 This controls the default state of the safety switch at startup. When set to 1 the safety switch will start in the safe state (flashing) at boot. When set to zero the safety switch will start in the unsafe state (solid) at startup. Note that if a safety switch is fitted the user can still control the safety state after startup using the switch. The safety state can also be controlled in software using a MAVLink message.
@@ -12536,6 +12600,7 @@ Serial protocol of DroneCAN serial port
 |45|DDS XRCE|
 |46|IMUDATA|
 |48|PPP|
+|49|i-BUS Telemetry|
 
 ## CAN_D1_UC_S2_NOD: Serial CAN remote node number
 
@@ -12651,6 +12716,7 @@ Serial protocol of DroneCAN serial port
 |45|DDS XRCE|
 |46|IMUDATA|
 |48|PPP|
+|49|i-BUS Telemetry|
 
 ## CAN_D1_UC_S3_NOD: Serial CAN remote node number
 
@@ -12766,6 +12832,7 @@ Serial protocol of DroneCAN serial port
 |45|DDS XRCE|
 |46|IMUDATA|
 |48|PPP|
+|49|i-BUS Telemetry|
 
 # CAND2 Parameters
 
@@ -13078,6 +13145,7 @@ Serial protocol of DroneCAN serial port
 |45|DDS XRCE|
 |46|IMUDATA|
 |48|PPP|
+|49|i-BUS Telemetry|
 
 ## CAN_D2_UC_S2_NOD: Serial CAN remote node number
 
@@ -13193,6 +13261,7 @@ Serial protocol of DroneCAN serial port
 |45|DDS XRCE|
 |46|IMUDATA|
 |48|PPP|
+|49|i-BUS Telemetry|
 
 ## CAN_D2_UC_S3_NOD: Serial CAN remote node number
 
@@ -13308,6 +13377,7 @@ Serial protocol of DroneCAN serial port
 |45|DDS XRCE|
 |46|IMUDATA|
 |48|PPP|
+|49|i-BUS Telemetry|
 
 # CAND3 Parameters
 
@@ -13620,6 +13690,7 @@ Serial protocol of DroneCAN serial port
 |45|DDS XRCE|
 |46|IMUDATA|
 |48|PPP|
+|49|i-BUS Telemetry|
 
 ## CAN_D3_UC_S2_NOD: Serial CAN remote node number
 
@@ -13735,6 +13806,7 @@ Serial protocol of DroneCAN serial port
 |45|DDS XRCE|
 |46|IMUDATA|
 |48|PPP|
+|49|i-BUS Telemetry|
 
 ## CAN_D3_UC_S3_NOD: Serial CAN remote node number
 
@@ -13850,6 +13922,7 @@ Serial protocol of DroneCAN serial port
 |45|DDS XRCE|
 |46|IMUDATA|
 |48|PPP|
+|49|i-BUS Telemetry|
 
 # CANP1 Parameters
 
@@ -15211,9 +15284,9 @@ The time in milliseconds the DDS client will wait for a response from the XRCE a
 
 ## DDS_MAX_RETRY: DDS ping max attempts
 
-The maximum number of times the DDS client will attempt to ping the XRCE agent before exiting.
+The maximum number of times the DDS client will attempt to ping the XRCE agent before exiting. Set to 0 to allow unlimited retries.
 
-- Range: 1 100
+- Range: 0 100
 
 - RebootRequired: True
 
@@ -21960,6 +22033,7 @@ Mount Type
 |10|Xacti|
 |11|Viewpro|
 |12|Topotek|
+|13|CADDX|
 
 - RebootRequired: True
 
@@ -22166,6 +22240,7 @@ Mount Type
 |10|Xacti|
 |11|Viewpro|
 |12|Topotek|
+|13|CADDX|
 
 - RebootRequired: True
 
@@ -22477,7 +22552,7 @@ Enable/Disable networking tests
 
 Networking options
 
-- Bitmask: 0:EnablePPP Ethernet gateway, 1:Enable CAN1 multicast gateway, 2:Enable CAN2 multicast gateway
+- Bitmask: 0:EnablePPP Ethernet gateway, 1:Enable CAN1 multicast endpoint, 2:Enable CAN2 multicast endpoint, 3:Enable CAN1 multicast bridged, 4:Enable CAN2 multicast bridged
 
 - RebootRequired: True
 
@@ -22685,6 +22760,7 @@ Networked serial port protocol
 |45|DDS XRCE|
 |46|IMUDATA|
 |48|PPP|
+|49|i-BUS Telemetry|
 
 ## NET_P1_PORT: Port number
 
@@ -22804,6 +22880,7 @@ Networked serial port protocol
 |45|DDS XRCE|
 |46|IMUDATA|
 |48|PPP|
+|49|i-BUS Telemetry|
 
 ## NET_P2_PORT: Port number
 
@@ -22923,6 +23000,7 @@ Networked serial port protocol
 |45|DDS XRCE|
 |46|IMUDATA|
 |48|PPP|
+|49|i-BUS Telemetry|
 
 ## NET_P3_PORT: Port number
 
@@ -23042,6 +23120,7 @@ Networked serial port protocol
 |45|DDS XRCE|
 |46|IMUDATA|
 |48|PPP|
+|49|i-BUS Telemetry|
 
 ## NET_P4_PORT: Port number
 
@@ -38115,6 +38194,7 @@ Serial protocol of scripting serial device
 |45|DDS XRCE|
 |46|IMUDATA|
 |48|PPP|
+|49|i-BUS Telemetry|
 
 ## SCR_SDEV2_PROTO: Serial protocol of scripting serial device
 
@@ -38172,6 +38252,7 @@ Serial protocol of scripting serial device
 |45|DDS XRCE|
 |46|IMUDATA|
 |48|PPP|
+|49|i-BUS Telemetry|
 
 ## SCR_SDEV3_PROTO: Serial protocol of scripting serial device
 
@@ -38229,6 +38310,7 @@ Serial protocol of scripting serial device
 |45|DDS XRCE|
 |46|IMUDATA|
 |48|PPP|
+|49|i-BUS Telemetry|
 
 # SERIAL Parameters
 
@@ -38318,6 +38400,7 @@ Control what protocol to use on the Telem1 port. Note that the Frsky options req
 |45|DDS XRCE|
 |46|IMUDATA|
 |48|PPP|
+|49|i-BUS Telemetry|
 
 - RebootRequired: True
 
@@ -38398,6 +38481,7 @@ Control what protocol to use on the Telem2 port. Note that the Frsky options req
 |45|DDS XRCE|
 |46|IMUDATA|
 |48|PPP|
+|49|i-BUS Telemetry|
 
 ## SERIAL2_BAUD: Telemetry 2 Baud Rate
 
@@ -38476,6 +38560,7 @@ Control what protocol Serial 3 (GPS) should be used for. Note that the Frsky opt
 |45|DDS XRCE|
 |46|IMUDATA|
 |48|PPP|
+|49|i-BUS Telemetry|
 
 ## SERIAL3_BAUD: Serial 3 (GPS) Baud Rate
 
@@ -38554,6 +38639,7 @@ Control what protocol Serial4 port should be used for. Note that the Frsky optio
 |45|DDS XRCE|
 |46|IMUDATA|
 |48|PPP|
+|49|i-BUS Telemetry|
 
 ## SERIAL4_BAUD: Serial 4 Baud Rate
 
@@ -38632,6 +38718,7 @@ Control what protocol Serial5 port should be used for. Note that the Frsky optio
 |45|DDS XRCE|
 |46|IMUDATA|
 |48|PPP|
+|49|i-BUS Telemetry|
 
 ## SERIAL5_BAUD: Serial 5 Baud Rate
 
@@ -38710,6 +38797,7 @@ Control what protocol Serial6 port should be used for. Note that the Frsky optio
 |45|DDS XRCE|
 |46|IMUDATA|
 |48|PPP|
+|49|i-BUS Telemetry|
 
 ## SERIAL6_BAUD: Serial 6 Baud Rate
 
@@ -38892,6 +38980,7 @@ Control what protocol Serial7 port should be used for. Note that the Frsky optio
 |45|DDS XRCE|
 |46|IMUDATA|
 |48|PPP|
+|49|i-BUS Telemetry|
 
 ## SERIAL7_BAUD: Serial 7 Baud Rate
 
@@ -38980,6 +39069,7 @@ Control what protocol Serial8 port should be used for. Note that the Frsky optio
 |45|DDS XRCE|
 |46|IMUDATA|
 |48|PPP|
+|49|i-BUS Telemetry|
 
 ## SERIAL8_BAUD: Serial 8 Baud Rate
 
@@ -39068,6 +39158,7 @@ Control what protocol Serial9 port should be used for. Note that the Frsky optio
 |45|DDS XRCE|
 |46|IMUDATA|
 |48|PPP|
+|49|i-BUS Telemetry|
 
 ## SERIAL9_BAUD: Serial 9 Baud Rate
 

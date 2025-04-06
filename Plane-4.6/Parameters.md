@@ -3022,7 +3022,7 @@ Describes your hardware RF In/Out capabilities.
 
 *Note: This parameter is for advanced users*
 
-ADSB vehicle list altitude filter. Vehicles detected above this altitude will be completely ignored. They will not show up in the SRx_ADSB stream to the GCS and will not be considered in any avoidance calculations. A value of 0 will disable this filter.
+ADSB vehicle list altitude filter. Vehicles detected more than this altitude above our own altitude will be completely ignored. They will not show up in the SRx_ADSB stream to the GCS and will not be considered in any avoidance calculations. A value of 0 will disable this filter.
 
 - Range: 0 32767
 
@@ -12309,7 +12309,7 @@ Enabling this option starts selected protocol that will use this virtual driver
 |11|Benewake|
 |12|Scripting2|
 |13|TOFSenseP|
-|14|NanoRadar|
+|14|RadarCAN (NanoRadar/Hexsoon)|
 
 - RebootRequired: True
 
@@ -12327,7 +12327,7 @@ Secondary protocol with 11 bit CAN addressing
 |11|Benewake|
 |12|Scripting2|
 |13|TOFSenseP|
-|14|NanoRadar|
+|14|RadarCAN (NanoRadar/Hexsoon)|
 
 - RebootRequired: True
 
@@ -12541,8 +12541,9 @@ Serial baud rate on remote CAN node
 |460|460800|
 |500|500000|
 |921|921600|
-|1500|1500000|
-|2000|2000000|
+|1500|1.5MBaud|
+|2000|2MBaud|
+|12500000|12.5MBaud|
 
 ## CAN_D1_UC_S1_PRO: Serial protocol of DroneCAN serial port
 
@@ -12657,8 +12658,9 @@ Serial baud rate on remote CAN node
 |460|460800|
 |500|500000|
 |921|921600|
-|1500|1500000|
-|2000|2000000|
+|1500|1.5MBaud|
+|2000|2MBaud|
+|12500000|12.5MBaud|
 
 ## CAN_D1_UC_S2_PRO: Serial protocol of DroneCAN serial port
 
@@ -12773,8 +12775,9 @@ Serial baud rate on remote CAN node
 |460|460800|
 |500|500000|
 |921|921600|
-|1500|1500000|
-|2000|2000000|
+|1500|1.5MBaud|
+|2000|2MBaud|
+|12500000|12.5MBaud|
 
 ## CAN_D1_UC_S3_PRO: Serial protocol of DroneCAN serial port
 
@@ -12854,7 +12857,7 @@ Enabling this option starts selected protocol that will use this virtual driver
 |11|Benewake|
 |12|Scripting2|
 |13|TOFSenseP|
-|14|NanoRadar|
+|14|RadarCAN (NanoRadar/Hexsoon)|
 
 - RebootRequired: True
 
@@ -12872,7 +12875,7 @@ Secondary protocol with 11 bit CAN addressing
 |11|Benewake|
 |12|Scripting2|
 |13|TOFSenseP|
-|14|NanoRadar|
+|14|RadarCAN (NanoRadar/Hexsoon)|
 
 - RebootRequired: True
 
@@ -13086,8 +13089,9 @@ Serial baud rate on remote CAN node
 |460|460800|
 |500|500000|
 |921|921600|
-|1500|1500000|
-|2000|2000000|
+|1500|1.5MBaud|
+|2000|2MBaud|
+|12500000|12.5MBaud|
 
 ## CAN_D2_UC_S1_PRO: Serial protocol of DroneCAN serial port
 
@@ -13202,8 +13206,9 @@ Serial baud rate on remote CAN node
 |460|460800|
 |500|500000|
 |921|921600|
-|1500|1500000|
-|2000|2000000|
+|1500|1.5MBaud|
+|2000|2MBaud|
+|12500000|12.5MBaud|
 
 ## CAN_D2_UC_S2_PRO: Serial protocol of DroneCAN serial port
 
@@ -13318,8 +13323,9 @@ Serial baud rate on remote CAN node
 |460|460800|
 |500|500000|
 |921|921600|
-|1500|1500000|
-|2000|2000000|
+|1500|1.5MBaud|
+|2000|2MBaud|
+|12500000|12.5MBaud|
 
 ## CAN_D2_UC_S3_PRO: Serial protocol of DroneCAN serial port
 
@@ -13399,7 +13405,7 @@ Enabling this option starts selected protocol that will use this virtual driver
 |11|Benewake|
 |12|Scripting2|
 |13|TOFSenseP|
-|14|NanoRadar|
+|14|RadarCAN (NanoRadar/Hexsoon)|
 
 - RebootRequired: True
 
@@ -13417,7 +13423,7 @@ Secondary protocol with 11 bit CAN addressing
 |11|Benewake|
 |12|Scripting2|
 |13|TOFSenseP|
-|14|NanoRadar|
+|14|RadarCAN (NanoRadar/Hexsoon)|
 
 - RebootRequired: True
 
@@ -13631,8 +13637,9 @@ Serial baud rate on remote CAN node
 |460|460800|
 |500|500000|
 |921|921600|
-|1500|1500000|
-|2000|2000000|
+|1500|1.5MBaud|
+|2000|2MBaud|
+|12500000|12.5MBaud|
 
 ## CAN_D3_UC_S1_PRO: Serial protocol of DroneCAN serial port
 
@@ -13747,8 +13754,9 @@ Serial baud rate on remote CAN node
 |460|460800|
 |500|500000|
 |921|921600|
-|1500|1500000|
-|2000|2000000|
+|1500|1.5MBaud|
+|2000|2MBaud|
+|12500000|12.5MBaud|
 
 ## CAN_D3_UC_S2_PRO: Serial protocol of DroneCAN serial port
 
@@ -13863,8 +13871,9 @@ Serial baud rate on remote CAN node
 |460|460800|
 |500|500000|
 |921|921600|
-|1500|1500000|
-|2000|2000000|
+|1500|1.5MBaud|
+|2000|2MBaud|
+|12500000|12.5MBaud|
 
 ## CAN_D3_UC_S3_PRO: Serial protocol of DroneCAN serial port
 
@@ -14913,7 +14922,7 @@ This sets the maximum allowed compass offset in calibration and arming checks
 
 This is a bitmask of driver types to disable. If a driver type is set in this mask then that driver will not try to find a sensor at startup
 
-- Bitmask: 0:HMC5883,1:LSM303D,2:AK8963,3:BMM150,4:LSM9DS1,5:LIS3MDL,6:AK09916,7:IST8310,8:ICM20948,9:MMC3416,11:DroneCAN,12:QMC5883,14:MAG3110,15:IST8308,16:RM3100,17:MSP,18:ExternalAHRS,19:MMC5XX3,20:QMC5883P,21:BMM350
+- Bitmask: 0:HMC5883,1:LSM303D,2:AK8963,3:BMM150,4:LSM9DS1,5:LIS3MDL,6:AK09916,7:IST8310,8:ICM20948,9:MMC3416,11:DroneCAN,12:QMC5883,14:MAG3110,15:IST8308,16:RM3100,17:MSP,18:ExternalAHRS,19:MMC5XX3,20:QMC5883P,21:BMM350,22:IIS2MDC
 
 ## COMPASS_FLTR_RNG: Range in which sample is accepted
 
@@ -15312,7 +15321,7 @@ IPv4 address. Example: xxx.168.xxx.xxx
 
 ## DDS_IP2: IPv4 Address 3rd byte
 
-IPv4 address. Example: xxx.xxx.13.xxx
+IPv4 address. Example: xxx.xxx.144.xxx
 
 - Range: 0 255
 
@@ -21860,7 +21869,7 @@ Altitude where the landing gear will be retracted. This should be higher than th
 
 ## LGR_OPTIONS: Landing gear auto retract/deploy options
 
-Options to retract or deploy landing gear in Auto or Guided mode
+Options to retract or deploy landing gear in Auto, Takeoff and Autoland modes
 
 - Bitmask: 0:Retract after Takeoff,1:Deploy during Land
 
@@ -21872,9 +21881,13 @@ Bitmap of what Logger backend types to enable. Block-based logging is available 
 
 - Bitmask: 0:File,1:MAVLink,2:Block
 
-## LOG_FILE_BUFSIZE: Maximum AP_Logger File and Block Backend buffer size (in kilobytes)
+## LOG_FILE_BUFSIZE: Logging File and Block Backend buffer size max (in kilobytes)
 
-The File and Block backends use a buffer to store data before writing to the block device.  Raising this value may reduce "gaps" in your SD card logging.  This buffer size may be reduced depending on available memory.  PixHawk requires at least 4 kilobytes.  Maximum value available here is 64 kilobytes.
+The File and Block backends use a buffer to store data before writing to the block device.  Raising this value may reduce "gaps" in your SD card logging but increases memory usage.  This buffer size may be reduced to free up available memory
+
+- Units: kB
+
+- Range: 4 200
 
 ## LOG_DISARMED: Enable logging while disarmed
 
@@ -22576,7 +22589,7 @@ IPv4 address. Example: xxx.168.xxx.xxx
 
 ## NET_GWADDR2: IPv4 Address 3rd byte
 
-IPv4 address. Example: xxx.xxx.13.xxx
+IPv4 address. Example: xxx.xxx.144.xxx
 
 - Range: 0 255
 
@@ -22610,7 +22623,7 @@ IPv4 address. Example: xxx.168.xxx.xxx
 
 ## NET_IPADDR2: IPv4 Address 3rd byte
 
-IPv4 address. Example: xxx.xxx.13.xxx
+IPv4 address. Example: xxx.xxx.144.xxx
 
 - Range: 0 255
 
@@ -22792,7 +22805,7 @@ IPv4 address. Example: xxx.168.xxx.xxx
 
 ## NET_P1_IP2: IPv4 Address 3rd byte
 
-IPv4 address. Example: xxx.xxx.13.xxx
+IPv4 address. Example: xxx.xxx.144.xxx
 
 - Range: 0 255
 
@@ -22912,7 +22925,7 @@ IPv4 address. Example: xxx.168.xxx.xxx
 
 ## NET_P2_IP2: IPv4 Address 3rd byte
 
-IPv4 address. Example: xxx.xxx.13.xxx
+IPv4 address. Example: xxx.xxx.144.xxx
 
 - Range: 0 255
 
@@ -23032,7 +23045,7 @@ IPv4 address. Example: xxx.168.xxx.xxx
 
 ## NET_P3_IP2: IPv4 Address 3rd byte
 
-IPv4 address. Example: xxx.xxx.13.xxx
+IPv4 address. Example: xxx.xxx.144.xxx
 
 - Range: 0 255
 
@@ -23152,7 +23165,7 @@ IPv4 address. Example: xxx.168.xxx.xxx
 
 ## NET_P4_IP2: IPv4 Address 3rd byte
 
-IPv4 address. Example: xxx.xxx.13.xxx
+IPv4 address. Example: xxx.xxx.144.xxx
 
 - Range: 0 255
 
@@ -23186,7 +23199,7 @@ IPv4 address. Example: xxx.168.xxx.xxx
 
 ## NET_REMPPP_IP2: IPv4 Address 3rd byte
 
-IPv4 address. Example: xxx.xxx.13.xxx
+IPv4 address. Example: xxx.xxx.144.xxx
 
 - Range: 0 255
 
@@ -23220,7 +23233,7 @@ IPv4 address. Example: xxx.168.xxx.xxx
 
 ## NET_TEST_IP2: IPv4 Address 3rd byte
 
-IPv4 address. Example: xxx.xxx.13.xxx
+IPv4 address. Example: xxx.xxx.144.xxx
 
 - Range: 0 255
 
@@ -31004,6 +31017,12 @@ This is the angular error in attitude beyond which the quadplane VTOL motors wil
 
 - Increment: 1
 
+## Q_ASSIST_OPTIONS: Quadplane assistance options
+
+Options for special QAssist features
+
+- Bitmask: 0: Disable force fixed wing controller recovery, 1: Disable quadplane spin recovery
+
 ## Q_MAV_TYPE: MAVLink type identifier
 
 This controls the mavlink type given in HEARTBEAT messages. For some GCS types a particular setting will be needed for correct operation.
@@ -32138,7 +32157,7 @@ Time constant used to limit the maximum current
 
 Motor thrust needed to hover expressed as a number from 0 to 1
 
-- Range: 0.2 0.8
+- Range: 0.125 0.6875
 
 ## Q_M_HOVER_LEARN: Hover Value Learning
 
@@ -34705,6 +34724,7 @@ Type of connected rangefinder
 |41|JRE_Serial|
 |42|Ainstein_LR_D1|
 |43|RDS02UF|
+|44|HexsoonRadar|
 |100|SITL|
 
 ## RNGFND1_PIN: Rangefinder pin
@@ -34996,6 +35016,7 @@ Type of connected rangefinder
 |41|JRE_Serial|
 |42|Ainstein_LR_D1|
 |43|RDS02UF|
+|44|HexsoonRadar|
 |100|SITL|
 
 ## RNGFND2_PIN: Rangefinder pin
@@ -35287,6 +35308,7 @@ Type of connected rangefinder
 |41|JRE_Serial|
 |42|Ainstein_LR_D1|
 |43|RDS02UF|
+|44|HexsoonRadar|
 |100|SITL|
 
 ## RNGFND3_PIN: Rangefinder pin
@@ -35578,6 +35600,7 @@ Type of connected rangefinder
 |41|JRE_Serial|
 |42|Ainstein_LR_D1|
 |43|RDS02UF|
+|44|HexsoonRadar|
 |100|SITL|
 
 ## RNGFND4_PIN: Rangefinder pin
@@ -35869,6 +35892,7 @@ Type of connected rangefinder
 |41|JRE_Serial|
 |42|Ainstein_LR_D1|
 |43|RDS02UF|
+|44|HexsoonRadar|
 |100|SITL|
 
 ## RNGFND5_PIN: Rangefinder pin
@@ -36160,6 +36184,7 @@ Type of connected rangefinder
 |41|JRE_Serial|
 |42|Ainstein_LR_D1|
 |43|RDS02UF|
+|44|HexsoonRadar|
 |100|SITL|
 
 ## RNGFND6_PIN: Rangefinder pin
@@ -36451,6 +36476,7 @@ Type of connected rangefinder
 |41|JRE_Serial|
 |42|Ainstein_LR_D1|
 |43|RDS02UF|
+|44|HexsoonRadar|
 |100|SITL|
 
 ## RNGFND7_PIN: Rangefinder pin
@@ -36742,6 +36768,7 @@ Type of connected rangefinder
 |41|JRE_Serial|
 |42|Ainstein_LR_D1|
 |43|RDS02UF|
+|44|HexsoonRadar|
 |100|SITL|
 
 ## RNGFND8_PIN: Rangefinder pin
@@ -37033,6 +37060,7 @@ Type of connected rangefinder
 |41|JRE_Serial|
 |42|Ainstein_LR_D1|
 |43|RDS02UF|
+|44|HexsoonRadar|
 |100|SITL|
 
 ## RNGFND9_PIN: Rangefinder pin
@@ -37324,6 +37352,7 @@ Type of connected rangefinder
 |41|JRE_Serial|
 |42|Ainstein_LR_D1|
 |43|RDS02UF|
+|44|HexsoonRadar|
 |100|SITL|
 
 ## RNGFNDA_PIN: Rangefinder pin
@@ -38334,8 +38363,9 @@ The baud rate used on the USB console. Most stm32-based boards can support rates
 |460|460800|
 |500|500000|
 |921|921600|
-|1500|1500000|
-|2000|2000000|
+|1500|1.5MBaud|
+|2000|2MBaud|
+|12500000|12.5MBaud|
 
 ## SERIAL0_PROTOCOL: Console protocol selection
 
@@ -38424,8 +38454,9 @@ The baud rate used on the Telem1 port. Most stm32-based boards can support rates
 |460|460800|
 |500|500000|
 |921|921600|
-|1500|1500000|
-|2000|2000000|
+|1500|1.5MBaud|
+|2000|2MBaud|
+|12500000|12.5MBaud|
 
 ## SERIAL2_PROTOCOL: Telemetry 2 protocol selection
 
@@ -38503,8 +38534,9 @@ The baud rate of the Telem2 port. Most stm32-based boards can support rates of u
 |460|460800|
 |500|500000|
 |921|921600|
-|1500|1500000|
-|2000|2000000|
+|1500|1.5MBaud|
+|2000|2MBaud|
+|12500000|12.5MBaud|
 
 ## SERIAL3_PROTOCOL: Serial 3 (GPS) protocol selection
 
@@ -38582,8 +38614,9 @@ The baud rate used for the Serial 3 (GPS). Most stm32-based boards can support r
 |460|460800|
 |500|500000|
 |921|921600|
-|1500|1500000|
-|2000|2000000|
+|1500|1.5MBaud|
+|2000|2MBaud|
+|12500000|12.5MBaud|
 
 ## SERIAL4_PROTOCOL: Serial4 protocol selection
 
@@ -38661,8 +38694,9 @@ The baud rate used for Serial4. Most stm32-based boards can support rates of up 
 |460|460800|
 |500|500000|
 |921|921600|
-|1500|1500000|
-|2000|2000000|
+|1500|1.5MBaud|
+|2000|2MBaud|
+|12500000|12.5MBaud|
 
 ## SERIAL5_PROTOCOL: Serial5 protocol selection
 
@@ -38740,8 +38774,9 @@ The baud rate used for Serial5. Most stm32-based boards can support rates of up 
 |460|460800|
 |500|500000|
 |921|921600|
-|1500|1500000|
-|2000|2000000|
+|1500|1.5MBaud|
+|2000|2MBaud|
+|12500000|12.5MBaud|
 
 ## SERIAL6_PROTOCOL: Serial6 protocol selection
 
@@ -38819,8 +38854,9 @@ The baud rate used for Serial6. Most stm32-based boards can support rates of up 
 |460|460800|
 |500|500000|
 |921|921600|
-|1500|1500000|
-|2000|2000000|
+|1500|1.5MBaud|
+|2000|2MBaud|
+|12500000|12.5MBaud|
 
 ## SERIAL1_OPTIONS: Telem1 options
 
@@ -39002,8 +39038,9 @@ The baud rate used for Serial7. Most stm32-based boards can support rates of up 
 |460|460800|
 |500|500000|
 |921|921600|
-|1500|1500000|
-|2000|2000000|
+|1500|1.5MBaud|
+|2000|2MBaud|
+|12500000|12.5MBaud|
 
 ## SERIAL7_OPTIONS: Serial7 options
 
@@ -39091,8 +39128,9 @@ The baud rate used for Serial8. Most stm32-based boards can support rates of up 
 |460|460800|
 |500|500000|
 |921|921600|
-|1500|1500000|
-|2000|2000000|
+|1500|1.5MBaud|
+|2000|2MBaud|
+|12500000|12.5MBaud|
 
 ## SERIAL8_OPTIONS: Serial8 options
 
@@ -39180,8 +39218,9 @@ The baud rate used for Serial8. Most stm32-based boards can support rates of up 
 |460|460800|
 |500|500000|
 |921|921600|
-|1500|1500000|
-|2000|2000000|
+|1500|1.5MBaud|
+|2000|2MBaud|
+|12500000|12.5MBaud|
 
 ## SERIAL9_OPTIONS: Serial9 options
 

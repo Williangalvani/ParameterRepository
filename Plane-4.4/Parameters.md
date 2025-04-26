@@ -1283,128 +1283,79 @@ Mask of output channels to use oneshot on
 
 # Lua Script Parameters
 
-## RCK_FORCEHL: Force enable High Latency mode
+## DR_ENABLE: Deadreckoning Enable
 
-Automatically enables High Latency mode if not already enabled
+Deadreckoning Enable
 
 |Value|Meaning|
 |:---:|:---:|
 |0|Disabled|
 |1|Enabled|
 
-## RCK_PERIOD: Update rate
+## DR_ENABLE_DIST: Deadreckoning Enable Distance
 
-When in High Latency mode, send Rockblock updates every N seconds
+Distance from home (in meters) beyond which the dead reckoning will be enabled
 
-- Range: 0 600
+- Units: m
+
+## DR_GPS_SACC_MAX: Deadreckoning GPS speed accuracy maximum threshold
+
+GPS speed accuracy maximum, above which deadreckoning home will begin (default is 0.8).  Lower values trigger with good GPS quality, higher values will allow poorer GPS before triggering. Set to 0 to disable use of GPS speed accuracy
+
+- Range: 0 10
+
+## DR_GPS_SAT_MIN: Deadreckoning GPS satellite count min threshold
+
+GPS satellite count threshold below which deadreckoning home will begin (default is 6).  Higher values trigger with good GPS quality, Lower values trigger with worse GPS quality. Set to 0 to disable use of GPS satellite count
+
+- Range: 0 30
+
+## DR_GPS_TRIGG_SEC: Deadreckoning GPS check trigger seconds
+
+GPS checks must fail for this many seconds before dead reckoning will be triggered
 
 - Units: s
 
-## RCK_DEBUG: Display Rockblock debugging text
+## DR_FLY_ANGLE: Deadreckoning Lean Angle
 
-Sends Rockblock debug text to GCS via statustexts
+lean angle (in degrees) during deadreckoning
 
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|Enabled|
+- Units: deg
 
-## RCK_ENABLE: Enable Message transmission
+- Range: 0 45
 
-Enables the Rockblock sending and recieving
+## DR_FLY_ALT_MIN: Deadreckoning Altitude Min
 
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|Enabled|
+Copter will fly at at least this altitude (in meters) above home during deadreckoning
 
-## QUIK_ENABLE: Quicktune enable
+- Units: m
 
-Enable quicktune system
+- Range: 0 1000
 
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|Enabled|
+## DR_FLY_TIMEOUT: Deadreckoning flight timeout
 
-## QUIK_AXES: Quicktune axes
-
-axes to tune
-
-- Bitmask: 0:Roll,1:Pitch,2:Yaw
-
-## QUIK_DOUBLE_TIME: Quicktune doubling time
-
-Time to double a tuning parameter. Raise this for a slower tune.
-
-- Range: 5 20
+Copter will attempt to switch to NEXT_MODE after this many seconds of deadreckoning.  If it cannot switch modes it will continue in Guided_NoGPS.  Set to 0 to disable timeout
 
 - Units: s
 
-## QUIK_GAIN_MARGIN: Quicktune gain margin
+## DR_NEXT_MODE: Deadreckoning Next Mode
 
-Reduction in gain after oscillation detected. Raise this number to get a more conservative tune
-
-- Range: 20 80
-
-- Units: %
-
-## QUIK_OSC_SMAX: Quicktune oscillation rate threshold
-
-Threshold for oscillation detection. A lower value will lead to a more conservative tune.
-
-- Range: 1 10
-
-## QUIK_YAW_P_MAX: Quicktune Yaw P max
-
-Maximum value for yaw P gain
-
-- Range: 0.1 3
-
-## QUIK_YAW_D_MAX: Quicktune Yaw D max
-
-Maximum value for yaw D gain
-
-- Range: 0.001 1
-
-## QUIK_RP_PI_RATIO: Quicktune roll/pitch PI ratio
-
-Ratio between P and I gains for roll and pitch. Raise this to get a lower I gain
-
-- Range: 0.5 1.0
-
-## QUIK_Y_PI_RATIO: Quicktune Yaw PI ratio
-
-Ratio between P and I gains for yaw. Raise this to get a lower I gain
-
-- Range: 0.5 20
-
-## QUIK_AUTO_FILTER: Quicktune auto filter enable
-
-When enabled the PID filter settings are automatically set based on INS_GYRO_FILTER
+Copter switch to this mode after GPS recovers or DR_FLY_TIMEOUT has elapsed.  Default is 6/RTL.  Set to -1 to return to mode used before deadreckoning was triggered
 
 |Value|Meaning|
 |:---:|:---:|
-|0|Disabled|
-|1|Enabled|
-
-## QUIK_AUTO_SAVE: Quicktune auto save
-
-Number of seconds after completion of tune to auto-save. This is useful when using a 2 position switch for quicktune
-
-- Units: s
-
-## QUIK_RC_FUNC: Quicktune RC function
-
-RCn_OPTION number to use to control tuning stop/start/save
-
-## QUIK_MAX_REDUCE: Quicktune maximum gain reduction
-
-This controls how much quicktune is allowed to lower gains from the original gains. If the vehicle already has a reasonable tune and is not oscillating then you can set this to zero to prevent gain reductions. The default of 20% is reasonable for most vehicles. Using a maximum gain reduction lowers the chance of an angle P oscillation happening if quicktune gets a false positive oscillation at a low gain, which can result in very low rate gains and a dangerous angle P oscillation.
-
-- Units: %
-
-- Range: 0 100
+|2|AltHold|
+|3|Auto|
+|4|Guided|
+|5|Loiter|
+|6|RTL|
+|7|Circle|
+|9|Land|
+|16|PosHold|
+|17|Brake|
+|20|Guided_NoGPS|
+|21|Smart_RTL|
+|27|Auto RTL|
 
 ## RTUN_ENABLE: Rover Quicktune enable
 
@@ -1513,79 +1464,128 @@ Settings this parameter to one triggers an automatic follow offset calculation b
 |0|Disabled|
 |1|Trigger|
 
-## DR_ENABLE: Deadreckoning Enable
+## QUIK_ENABLE: Quicktune enable
 
-Deadreckoning Enable
+Enable quicktune system
 
 |Value|Meaning|
 |:---:|:---:|
 |0|Disabled|
 |1|Enabled|
 
-## DR_ENABLE_DIST: Deadreckoning Enable Distance
+## QUIK_AXES: Quicktune axes
 
-Distance from home (in meters) beyond which the dead reckoning will be enabled
+axes to tune
 
-- Units: m
+- Bitmask: 0:Roll,1:Pitch,2:Yaw
 
-## DR_GPS_SACC_MAX: Deadreckoning GPS speed accuracy maximum threshold
+## QUIK_DOUBLE_TIME: Quicktune doubling time
 
-GPS speed accuracy maximum, above which deadreckoning home will begin (default is 0.8).  Lower values trigger with good GPS quality, higher values will allow poorer GPS before triggering. Set to 0 to disable use of GPS speed accuracy
+Time to double a tuning parameter. Raise this for a slower tune.
 
-- Range: 0 10
-
-## DR_GPS_SAT_MIN: Deadreckoning GPS satellite count min threshold
-
-GPS satellite count threshold below which deadreckoning home will begin (default is 6).  Higher values trigger with good GPS quality, Lower values trigger with worse GPS quality. Set to 0 to disable use of GPS satellite count
-
-- Range: 0 30
-
-## DR_GPS_TRIGG_SEC: Deadreckoning GPS check trigger seconds
-
-GPS checks must fail for this many seconds before dead reckoning will be triggered
+- Range: 5 20
 
 - Units: s
 
-## DR_FLY_ANGLE: Deadreckoning Lean Angle
+## QUIK_GAIN_MARGIN: Quicktune gain margin
 
-lean angle (in degrees) during deadreckoning
+Reduction in gain after oscillation detected. Raise this number to get a more conservative tune
 
-- Units: deg
+- Range: 20 80
 
-- Range: 0 45
+- Units: %
 
-## DR_FLY_ALT_MIN: Deadreckoning Altitude Min
+## QUIK_OSC_SMAX: Quicktune oscillation rate threshold
 
-Copter will fly at at least this altitude (in meters) above home during deadreckoning
+Threshold for oscillation detection. A lower value will lead to a more conservative tune.
 
-- Units: m
+- Range: 1 10
 
-- Range: 0 1000
+## QUIK_YAW_P_MAX: Quicktune Yaw P max
 
-## DR_FLY_TIMEOUT: Deadreckoning flight timeout
+Maximum value for yaw P gain
 
-Copter will attempt to switch to NEXT_MODE after this many seconds of deadreckoning.  If it cannot switch modes it will continue in Guided_NoGPS.  Set to 0 to disable timeout
+- Range: 0.1 3
 
-- Units: s
+## QUIK_YAW_D_MAX: Quicktune Yaw D max
 
-## DR_NEXT_MODE: Deadreckoning Next Mode
+Maximum value for yaw D gain
 
-Copter switch to this mode after GPS recovers or DR_FLY_TIMEOUT has elapsed.  Default is 6/RTL.  Set to -1 to return to mode used before deadreckoning was triggered
+- Range: 0.001 1
+
+## QUIK_RP_PI_RATIO: Quicktune roll/pitch PI ratio
+
+Ratio between P and I gains for roll and pitch. Raise this to get a lower I gain
+
+- Range: 0.5 1.0
+
+## QUIK_Y_PI_RATIO: Quicktune Yaw PI ratio
+
+Ratio between P and I gains for yaw. Raise this to get a lower I gain
+
+- Range: 0.5 20
+
+## QUIK_AUTO_FILTER: Quicktune auto filter enable
+
+When enabled the PID filter settings are automatically set based on INS_GYRO_FILTER
 
 |Value|Meaning|
 |:---:|:---:|
-|2|AltHold|
-|3|Auto|
-|4|Guided|
-|5|Loiter|
-|6|RTL|
-|7|Circle|
-|9|Land|
-|16|PosHold|
-|17|Brake|
-|20|Guided_NoGPS|
-|21|Smart_RTL|
-|27|Auto RTL|
+|0|Disabled|
+|1|Enabled|
+
+## QUIK_AUTO_SAVE: Quicktune auto save
+
+Number of seconds after completion of tune to auto-save. This is useful when using a 2 position switch for quicktune
+
+- Units: s
+
+## QUIK_RC_FUNC: Quicktune RC function
+
+RCn_OPTION number to use to control tuning stop/start/save
+
+## QUIK_MAX_REDUCE: Quicktune maximum gain reduction
+
+This controls how much quicktune is allowed to lower gains from the original gains. If the vehicle already has a reasonable tune and is not oscillating then you can set this to zero to prevent gain reductions. The default of 20% is reasonable for most vehicles. Using a maximum gain reduction lowers the chance of an angle P oscillation happening if quicktune gets a false positive oscillation at a low gain, which can result in very low rate gains and a dangerous angle P oscillation.
+
+- Units: %
+
+- Range: 0 100
+
+## RCK_FORCEHL: Force enable High Latency mode
+
+Automatically enables High Latency mode if not already enabled
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
+
+## RCK_PERIOD: Update rate
+
+When in High Latency mode, send Rockblock updates every N seconds
+
+- Range: 0 600
+
+- Units: s
+
+## RCK_DEBUG: Display Rockblock debugging text
+
+Sends Rockblock debug text to GCS via statustexts
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
+
+## RCK_ENABLE: Enable Message transmission
+
+Enables the Rockblock sending and recieving
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
 
 ## EFI_SP_ENABLE: Enable SkyPower EFI support
 

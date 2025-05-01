@@ -988,6 +988,14 @@ RCn_OPTION number to use to control tuning stop/start/save
 |306|Scripting7|
 |307|Scripting8|
 
+## RTUN_SPEED_MIN: Rover Quicktune minimum speed for tuning
+
+The mimimum speed in m/s required for tuning to start
+
+- Units: m/s
+
+- Range: 0.1 0.5
+
 ## PLND_ALT_CUTOFF: Precland altitude cutoff
 
 The altitude (rangefinder distance) below which we stop using the precision landing sensor and continue landing
@@ -30036,6 +30044,152 @@ The receive ID of the CAN frames. A value of zero means all IDs are accepted.
 
 - Range: 0 65535
 
+# PRX5 Parameters
+
+## PRX5_TYPE: Proximity type
+
+What type of proximity sensor is connected
+
+|Value|Meaning|
+|:---:|:---:|
+|0|None|
+|7|LightwareSF40c|
+|2|MAVLink|
+|3|TeraRangerTower|
+|4|RangeFinder|
+|5|RPLidarA2|
+|6|TeraRangerTowerEvo|
+|8|LightwareSF45B|
+|10|SITL|
+|12|AirSimSITL|
+|13|CygbotD1|
+|14|DroneCAN|
+|15|Scripting|
+|16|LD06|
+|17|MR72_CAN|
+|18|HexsoonRadar|
+
+- RebootRequired: True
+
+## PRX5_ORIENT: Proximity sensor orientation
+
+Proximity sensor orientation
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Default|
+|1|Upside Down|
+
+## PRX5_YAW_CORR: Proximity sensor yaw correction
+
+Proximity sensor yaw correction
+
+- Units: deg
+
+- Range: -180 180
+
+## PRX5_IGN_ANG1: Proximity sensor ignore angle 1
+
+Proximity sensor ignore angle 1
+
+- Units: deg
+
+- Range: 0 360
+
+## PRX5_IGN_WID1: Proximity sensor ignore width 1
+
+Proximity sensor ignore width 1
+
+- Units: deg
+
+- Range: 0 127
+
+## PRX5_IGN_ANG2: Proximity sensor ignore angle 2
+
+Proximity sensor ignore angle 2
+
+- Units: deg
+
+- Range: 0 360
+
+## PRX5_IGN_WID2: Proximity sensor ignore width 2
+
+Proximity sensor ignore width 2
+
+- Units: deg
+
+- Range: 0 127
+
+## PRX5_IGN_ANG3: Proximity sensor ignore angle 3
+
+Proximity sensor ignore angle 3
+
+- Units: deg
+
+- Range: 0 360
+
+## PRX5_IGN_WID3: Proximity sensor ignore width 3
+
+Proximity sensor ignore width 3
+
+- Units: deg
+
+- Range: 0 127
+
+## PRX5_IGN_ANG4: Proximity sensor ignore angle 4
+
+Proximity sensor ignore angle 4
+
+- Units: deg
+
+- Range: 0 360
+
+## PRX5_IGN_WID4: Proximity sensor ignore width 4
+
+Proximity sensor ignore width 4
+
+- Units: deg
+
+- Range: 0 127
+
+## PRX5_MIN: Proximity minimum range
+
+*Note: This parameter is for advanced users*
+
+Minimum expected range for Proximity Sensor. Setting this to 0 will set value to manufacturer reported range.
+
+- Units: m
+
+- Range: 0 500
+
+## PRX5_MAX: Proximity maximum range
+
+*Note: This parameter is for advanced users*
+
+Maximum expected range for Proximity Sensor. Setting this to 0 will set value to manufacturer reported range.
+
+- Units: m
+
+- Range: 0 500
+
+## PRX5_ADDR: Bus address of sensor
+
+The bus address of the sensor, where applicable. Used for the I2C and DroneCAN sensors to allow for multiple sensors on different addresses.
+
+- Range: 0 127
+
+- Increment: 1
+
+# PRX5 Parameters
+
+## PRX5_RECV_ID: CAN receive ID
+
+*Note: This parameter is for advanced users*
+
+The receive ID of the CAN frames. A value of zero means all IDs are accepted.
+
+- Range: 0 65535
+
 # PSC Parameters
 
 ## PSC_POS_P: Position controller P gain
@@ -37074,6 +37228,61 @@ Time that twist is applied on the vehicle
 ## SIM_GND_BEHAV: Ground behavior
 
 Ground behavior of aircraft (tailsitter, no movement, forward only)
+
+## SIM_IMU_ORIENT: IMU orientation
+
+*Note: This parameter is for advanced users*
+
+Simulated orientation of the IMUs
+
+|Value|Meaning|
+|:---:|:---:|
+|0|None|
+|1|Yaw45|
+|2|Yaw90|
+|3|Yaw135|
+|4|Yaw180|
+|5|Yaw225|
+|6|Yaw270|
+|7|Yaw315|
+|8|Roll180|
+|9|Yaw45Roll180|
+|10|Yaw90Roll180|
+|11|Yaw135Roll180|
+|12|Pitch180|
+|13|Yaw225Roll180|
+|14|Yaw270Roll180|
+|15|Yaw315Roll180|
+|16|Roll90|
+|17|Yaw45Roll90|
+|18|Yaw90Roll90|
+|19|Yaw135Roll90|
+|20|Roll270|
+|21|Yaw45Roll270|
+|22|Yaw90Roll270|
+|23|Yaw135Roll270|
+|24|Pitch90|
+|25|Pitch270|
+|26|Yaw90Pitch180|
+|27|Yaw270Pitch180|
+|28|Pitch90Roll90|
+|29|Pitch90Roll180|
+|30|Pitch90Roll270|
+|31|Pitch180Roll90|
+|32|Pitch180Roll270|
+|33|Pitch270Roll90|
+|34|Pitch270Roll180|
+|35|Pitch270Roll270|
+|36|Yaw90Pitch180Roll90|
+|37|Yaw270Roll90|
+|38|Yaw293Pitch68Roll180|
+|39|Pitch315|
+|40|Pitch315Roll90|
+|42|Roll45|
+|43|Roll315|
+|100|Custom 4.1 and older|
+|101|Custom 1|
+|102|Custom 2|
 
 ## SIM_WAVE_ENABLE: Wave enable
 

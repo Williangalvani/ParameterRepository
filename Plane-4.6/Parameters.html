@@ -1791,6 +1791,15 @@ DO NOT EDIT
 </ul>
 
 
+<h2>Rover Quicktune minimum speed for tuning (RTUN_SPEED_MIN)</h2>
+
+<p>The mimimum speed in m/s required for tuning to start</p>
+<ul>
+<li>Units: meters per second</li>
+<li>Range: 0.1 0.5</li>
+</ul>
+
+
 <h2>Precland altitude cutoff (PLND_ALT_CUTOFF)</h2>
 
 <p>The altitude (rangefinder distance) below which we stop using the precision landing sensor and continue landing</p>
@@ -51110,6 +51119,61 @@ DO NOT EDIT
 
 <p>Ground behavior of aircraft (tailsitter, no movement, forward only)</p>
 <ul>
+</ul>
+
+
+<h2>IMU orientation (SIM_IMU_ORIENT)</h2><em>Note: This parameter is for advanced users</em><br>
+
+<p>Simulated orientation of the IMUs</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>0</td><td>None</td></tr>
+<tr><td>1</td><td>Yaw45</td></tr>
+<tr><td>2</td><td>Yaw90</td></tr>
+<tr><td>3</td><td>Yaw135</td></tr>
+<tr><td>4</td><td>Yaw180</td></tr>
+<tr><td>5</td><td>Yaw225</td></tr>
+<tr><td>6</td><td>Yaw270</td></tr>
+<tr><td>7</td><td>Yaw315</td></tr>
+<tr><td>8</td><td>Roll180</td></tr>
+<tr><td>9</td><td>Yaw45Roll180</td></tr>
+<tr><td>10</td><td>Yaw90Roll180</td></tr>
+<tr><td>11</td><td>Yaw135Roll180</td></tr>
+<tr><td>12</td><td>Pitch180</td></tr>
+<tr><td>13</td><td>Yaw225Roll180</td></tr>
+<tr><td>14</td><td>Yaw270Roll180</td></tr>
+<tr><td>15</td><td>Yaw315Roll180</td></tr>
+<tr><td>16</td><td>Roll90</td></tr>
+<tr><td>17</td><td>Yaw45Roll90</td></tr>
+<tr><td>18</td><td>Yaw90Roll90</td></tr>
+<tr><td>19</td><td>Yaw135Roll90</td></tr>
+<tr><td>20</td><td>Roll270</td></tr>
+<tr><td>21</td><td>Yaw45Roll270</td></tr>
+<tr><td>22</td><td>Yaw90Roll270</td></tr>
+<tr><td>23</td><td>Yaw135Roll270</td></tr>
+<tr><td>24</td><td>Pitch90</td></tr>
+<tr><td>25</td><td>Pitch270</td></tr>
+<tr><td>26</td><td>Yaw90Pitch180</td></tr>
+<tr><td>27</td><td>Yaw270Pitch180</td></tr>
+<tr><td>28</td><td>Pitch90Roll90</td></tr>
+<tr><td>29</td><td>Pitch90Roll180</td></tr>
+<tr><td>30</td><td>Pitch90Roll270</td></tr>
+<tr><td>31</td><td>Pitch180Roll90</td></tr>
+<tr><td>32</td><td>Pitch180Roll270</td></tr>
+<tr><td>33</td><td>Pitch270Roll90</td></tr>
+<tr><td>34</td><td>Pitch270Roll180</td></tr>
+<tr><td>35</td><td>Pitch270Roll270</td></tr>
+<tr><td>36</td><td>Yaw90Pitch180Roll90</td></tr>
+<tr><td>37</td><td>Yaw270Roll90</td></tr>
+<tr><td>38</td><td>Yaw293Pitch68Roll180</td></tr>
+<tr><td>39</td><td>Pitch315</td></tr>
+<tr><td>40</td><td>Pitch315Roll90</td></tr>
+<tr><td>42</td><td>Roll45</td></tr>
+<tr><td>43</td><td>Roll315</td></tr>
+<tr><td>100</td><td>Custom 4.1 and older</td></tr>
+<tr><td>101</td><td>Custom 1</td></tr>
+<tr><td>102</td><td>Custom 2</td></tr>
+</table>
 </ul>
 
 

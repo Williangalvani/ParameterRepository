@@ -1141,6 +1141,11 @@
           <value code="307">Scripting8</value>
         </values>
       </param>
+      <param humanName="Rover Quicktune minimum speed for tuning" name="RTUN_SPEED_MIN" documentation="The mimimum speed in m/s required for tuning to start" user="Standard">
+        <field name="Units">m/s</field>
+        <field name="UnitText">meters per second</field>
+        <field name="Range">0.1 0.5</field>
+      </param>
       <param humanName="Precland altitude cutoff" name="PLND_ALT_CUTOFF" documentation="The altitude (rangefinder distance) below which we stop using the precision landing sensor and continue landing" user="Standard">
         <field name="Range">0 20</field>
         <field name="Units">m</field>
@@ -21295,6 +21300,99 @@
         <field name="Range">0 65535</field>
       </param>
     </parameters>
+    <parameters name="PRX5">
+      <param humanName="Proximity type" name="PRX5_TYPE" documentation="What type of proximity sensor is connected" user="Standard">
+        <values>
+          <value code="0">None</value>
+          <value code="12">AirSimSITL</value>
+          <value code="13">CygbotD1</value>
+          <value code="14">DroneCAN</value>
+          <value code="18">HexsoonRadar</value>
+          <value code="16">LD06</value>
+          <value code="7">LightwareSF40c</value>
+          <value code="8">LightwareSF45B</value>
+          <value code="2">MAVLink</value>
+          <value code="17">MR72_CAN</value>
+          <value code="5">RPLidarA2</value>
+          <value code="4">RangeFinder</value>
+          <value code="10">SITL</value>
+          <value code="15">Scripting</value>
+          <value code="3">TeraRangerTower</value>
+          <value code="6">TeraRangerTowerEvo</value>
+        </values>
+        <field name="RebootRequired">True</field>
+      </param>
+      <param humanName="Proximity sensor orientation" name="PRX5_ORIENT" documentation="Proximity sensor orientation" user="Standard">
+        <values>
+          <value code="0">Default</value>
+          <value code="1">Upside Down</value>
+        </values>
+      </param>
+      <param humanName="Proximity sensor yaw correction" name="PRX5_YAW_CORR" documentation="Proximity sensor yaw correction" user="Standard">
+        <field name="Units">deg</field>
+        <field name="UnitText">degrees</field>
+        <field name="Range">-180 180</field>
+      </param>
+      <param humanName="Proximity sensor ignore angle 1" name="PRX5_IGN_ANG1" documentation="Proximity sensor ignore angle 1" user="Standard">
+        <field name="Units">deg</field>
+        <field name="UnitText">degrees</field>
+        <field name="Range">0 360</field>
+      </param>
+      <param humanName="Proximity sensor ignore width 1" name="PRX5_IGN_WID1" documentation="Proximity sensor ignore width 1" user="Standard">
+        <field name="Units">deg</field>
+        <field name="UnitText">degrees</field>
+        <field name="Range">0 127</field>
+      </param>
+      <param humanName="Proximity sensor ignore angle 2" name="PRX5_IGN_ANG2" documentation="Proximity sensor ignore angle 2" user="Standard">
+        <field name="Units">deg</field>
+        <field name="UnitText">degrees</field>
+        <field name="Range">0 360</field>
+      </param>
+      <param humanName="Proximity sensor ignore width 2" name="PRX5_IGN_WID2" documentation="Proximity sensor ignore width 2" user="Standard">
+        <field name="Units">deg</field>
+        <field name="UnitText">degrees</field>
+        <field name="Range">0 127</field>
+      </param>
+      <param humanName="Proximity sensor ignore angle 3" name="PRX5_IGN_ANG3" documentation="Proximity sensor ignore angle 3" user="Standard">
+        <field name="Units">deg</field>
+        <field name="UnitText">degrees</field>
+        <field name="Range">0 360</field>
+      </param>
+      <param humanName="Proximity sensor ignore width 3" name="PRX5_IGN_WID3" documentation="Proximity sensor ignore width 3" user="Standard">
+        <field name="Units">deg</field>
+        <field name="UnitText">degrees</field>
+        <field name="Range">0 127</field>
+      </param>
+      <param humanName="Proximity sensor ignore angle 4" name="PRX5_IGN_ANG4" documentation="Proximity sensor ignore angle 4" user="Standard">
+        <field name="Units">deg</field>
+        <field name="UnitText">degrees</field>
+        <field name="Range">0 360</field>
+      </param>
+      <param humanName="Proximity sensor ignore width 4" name="PRX5_IGN_WID4" documentation="Proximity sensor ignore width 4" user="Standard">
+        <field name="Units">deg</field>
+        <field name="UnitText">degrees</field>
+        <field name="Range">0 127</field>
+      </param>
+      <param humanName="Proximity minimum range" name="PRX5_MIN" documentation="Minimum expected range for Proximity Sensor. Setting this to 0 will set value to manufacturer reported range." user="Advanced">
+        <field name="Units">m</field>
+        <field name="UnitText">meters</field>
+        <field name="Range">0 500</field>
+      </param>
+      <param humanName="Proximity maximum range" name="PRX5_MAX" documentation="Maximum expected range for Proximity Sensor. Setting this to 0 will set value to manufacturer reported range." user="Advanced">
+        <field name="Units">m</field>
+        <field name="UnitText">meters</field>
+        <field name="Range">0 500</field>
+      </param>
+      <param humanName="Bus address of sensor" name="PRX5_ADDR" documentation="The bus address of the sensor, where applicable. Used for the I2C and DroneCAN sensors to allow for multiple sensors on different addresses." user="Standard">
+        <field name="Range">0 127</field>
+        <field name="Increment">1</field>
+      </param>
+    </parameters>
+    <parameters name="PRX5_">
+      <param humanName="CAN receive ID" name="PRX5_RECV_ID" documentation="The receive ID of the CAN frames. A value of zero means all IDs are accepted." user="Advanced">
+        <field name="Range">0 65535</field>
+      </param>
+    </parameters>
     <parameters name="PSC">
       <param humanName="XY Acceleration filter cutoff frequency" name="PSC_ACC_XY_FILT" documentation="Lower values will slow the response of the navigation controller and reduce twitchiness" user="Advanced">
         <field name="Units">Hz</field>
@@ -33533,6 +33631,56 @@
       </param>
       <param humanName="Ground behavior" name="SIM_GND_BEHAV" documentation="Ground behavior of aircraft (tailsitter, no movement, forward only)">
 </param>
+      <param humanName="IMU orientation" name="SIM_IMU_ORIENT" documentation="Simulated orientation of the IMUs" user="Advanced">
+        <values>
+          <value code="0">None</value>
+          <value code="1">Yaw45</value>
+          <value code="2">Yaw90</value>
+          <value code="3">Yaw135</value>
+          <value code="4">Yaw180</value>
+          <value code="5">Yaw225</value>
+          <value code="6">Yaw270</value>
+          <value code="7">Yaw315</value>
+          <value code="8">Roll180</value>
+          <value code="9">Yaw45Roll180</value>
+          <value code="10">Yaw90Roll180</value>
+          <value code="11">Yaw135Roll180</value>
+          <value code="12">Pitch180</value>
+          <value code="13">Yaw225Roll180</value>
+          <value code="14">Yaw270Roll180</value>
+          <value code="15">Yaw315Roll180</value>
+          <value code="16">Roll90</value>
+          <value code="17">Yaw45Roll90</value>
+          <value code="18">Yaw90Roll90</value>
+          <value code="19">Yaw135Roll90</value>
+          <value code="20">Roll270</value>
+          <value code="21">Yaw45Roll270</value>
+          <value code="22">Yaw90Roll270</value>
+          <value code="23">Yaw135Roll270</value>
+          <value code="24">Pitch90</value>
+          <value code="25">Pitch270</value>
+          <value code="26">Yaw90Pitch180</value>
+          <value code="27">Yaw270Pitch180</value>
+          <value code="28">Pitch90Roll90</value>
+          <value code="29">Pitch90Roll180</value>
+          <value code="30">Pitch90Roll270</value>
+          <value code="31">Pitch180Roll90</value>
+          <value code="32">Pitch180Roll270</value>
+          <value code="33">Pitch270Roll90</value>
+          <value code="34">Pitch270Roll180</value>
+          <value code="35">Pitch270Roll270</value>
+          <value code="36">Yaw90Pitch180Roll90</value>
+          <value code="37">Yaw270Roll90</value>
+          <value code="38">Yaw293Pitch68Roll180</value>
+          <value code="39">Pitch315</value>
+          <value code="40">Pitch315Roll90</value>
+          <value code="42">Roll45</value>
+          <value code="43">Roll315</value>
+          <value code="100">Custom 4.1 and older</value>
+          <value code="101">Custom 1</value>
+          <value code="102">Custom 2</value>
+        </values>
+      </param>
       <param humanName="Wave enable" name="SIM_WAVE_ENABLE" documentation="Wave enable and modes">
         <values>
           <value code="0">disabled</value>

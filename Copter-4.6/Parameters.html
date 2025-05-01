@@ -1736,6 +1736,15 @@ DO NOT EDIT
 </ul>
 
 
+<h2>Rover Quicktune minimum speed for tuning (RTUN_SPEED_MIN)</h2>
+
+<p>The mimimum speed in m/s required for tuning to start</p>
+<ul>
+<li>Units: meters per second</li>
+<li>Range: 0.1 0.5</li>
+</ul>
+
+
 <h2>Precland altitude cutoff (PLND_ALT_CUTOFF)</h2>
 
 <p>The altitude (rangefinder distance) below which we stop using the precision landing sensor and continue landing</p>
@@ -35646,6 +35655,165 @@ DO NOT EDIT
 </ul>
 
 
+<h1>PRX5 Parameters</h1>
+
+
+<h2>Proximity type (PRX5_TYPE)</h2>
+
+<p>What type of proximity sensor is connected</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>0</td><td>None</td></tr>
+<tr><td>7</td><td>LightwareSF40c</td></tr>
+<tr><td>2</td><td>MAVLink</td></tr>
+<tr><td>3</td><td>TeraRangerTower</td></tr>
+<tr><td>4</td><td>RangeFinder</td></tr>
+<tr><td>5</td><td>RPLidarA2</td></tr>
+<tr><td>6</td><td>TeraRangerTowerEvo</td></tr>
+<tr><td>8</td><td>LightwareSF45B</td></tr>
+<tr><td>10</td><td>SITL</td></tr>
+<tr><td>12</td><td>AirSimSITL</td></tr>
+<tr><td>13</td><td>CygbotD1</td></tr>
+<tr><td>14</td><td>DroneCAN</td></tr>
+<tr><td>15</td><td>Scripting</td></tr>
+<tr><td>16</td><td>LD06</td></tr>
+<tr><td>17</td><td>MR72_CAN</td></tr>
+<tr><td>18</td><td>HexsoonRadar</td></tr>
+</table>
+<li>RebootRequired: True</li>
+</ul>
+
+
+<h2>Proximity sensor orientation (PRX5_ORIENT)</h2>
+
+<p>Proximity sensor orientation</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>0</td><td>Default</td></tr>
+<tr><td>1</td><td>Upside Down</td></tr>
+</table>
+</ul>
+
+
+<h2>Proximity sensor yaw correction (PRX5_YAW_CORR)</h2>
+
+<p>Proximity sensor yaw correction</p>
+<ul>
+<li>Units: degrees</li>
+<li>Range: -180 180</li>
+</ul>
+
+
+<h2>Proximity sensor ignore angle 1 (PRX5_IGN_ANG1)</h2>
+
+<p>Proximity sensor ignore angle 1</p>
+<ul>
+<li>Units: degrees</li>
+<li>Range: 0 360</li>
+</ul>
+
+
+<h2>Proximity sensor ignore width 1 (PRX5_IGN_WID1)</h2>
+
+<p>Proximity sensor ignore width 1</p>
+<ul>
+<li>Units: degrees</li>
+<li>Range: 0 127</li>
+</ul>
+
+
+<h2>Proximity sensor ignore angle 2 (PRX5_IGN_ANG2)</h2>
+
+<p>Proximity sensor ignore angle 2</p>
+<ul>
+<li>Units: degrees</li>
+<li>Range: 0 360</li>
+</ul>
+
+
+<h2>Proximity sensor ignore width 2 (PRX5_IGN_WID2)</h2>
+
+<p>Proximity sensor ignore width 2</p>
+<ul>
+<li>Units: degrees</li>
+<li>Range: 0 127</li>
+</ul>
+
+
+<h2>Proximity sensor ignore angle 3 (PRX5_IGN_ANG3)</h2>
+
+<p>Proximity sensor ignore angle 3</p>
+<ul>
+<li>Units: degrees</li>
+<li>Range: 0 360</li>
+</ul>
+
+
+<h2>Proximity sensor ignore width 3 (PRX5_IGN_WID3)</h2>
+
+<p>Proximity sensor ignore width 3</p>
+<ul>
+<li>Units: degrees</li>
+<li>Range: 0 127</li>
+</ul>
+
+
+<h2>Proximity sensor ignore angle 4 (PRX5_IGN_ANG4)</h2>
+
+<p>Proximity sensor ignore angle 4</p>
+<ul>
+<li>Units: degrees</li>
+<li>Range: 0 360</li>
+</ul>
+
+
+<h2>Proximity sensor ignore width 4 (PRX5_IGN_WID4)</h2>
+
+<p>Proximity sensor ignore width 4</p>
+<ul>
+<li>Units: degrees</li>
+<li>Range: 0 127</li>
+</ul>
+
+
+<h2>Proximity minimum range (PRX5_MIN)</h2><em>Note: This parameter is for advanced users</em><br>
+
+<p>Minimum expected range for Proximity Sensor. Setting this to 0 will set value to manufacturer reported range.</p>
+<ul>
+<li>Units: meters</li>
+<li>Range: 0 500</li>
+</ul>
+
+
+<h2>Proximity maximum range (PRX5_MAX)</h2><em>Note: This parameter is for advanced users</em><br>
+
+<p>Maximum expected range for Proximity Sensor. Setting this to 0 will set value to manufacturer reported range.</p>
+<ul>
+<li>Units: meters</li>
+<li>Range: 0 500</li>
+</ul>
+
+
+<h2>Bus address of sensor (PRX5_ADDR)</h2>
+
+<p>The bus address of the sensor, where applicable. Used for the I2C and DroneCAN sensors to allow for multiple sensors on different addresses.</p>
+<ul>
+<li>Range: 0 127</li>
+<li>Increment: 1</li>
+</ul>
+
+
+<h1>PRX5_ Parameters</h1>
+
+
+<h2>CAN receive ID (PRX5_RECV_ID)</h2><em>Note: This parameter is for advanced users</em><br>
+
+<p>The receive ID of the CAN frames. A value of zero means all IDs are accepted.</p>
+<ul>
+<li>Range: 0 65535</li>
+</ul>
+
+
 <h1>PSC Parameters</h1>
 
 
@@ -51055,6 +51223,61 @@ DO NOT EDIT
 
 <p>Ground behavior of aircraft (tailsitter, no movement, forward only)</p>
 <ul>
+</ul>
+
+
+<h2>IMU orientation (SIM_IMU_ORIENT)</h2><em>Note: This parameter is for advanced users</em><br>
+
+<p>Simulated orientation of the IMUs</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>0</td><td>None</td></tr>
+<tr><td>1</td><td>Yaw45</td></tr>
+<tr><td>2</td><td>Yaw90</td></tr>
+<tr><td>3</td><td>Yaw135</td></tr>
+<tr><td>4</td><td>Yaw180</td></tr>
+<tr><td>5</td><td>Yaw225</td></tr>
+<tr><td>6</td><td>Yaw270</td></tr>
+<tr><td>7</td><td>Yaw315</td></tr>
+<tr><td>8</td><td>Roll180</td></tr>
+<tr><td>9</td><td>Yaw45Roll180</td></tr>
+<tr><td>10</td><td>Yaw90Roll180</td></tr>
+<tr><td>11</td><td>Yaw135Roll180</td></tr>
+<tr><td>12</td><td>Pitch180</td></tr>
+<tr><td>13</td><td>Yaw225Roll180</td></tr>
+<tr><td>14</td><td>Yaw270Roll180</td></tr>
+<tr><td>15</td><td>Yaw315Roll180</td></tr>
+<tr><td>16</td><td>Roll90</td></tr>
+<tr><td>17</td><td>Yaw45Roll90</td></tr>
+<tr><td>18</td><td>Yaw90Roll90</td></tr>
+<tr><td>19</td><td>Yaw135Roll90</td></tr>
+<tr><td>20</td><td>Roll270</td></tr>
+<tr><td>21</td><td>Yaw45Roll270</td></tr>
+<tr><td>22</td><td>Yaw90Roll270</td></tr>
+<tr><td>23</td><td>Yaw135Roll270</td></tr>
+<tr><td>24</td><td>Pitch90</td></tr>
+<tr><td>25</td><td>Pitch270</td></tr>
+<tr><td>26</td><td>Yaw90Pitch180</td></tr>
+<tr><td>27</td><td>Yaw270Pitch180</td></tr>
+<tr><td>28</td><td>Pitch90Roll90</td></tr>
+<tr><td>29</td><td>Pitch90Roll180</td></tr>
+<tr><td>30</td><td>Pitch90Roll270</td></tr>
+<tr><td>31</td><td>Pitch180Roll90</td></tr>
+<tr><td>32</td><td>Pitch180Roll270</td></tr>
+<tr><td>33</td><td>Pitch270Roll90</td></tr>
+<tr><td>34</td><td>Pitch270Roll180</td></tr>
+<tr><td>35</td><td>Pitch270Roll270</td></tr>
+<tr><td>36</td><td>Yaw90Pitch180Roll90</td></tr>
+<tr><td>37</td><td>Yaw270Roll90</td></tr>
+<tr><td>38</td><td>Yaw293Pitch68Roll180</td></tr>
+<tr><td>39</td><td>Pitch315</td></tr>
+<tr><td>40</td><td>Pitch315Roll90</td></tr>
+<tr><td>42</td><td>Roll45</td></tr>
+<tr><td>43</td><td>Roll315</td></tr>
+<tr><td>100</td><td>Custom 4.1 and older</td></tr>
+<tr><td>101</td><td>Custom 1</td></tr>
+<tr><td>102</td><td>Custom 2</td></tr>
+</table>
 </ul>
 
 

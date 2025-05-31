@@ -731,6 +731,49 @@ DO NOT EDIT
 </ul>
 
 
+<h2>EKF Source ExternalNav Innovation Threshold (ESRC_EXTN_THRESH)</h2>
+
+<p>ExternalNav may be used if innovations are below this threshold</p>
+<ul>
+<li>Range: 0 1</li>
+</ul>
+
+
+<h2>EKF Source ExternalNav Quality Threshold (ESRC_EXTN_QUAL)</h2>
+
+<p>ExternalNav may be used if quality is above this threshold</p>
+<ul>
+<li>Range: 0 100</li>
+<li>Units: percent</li>
+</ul>
+
+
+<h2>EKF Source OpticalFlow Innovation Threshold (ESRC_FLOW_THRESH)</h2>
+
+<p>OpticalFlow may be used if innovations are below this threshold</p>
+<ul>
+<li>Range: 0 1</li>
+</ul>
+
+
+<h2>EKF Source OpticalFlow Quality Threshold (ESRC_FLOW_QUAL)</h2>
+
+<p>OpticalFlow may be used if quality is above this threshold</p>
+<ul>
+<li>Range: 0 100</li>
+<li>Units: percent</li>
+</ul>
+
+
+<h2>EKF Source Rangefinder Max (ESRC_RNGFND_MAX)</h2>
+
+<p>OpticalFlow may be used if rangefinder distance is below this threshold</p>
+<ul>
+<li>Range: 0 50</li>
+<li>Units: meters</li>
+</ul>
+
+
 <h2>Deadreckoning Enable (DR_ENABLE)</h2>
 
 <p>Deadreckoning Enable</p>
@@ -821,9 +864,9 @@ DO NOT EDIT
 </ul>
 
 
-<h2>enable web server (WEB_ENABLE)</h2>
+<h2>Rover Quicktune enable (RTUN_ENABLE)</h2>
 
-<p>enable web server</p>
+<p>Enable quicktune system</p>
 <ul>
 <table><th>Value</th><th>Meaning</th>
 <tr><td>0</td><td>Disabled</td></tr>
@@ -832,17 +875,65 @@ DO NOT EDIT
 </ul>
 
 
-<h2>web server TCP port (WEB_BIND_PORT)</h2>
+<h2>Rover Quicktune axes (RTUN_AXES)</h2>
 
-<p>web server TCP port</p>
+<p>axes to tune</p>
 <ul>
-<li>Range: 1 65535</li>
+<li>Bitmask: 0:Steering,1:Speed</li>
 </ul>
 
 
-<h2>web server debugging (WEB_DEBUG)</h2><em>Note: This parameter is for advanced users</em><br>
+<h2>Rover Quicktune Steering Rate FeedForward ratio (RTUN_STR_FFRATIO)</h2>
 
-<p>web server debugging</p>
+<p>Ratio between measured response and FF gain. Raise this to get a higher FF gain</p>
+<ul>
+<li>Range: 0 1.0</li>
+</ul>
+
+
+<h2>Rover Quicktune Steering FF to P ratio (RTUN_STR_P_RATIO)</h2>
+
+<p>Ratio between steering FF and P gains. Raise this to get a higher P gain, 0 to leave P unchanged</p>
+<ul>
+<li>Range: 0 2.0</li>
+</ul>
+
+
+<h2>Rover Quicktune Steering FF to I ratio (RTUN_STR_I_RATIO)</h2>
+
+<p>Ratio between steering FF and I gains. Raise this to get a higher I gain, 0 to leave I unchanged</p>
+<ul>
+<li>Range: 0 2.0</li>
+</ul>
+
+
+<h2>Rover Quicktune Speed FeedForward (equivalent) ratio (RTUN_SPD_FFRATIO)</h2>
+
+<p>Ratio between measured response and CRUISE_THROTTLE value. Raise this to get a higher CRUISE_THROTTLE value</p>
+<ul>
+<li>Range: 0 1.0</li>
+</ul>
+
+
+<h2>Rover Quicktune Speed FF to P ratio (RTUN_SPD_P_RATIO)</h2>
+
+<p>Ratio between speed FF and P gain. Raise this to get a higher P gain, 0 to leave P unchanged</p>
+<ul>
+<li>Range: 0 2.0</li>
+</ul>
+
+
+<h2>Rover Quicktune Speed FF to I ratio (RTUN_SPD_I_RATIO)</h2>
+
+<p>Ratio between speed FF and I gain. Raise this to get a higher I gain, 0 to leave I unchanged</p>
+<ul>
+<li>Range: 0 2.0</li>
+</ul>
+
+
+<h2>Rover Quicktune auto filter enable (RTUN_AUTO_FILTER)</h2>
+
+<p>When enabled the PID filter settings are automatically set based on INS_GYRO_FILTER</p>
 <ul>
 <table><th>Value</th><th>Meaning</th>
 <tr><td>0</td><td>Disabled</td></tr>
@@ -851,46 +942,28 @@ DO NOT EDIT
 </ul>
 
 
-<h2>web server block size (WEB_BLOCK_SIZE)</h2><em>Note: This parameter is for advanced users</em><br>
+<h2>Rover Quicktune auto save (RTUN_AUTO_SAVE)</h2>
 
-<p>web server block size for download</p>
-<ul>
-<li>Range: 1 65535</li>
-</ul>
-
-
-<h2>web server timeout (WEB_TIMEOUT)</h2><em>Note: This parameter is for advanced users</em><br>
-
-<p>timeout for inactive connections</p>
+<p>Number of seconds after completion of tune to auto-save. This is useful when using a 2 position switch for quicktune</p>
 <ul>
 <li>Units: seconds</li>
-<li>Range: 0.1 60</li>
 </ul>
 
 
-<h2>web server minimum file size for sendfile (WEB_SENDFILE_MIN)</h2><em>Note: This parameter is for advanced users</em><br>
+<h2>Rover Quicktune RC function (RTUN_RC_FUNC)</h2>
 
-<p>sendfile is an offloading mechanism for faster file download. If this is non-zero and the file is larger than this size then sendfile will be used for file download</p>
+<p>RCn_OPTION number to use to control tuning stop/start/save</p>
 <ul>
-<li>Range: 0 10000000</li>
-</ul>
-
-
-<h2>Precland altitude cutoff (PLND_ALT_CUTOFF)</h2>
-
-<p>The altitude (rangefinder distance) below which we stop using the precision landing sensor and continue landing</p>
-<ul>
-<li>Range: 0 20</li>
-<li>Units: meters</li>
-</ul>
-
-
-<h2>Precland distance cutoff (DIST_CUTOFF)</h2>
-
-<p>The distance from target beyond which the target is ignored</p>
-<ul>
-<li>Range: 0 100</li>
-<li>Units: meters</li>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>300</td><td>Scripting1</td></tr>
+<tr><td>301</td><td>Scripting2</td></tr>
+<tr><td>302</td><td>Scripting3</td></tr>
+<tr><td>303</td><td>Scripting4</td></tr>
+<tr><td>304</td><td>Scripting5</td></tr>
+<tr><td>305</td><td>Scripting6</td></tr>
+<tr><td>306</td><td>Scripting7</td></tr>
+<tr><td>307</td><td>Scripting8</td></tr>
+</table>
 </ul>
 
 
@@ -1014,52 +1087,9 @@ DO NOT EDIT
 </ul>
 
 
-<h2>EKF Source ExternalNav Innovation Threshold (ESRC_EXTN_THRESH)</h2>
+<h2>parameter reversion enable (PREV_ENABLE)</h2>
 
-<p>ExternalNav may be used if innovations are below this threshold</p>
-<ul>
-<li>Range: 0 1</li>
-</ul>
-
-
-<h2>EKF Source ExternalNav Quality Threshold (ESRC_EXTN_QUAL)</h2>
-
-<p>ExternalNav may be used if quality is above this threshold</p>
-<ul>
-<li>Range: 0 100</li>
-<li>Units: percent</li>
-</ul>
-
-
-<h2>EKF Source OpticalFlow Innovation Threshold (ESRC_FLOW_THRESH)</h2>
-
-<p>OpticalFlow may be used if innovations are below this threshold</p>
-<ul>
-<li>Range: 0 1</li>
-</ul>
-
-
-<h2>EKF Source OpticalFlow Quality Threshold (ESRC_FLOW_QUAL)</h2>
-
-<p>OpticalFlow may be used if quality is above this threshold</p>
-<ul>
-<li>Range: 0 100</li>
-<li>Units: percent</li>
-</ul>
-
-
-<h2>EKF Source Rangefinder Max (ESRC_RNGFND_MAX)</h2>
-
-<p>OpticalFlow may be used if rangefinder distance is below this threshold</p>
-<ul>
-<li>Range: 0 50</li>
-<li>Units: meters</li>
-</ul>
-
-
-<h2>Rover Quicktune enable (RTUN_ENABLE)</h2>
-
-<p>Enable quicktune system</p>
+<p>Enable parameter reversion system</p>
 <ul>
 <table><th>Value</th><th>Meaning</th>
 <tr><td>0</td><td>Disabled</td></tr>
@@ -1068,95 +1098,10 @@ DO NOT EDIT
 </ul>
 
 
-<h2>Rover Quicktune axes (RTUN_AXES)</h2>
+<h2>param reversion RC function (PREV_RC_FUNC)</h2>
 
-<p>axes to tune</p>
+<p>RCn_OPTION number to used to trigger parameter reversion</p>
 <ul>
-<li>Bitmask: 0:Steering,1:Speed</li>
-</ul>
-
-
-<h2>Rover Quicktune Steering Rate FeedForward ratio (RTUN_STR_FFRATIO)</h2>
-
-<p>Ratio between measured response and FF gain. Raise this to get a higher FF gain</p>
-<ul>
-<li>Range: 0 1.0</li>
-</ul>
-
-
-<h2>Rover Quicktune Steering FF to P ratio (RTUN_STR_P_RATIO)</h2>
-
-<p>Ratio between steering FF and P gains. Raise this to get a higher P gain, 0 to leave P unchanged</p>
-<ul>
-<li>Range: 0 2.0</li>
-</ul>
-
-
-<h2>Rover Quicktune Steering FF to I ratio (RTUN_STR_I_RATIO)</h2>
-
-<p>Ratio between steering FF and I gains. Raise this to get a higher I gain, 0 to leave I unchanged</p>
-<ul>
-<li>Range: 0 2.0</li>
-</ul>
-
-
-<h2>Rover Quicktune Speed FeedForward (equivalent) ratio (RTUN_SPD_FFRATIO)</h2>
-
-<p>Ratio between measured response and CRUISE_THROTTLE value. Raise this to get a higher CRUISE_THROTTLE value</p>
-<ul>
-<li>Range: 0 1.0</li>
-</ul>
-
-
-<h2>Rover Quicktune Speed FF to P ratio (RTUN_SPD_P_RATIO)</h2>
-
-<p>Ratio between speed FF and P gain. Raise this to get a higher P gain, 0 to leave P unchanged</p>
-<ul>
-<li>Range: 0 2.0</li>
-</ul>
-
-
-<h2>Rover Quicktune Speed FF to I ratio (RTUN_SPD_I_RATIO)</h2>
-
-<p>Ratio between speed FF and I gain. Raise this to get a higher I gain, 0 to leave I unchanged</p>
-<ul>
-<li>Range: 0 2.0</li>
-</ul>
-
-
-<h2>Rover Quicktune auto filter enable (RTUN_AUTO_FILTER)</h2>
-
-<p>When enabled the PID filter settings are automatically set based on INS_GYRO_FILTER</p>
-<ul>
-<table><th>Value</th><th>Meaning</th>
-<tr><td>0</td><td>Disabled</td></tr>
-<tr><td>1</td><td>Enabled</td></tr>
-</table>
-</ul>
-
-
-<h2>Rover Quicktune auto save (RTUN_AUTO_SAVE)</h2>
-
-<p>Number of seconds after completion of tune to auto-save. This is useful when using a 2 position switch for quicktune</p>
-<ul>
-<li>Units: seconds</li>
-</ul>
-
-
-<h2>Rover Quicktune RC function (RTUN_RC_FUNC)</h2>
-
-<p>RCn_OPTION number to use to control tuning stop/start/save</p>
-<ul>
-<table><th>Value</th><th>Meaning</th>
-<tr><td>300</td><td>Scripting1</td></tr>
-<tr><td>301</td><td>Scripting2</td></tr>
-<tr><td>302</td><td>Scripting3</td></tr>
-<tr><td>303</td><td>Scripting4</td></tr>
-<tr><td>304</td><td>Scripting5</td></tr>
-<tr><td>305</td><td>Scripting6</td></tr>
-<tr><td>306</td><td>Scripting7</td></tr>
-<tr><td>307</td><td>Scripting8</td></tr>
-</table>
 </ul>
 
 
@@ -1328,9 +1273,17 @@ DO NOT EDIT
 </ul>
 
 
-<h2>parameter reversion enable (PREV_ENABLE)</h2>
+<h2>Mount POI distance max (POI_DIST_MAX)</h2>
 
-<p>Enable parameter reversion system</p>
+<p>POI&#x27;s max distance (in meters) from the vehicle</p>
+<ul>
+<li>Range: 0 10000</li>
+</ul>
+
+
+<h2>enable web server (WEB_ENABLE)</h2>
+
+<p>enable web server</p>
 <ul>
 <table><th>Value</th><th>Meaning</th>
 <tr><td>0</td><td>Disabled</td></tr>
@@ -1339,10 +1292,47 @@ DO NOT EDIT
 </ul>
 
 
-<h2>param reversion RC function (PREV_RC_FUNC)</h2>
+<h2>web server TCP port (WEB_BIND_PORT)</h2>
 
-<p>RCn_OPTION number to used to trigger parameter reversion</p>
+<p>web server TCP port</p>
 <ul>
+<li>Range: 1 65535</li>
+</ul>
+
+
+<h2>web server debugging (WEB_DEBUG)</h2><em>Note: This parameter is for advanced users</em><br>
+
+<p>web server debugging</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>0</td><td>Disabled</td></tr>
+<tr><td>1</td><td>Enabled</td></tr>
+</table>
+</ul>
+
+
+<h2>web server block size (WEB_BLOCK_SIZE)</h2><em>Note: This parameter is for advanced users</em><br>
+
+<p>web server block size for download</p>
+<ul>
+<li>Range: 1 65535</li>
+</ul>
+
+
+<h2>web server timeout (WEB_TIMEOUT)</h2><em>Note: This parameter is for advanced users</em><br>
+
+<p>timeout for inactive connections</p>
+<ul>
+<li>Units: seconds</li>
+<li>Range: 0.1 60</li>
+</ul>
+
+
+<h2>web server minimum file size for sendfile (WEB_SENDFILE_MIN)</h2><em>Note: This parameter is for advanced users</em><br>
+
+<p>sendfile is an offloading mechanism for faster file download. If this is non-zero and the file is larger than this size then sendfile will be used for file download</p>
+<ul>
+<li>Range: 0 10000000</li>
 </ul>
 
 
@@ -1388,14 +1378,6 @@ DO NOT EDIT
 </ul>
 
 
-<h2>Mount POI distance max (POI_DIST_MAX)</h2>
-
-<p>POI&#x27;s max distance (in meters) from the vehicle</p>
-<ul>
-<li>Range: 0 10000</li>
-</ul>
-
-
 <h2>WinchControl Rate Up (WINCH_RATE_UP)</h2>
 
 <p>Maximum rate when retracting line</p>
@@ -1426,6 +1408,24 @@ DO NOT EDIT
 <tr><td>306</td><td>Scripting7</td></tr>
 <tr><td>307</td><td>Scripting8</td></tr>
 </table>
+</ul>
+
+
+<h2>Precland altitude cutoff (PLND_ALT_CUTOFF)</h2>
+
+<p>The altitude (rangefinder distance) below which we stop using the precision landing sensor and continue landing</p>
+<ul>
+<li>Range: 0 20</li>
+<li>Units: meters</li>
+</ul>
+
+
+<h2>Precland distance cutoff (DIST_CUTOFF)</h2>
+
+<p>The distance from target beyond which the target is ignored</p>
+<ul>
+<li>Range: 0 100</li>
+<li>Units: meters</li>
 </ul>
 
 
@@ -1688,42 +1688,14 @@ DO NOT EDIT
 </ul>
 
 
-<h2>Enable ANX battery support (BATT_ANX_ENABLE)</h2>
+<h2>EFI INF-Inject enable (EFI_INF_ENABLE)</h2>
 
-<p>Enable ANX battery support</p>
+<p>Enable EFI INF-Inject driver</p>
 <ul>
 <table><th>Value</th><th>Meaning</th>
 <tr><td>0</td><td>Disabled</td></tr>
 <tr><td>1</td><td>Enabled</td></tr>
 </table>
-</ul>
-
-
-<h2>Set ANX CAN driver (BATT_ANX_CANDRV)</h2>
-
-<p>Set ANX CAN driver</p>
-<ul>
-<table><th>Value</th><th>Meaning</th>
-<tr><td>0</td><td>None</td></tr>
-<tr><td>1</td><td>1stCANDriver</td></tr>
-<tr><td>2</td><td>2ndCanDriver</td></tr>
-</table>
-</ul>
-
-
-<h2>ANX CAN battery index (BATT_ANX_INDEX)</h2>
-
-<p>ANX CAN battery index</p>
-<ul>
-<li>Range: 1 10</li>
-</ul>
-
-
-<h2>ANX CAN battery options (BATT_ANX_OPTIONS)</h2><em>Note: This parameter is for advanced users</em><br>
-
-<p>ANX CAN battery options</p>
-<ul>
-<li>Bitmask: 0:LogAllFrames</li>
 </ul>
 
 
@@ -1884,9 +1856,129 @@ DO NOT EDIT
 </ul>
 
 
-<h2>EFI INF-Inject enable (EFI_INF_ENABLE)</h2>
+<h2>EFI DLA enable (EFI_DLA_ENABLE)</h2>
 
-<p>Enable EFI INF-Inject driver</p>
+<p>Enable EFI DLA driver</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>0</td><td>Disabled</td></tr>
+<tr><td>1</td><td>Enabled</td></tr>
+</table>
+</ul>
+
+
+<h2>EFI DLA fuel scale (EFI_DLA_LPS)</h2>
+
+<p>EFI DLA litres of fuel per second of injection time</p>
+<ul>
+<li>Range: 0.00001 1</li>
+<li>Units: litres</li>
+</ul>
+
+
+<h2>DJIRS2 debug (DJIR_DEBUG)</h2><em>Note: This parameter is for advanced users</em><br>
+
+<p>Enable DJIRS2 debug</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>0</td><td>Disabled</td></tr>
+<tr><td>1</td><td>Enabled</td></tr>
+<tr><td>2</td><td>Enabled with attitude reporting</td></tr>
+</table>
+</ul>
+
+
+<h2>DJIRS2 upside down (DJIR_UPSIDEDOWN)</h2>
+
+<p>DJIRS2 upside down</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>0</td><td>Right side up</td></tr>
+<tr><td>1</td><td>Upside down</td></tr>
+</table>
+</ul>
+
+
+<h2>Hobbywing ESC Enable (ESC_HW_ENABLE)</h2>
+
+<p>Enable Hobbywing ESC telemetry</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>0</td><td>Disabled</td></tr>
+<tr><td>1</td><td>Enabled</td></tr>
+</table>
+</ul>
+
+
+<h2>Hobbywing ESC motor poles (ESC_HW_POLES)</h2>
+
+<p>Number of motor poles for eRPM scaling</p>
+<ul>
+<li>Range: 1 50</li>
+</ul>
+
+
+<h2>Hobbywing ESC motor offset (ESC_HW_OFS)</h2>
+
+<p>Motor number offset of first ESC</p>
+<ul>
+<li>Range: 0 31</li>
+</ul>
+
+
+<h2>Enable ANX battery support (BATT_ANX_ENABLE)</h2>
+
+<p>Enable ANX battery support</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>0</td><td>Disabled</td></tr>
+<tr><td>1</td><td>Enabled</td></tr>
+</table>
+</ul>
+
+
+<h2>Set ANX CAN driver (BATT_ANX_CANDRV)</h2>
+
+<p>Set ANX CAN driver</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>0</td><td>None</td></tr>
+<tr><td>1</td><td>1stCANDriver</td></tr>
+<tr><td>2</td><td>2ndCanDriver</td></tr>
+</table>
+</ul>
+
+
+<h2>ANX CAN battery index (BATT_ANX_INDEX)</h2>
+
+<p>ANX CAN battery index</p>
+<ul>
+<li>Range: 1 10</li>
+</ul>
+
+
+<h2>ANX CAN battery options (BATT_ANX_OPTIONS)</h2><em>Note: This parameter is for advanced users</em><br>
+
+<p>ANX CAN battery options</p>
+<ul>
+<li>Bitmask: 0:LogAllFrames</li>
+</ul>
+
+
+<h2>Generator SVFFI enable (EFI_SVF_ENABLE)</h2>
+
+<p>Enable SVFFI generator support</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>0</td><td>Disabled</td></tr>
+<tr><td>1</td><td>Enabled</td></tr>
+</table>
+</ul>
+
+
+<h2>Generator SVFFI arming check (EFI_SVF_ARMCHECK)</h2>
+
+<p>Check for Generator ARM state before arming</p>
 <ul>
 <table><th>Value</th><th>Meaning</th>
 <tr><td>0</td><td>Disabled</td></tr>
@@ -2028,98 +2120,6 @@ DO NOT EDIT
 <p>The capacity of the tank in litres</p>
 <ul>
 <li>Units: litres</li>
-</ul>
-
-
-<h2>Generator SVFFI enable (EFI_SVF_ENABLE)</h2>
-
-<p>Enable SVFFI generator support</p>
-<ul>
-<table><th>Value</th><th>Meaning</th>
-<tr><td>0</td><td>Disabled</td></tr>
-<tr><td>1</td><td>Enabled</td></tr>
-</table>
-</ul>
-
-
-<h2>Generator SVFFI arming check (EFI_SVF_ARMCHECK)</h2>
-
-<p>Check for Generator ARM state before arming</p>
-<ul>
-<table><th>Value</th><th>Meaning</th>
-<tr><td>0</td><td>Disabled</td></tr>
-<tr><td>1</td><td>Enabled</td></tr>
-</table>
-</ul>
-
-
-<h2>EFI DLA enable (EFI_DLA_ENABLE)</h2>
-
-<p>Enable EFI DLA driver</p>
-<ul>
-<table><th>Value</th><th>Meaning</th>
-<tr><td>0</td><td>Disabled</td></tr>
-<tr><td>1</td><td>Enabled</td></tr>
-</table>
-</ul>
-
-
-<h2>EFI DLA fuel scale (EFI_DLA_LPS)</h2>
-
-<p>EFI DLA litres of fuel per second of injection time</p>
-<ul>
-<li>Range: 0.00001 1</li>
-<li>Units: litres</li>
-</ul>
-
-
-<h2>DJIRS2 debug (DJIR_DEBUG)</h2><em>Note: This parameter is for advanced users</em><br>
-
-<p>Enable DJIRS2 debug</p>
-<ul>
-<table><th>Value</th><th>Meaning</th>
-<tr><td>0</td><td>Disabled</td></tr>
-<tr><td>1</td><td>Enabled</td></tr>
-<tr><td>2</td><td>Enabled with attitude reporting</td></tr>
-</table>
-</ul>
-
-
-<h2>DJIRS2 upside down (DJIR_UPSIDEDOWN)</h2>
-
-<p>DJIRS2 upside down</p>
-<ul>
-<table><th>Value</th><th>Meaning</th>
-<tr><td>0</td><td>Right side up</td></tr>
-<tr><td>1</td><td>Upside down</td></tr>
-</table>
-</ul>
-
-
-<h2>Hobbywing ESC Enable (ESC_HW_ENABLE)</h2>
-
-<p>Enable Hobbywing ESC telemetry</p>
-<ul>
-<table><th>Value</th><th>Meaning</th>
-<tr><td>0</td><td>Disabled</td></tr>
-<tr><td>1</td><td>Enabled</td></tr>
-</table>
-</ul>
-
-
-<h2>Hobbywing ESC motor poles (ESC_HW_POLES)</h2>
-
-<p>Number of motor poles for eRPM scaling</p>
-<ul>
-<li>Range: 1 50</li>
-</ul>
-
-
-<h2>Hobbywing ESC motor offset (ESC_HW_OFS)</h2>
-
-<p>Motor number offset of first ESC</p>
-<ul>
-<li>Range: 0 31</li>
 </ul>
 
 

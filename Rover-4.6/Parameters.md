@@ -660,6 +660,42 @@ Settings this parameter to one triggers an automatic follow offset calculation b
 |0|Disabled|
 |1|Trigger|
 
+## ESRC_EXTN_THRESH: EKF Source ExternalNav Innovation Threshold
+
+ExternalNav may be used if innovations are below this threshold
+
+- Range: 0 1
+
+## ESRC_EXTN_QUAL: EKF Source ExternalNav Quality Threshold
+
+ExternalNav may be used if quality is above this threshold
+
+- Range: 0 100
+
+- Units: %
+
+## ESRC_FLOW_THRESH: EKF Source OpticalFlow Innovation Threshold
+
+OpticalFlow may be used if innovations are below this threshold
+
+- Range: 0 1
+
+## ESRC_FLOW_QUAL: EKF Source OpticalFlow Quality Threshold
+
+OpticalFlow may be used if quality is above this threshold
+
+- Range: 0 100
+
+- Units: %
+
+## ESRC_RNGFND_MAX: EKF Source Rangefinder Max
+
+OpticalFlow may be used if rangefinder distance is below this threshold
+
+- Range: 0 50
+
+- Units: m
+
 ## TERR_BRK_ENABLE: terrain brake enable
 
 terrain brake enable
@@ -767,73 +803,94 @@ Copter switch to this mode after GPS recovers or DR_FLY_TIMEOUT has elapsed.  De
 |21|Smart_RTL|
 |27|Auto RTL|
 
-## WEB_ENABLE: enable web server
+## RTUN_ENABLE: Rover Quicktune enable
 
-enable web server
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|Enabled|
-
-## WEB_BIND_PORT: web server TCP port
-
-web server TCP port
-
-- Range: 1 65535
-
-## WEB_DEBUG: web server debugging
-
-*Note: This parameter is for advanced users*
-
-web server debugging
+Enable quicktune system
 
 |Value|Meaning|
 |:---:|:---:|
 |0|Disabled|
 |1|Enabled|
 
-## WEB_BLOCK_SIZE: web server block size
+## RTUN_AXES: Rover Quicktune axes
 
-*Note: This parameter is for advanced users*
+axes to tune
 
-web server block size for download
+- Bitmask: 0:Steering,1:Speed
 
-- Range: 1 65535
+## RTUN_STR_FFRATIO: Rover Quicktune Steering Rate FeedForward ratio
 
-## WEB_TIMEOUT: web server timeout
+Ratio between measured response and FF gain. Raise this to get a higher FF gain
 
-*Note: This parameter is for advanced users*
+- Range: 0 1.0
 
-timeout for inactive connections
+## RTUN_STR_P_RATIO: Rover Quicktune Steering FF to P ratio
+
+Ratio between steering FF and P gains. Raise this to get a higher P gain, 0 to leave P unchanged
+
+- Range: 0 2.0
+
+## RTUN_STR_I_RATIO: Rover Quicktune Steering FF to I ratio
+
+Ratio between steering FF and I gains. Raise this to get a higher I gain, 0 to leave I unchanged
+
+- Range: 0 2.0
+
+## RTUN_SPD_FFRATIO: Rover Quicktune Speed FeedForward (equivalent) ratio
+
+Ratio between measured response and CRUISE_THROTTLE value. Raise this to get a higher CRUISE_THROTTLE value
+
+- Range: 0 1.0
+
+## RTUN_SPD_P_RATIO: Rover Quicktune Speed FF to P ratio
+
+Ratio between speed FF and P gain. Raise this to get a higher P gain, 0 to leave P unchanged
+
+- Range: 0 2.0
+
+## RTUN_SPD_I_RATIO: Rover Quicktune Speed FF to I ratio
+
+Ratio between speed FF and I gain. Raise this to get a higher I gain, 0 to leave I unchanged
+
+- Range: 0 2.0
+
+## RTUN_AUTO_FILTER: Rover Quicktune auto filter enable
+
+When enabled the PID filter settings are automatically set based on INS_GYRO_FILTER
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
+
+## RTUN_AUTO_SAVE: Rover Quicktune auto save
+
+Number of seconds after completion of tune to auto-save. This is useful when using a 2 position switch for quicktune
 
 - Units: s
 
-- Range: 0.1 60
+## RTUN_RC_FUNC: Rover Quicktune RC function
 
-## WEB_SENDFILE_MIN: web server minimum file size for sendfile
+RCn_OPTION number to use to control tuning stop/start/save
 
-*Note: This parameter is for advanced users*
+|Value|Meaning|
+|:---:|:---:|
+|300|Scripting1|
+|301|Scripting2|
+|302|Scripting3|
+|303|Scripting4|
+|304|Scripting5|
+|305|Scripting6|
+|306|Scripting7|
+|307|Scripting8|
 
-sendfile is an offloading mechanism for faster file download. If this is non-zero and the file is larger than this size then sendfile will be used for file download
+## RTUN_SPEED_MIN: Rover Quicktune minimum speed for tuning
 
-- Range: 0 10000000
+The mimimum speed in m/s required for tuning to start
 
-## PLND_ALT_CUTOFF: Precland altitude cutoff
+- Units: m/s
 
-The altitude (rangefinder distance) below which we stop using the precision landing sensor and continue landing
-
-- Range: 0 20
-
-- Units: m
-
-## DIST_CUTOFF: Precland distance cutoff
-
-The distance from target beyond which the target is ignored
-
-- Range: 0 100
-
-- Units: m
+- Range: 0.1 0.5
 
 ## QUIK_ENABLE: Quicktune enable
 
@@ -943,285 +1000,18 @@ The ratio between the front and back motor outputs during steady-state hover. Po
 
 - Range: 0.5 2
 
-## ESRC_EXTN_THRESH: EKF Source ExternalNav Innovation Threshold
+## PREV_ENABLE: parameter reversion enable
 
-ExternalNav may be used if innovations are below this threshold
-
-- Range: 0 1
-
-## ESRC_EXTN_QUAL: EKF Source ExternalNav Quality Threshold
-
-ExternalNav may be used if quality is above this threshold
-
-- Range: 0 100
-
-- Units: %
-
-## ESRC_FLOW_THRESH: EKF Source OpticalFlow Innovation Threshold
-
-OpticalFlow may be used if innovations are below this threshold
-
-- Range: 0 1
-
-## ESRC_FLOW_QUAL: EKF Source OpticalFlow Quality Threshold
-
-OpticalFlow may be used if quality is above this threshold
-
-- Range: 0 100
-
-- Units: %
-
-## ESRC_RNGFND_MAX: EKF Source Rangefinder Max
-
-OpticalFlow may be used if rangefinder distance is below this threshold
-
-- Range: 0 50
-
-- Units: m
-
-## CAM1_THERM_PAL: Camera1 Thermal Palette
-
-thermal image colour palette
-
-|Value|Meaning|
-|:---:|:---:|
-|-1|Leave Unchanged|
-|0|WhiteHot|
-|2|Sepia|
-|3|IronBow|
-|4|Rainbow|
-|5|Night|
-|6|Aurora|
-|7|RedHot|
-|8|Jungle|
-|9|Medical|
-|10|BlackHot|
-|11|GloryHot|
-
-## CAM1_THERM_GAIN: Camera1 Thermal Gain
-
-thermal image temperature range
-
-|Value|Meaning|
-|:---:|:---:|
-|-1|Leave Unchanged|
-|0|LowGain (50C to 550C)|
-|1|HighGain (-20C to 150C)|
-
-## CAM1_THERM_RAW: Camera1 Thermal Raw Data
-
-save images with raw temperatures
-
-|Value|Meaning|
-|:---:|:---:|
-|-1|Leave Unchanged|
-|0|Disabled (30fps)|
-|1|Enabled (25 fps)|
-
-- Units: m
-
-## RTUN_ENABLE: Rover Quicktune enable
-
-Enable quicktune system
+Enable parameter reversion system
 
 |Value|Meaning|
 |:---:|:---:|
 |0|Disabled|
 |1|Enabled|
 
-## RTUN_AXES: Rover Quicktune axes
+## PREV_RC_FUNC: param reversion RC function
 
-axes to tune
-
-- Bitmask: 0:Steering,1:Speed
-
-## RTUN_STR_FFRATIO: Rover Quicktune Steering Rate FeedForward ratio
-
-Ratio between measured response and FF gain. Raise this to get a higher FF gain
-
-- Range: 0 1.0
-
-## RTUN_STR_P_RATIO: Rover Quicktune Steering FF to P ratio
-
-Ratio between steering FF and P gains. Raise this to get a higher P gain, 0 to leave P unchanged
-
-- Range: 0 2.0
-
-## RTUN_STR_I_RATIO: Rover Quicktune Steering FF to I ratio
-
-Ratio between steering FF and I gains. Raise this to get a higher I gain, 0 to leave I unchanged
-
-- Range: 0 2.0
-
-## RTUN_SPD_FFRATIO: Rover Quicktune Speed FeedForward (equivalent) ratio
-
-Ratio between measured response and CRUISE_THROTTLE value. Raise this to get a higher CRUISE_THROTTLE value
-
-- Range: 0 1.0
-
-## RTUN_SPD_P_RATIO: Rover Quicktune Speed FF to P ratio
-
-Ratio between speed FF and P gain. Raise this to get a higher P gain, 0 to leave P unchanged
-
-- Range: 0 2.0
-
-## RTUN_SPD_I_RATIO: Rover Quicktune Speed FF to I ratio
-
-Ratio between speed FF and I gain. Raise this to get a higher I gain, 0 to leave I unchanged
-
-- Range: 0 2.0
-
-## RTUN_AUTO_FILTER: Rover Quicktune auto filter enable
-
-When enabled the PID filter settings are automatically set based on INS_GYRO_FILTER
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|Enabled|
-
-## RTUN_AUTO_SAVE: Rover Quicktune auto save
-
-Number of seconds after completion of tune to auto-save. This is useful when using a 2 position switch for quicktune
-
-- Units: s
-
-## RTUN_RC_FUNC: Rover Quicktune RC function
-
-RCn_OPTION number to use to control tuning stop/start/save
-
-|Value|Meaning|
-|:---:|:---:|
-|300|Scripting1|
-|301|Scripting2|
-|302|Scripting3|
-|303|Scripting4|
-|304|Scripting5|
-|305|Scripting6|
-|306|Scripting7|
-|307|Scripting8|
-
-## RTUN_SPEED_MIN: Rover Quicktune minimum speed for tuning
-
-The mimimum speed in m/s required for tuning to start
-
-- Units: m/s
-
-- Range: 0.1 0.5
-
-## VID1_CAMMODEL: Camera1 Video Stream Camera Model
-
-Video stream camera model
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Unknown|
-|1|Siyi A8|
-|2|Siyi ZR10|
-|3|Siyi ZR30|
-|4|Siyi ZT30 Zoom|
-|5|Siyi ZT30 Wide|
-|6|Siyi ZT30 IR|
-|7|Siyi ZT6 RGB|
-|8|Siyi ZT6 IR|
-|9|Herelink WifiAP|
-|10|Herelink USB-tethering|
-|11|Topotek 1080p|
-|12|Topotek 480p|
-|13|Viewpro|
-
-## VID1_ID: Camera1 Video Stream Id
-
-Video stream id
-
-- Range: 0 50
-
-## VID1_TYPE: Camera1 Video Stream Type
-
-Video stream type
-
-|Value|Meaning|
-|:---:|:---:|
-|0|RTSP|
-|1|RTPUDP|
-|2|TCP_MPEG|
-|3|MPEG_TS|
-
-## VID1_FLAG: Camera1 Video Stream Flags
-
-Video stream flags
-
-- Bitmask: 0:Running,1:Thermal,2:Thermal Range Enabled
-
-## VID1_FRAME_RATE: Camera1 Video Stream Frame Rate
-
-Video stream frame rate
-
-- Range: 0 50
-
-## VID1_HRES: Camera1 Video Stream Horizontal Resolution
-
-Video stream horizontal resolution
-
-- Range: 0 4096
-
-## VID1_VRES: Camera1 Video Stream Vertical Resolution
-
-Video stream vertical resolution
-
-- Range: 0 4096
-
-## VID1_BITRATE: Camera1 Video Stream Bitrate
-
-Video stream bitrate
-
-- Range: 0 10000
-
-## VID1_HFOV: Camera1 Video Stream Horizontal FOV
-
-Video stream horizontal FOV
-
-- Range: 0 360
-
-## VID1_ENCODING: Camera1 Video Stream Encoding
-
-Video stream encoding
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Unknown|
-|1|H264|
-|2|H265|
-
-## VID1_IPADDR0: Camera1 Video Stream IP Address 0
-
-Video stream IP Address first octet
-
-- Range: 0 255
-
-## VID1_IPADDR1: Camera1 Video Stream IP Address 1
-
-Video stream IP Address second octet
-
-- Range: 0 255
-
-## VID1_IPADDR2: Camera1 Video Stream IP Address 2
-
-Video stream IP Address third octet
-
-- Range: 0 255
-
-## VID1_IPADDR3: Camera1 Video Stream IP Address 3
-
-Video stream IP Address fourth octet
-
-- Range: 0 255
-
-## VID1_IPPORT: Camera1 Video Stream IP Address Port
-
-Video stream IP Address Port
-
-- Range: 0 65535
+RCn_OPTION number to used to trigger parameter reversion
 
 ## BATT_SOC_COUNT: Count of SOC estimators
 
@@ -1349,18 +1139,166 @@ Battery estimator coefficient3
 
 - Range: 0.01 0.5
 
-## PREV_ENABLE: parameter reversion enable
+## VID1_CAMMODEL: Camera1 Video Stream Camera Model
 
-Enable parameter reversion system
+Video stream camera model
 
 |Value|Meaning|
 |:---:|:---:|
-|0|Disabled|
-|1|Enabled|
+|0|Unknown|
+|1|Siyi A8|
+|2|Siyi ZR10|
+|3|Siyi ZR30|
+|4|Siyi ZT30 Zoom|
+|5|Siyi ZT30 Wide|
+|6|Siyi ZT30 IR|
+|7|Siyi ZT6 RGB|
+|8|Siyi ZT6 IR|
+|9|Herelink WifiAP|
+|10|Herelink USB-tethering|
+|11|Topotek 1080p|
+|12|Topotek 480p|
+|13|Viewpro|
 
-## PREV_RC_FUNC: param reversion RC function
+## VID1_ID: Camera1 Video Stream Id
 
-RCn_OPTION number to used to trigger parameter reversion
+Video stream id
+
+- Range: 0 50
+
+## VID1_TYPE: Camera1 Video Stream Type
+
+Video stream type
+
+|Value|Meaning|
+|:---:|:---:|
+|0|RTSP|
+|1|RTPUDP|
+|2|TCP_MPEG|
+|3|MPEG_TS|
+
+## VID1_FLAG: Camera1 Video Stream Flags
+
+Video stream flags
+
+- Bitmask: 0:Running,1:Thermal,2:Thermal Range Enabled
+
+## VID1_FRAME_RATE: Camera1 Video Stream Frame Rate
+
+Video stream frame rate
+
+- Range: 0 50
+
+## VID1_HRES: Camera1 Video Stream Horizontal Resolution
+
+Video stream horizontal resolution
+
+- Range: 0 4096
+
+## VID1_VRES: Camera1 Video Stream Vertical Resolution
+
+Video stream vertical resolution
+
+- Range: 0 4096
+
+## VID1_BITRATE: Camera1 Video Stream Bitrate
+
+Video stream bitrate
+
+- Range: 0 10000
+
+## VID1_HFOV: Camera1 Video Stream Horizontal FOV
+
+Video stream horizontal FOV
+
+- Range: 0 360
+
+## VID1_ENCODING: Camera1 Video Stream Encoding
+
+Video stream encoding
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Unknown|
+|1|H264|
+|2|H265|
+
+## VID1_IPADDR0: Camera1 Video Stream IP Address 0
+
+Video stream IP Address first octet
+
+- Range: 0 255
+
+## VID1_IPADDR1: Camera1 Video Stream IP Address 1
+
+Video stream IP Address second octet
+
+- Range: 0 255
+
+## VID1_IPADDR2: Camera1 Video Stream IP Address 2
+
+Video stream IP Address third octet
+
+- Range: 0 255
+
+## VID1_IPADDR3: Camera1 Video Stream IP Address 3
+
+Video stream IP Address fourth octet
+
+- Range: 0 255
+
+## VID1_IPPORT: Camera1 Video Stream IP Address Port
+
+Video stream IP Address Port
+
+- Range: 0 65535
+
+## CAM1_THERM_PAL: Camera1 Thermal Palette
+
+thermal image colour palette
+
+|Value|Meaning|
+|:---:|:---:|
+|-1|Leave Unchanged|
+|0|WhiteHot|
+|2|Sepia|
+|3|IronBow|
+|4|Rainbow|
+|5|Night|
+|6|Aurora|
+|7|RedHot|
+|8|Jungle|
+|9|Medical|
+|10|BlackHot|
+|11|GloryHot|
+
+## CAM1_THERM_GAIN: Camera1 Thermal Gain
+
+thermal image temperature range
+
+|Value|Meaning|
+|:---:|:---:|
+|-1|Leave Unchanged|
+|0|LowGain (50C to 550C)|
+|1|HighGain (-20C to 150C)|
+
+## CAM1_THERM_RAW: Camera1 Thermal Raw Data
+
+save images with raw temperatures
+
+|Value|Meaning|
+|:---:|:---:|
+|-1|Leave Unchanged|
+|0|Disabled (30fps)|
+|1|Enabled (25 fps)|
+
+- Units: m
+
+## POI_DIST_MAX: Mount POI distance max
+
+POI's max distance (in meters) from the vehicle
+
+- Range: 0 10000
 
 ## SLUP_ENABLE: Slung Payload enable
 
@@ -1410,6 +1348,58 @@ Slung payload debug output, set to 1 to enable debug
 |0|Disabled|
 |1|Enabled|
 
+## WEB_ENABLE: enable web server
+
+enable web server
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
+
+## WEB_BIND_PORT: web server TCP port
+
+web server TCP port
+
+- Range: 1 65535
+
+## WEB_DEBUG: web server debugging
+
+*Note: This parameter is for advanced users*
+
+web server debugging
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
+
+## WEB_BLOCK_SIZE: web server block size
+
+*Note: This parameter is for advanced users*
+
+web server block size for download
+
+- Range: 1 65535
+
+## WEB_TIMEOUT: web server timeout
+
+*Note: This parameter is for advanced users*
+
+timeout for inactive connections
+
+- Units: s
+
+- Range: 0.1 60
+
+## WEB_SENDFILE_MIN: web server minimum file size for sendfile
+
+*Note: This parameter is for advanced users*
+
+sendfile is an offloading mechanism for faster file download. If this is non-zero and the file is larger than this size then sendfile will be used for file download
+
+- Range: 0 10000000
+
 ## RCK_FORCEHL: Force enable High Latency mode
 
 Automatically enables High Latency mode if not already enabled
@@ -1445,12 +1435,6 @@ Enables the Rockblock sending and recieving
 |0|Disabled|
 |1|Enabled|
 
-## POI_DIST_MAX: Mount POI distance max
-
-POI's max distance (in meters) from the vehicle
-
-- Range: 0 10000
-
 ## WINCH_RATE_UP: WinchControl Rate Up
 
 Maximum rate when retracting line
@@ -1477,6 +1461,22 @@ RCn_OPTION number to use to control winch rate
 |305|Scripting6|
 |306|Scripting7|
 |307|Scripting8|
+
+## PLND_ALT_CUTOFF: Precland altitude cutoff
+
+The altitude (rangefinder distance) below which we stop using the precision landing sensor and continue landing
+
+- Range: 0 20
+
+- Units: m
+
+## DIST_CUTOFF: Precland distance cutoff
+
+The distance from target beyond which the target is ignored
+
+- Range: 0 100
+
+- Units: m
 
 ## AEROM_ANG_ACCEL: Angular acceleration limit
 
@@ -1666,38 +1666,32 @@ Number of tricks which can be selected over the range of the trik selection RC c
 
 - Range: 1 11
 
-## BATT_ANX_ENABLE: Enable ANX battery support
+## EFI_INF_ENABLE: EFI INF-Inject enable
 
-Enable ANX battery support
+Enable EFI INF-Inject driver
 
 |Value|Meaning|
 |:---:|:---:|
 |0|Disabled|
 |1|Enabled|
 
-## BATT_ANX_CANDRV: Set ANX CAN driver
+## EFI_INF_OPTIONS: EFI INF-Inject options
 
-Set ANX CAN driver
+EFI INF driver options
 
-|Value|Meaning|
-|:---:|:---:|
-|0|None|
-|1|1stCANDriver|
-|2|2ndCanDriver|
+- Bitmask: 0:EnableLogging
 
-## BATT_ANX_INDEX: ANX CAN battery index
+## EFI_INF_THR_HZ: EFI INF-Inject throttle rate
 
-ANX CAN battery index
+EFI INF throttle output rate
 
-- Range: 1 10
+- Range: 0 50
 
-## BATT_ANX_OPTIONS: ANX CAN battery options
+- Units: Hz
 
-*Note: This parameter is for advanced users*
+## EFI_INF_IGN_AUX: EFI INF-Inject ignition aux function
 
-ANX CAN battery options
-
-- Bitmask: 0:LogAllFrames
+EFI INF throttle ignition aux function
 
 ## EFI_SP_ENABLE: Enable SkyPower EFI support
 
@@ -1843,32 +1837,170 @@ SkyPower EFI restart time. If engine should be running and it has stopped for th
 
 - Units: s
 
-## EFI_INF_ENABLE: EFI INF-Inject enable
+## EFI_DLA_ENABLE: EFI DLA enable
 
-Enable EFI INF-Inject driver
+Enable EFI DLA driver
 
 |Value|Meaning|
 |:---:|:---:|
 |0|Disabled|
 |1|Enabled|
 
-## EFI_INF_OPTIONS: EFI INF-Inject options
+## EFI_DLA_LPS: EFI DLA fuel scale
 
-EFI INF driver options
+EFI DLA litres of fuel per second of injection time
+
+- Range: 0.00001 1
+
+- Units: litres
+
+## EFI_2K_ENABLE: Enable NMEA 2000 EFI driver
+
+Enable NMEA 2000 EFI driver
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
+
+## EFI_2K_CANDRV: NMEA 2000 CAN driver
+
+NMEA 2000 CAN driver. Use 1 for first CAN scripting driver, 2 for 2nd driver
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|FirstCAN|
+|2|SecondCAN|
+
+## EFI_2K_OPTIONS: NMEA 2000 options
+
+NMEA 2000 driver options
 
 - Bitmask: 0:EnableLogging
 
-## EFI_INF_THR_HZ: EFI INF-Inject throttle rate
+## DJIR_DEBUG: DJIRS2 debug
 
-EFI INF throttle output rate
+*Note: This parameter is for advanced users*
 
-- Range: 0 50
+Enable DJIRS2 debug
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
+|2|Enabled with attitude reporting|
+
+## DJIR_UPSIDEDOWN: DJIRS2 upside down
+
+DJIRS2 upside down
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Right side up|
+|1|Upside down|
+
+## ESC_HW_ENABLE: Hobbywing ESC Enable
+
+Enable Hobbywing ESC telemetry
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
+
+## ESC_HW_POLES: Hobbywing ESC motor poles
+
+Number of motor poles for eRPM scaling
+
+- Range: 1 50
+
+## ESC_HW_OFS: Hobbywing ESC motor offset
+
+Motor number offset of first ESC
+
+- Range: 0 31
+
+## UM_SERVO_MASK: Mask of UltraMotion servos
+
+Mask of UltraMotion servos
+
+- Bitmask: 0:SERVO1,1:SERVO2,2:SERVO3,3:SERVO4,4:SERVO5,5:SERVO6,6:SERVO7,7:SERVO8,8:SERVO9,9:SERVO10,10:SERVO11,11:SERVO12
+
+## UM_CANDRV: Set CAN driver
+
+Set CAN driver
+
+|Value|Meaning|
+|:---:|:---:|
+|0|None|
+|1|1stCANDriver|
+|2|2ndCanDriver|
+
+## UM_RATE_HZ: Update rate for UltraMotion servos
+
+Update rate for UltraMotion servos
 
 - Units: Hz
 
-## EFI_INF_IGN_AUX: EFI INF-Inject ignition aux function
+- Range: 1 400
 
-EFI INF throttle ignition aux function
+## UM_OPTIONS: Optional settings
+
+Optional settings
+
+- Bitmask: 0:LogAllFrames,1:ParseTelemetry,2:SendPosAsNamedValueFloat
+
+## BATT_ANX_ENABLE: Enable ANX battery support
+
+Enable ANX battery support
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
+
+## BATT_ANX_CANDRV: Set ANX CAN driver
+
+Set ANX CAN driver
+
+|Value|Meaning|
+|:---:|:---:|
+|0|None|
+|1|1stCANDriver|
+|2|2ndCanDriver|
+
+## BATT_ANX_INDEX: ANX CAN battery index
+
+ANX CAN battery index
+
+- Range: 1 10
+
+## BATT_ANX_OPTIONS: ANX CAN battery options
+
+*Note: This parameter is for advanced users*
+
+ANX CAN battery options
+
+- Bitmask: 0:LogAllFrames
+
+## EFI_SVF_ENABLE: Generator SVFFI enable
+
+Enable SVFFI generator support
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
+
+## EFI_SVF_ARMCHECK: Generator SVFFI arming check
+
+Check for Generator ARM state before arming
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
 
 ## VIEP_DEBUG: ViewPro debug
 
@@ -1991,138 +2123,6 @@ The capacity of the tank in litres
 Halo6000 options
 
 - Bitmask: 0:LogAllCanPackets
-
-## EFI_SVF_ENABLE: Generator SVFFI enable
-
-Enable SVFFI generator support
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|Enabled|
-
-## EFI_SVF_ARMCHECK: Generator SVFFI arming check
-
-Check for Generator ARM state before arming
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|Enabled|
-
-## EFI_DLA_ENABLE: EFI DLA enable
-
-Enable EFI DLA driver
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|Enabled|
-
-## EFI_DLA_LPS: EFI DLA fuel scale
-
-EFI DLA litres of fuel per second of injection time
-
-- Range: 0.00001 1
-
-- Units: litres
-
-## DJIR_DEBUG: DJIRS2 debug
-
-*Note: This parameter is for advanced users*
-
-Enable DJIRS2 debug
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|Enabled|
-|2|Enabled with attitude reporting|
-
-## DJIR_UPSIDEDOWN: DJIRS2 upside down
-
-DJIRS2 upside down
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Right side up|
-|1|Upside down|
-
-## EFI_2K_ENABLE: Enable NMEA 2000 EFI driver
-
-Enable NMEA 2000 EFI driver
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|Enabled|
-
-## EFI_2K_CANDRV: NMEA 2000 CAN driver
-
-NMEA 2000 CAN driver. Use 1 for first CAN scripting driver, 2 for 2nd driver
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|FirstCAN|
-|2|SecondCAN|
-
-## EFI_2K_OPTIONS: NMEA 2000 options
-
-NMEA 2000 driver options
-
-- Bitmask: 0:EnableLogging
-
-## UM_SERVO_MASK: Mask of UltraMotion servos
-
-Mask of UltraMotion servos
-
-- Bitmask: 0:SERVO1,1:SERVO2,2:SERVO3,3:SERVO4,4:SERVO5,5:SERVO6,6:SERVO7,7:SERVO8,8:SERVO9,9:SERVO10,10:SERVO11,11:SERVO12
-
-## UM_CANDRV: Set CAN driver
-
-Set CAN driver
-
-|Value|Meaning|
-|:---:|:---:|
-|0|None|
-|1|1stCANDriver|
-|2|2ndCanDriver|
-
-## UM_RATE_HZ: Update rate for UltraMotion servos
-
-Update rate for UltraMotion servos
-
-- Units: Hz
-
-- Range: 1 400
-
-## UM_OPTIONS: Optional settings
-
-Optional settings
-
-- Bitmask: 0:LogAllFrames,1:ParseTelemetry,2:SendPosAsNamedValueFloat
-
-## ESC_HW_ENABLE: Hobbywing ESC Enable
-
-Enable Hobbywing ESC telemetry
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|Enabled|
-
-## ESC_HW_POLES: Hobbywing ESC motor poles
-
-Number of motor poles for eRPM scaling
-
-- Range: 1 50
-
-## ESC_HW_OFS: Hobbywing ESC motor offset
-
-Motor number offset of first ESC
-
-- Range: 0 31
 
 ## TOFSENSE_S1_PRX: TOFSENSE-M to be used as Proximity sensor
 

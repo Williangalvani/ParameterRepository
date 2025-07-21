@@ -2150,17 +2150,19 @@ RTL\_AUTOLAND: RTL auto land
 Automatically begin landing sequence after arriving at RTL location\. This requires the addition of a DO\_LAND\_START mission item\, which acts as a marker for the start of a landing sequence\. The closest landing sequence will be chosen to the current location\. If this is set to 0 and there is a DO\_LAND\_START mission item then you will get an arming check failure\. You can set to a value of 3 to avoid the arming check failure and use the DO\_LAND\_START for go\-around without it changing RTL behaviour\. For a value of 1 a rally point will be used instead of HOME if in range \(see rally point documentation\)\.
 
 
-+-------+---------------------------------+
-| Value | Meaning                         |
-+=======+=================================+
-| 0     | Disable                         |
-+-------+---------------------------------+
-| 1     | Fly HOME then land              |
-+-------+---------------------------------+
-| 2     | Go directly to landing sequence |
-+-------+---------------------------------+
-| 3     | OnlyForGoAround                 |
-+-------+---------------------------------+
++-------+-----------------------------------------------------------------------+
+| Value | Meaning                                                               |
++=======+=======================================================================+
+| 0     | Disable                                                               |
++-------+-----------------------------------------------------------------------+
+| 1     | Fly HOME then land via DO_LAND_START mission item                     |
++-------+-----------------------------------------------------------------------+
+| 2     | Go directly to landing sequence via DO_LAND_START mission item        |
++-------+-----------------------------------------------------------------------+
+| 3     | OnlyForGoAround                                                       |
++-------+-----------------------------------------------------------------------+
+| 4     | Go directly to landing sequence via DO_RETURN_PATH_START mission item |
++-------+-----------------------------------------------------------------------+
 
 
 
@@ -26827,6 +26829,8 @@ Auxiliary RC Options function executed on pin change
 +-------+-----------------------------------------------------+
 | 181   | QuickTune                                           |
 +-------+-----------------------------------------------------+
+| 184   | System ID Chirp (Quadplane only)                    |
++-------+-----------------------------------------------------+
 | 208   | Flap                                                |
 +-------+-----------------------------------------------------+
 | 209   | VTOL Forward Throttle                               |
@@ -27044,6 +27048,8 @@ Auxiliary RC Options function executed on pin change
 | 180   | Test autotuned gains after tune is complete         |
 +-------+-----------------------------------------------------+
 | 181   | QuickTune                                           |
++-------+-----------------------------------------------------+
+| 184   | System ID Chirp (Quadplane only)                    |
 +-------+-----------------------------------------------------+
 | 208   | Flap                                                |
 +-------+-----------------------------------------------------+
@@ -27263,6 +27269,8 @@ Auxiliary RC Options function executed on pin change
 +-------+-----------------------------------------------------+
 | 181   | QuickTune                                           |
 +-------+-----------------------------------------------------+
+| 184   | System ID Chirp (Quadplane only)                    |
++-------+-----------------------------------------------------+
 | 208   | Flap                                                |
 +-------+-----------------------------------------------------+
 | 209   | VTOL Forward Throttle                               |
@@ -27480,6 +27488,8 @@ Auxiliary RC Options function executed on pin change
 | 180   | Test autotuned gains after tune is complete         |
 +-------+-----------------------------------------------------+
 | 181   | QuickTune                                           |
++-------+-----------------------------------------------------+
+| 184   | System ID Chirp (Quadplane only)                    |
 +-------+-----------------------------------------------------+
 | 208   | Flap                                                |
 +-------+-----------------------------------------------------+
@@ -49238,6 +49248,10 @@ Networking options
 | 3   | Enable CAN1 multicast bridged  |
 +-----+--------------------------------+
 | 4   | Enable CAN2 multicast bridged  |
++-----+--------------------------------+
+| 5   | DisablePPPTimeout              |
++-----+--------------------------------+
+| 6   | DisablePPPEchoLimit            |
 +-----+--------------------------------+
 
 
@@ -75383,6 +75397,8 @@ Function assigned to this RC channel
 +-------+-----------------------------------------------------+
 | 181   | QuickTune                                           |
 +-------+-----------------------------------------------------+
+| 184   | System ID Chirp (Quadplane only)                    |
++-------+-----------------------------------------------------+
 | 208   | Flap                                                |
 +-------+-----------------------------------------------------+
 | 209   | VTOL Forward Throttle                               |
@@ -75704,6 +75720,8 @@ Function assigned to this RC channel
 | 180   | Test autotuned gains after tune is complete         |
 +-------+-----------------------------------------------------+
 | 181   | QuickTune                                           |
++-------+-----------------------------------------------------+
+| 184   | System ID Chirp (Quadplane only)                    |
 +-------+-----------------------------------------------------+
 | 208   | Flap                                                |
 +-------+-----------------------------------------------------+
@@ -76027,6 +76045,8 @@ Function assigned to this RC channel
 +-------+-----------------------------------------------------+
 | 181   | QuickTune                                           |
 +-------+-----------------------------------------------------+
+| 184   | System ID Chirp (Quadplane only)                    |
++-------+-----------------------------------------------------+
 | 208   | Flap                                                |
 +-------+-----------------------------------------------------+
 | 209   | VTOL Forward Throttle                               |
@@ -76348,6 +76368,8 @@ Function assigned to this RC channel
 | 180   | Test autotuned gains after tune is complete         |
 +-------+-----------------------------------------------------+
 | 181   | QuickTune                                           |
++-------+-----------------------------------------------------+
+| 184   | System ID Chirp (Quadplane only)                    |
 +-------+-----------------------------------------------------+
 | 208   | Flap                                                |
 +-------+-----------------------------------------------------+
@@ -76671,6 +76693,8 @@ Function assigned to this RC channel
 +-------+-----------------------------------------------------+
 | 181   | QuickTune                                           |
 +-------+-----------------------------------------------------+
+| 184   | System ID Chirp (Quadplane only)                    |
++-------+-----------------------------------------------------+
 | 208   | Flap                                                |
 +-------+-----------------------------------------------------+
 | 209   | VTOL Forward Throttle                               |
@@ -76992,6 +77016,8 @@ Function assigned to this RC channel
 | 180   | Test autotuned gains after tune is complete         |
 +-------+-----------------------------------------------------+
 | 181   | QuickTune                                           |
++-------+-----------------------------------------------------+
+| 184   | System ID Chirp (Quadplane only)                    |
 +-------+-----------------------------------------------------+
 | 208   | Flap                                                |
 +-------+-----------------------------------------------------+
@@ -77315,6 +77341,8 @@ Function assigned to this RC channel
 +-------+-----------------------------------------------------+
 | 181   | QuickTune                                           |
 +-------+-----------------------------------------------------+
+| 184   | System ID Chirp (Quadplane only)                    |
++-------+-----------------------------------------------------+
 | 208   | Flap                                                |
 +-------+-----------------------------------------------------+
 | 209   | VTOL Forward Throttle                               |
@@ -77636,6 +77664,8 @@ Function assigned to this RC channel
 | 180   | Test autotuned gains after tune is complete         |
 +-------+-----------------------------------------------------+
 | 181   | QuickTune                                           |
++-------+-----------------------------------------------------+
+| 184   | System ID Chirp (Quadplane only)                    |
 +-------+-----------------------------------------------------+
 | 208   | Flap                                                |
 +-------+-----------------------------------------------------+
@@ -77959,6 +77989,8 @@ Function assigned to this RC channel
 +-------+-----------------------------------------------------+
 | 181   | QuickTune                                           |
 +-------+-----------------------------------------------------+
+| 184   | System ID Chirp (Quadplane only)                    |
++-------+-----------------------------------------------------+
 | 208   | Flap                                                |
 +-------+-----------------------------------------------------+
 | 209   | VTOL Forward Throttle                               |
@@ -78280,6 +78312,8 @@ Function assigned to this RC channel
 | 180   | Test autotuned gains after tune is complete         |
 +-------+-----------------------------------------------------+
 | 181   | QuickTune                                           |
++-------+-----------------------------------------------------+
+| 184   | System ID Chirp (Quadplane only)                    |
 +-------+-----------------------------------------------------+
 | 208   | Flap                                                |
 +-------+-----------------------------------------------------+
@@ -78603,6 +78637,8 @@ Function assigned to this RC channel
 +-------+-----------------------------------------------------+
 | 181   | QuickTune                                           |
 +-------+-----------------------------------------------------+
+| 184   | System ID Chirp (Quadplane only)                    |
++-------+-----------------------------------------------------+
 | 208   | Flap                                                |
 +-------+-----------------------------------------------------+
 | 209   | VTOL Forward Throttle                               |
@@ -78924,6 +78960,8 @@ Function assigned to this RC channel
 | 180   | Test autotuned gains after tune is complete         |
 +-------+-----------------------------------------------------+
 | 181   | QuickTune                                           |
++-------+-----------------------------------------------------+
+| 184   | System ID Chirp (Quadplane only)                    |
 +-------+-----------------------------------------------------+
 | 208   | Flap                                                |
 +-------+-----------------------------------------------------+
@@ -79247,6 +79285,8 @@ Function assigned to this RC channel
 +-------+-----------------------------------------------------+
 | 181   | QuickTune                                           |
 +-------+-----------------------------------------------------+
+| 184   | System ID Chirp (Quadplane only)                    |
++-------+-----------------------------------------------------+
 | 208   | Flap                                                |
 +-------+-----------------------------------------------------+
 | 209   | VTOL Forward Throttle                               |
@@ -79568,6 +79608,8 @@ Function assigned to this RC channel
 | 180   | Test autotuned gains after tune is complete         |
 +-------+-----------------------------------------------------+
 | 181   | QuickTune                                           |
++-------+-----------------------------------------------------+
+| 184   | System ID Chirp (Quadplane only)                    |
 +-------+-----------------------------------------------------+
 | 208   | Flap                                                |
 +-------+-----------------------------------------------------+
@@ -79891,6 +79933,8 @@ Function assigned to this RC channel
 +-------+-----------------------------------------------------+
 | 181   | QuickTune                                           |
 +-------+-----------------------------------------------------+
+| 184   | System ID Chirp (Quadplane only)                    |
++-------+-----------------------------------------------------+
 | 208   | Flap                                                |
 +-------+-----------------------------------------------------+
 | 209   | VTOL Forward Throttle                               |
@@ -80212,6 +80256,8 @@ Function assigned to this RC channel
 | 180   | Test autotuned gains after tune is complete         |
 +-------+-----------------------------------------------------+
 | 181   | QuickTune                                           |
++-------+-----------------------------------------------------+
+| 184   | System ID Chirp (Quadplane only)                    |
 +-------+-----------------------------------------------------+
 | 208   | Flap                                                |
 +-------+-----------------------------------------------------+
@@ -105439,6 +105485,174 @@ Range to map between 1000 and 2000 PWM\. Default value of 200 gives full \+\-100
 +=========+
 | degrees |
 +---------+
+
+
+
+
+
+.. _parameters_SID:
+
+SID Parameters
+--------------
+
+
+.. _SID_AXIS:
+
+SID\_AXIS: System identification axis
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Controls which axis are being excited\.  Set to non\-zero to see more parameters
+
+
++-------+----------------------+
+| Value | Meaning              |
++=======+======================+
+| 0     | None                 |
++-------+----------------------+
+| 1     | Input Roll Angle     |
++-------+----------------------+
+| 2     | Input Pitch Angle    |
++-------+----------------------+
+| 3     | Input Yaw Angle      |
++-------+----------------------+
+| 4     | Recovery Roll Angle  |
++-------+----------------------+
+| 5     | Recovery Pitch Angle |
++-------+----------------------+
+| 6     | Recovery Yaw Angle   |
++-------+----------------------+
+| 7     | Rate Roll            |
++-------+----------------------+
+| 8     | Rate Pitch           |
++-------+----------------------+
+| 9     | Rate Yaw             |
++-------+----------------------+
+| 10    | Mixer Roll           |
++-------+----------------------+
+| 11    | Mixer Pitch          |
++-------+----------------------+
+| 12    | Mixer Yaw            |
++-------+----------------------+
+| 13    | Mixer Thrust         |
++-------+----------------------+
+
+
+
+
+.. _SID_MAGNITUDE:
+
+SID\_MAGNITUDE: System identification Chirp Magnitude
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Magnitude of sweep in deg\, deg\/s and 0\-1 for mixer outputs\.
+
+
+.. _SID_F_START_HZ:
+
+SID\_F\_START\_HZ: System identification Start Frequency
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Frequency at the start of the sweep
+
+
++-------------+-------+
+| Range       | Units |
++=============+=======+
+| 0.01 to 100 | hertz |
++-------------+-------+
+
+
+
+
+.. _SID_F_STOP_HZ:
+
+SID\_F\_STOP\_HZ: System identification Stop Frequency
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Frequency at the end of the sweep
+
+
++-------------+-------+
+| Range       | Units |
++=============+=======+
+| 0.01 to 100 | hertz |
++-------------+-------+
+
+
+
+
+.. _SID_T_FADE_IN:
+
+SID\_T\_FADE\_IN: System identification Fade in time
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Time to reach maximum amplitude of sweep
+
+
++---------+---------+
+| Range   | Units   |
++=========+=========+
+| 0 to 20 | seconds |
++---------+---------+
+
+
+
+
+.. _SID_T_REC:
+
+SID\_T\_REC: System identification Total Sweep length
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Time taken to complete the sweep
+
+
++----------+---------+
+| Range    | Units   |
++==========+=========+
+| 0 to 255 | seconds |
++----------+---------+
+
+
+
+
+.. _SID_T_FADE_OUT:
+
+SID\_T\_FADE\_OUT: System identification Fade out time
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Time to reach zero amplitude at the end of the sweep
+
+
++--------+---------+
+| Range  | Units   |
++========+=========+
+| 0 to 5 | seconds |
++--------+---------+
+
+
+
+
+.. _SID_XY_CTRL_MUL:
+
+SID\_XY\_CTRL\_MUL: System identification XY control multiplier
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+A multiplier for the XY velocity and position controller when using systemID in VTOL modes that do horizontal position and velocity control
+
+
++-------------+
+| Range       |
++=============+
+| 0.05 to 1.0 |
++-------------+
 
 
 

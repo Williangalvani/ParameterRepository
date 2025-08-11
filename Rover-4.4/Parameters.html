@@ -688,96 +688,6 @@ DO NOT EDIT
 <h1>Lua Script Parameters</h1>
 
 
-<h2>Deadreckoning Enable (DR_ENABLE)</h2>
-
-<p>Deadreckoning Enable</p>
-<ul>
-<table><th>Value</th><th>Meaning</th>
-<tr><td>0</td><td>Disabled</td></tr>
-<tr><td>1</td><td>Enabled</td></tr>
-</table>
-</ul>
-
-
-<h2>Deadreckoning Enable Distance (DR_ENABLE_DIST)</h2>
-
-<p>Distance from home (in meters) beyond which the dead reckoning will be enabled</p>
-<ul>
-<li>Units: meters</li>
-</ul>
-
-
-<h2>Deadreckoning GPS speed accuracy maximum threshold (DR_GPS_SACC_MAX)</h2>
-
-<p>GPS speed accuracy maximum, above which deadreckoning home will begin (default is 0.8).  Lower values trigger with good GPS quality, higher values will allow poorer GPS before triggering. Set to 0 to disable use of GPS speed accuracy</p>
-<ul>
-<li>Range: 0 10</li>
-</ul>
-
-
-<h2>Deadreckoning GPS satellite count min threshold (DR_GPS_SAT_MIN)</h2>
-
-<p>GPS satellite count threshold below which deadreckoning home will begin (default is 6).  Higher values trigger with good GPS quality, Lower values trigger with worse GPS quality. Set to 0 to disable use of GPS satellite count</p>
-<ul>
-<li>Range: 0 30</li>
-</ul>
-
-
-<h2>Deadreckoning GPS check trigger seconds (DR_GPS_TRIGG_SEC)</h2>
-
-<p>GPS checks must fail for this many seconds before dead reckoning will be triggered</p>
-<ul>
-<li>Units: seconds</li>
-</ul>
-
-
-<h2>Deadreckoning Lean Angle (DR_FLY_ANGLE)</h2>
-
-<p>lean angle (in degrees) during deadreckoning</p>
-<ul>
-<li>Units: degrees</li>
-<li>Range: 0 45</li>
-</ul>
-
-
-<h2>Deadreckoning Altitude Min (DR_FLY_ALT_MIN)</h2>
-
-<p>Copter will fly at at least this altitude (in meters) above home during deadreckoning</p>
-<ul>
-<li>Units: meters</li>
-<li>Range: 0 1000</li>
-</ul>
-
-
-<h2>Deadreckoning flight timeout (DR_FLY_TIMEOUT)</h2>
-
-<p>Copter will attempt to switch to NEXT_MODE after this many seconds of deadreckoning.  If it cannot switch modes it will continue in Guided_NoGPS.  Set to 0 to disable timeout</p>
-<ul>
-<li>Units: seconds</li>
-</ul>
-
-
-<h2>Deadreckoning Next Mode (DR_NEXT_MODE)</h2>
-
-<p>Copter switch to this mode after GPS recovers or DR_FLY_TIMEOUT has elapsed.  Default is 6/RTL.  Set to -1 to return to mode used before deadreckoning was triggered</p>
-<ul>
-<table><th>Value</th><th>Meaning</th>
-<tr><td>2</td><td>AltHold</td></tr>
-<tr><td>3</td><td>Auto</td></tr>
-<tr><td>4</td><td>Guided</td></tr>
-<tr><td>5</td><td>Loiter</td></tr>
-<tr><td>6</td><td>RTL</td></tr>
-<tr><td>7</td><td>Circle</td></tr>
-<tr><td>9</td><td>Land</td></tr>
-<tr><td>16</td><td>PosHold</td></tr>
-<tr><td>17</td><td>Brake</td></tr>
-<tr><td>20</td><td>Guided_NoGPS</td></tr>
-<tr><td>21</td><td>Smart_RTL</td></tr>
-<tr><td>27</td><td>Auto RTL</td></tr>
-</table>
-</ul>
-
-
 <h2>Rover Quicktune enable (RTUN_ENABLE)</h2>
 
 <p>Enable quicktune system</p>
@@ -881,6 +791,48 @@ DO NOT EDIT
 </ul>
 
 
+<h2>Force enable High Latency mode (RCK_FORCEHL)</h2>
+
+<p>Automatically enables High Latency mode if not already enabled</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>0</td><td>Disabled</td></tr>
+<tr><td>1</td><td>Enabled</td></tr>
+</table>
+</ul>
+
+
+<h2>Update rate (RCK_PERIOD)</h2>
+
+<p>When in High Latency mode, send Rockblock updates every N seconds</p>
+<ul>
+<li>Range: 0 600</li>
+<li>Units: seconds</li>
+</ul>
+
+
+<h2>Display Rockblock debugging text (RCK_DEBUG)</h2>
+
+<p>Sends Rockblock debug text to GCS via statustexts</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>0</td><td>Disabled</td></tr>
+<tr><td>1</td><td>Enabled</td></tr>
+</table>
+</ul>
+
+
+<h2>Enable Message transmission (RCK_ENABLE)</h2>
+
+<p>Enables the Rockblock sending and recieving</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>0</td><td>Disabled</td></tr>
+<tr><td>1</td><td>Enabled</td></tr>
+</table>
+</ul>
+
+
 <h2>Ship landing enable (SHIP_ENABLE)</h2>
 
 <p>Enable ship landing system</p>
@@ -908,6 +860,96 @@ DO NOT EDIT
 <table><th>Value</th><th>Meaning</th>
 <tr><td>0</td><td>Disabled</td></tr>
 <tr><td>1</td><td>Trigger</td></tr>
+</table>
+</ul>
+
+
+<h2>Deadreckoning Enable (DR_ENABLE)</h2>
+
+<p>Deadreckoning Enable</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>0</td><td>Disabled</td></tr>
+<tr><td>1</td><td>Enabled</td></tr>
+</table>
+</ul>
+
+
+<h2>Deadreckoning Enable Distance (DR_ENABLE_DIST)</h2>
+
+<p>Distance from home (in meters) beyond which the dead reckoning will be enabled</p>
+<ul>
+<li>Units: meters</li>
+</ul>
+
+
+<h2>Deadreckoning GPS speed accuracy maximum threshold (DR_GPS_SACC_MAX)</h2>
+
+<p>GPS speed accuracy maximum, above which deadreckoning home will begin (default is 0.8).  Lower values trigger with good GPS quality, higher values will allow poorer GPS before triggering. Set to 0 to disable use of GPS speed accuracy</p>
+<ul>
+<li>Range: 0 10</li>
+</ul>
+
+
+<h2>Deadreckoning GPS satellite count min threshold (DR_GPS_SAT_MIN)</h2>
+
+<p>GPS satellite count threshold below which deadreckoning home will begin (default is 6).  Higher values trigger with good GPS quality, Lower values trigger with worse GPS quality. Set to 0 to disable use of GPS satellite count</p>
+<ul>
+<li>Range: 0 30</li>
+</ul>
+
+
+<h2>Deadreckoning GPS check trigger seconds (DR_GPS_TRIGG_SEC)</h2>
+
+<p>GPS checks must fail for this many seconds before dead reckoning will be triggered</p>
+<ul>
+<li>Units: seconds</li>
+</ul>
+
+
+<h2>Deadreckoning Lean Angle (DR_FLY_ANGLE)</h2>
+
+<p>lean angle (in degrees) during deadreckoning</p>
+<ul>
+<li>Units: degrees</li>
+<li>Range: 0 45</li>
+</ul>
+
+
+<h2>Deadreckoning Altitude Min (DR_FLY_ALT_MIN)</h2>
+
+<p>Copter will fly at at least this altitude (in meters) above home during deadreckoning</p>
+<ul>
+<li>Units: meters</li>
+<li>Range: 0 1000</li>
+</ul>
+
+
+<h2>Deadreckoning flight timeout (DR_FLY_TIMEOUT)</h2>
+
+<p>Copter will attempt to switch to NEXT_MODE after this many seconds of deadreckoning.  If it cannot switch modes it will continue in Guided_NoGPS.  Set to 0 to disable timeout</p>
+<ul>
+<li>Units: seconds</li>
+</ul>
+
+
+<h2>Deadreckoning Next Mode (DR_NEXT_MODE)</h2>
+
+<p>Copter switch to this mode after GPS recovers or DR_FLY_TIMEOUT has elapsed.  Default is 6/RTL.  Set to -1 to return to mode used before deadreckoning was triggered</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>2</td><td>AltHold</td></tr>
+<tr><td>3</td><td>Auto</td></tr>
+<tr><td>4</td><td>Guided</td></tr>
+<tr><td>5</td><td>Loiter</td></tr>
+<tr><td>6</td><td>RTL</td></tr>
+<tr><td>7</td><td>Circle</td></tr>
+<tr><td>9</td><td>Land</td></tr>
+<tr><td>16</td><td>PosHold</td></tr>
+<tr><td>17</td><td>Brake</td></tr>
+<tr><td>20</td><td>Guided_NoGPS</td></tr>
+<tr><td>21</td><td>Smart_RTL</td></tr>
+<tr><td>27</td><td>Auto RTL</td></tr>
 </table>
 </ul>
 
@@ -1021,48 +1063,6 @@ DO NOT EDIT
 <ul>
 <li>Units: percent</li>
 <li>Range: 0 100</li>
-</ul>
-
-
-<h2>Force enable High Latency mode (RCK_FORCEHL)</h2>
-
-<p>Automatically enables High Latency mode if not already enabled</p>
-<ul>
-<table><th>Value</th><th>Meaning</th>
-<tr><td>0</td><td>Disabled</td></tr>
-<tr><td>1</td><td>Enabled</td></tr>
-</table>
-</ul>
-
-
-<h2>Update rate (RCK_PERIOD)</h2>
-
-<p>When in High Latency mode, send Rockblock updates every N seconds</p>
-<ul>
-<li>Range: 0 600</li>
-<li>Units: seconds</li>
-</ul>
-
-
-<h2>Display Rockblock debugging text (RCK_DEBUG)</h2>
-
-<p>Sends Rockblock debug text to GCS via statustexts</p>
-<ul>
-<table><th>Value</th><th>Meaning</th>
-<tr><td>0</td><td>Disabled</td></tr>
-<tr><td>1</td><td>Enabled</td></tr>
-</table>
-</ul>
-
-
-<h2>Enable Message transmission (RCK_ENABLE)</h2>
-
-<p>Enables the Rockblock sending and recieving</p>
-<ul>
-<table><th>Value</th><th>Meaning</th>
-<tr><td>0</td><td>Disabled</td></tr>
-<tr><td>1</td><td>Enabled</td></tr>
-</table>
 </ul>
 
 

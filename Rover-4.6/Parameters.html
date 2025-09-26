@@ -687,14 +687,6 @@ DO NOT EDIT
 <h1>Lua Script Parameters</h1>
 
 
-<h2>CoG adjustment ratio (CGA_RATIO)</h2><em>Note: This parameter is for advanced users</em><br>
-
-<p>The ratio between the front and back motor outputs during steady-state hover. Positive when the CoG is in front of the motors midpoint (front motors work harder).</p>
-<ul>
-<li>Range: 0.5 2</li>
-</ul>
-
-
 <h2>terrain brake enable (TERR_BRK_ENABLE)</h2>
 
 <p>terrain brake enable</p>
@@ -730,272 +722,6 @@ DO NOT EDIT
 <ul>
 <li>Range: 0 5</li>
 <li>Units: meters per second</li>
-</ul>
-
-
-<h2>Slung Payload enable (SLUP_ENABLE)</h2>
-
-<p>Slung Payload enable</p>
-<ul>
-<table><th>Value</th><th>Meaning</th>
-<tr><td>0</td><td>Disabled</td></tr>
-<tr><td>1</td><td>Enabled</td></tr>
-</table>
-</ul>
-
-
-<h2>Slung Payload Velocity P gain (SLUP_VEL_P)</h2>
-
-<p>Slung Payload Velocity P gain, higher values will result in faster movements in sync with payload</p>
-<ul>
-<li>Range: 0 0.8</li>
-</ul>
-
-
-<h2>Slung Payload horizontal distance max (SLUP_DIST_MAX)</h2>
-
-<p>Oscillation is suppressed when vehicle and payload are no more than this distance horizontally.  Set to 0 to always suppress</p>
-<ul>
-<li>Range: 0 30</li>
-</ul>
-
-
-<h2>Slung Payload mavlink system id (SLUP_SYSID)</h2>
-
-<p>Slung Payload mavlink system id.  0 to use any/all system ids</p>
-<ul>
-<li>Range: 0 255</li>
-</ul>
-
-
-<h2>Slung Payload return to WP position P gain (SLUP_WP_POS_P)</h2>
-
-<p>WP position P gain. higher values will result in vehicle moving more quickly back to the original waypoint</p>
-<ul>
-<li>Range: 0 1</li>
-</ul>
-
-
-<h2>Slung Payload resting offset estimate filter time constant (SLUP_RESTOFS_TC)</h2>
-
-<p>payload&#x27;s position estimator&#x27;s time constant used to compensate for GPS errors and wind.  Higher values result in smoother estimate but slower response</p>
-<ul>
-<li>Range: 1 20</li>
-</ul>
-
-
-<h2>Slung Payload debug output (SLUP_DEBUG)</h2>
-
-<p>Slung payload debug output, set to 1 to enable debug</p>
-<ul>
-<table><th>Value</th><th>Meaning</th>
-<tr><td>0</td><td>Disabled</td></tr>
-<tr><td>1</td><td>Enabled</td></tr>
-</table>
-</ul>
-
-
-<h2>parameter reversion enable (PREV_ENABLE)</h2>
-
-<p>Enable parameter reversion system</p>
-<ul>
-<table><th>Value</th><th>Meaning</th>
-<tr><td>0</td><td>Disabled</td></tr>
-<tr><td>1</td><td>Enabled</td></tr>
-</table>
-</ul>
-
-
-<h2>param reversion RC function (PREV_RC_FUNC)</h2>
-
-<p>RCn_OPTION number to used to trigger parameter reversion</p>
-<ul>
-</ul>
-
-
-<h2>Force enable High Latency mode (RCK_FORCEHL)</h2>
-
-<p>Automatically enables High Latency mode if not already enabled</p>
-<ul>
-<table><th>Value</th><th>Meaning</th>
-<tr><td>0</td><td>Disabled</td></tr>
-<tr><td>1</td><td>Enabled</td></tr>
-</table>
-</ul>
-
-
-<h2>Update rate (RCK_PERIOD)</h2>
-
-<p>When in High Latency mode, send Rockblock updates every N seconds</p>
-<ul>
-<li>Range: 0 600</li>
-<li>Units: seconds</li>
-</ul>
-
-
-<h2>Display Rockblock debugging text (RCK_DEBUG)</h2>
-
-<p>Sends Rockblock debug text to GCS via statustexts</p>
-<ul>
-<table><th>Value</th><th>Meaning</th>
-<tr><td>0</td><td>Disabled</td></tr>
-<tr><td>1</td><td>Enabled</td></tr>
-</table>
-</ul>
-
-
-<h2>Enable Message transmission (RCK_ENABLE)</h2>
-
-<p>Enables the Rockblock sending and recieving</p>
-<ul>
-<table><th>Value</th><th>Meaning</th>
-<tr><td>0</td><td>Disabled</td></tr>
-<tr><td>1</td><td>Enabled</td></tr>
-</table>
-</ul>
-
-
-<h2>Camera1 Video Stream Camera Model (VID1_CAMMODEL)</h2>
-
-<p>Video stream camera model</p>
-<ul>
-<table><th>Value</th><th>Meaning</th>
-<tr><td>0</td><td>Unknown</td></tr>
-<tr><td>1</td><td>Siyi A8</td></tr>
-<tr><td>2</td><td>Siyi ZR10</td></tr>
-<tr><td>3</td><td>Siyi ZR30</td></tr>
-<tr><td>4</td><td>Siyi ZT30 Zoom</td></tr>
-<tr><td>5</td><td>Siyi ZT30 Wide</td></tr>
-<tr><td>6</td><td>Siyi ZT30 IR</td></tr>
-<tr><td>7</td><td>Siyi ZT6 RGB</td></tr>
-<tr><td>8</td><td>Siyi ZT6 IR</td></tr>
-<tr><td>9</td><td>Herelink WifiAP</td></tr>
-<tr><td>10</td><td>Herelink USB-tethering</td></tr>
-<tr><td>11</td><td>Topotek 1080p</td></tr>
-<tr><td>12</td><td>Topotek 480p</td></tr>
-<tr><td>13</td><td>Viewpro</td></tr>
-</table>
-</ul>
-
-
-<h2>Camera1 Video Stream Id (VID1_ID)</h2>
-
-<p>Video stream id</p>
-<ul>
-<li>Range: 0 50</li>
-</ul>
-
-
-<h2>Camera1 Video Stream Type (VID1_TYPE)</h2>
-
-<p>Video stream type</p>
-<ul>
-<table><th>Value</th><th>Meaning</th>
-<tr><td>0</td><td>RTSP</td></tr>
-<tr><td>1</td><td>RTPUDP</td></tr>
-<tr><td>2</td><td>TCP_MPEG</td></tr>
-<tr><td>3</td><td>MPEG_TS</td></tr>
-</table>
-</ul>
-
-
-<h2>Camera1 Video Stream Flags (VID1_FLAG)</h2>
-
-<p>Video stream flags</p>
-<ul>
-<li>Bitmask: 0:Running,1:Thermal,2:Thermal Range Enabled</li>
-</ul>
-
-
-<h2>Camera1 Video Stream Frame Rate (VID1_FRAME_RATE)</h2>
-
-<p>Video stream frame rate</p>
-<ul>
-<li>Range: 0 50</li>
-</ul>
-
-
-<h2>Camera1 Video Stream Horizontal Resolution (VID1_HRES)</h2>
-
-<p>Video stream horizontal resolution</p>
-<ul>
-<li>Range: 0 4096</li>
-</ul>
-
-
-<h2>Camera1 Video Stream Vertical Resolution (VID1_VRES)</h2>
-
-<p>Video stream vertical resolution</p>
-<ul>
-<li>Range: 0 4096</li>
-</ul>
-
-
-<h2>Camera1 Video Stream Bitrate (VID1_BITRATE)</h2>
-
-<p>Video stream bitrate</p>
-<ul>
-<li>Range: 0 10000</li>
-</ul>
-
-
-<h2>Camera1 Video Stream Horizontal FOV (VID1_HFOV)</h2>
-
-<p>Video stream horizontal FOV</p>
-<ul>
-<li>Range: 0 360</li>
-</ul>
-
-
-<h2>Camera1 Video Stream Encoding (VID1_ENCODING)</h2>
-
-<p>Video stream encoding</p>
-<ul>
-<table><th>Value</th><th>Meaning</th>
-<tr><td>0</td><td>Unknown</td></tr>
-<tr><td>1</td><td>H264</td></tr>
-<tr><td>2</td><td>H265</td></tr>
-</table>
-</ul>
-
-
-<h2>Camera1 Video Stream IP Address 0 (VID1_IPADDR0)</h2>
-
-<p>Video stream IP Address first octet</p>
-<ul>
-<li>Range: 0 255</li>
-</ul>
-
-
-<h2>Camera1 Video Stream IP Address 1 (VID1_IPADDR1)</h2>
-
-<p>Video stream IP Address second octet</p>
-<ul>
-<li>Range: 0 255</li>
-</ul>
-
-
-<h2>Camera1 Video Stream IP Address 2 (VID1_IPADDR2)</h2>
-
-<p>Video stream IP Address third octet</p>
-<ul>
-<li>Range: 0 255</li>
-</ul>
-
-
-<h2>Camera1 Video Stream IP Address 3 (VID1_IPADDR3)</h2>
-
-<p>Video stream IP Address fourth octet</p>
-<ul>
-<li>Range: 0 255</li>
-</ul>
-
-
-<h2>Camera1 Video Stream IP Address Port (VID1_IPPORT)</h2>
-
-<p>Video stream IP Address Port</p>
-<ul>
-<li>Range: 0 65535</li>
 </ul>
 
 
@@ -1086,6 +812,14 @@ DO NOT EDIT
 <tr><td>21</td><td>Smart_RTL</td></tr>
 <tr><td>27</td><td>Auto RTL</td></tr>
 </table>
+</ul>
+
+
+<h2>Mount POI distance max (POI_DIST_MAX)</h2>
+
+<p>POI&#x27;s max distance (in meters) from the vehicle</p>
+<ul>
+<li>Range: 0 10000</li>
 </ul>
 
 
@@ -1254,24 +988,6 @@ DO NOT EDIT
 <p>Battery estimator coefficient3</p>
 <ul>
 <li>Range: 0.01 0.5</li>
-</ul>
-
-
-<h2>Precland altitude cutoff (PLND_ALT_CUTOFF)</h2>
-
-<p>The altitude (rangefinder distance) below which we stop using the precision landing sensor and continue landing</p>
-<ul>
-<li>Range: 0 20</li>
-<li>Units: meters</li>
-</ul>
-
-
-<h2>Precland distance cutoff (DIST_CUTOFF)</h2>
-
-<p>The distance from target beyond which the target is ignored</p>
-<ul>
-<li>Range: 0 100</li>
-<li>Units: meters</li>
 </ul>
 
 
@@ -1449,39 +1165,6 @@ DO NOT EDIT
 </ul>
 
 
-<h2>WinchControl Rate Up (WINCH_RATE_UP)</h2>
-
-<p>Maximum rate when retracting line</p>
-<ul>
-<li>Range: 0.1 5.0</li>
-</ul>
-
-
-<h2>WinchControl Rate Down (WINCH_RATE_DN)</h2>
-
-<p>Maximum rate when releasing line</p>
-<ul>
-<li>Range: 0.1 5.0</li>
-</ul>
-
-
-<h2>Winch Rate Control RC function (WINCH_RC_FUNC)</h2>
-
-<p>RCn_OPTION number to use to control winch rate</p>
-<ul>
-<table><th>Value</th><th>Meaning</th>
-<tr><td>300</td><td>Scripting1</td></tr>
-<tr><td>301</td><td>Scripting2</td></tr>
-<tr><td>302</td><td>Scripting3</td></tr>
-<tr><td>303</td><td>Scripting4</td></tr>
-<tr><td>304</td><td>Scripting5</td></tr>
-<tr><td>305</td><td>Scripting6</td></tr>
-<tr><td>306</td><td>Scripting7</td></tr>
-<tr><td>307</td><td>Scripting8</td></tr>
-</table>
-</ul>
-
-
 <h2>EKF Source ExternalNav Innovation Threshold (ESRC_EXTN_THRESH)</h2>
 
 <p>ExternalNav may be used if innovations are below this threshold</p>
@@ -1525,11 +1208,96 @@ DO NOT EDIT
 </ul>
 
 
-<h2>Mount POI distance max (POI_DIST_MAX)</h2>
+<h2>Slung Payload enable (SLUP_ENABLE)</h2>
 
-<p>POI&#x27;s max distance (in meters) from the vehicle</p>
+<p>Slung Payload enable</p>
 <ul>
-<li>Range: 0 10000</li>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>0</td><td>Disabled</td></tr>
+<tr><td>1</td><td>Enabled</td></tr>
+</table>
+</ul>
+
+
+<h2>Slung Payload Velocity P gain (SLUP_VEL_P)</h2>
+
+<p>Slung Payload Velocity P gain, higher values will result in faster movements in sync with payload</p>
+<ul>
+<li>Range: 0 0.8</li>
+</ul>
+
+
+<h2>Slung Payload horizontal distance max (SLUP_DIST_MAX)</h2>
+
+<p>Oscillation is suppressed when vehicle and payload are no more than this distance horizontally.  Set to 0 to always suppress</p>
+<ul>
+<li>Range: 0 30</li>
+</ul>
+
+
+<h2>Slung Payload mavlink system id (SLUP_SYSID)</h2>
+
+<p>Slung Payload mavlink system id.  0 to use any/all system ids</p>
+<ul>
+<li>Range: 0 255</li>
+</ul>
+
+
+<h2>Slung Payload return to WP position P gain (SLUP_WP_POS_P)</h2>
+
+<p>WP position P gain. higher values will result in vehicle moving more quickly back to the original waypoint</p>
+<ul>
+<li>Range: 0 1</li>
+</ul>
+
+
+<h2>Slung Payload resting offset estimate filter time constant (SLUP_RESTOFS_TC)</h2>
+
+<p>payload&#x27;s position estimator&#x27;s time constant used to compensate for GPS errors and wind.  Higher values result in smoother estimate but slower response</p>
+<ul>
+<li>Range: 1 20</li>
+</ul>
+
+
+<h2>Slung Payload debug output (SLUP_DEBUG)</h2>
+
+<p>Slung payload debug output, set to 1 to enable debug</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>0</td><td>Disabled</td></tr>
+<tr><td>1</td><td>Enabled</td></tr>
+</table>
+</ul>
+
+
+<h2>Ship landing enable (SHIP_ENABLE)</h2>
+
+<p>Enable ship landing system</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>0</td><td>Disabled</td></tr>
+<tr><td>1</td><td>Enabled</td></tr>
+</table>
+</ul>
+
+
+<h2>Ship landing angle (SHIP_LAND_ANGLE)</h2>
+
+<p>Angle from the stern of the ship for landing approach. Use this to ensure that on a go-around that ship superstructure and cables are avoided. A value of zero means to approach from the rear of the ship. A value of 90 means the landing will approach from the port (left) side of the ship. A value of -90 will mean approaching from the starboard (right) side of the ship. A value of 180 will approach from the bow of the ship. This parameter is combined with the sign of the RTL_RADIUS parameter to determine the holdoff pattern. If RTL_RADIUS is positive then a clockwise loiter is performed, if RTL_RADIUS is negative then a counter-clockwise loiter is used.</p>
+<ul>
+<li>Range: -180 180</li>
+<li>Units: degrees</li>
+</ul>
+
+
+<h2>Ship automatic offset trigger (SHIP_AUTO_OFS)</h2>
+
+<p>Settings this parameter to one triggers an automatic follow offset calculation based on current position of the vehicle and the landing target. NOTE: This parameter will auto-reset to zero once the offset has been calculated.</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>0</td><td>Disabled</td></tr>
+<tr><td>1</td><td>Trigger</td></tr>
+</table>
 </ul>
 
 
@@ -1588,9 +1356,17 @@ DO NOT EDIT
 </ul>
 
 
-<h2>Ship landing enable (SHIP_ENABLE)</h2>
+<h2>CoG adjustment ratio (CGA_RATIO)</h2><em>Note: This parameter is for advanced users</em><br>
 
-<p>Enable ship landing system</p>
+<p>The ratio between the front and back motor outputs during steady-state hover. Positive when the CoG is in front of the motors midpoint (front motors work harder).</p>
+<ul>
+<li>Range: 0.5 2</li>
+</ul>
+
+
+<h2>parameter reversion enable (PREV_ENABLE)</h2>
+
+<p>Enable parameter reversion system</p>
 <ul>
 <table><th>Value</th><th>Meaning</th>
 <tr><td>0</td><td>Disabled</td></tr>
@@ -1599,23 +1375,214 @@ DO NOT EDIT
 </ul>
 
 
-<h2>Ship landing angle (SHIP_LAND_ANGLE)</h2>
+<h2>param reversion RC function (PREV_RC_FUNC)</h2>
 
-<p>Angle from the stern of the ship for landing approach. Use this to ensure that on a go-around that ship superstructure and cables are avoided. A value of zero means to approach from the rear of the ship. A value of 90 means the landing will approach from the port (left) side of the ship. A value of -90 will mean approaching from the starboard (right) side of the ship. A value of 180 will approach from the bow of the ship. This parameter is combined with the sign of the RTL_RADIUS parameter to determine the holdoff pattern. If RTL_RADIUS is positive then a clockwise loiter is performed, if RTL_RADIUS is negative then a counter-clockwise loiter is used.</p>
+<p>RCn_OPTION number to used to trigger parameter reversion</p>
 <ul>
-<li>Range: -180 180</li>
-<li>Units: degrees</li>
 </ul>
 
 
-<h2>Ship automatic offset trigger (SHIP_AUTO_OFS)</h2>
+<h2>Camera1 Video Stream Camera Model (VID1_CAMMODEL)</h2>
 
-<p>Settings this parameter to one triggers an automatic follow offset calculation based on current position of the vehicle and the landing target. NOTE: This parameter will auto-reset to zero once the offset has been calculated.</p>
+<p>Video stream camera model</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>0</td><td>Unknown</td></tr>
+<tr><td>1</td><td>Siyi A8</td></tr>
+<tr><td>2</td><td>Siyi ZR10</td></tr>
+<tr><td>3</td><td>Siyi ZR30</td></tr>
+<tr><td>4</td><td>Siyi ZT30 Zoom</td></tr>
+<tr><td>5</td><td>Siyi ZT30 Wide</td></tr>
+<tr><td>6</td><td>Siyi ZT30 IR</td></tr>
+<tr><td>7</td><td>Siyi ZT6 RGB</td></tr>
+<tr><td>8</td><td>Siyi ZT6 IR</td></tr>
+<tr><td>9</td><td>Herelink WifiAP</td></tr>
+<tr><td>10</td><td>Herelink USB-tethering</td></tr>
+<tr><td>11</td><td>Topotek 1080p</td></tr>
+<tr><td>12</td><td>Topotek 480p</td></tr>
+<tr><td>13</td><td>Viewpro</td></tr>
+</table>
+</ul>
+
+
+<h2>Camera1 Video Stream Id (VID1_ID)</h2>
+
+<p>Video stream id</p>
+<ul>
+<li>Range: 0 50</li>
+</ul>
+
+
+<h2>Camera1 Video Stream Type (VID1_TYPE)</h2>
+
+<p>Video stream type</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>0</td><td>RTSP</td></tr>
+<tr><td>1</td><td>RTPUDP</td></tr>
+<tr><td>2</td><td>TCP_MPEG</td></tr>
+<tr><td>3</td><td>MPEG_TS</td></tr>
+</table>
+</ul>
+
+
+<h2>Camera1 Video Stream Flags (VID1_FLAG)</h2>
+
+<p>Video stream flags</p>
+<ul>
+<li>Bitmask: 0:Running,1:Thermal,2:Thermal Range Enabled</li>
+</ul>
+
+
+<h2>Camera1 Video Stream Frame Rate (VID1_FRAME_RATE)</h2>
+
+<p>Video stream frame rate</p>
+<ul>
+<li>Range: 0 50</li>
+</ul>
+
+
+<h2>Camera1 Video Stream Horizontal Resolution (VID1_HRES)</h2>
+
+<p>Video stream horizontal resolution</p>
+<ul>
+<li>Range: 0 4096</li>
+</ul>
+
+
+<h2>Camera1 Video Stream Vertical Resolution (VID1_VRES)</h2>
+
+<p>Video stream vertical resolution</p>
+<ul>
+<li>Range: 0 4096</li>
+</ul>
+
+
+<h2>Camera1 Video Stream Bitrate (VID1_BITRATE)</h2>
+
+<p>Video stream bitrate</p>
+<ul>
+<li>Range: 0 10000</li>
+</ul>
+
+
+<h2>Camera1 Video Stream Horizontal FOV (VID1_HFOV)</h2>
+
+<p>Video stream horizontal FOV</p>
+<ul>
+<li>Range: 0 360</li>
+</ul>
+
+
+<h2>Camera1 Video Stream Encoding (VID1_ENCODING)</h2>
+
+<p>Video stream encoding</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>0</td><td>Unknown</td></tr>
+<tr><td>1</td><td>H264</td></tr>
+<tr><td>2</td><td>H265</td></tr>
+</table>
+</ul>
+
+
+<h2>Camera1 Video Stream IP Address 0 (VID1_IPADDR0)</h2>
+
+<p>Video stream IP Address first octet</p>
+<ul>
+<li>Range: 0 255</li>
+</ul>
+
+
+<h2>Camera1 Video Stream IP Address 1 (VID1_IPADDR1)</h2>
+
+<p>Video stream IP Address second octet</p>
+<ul>
+<li>Range: 0 255</li>
+</ul>
+
+
+<h2>Camera1 Video Stream IP Address 2 (VID1_IPADDR2)</h2>
+
+<p>Video stream IP Address third octet</p>
+<ul>
+<li>Range: 0 255</li>
+</ul>
+
+
+<h2>Camera1 Video Stream IP Address 3 (VID1_IPADDR3)</h2>
+
+<p>Video stream IP Address fourth octet</p>
+<ul>
+<li>Range: 0 255</li>
+</ul>
+
+
+<h2>Camera1 Video Stream IP Address Port (VID1_IPPORT)</h2>
+
+<p>Video stream IP Address Port</p>
+<ul>
+<li>Range: 0 65535</li>
+</ul>
+
+
+<h2>Force enable High Latency mode (RCK_FORCEHL)</h2>
+
+<p>Automatically enables High Latency mode if not already enabled</p>
 <ul>
 <table><th>Value</th><th>Meaning</th>
 <tr><td>0</td><td>Disabled</td></tr>
-<tr><td>1</td><td>Trigger</td></tr>
+<tr><td>1</td><td>Enabled</td></tr>
 </table>
+</ul>
+
+
+<h2>Update rate (RCK_PERIOD)</h2>
+
+<p>When in High Latency mode, send Rockblock updates every N seconds</p>
+<ul>
+<li>Range: 0 600</li>
+<li>Units: seconds</li>
+</ul>
+
+
+<h2>Display Rockblock debugging text (RCK_DEBUG)</h2>
+
+<p>Sends Rockblock debug text to GCS via statustexts</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>0</td><td>Disabled</td></tr>
+<tr><td>1</td><td>Enabled</td></tr>
+</table>
+</ul>
+
+
+<h2>Enable Message transmission (RCK_ENABLE)</h2>
+
+<p>Enables the Rockblock sending and recieving</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>0</td><td>Disabled</td></tr>
+<tr><td>1</td><td>Enabled</td></tr>
+</table>
+</ul>
+
+
+<h2>Precland altitude cutoff (PLND_ALT_CUTOFF)</h2>
+
+<p>The altitude (rangefinder distance) below which we stop using the precision landing sensor and continue landing</p>
+<ul>
+<li>Range: 0 20</li>
+<li>Units: meters</li>
+</ul>
+
+
+<h2>Precland distance cutoff (DIST_CUTOFF)</h2>
+
+<p>The distance from target beyond which the target is ignored</p>
+<ul>
+<li>Range: 0 100</li>
+<li>Units: meters</li>
 </ul>
 
 
@@ -1728,6 +1695,39 @@ DO NOT EDIT
 <ul>
 <li>Units: meters per second</li>
 <li>Range: 0.1 0.5</li>
+</ul>
+
+
+<h2>WinchControl Rate Up (WINCH_RATE_UP)</h2>
+
+<p>Maximum rate when retracting line</p>
+<ul>
+<li>Range: 0.1 5.0</li>
+</ul>
+
+
+<h2>WinchControl Rate Down (WINCH_RATE_DN)</h2>
+
+<p>Maximum rate when releasing line</p>
+<ul>
+<li>Range: 0.1 5.0</li>
+</ul>
+
+
+<h2>Winch Rate Control RC function (WINCH_RC_FUNC)</h2>
+
+<p>RCn_OPTION number to use to control winch rate</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>300</td><td>Scripting1</td></tr>
+<tr><td>301</td><td>Scripting2</td></tr>
+<tr><td>302</td><td>Scripting3</td></tr>
+<tr><td>303</td><td>Scripting4</td></tr>
+<tr><td>304</td><td>Scripting5</td></tr>
+<tr><td>305</td><td>Scripting6</td></tr>
+<tr><td>306</td><td>Scripting7</td></tr>
+<tr><td>307</td><td>Scripting8</td></tr>
+</table>
 </ul>
 
 
@@ -1990,9 +1990,9 @@ DO NOT EDIT
 </ul>
 
 
-<h2>Generator SVFFI enable (EFI_SVF_ENABLE)</h2>
+<h2>EFI DLA enable (EFI_DLA_ENABLE)</h2>
 
-<p>Enable SVFFI generator support</p>
+<p>Enable EFI DLA driver</p>
 <ul>
 <table><th>Value</th><th>Meaning</th>
 <tr><td>0</td><td>Disabled</td></tr>
@@ -2001,14 +2001,39 @@ DO NOT EDIT
 </ul>
 
 
-<h2>Generator SVFFI arming check (EFI_SVF_ARMCHECK)</h2>
+<h2>EFI DLA fuel scale (EFI_DLA_LPS)</h2>
 
-<p>Check for Generator ARM state before arming</p>
+<p>EFI DLA litres of fuel per second of injection time</p>
+<ul>
+<li>Range: 0.00001 1</li>
+<li>Units: litres</li>
+</ul>
+
+
+<h2>Hobbywing ESC Enable (ESC_HW_ENABLE)</h2>
+
+<p>Enable Hobbywing ESC telemetry</p>
 <ul>
 <table><th>Value</th><th>Meaning</th>
 <tr><td>0</td><td>Disabled</td></tr>
 <tr><td>1</td><td>Enabled</td></tr>
 </table>
+</ul>
+
+
+<h2>Hobbywing ESC motor poles (ESC_HW_POLES)</h2>
+
+<p>Number of motor poles for eRPM scaling</p>
+<ul>
+<li>Range: 1 50</li>
+</ul>
+
+
+<h2>Hobbywing ESC motor offset (ESC_HW_OFS)</h2>
+
+<p>Motor number offset of first ESC</p>
+<ul>
+<li>Range: 0 31</li>
 </ul>
 
 
@@ -2077,20 +2102,17 @@ DO NOT EDIT
 </ul>
 
 
-<h2>Enable ANX battery support (BATT_ANX_ENABLE)</h2>
+<h2>Mask of UltraMotion servos (UM_SERVO_MASK)</h2>
 
-<p>Enable ANX battery support</p>
+<p>Mask of UltraMotion servos</p>
 <ul>
-<table><th>Value</th><th>Meaning</th>
-<tr><td>0</td><td>Disabled</td></tr>
-<tr><td>1</td><td>Enabled</td></tr>
-</table>
+<li>Bitmask: 0:SERVO1,1:SERVO2,2:SERVO3,3:SERVO4,4:SERVO5,5:SERVO6,6:SERVO7,7:SERVO8,8:SERVO9,9:SERVO10,10:SERVO11,11:SERVO12</li>
 </ul>
 
 
-<h2>Set ANX CAN driver (BATT_ANX_CANDRV)</h2>
+<h2>Set CAN driver (UM_CANDRV)</h2>
 
-<p>Set ANX CAN driver</p>
+<p>Set CAN driver</p>
 <ul>
 <table><th>Value</th><th>Meaning</th>
 <tr><td>0</td><td>None</td></tr>
@@ -2100,39 +2122,99 @@ DO NOT EDIT
 </ul>
 
 
-<h2>ANX CAN battery index (BATT_ANX_INDEX)</h2>
+<h2>Update rate for UltraMotion servos (UM_RATE_HZ)</h2>
 
-<p>ANX CAN battery index</p>
+<p>Update rate for UltraMotion servos</p>
 <ul>
-<li>Range: 1 10</li>
+<li>Units: hertz</li>
+<li>Range: 1 400</li>
 </ul>
 
 
-<h2>ANX CAN battery options (BATT_ANX_OPTIONS)</h2><em>Note: This parameter is for advanced users</em><br>
+<h2>Optional settings (UM_OPTIONS)</h2>
 
-<p>ANX CAN battery options</p>
+<p>Optional settings</p>
 <ul>
-<li>Bitmask: 0:LogAllFrames</li>
+<li>Bitmask: 0:LogAllFrames,1:ParseTelemetry,2:SendPosAsNamedValueFloat</li>
 </ul>
 
 
-<h2>EFI DLA enable (EFI_DLA_ENABLE)</h2>
+<h2>ViewPro debug (VIEP_DEBUG)</h2><em>Note: This parameter is for advanced users</em><br>
 
-<p>Enable EFI DLA driver</p>
+<p>ViewPro debug</p>
 <ul>
 <table><th>Value</th><th>Meaning</th>
 <tr><td>0</td><td>Disabled</td></tr>
 <tr><td>1</td><td>Enabled</td></tr>
+<tr><td>2</td><td>Enabled including attitude reporting</td></tr>
 </table>
 </ul>
 
 
-<h2>EFI DLA fuel scale (EFI_DLA_LPS)</h2>
+<h2>ViewPro Camera For Switch Low (VIEP_CAM_SWLOW)</h2>
 
-<p>EFI DLA litres of fuel per second of injection time</p>
+<p>Camera selection when switch is in low position</p>
 <ul>
-<li>Range: 0.00001 1</li>
-<li>Units: litres</li>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>0</td><td>No change in camera selection</td></tr>
+<tr><td>1</td><td>EO1</td></tr>
+<tr><td>2</td><td>IR thermal</td></tr>
+<tr><td>3</td><td>EO1 + IR Picture-in-picture</td></tr>
+<tr><td>4</td><td>IR + EO1 Picture-in-picture</td></tr>
+<tr><td>5</td><td>Fusion</td></tr>
+<tr><td>6</td><td>IR1 13mm</td></tr>
+<tr><td>7</td><td>IR2 52mm</td></tr>
+</table>
+</ul>
+
+
+<h2>ViewPro Camera For Switch Mid (VIEP_CAM_SWMID)</h2>
+
+<p>Camera selection when switch is in middle position</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>0</td><td>No change in camera selection</td></tr>
+<tr><td>1</td><td>EO1</td></tr>
+<tr><td>2</td><td>IR thermal</td></tr>
+<tr><td>3</td><td>EO1 + IR Picture-in-picture</td></tr>
+<tr><td>4</td><td>IR + EO1 Picture-in-picture</td></tr>
+<tr><td>5</td><td>Fusion</td></tr>
+<tr><td>6</td><td>IR1 13mm</td></tr>
+<tr><td>7</td><td>IR2 52mm</td></tr>
+</table>
+</ul>
+
+
+<h2>ViewPro Camera For Switch High (VIEP_CAM_SWHIGH)</h2>
+
+<p>Camera selection when switch is in high position</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>0</td><td>No change in camera selection</td></tr>
+<tr><td>1</td><td>EO1</td></tr>
+<tr><td>2</td><td>IR thermal</td></tr>
+<tr><td>3</td><td>EO1 + IR Picture-in-picture</td></tr>
+<tr><td>4</td><td>IR + EO1 Picture-in-picture</td></tr>
+<tr><td>5</td><td>Fusion</td></tr>
+<tr><td>6</td><td>IR1 13mm</td></tr>
+<tr><td>7</td><td>IR2 52mm</td></tr>
+</table>
+</ul>
+
+
+<h2>ViewPro Zoom Speed (VIEP_ZOOM_SPEED)</h2>
+
+<p>ViewPro Zoom Speed.  Higher numbers result in faster zooming</p>
+<ul>
+<li>Range: 0 7</li>
+</ul>
+
+
+<h2>ViewPro Zoom Times Max (VIEP_ZOOM_MAX)</h2>
+
+<p>ViewPro Zoom Times Max</p>
+<ul>
+<li>Range: 0 30</li>
 </ul>
 
 
@@ -2293,85 +2375,6 @@ DO NOT EDIT
 </ul>
 
 
-<h2>ViewPro debug (VIEP_DEBUG)</h2><em>Note: This parameter is for advanced users</em><br>
-
-<p>ViewPro debug</p>
-<ul>
-<table><th>Value</th><th>Meaning</th>
-<tr><td>0</td><td>Disabled</td></tr>
-<tr><td>1</td><td>Enabled</td></tr>
-<tr><td>2</td><td>Enabled including attitude reporting</td></tr>
-</table>
-</ul>
-
-
-<h2>ViewPro Camera For Switch Low (VIEP_CAM_SWLOW)</h2>
-
-<p>Camera selection when switch is in low position</p>
-<ul>
-<table><th>Value</th><th>Meaning</th>
-<tr><td>0</td><td>No change in camera selection</td></tr>
-<tr><td>1</td><td>EO1</td></tr>
-<tr><td>2</td><td>IR thermal</td></tr>
-<tr><td>3</td><td>EO1 + IR Picture-in-picture</td></tr>
-<tr><td>4</td><td>IR + EO1 Picture-in-picture</td></tr>
-<tr><td>5</td><td>Fusion</td></tr>
-<tr><td>6</td><td>IR1 13mm</td></tr>
-<tr><td>7</td><td>IR2 52mm</td></tr>
-</table>
-</ul>
-
-
-<h2>ViewPro Camera For Switch Mid (VIEP_CAM_SWMID)</h2>
-
-<p>Camera selection when switch is in middle position</p>
-<ul>
-<table><th>Value</th><th>Meaning</th>
-<tr><td>0</td><td>No change in camera selection</td></tr>
-<tr><td>1</td><td>EO1</td></tr>
-<tr><td>2</td><td>IR thermal</td></tr>
-<tr><td>3</td><td>EO1 + IR Picture-in-picture</td></tr>
-<tr><td>4</td><td>IR + EO1 Picture-in-picture</td></tr>
-<tr><td>5</td><td>Fusion</td></tr>
-<tr><td>6</td><td>IR1 13mm</td></tr>
-<tr><td>7</td><td>IR2 52mm</td></tr>
-</table>
-</ul>
-
-
-<h2>ViewPro Camera For Switch High (VIEP_CAM_SWHIGH)</h2>
-
-<p>Camera selection when switch is in high position</p>
-<ul>
-<table><th>Value</th><th>Meaning</th>
-<tr><td>0</td><td>No change in camera selection</td></tr>
-<tr><td>1</td><td>EO1</td></tr>
-<tr><td>2</td><td>IR thermal</td></tr>
-<tr><td>3</td><td>EO1 + IR Picture-in-picture</td></tr>
-<tr><td>4</td><td>IR + EO1 Picture-in-picture</td></tr>
-<tr><td>5</td><td>Fusion</td></tr>
-<tr><td>6</td><td>IR1 13mm</td></tr>
-<tr><td>7</td><td>IR2 52mm</td></tr>
-</table>
-</ul>
-
-
-<h2>ViewPro Zoom Speed (VIEP_ZOOM_SPEED)</h2>
-
-<p>ViewPro Zoom Speed.  Higher numbers result in faster zooming</p>
-<ul>
-<li>Range: 0 7</li>
-</ul>
-
-
-<h2>ViewPro Zoom Times Max (VIEP_ZOOM_MAX)</h2>
-
-<p>ViewPro Zoom Times Max</p>
-<ul>
-<li>Range: 0 30</li>
-</ul>
-
-
 <h2>Enable NMEA 2000 EFI driver (EFI_2K_ENABLE)</h2>
 
 <p>Enable NMEA 2000 EFI driver</p>
@@ -2403,17 +2406,42 @@ DO NOT EDIT
 </ul>
 
 
-<h2>Mask of UltraMotion servos (UM_SERVO_MASK)</h2>
+<h2>Generator SVFFI enable (EFI_SVF_ENABLE)</h2>
 
-<p>Mask of UltraMotion servos</p>
+<p>Enable SVFFI generator support</p>
 <ul>
-<li>Bitmask: 0:SERVO1,1:SERVO2,2:SERVO3,3:SERVO4,4:SERVO5,5:SERVO6,6:SERVO7,7:SERVO8,8:SERVO9,9:SERVO10,10:SERVO11,11:SERVO12</li>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>0</td><td>Disabled</td></tr>
+<tr><td>1</td><td>Enabled</td></tr>
+</table>
 </ul>
 
 
-<h2>Set CAN driver (UM_CANDRV)</h2>
+<h2>Generator SVFFI arming check (EFI_SVF_ARMCHECK)</h2>
 
-<p>Set CAN driver</p>
+<p>Check for Generator ARM state before arming</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>0</td><td>Disabled</td></tr>
+<tr><td>1</td><td>Enabled</td></tr>
+</table>
+</ul>
+
+
+<h2>Enable ANX battery support (BATT_ANX_ENABLE)</h2>
+
+<p>Enable ANX battery support</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>0</td><td>Disabled</td></tr>
+<tr><td>1</td><td>Enabled</td></tr>
+</table>
+</ul>
+
+
+<h2>Set ANX CAN driver (BATT_ANX_CANDRV)</h2>
+
+<p>Set ANX CAN driver</p>
 <ul>
 <table><th>Value</th><th>Meaning</th>
 <tr><td>0</td><td>None</td></tr>
@@ -2423,47 +2451,19 @@ DO NOT EDIT
 </ul>
 
 
-<h2>Update rate for UltraMotion servos (UM_RATE_HZ)</h2>
+<h2>ANX CAN battery index (BATT_ANX_INDEX)</h2>
 
-<p>Update rate for UltraMotion servos</p>
+<p>ANX CAN battery index</p>
 <ul>
-<li>Units: hertz</li>
-<li>Range: 1 400</li>
+<li>Range: 1 10</li>
 </ul>
 
 
-<h2>Optional settings (UM_OPTIONS)</h2>
+<h2>ANX CAN battery options (BATT_ANX_OPTIONS)</h2><em>Note: This parameter is for advanced users</em><br>
 
-<p>Optional settings</p>
+<p>ANX CAN battery options</p>
 <ul>
-<li>Bitmask: 0:LogAllFrames,1:ParseTelemetry,2:SendPosAsNamedValueFloat</li>
-</ul>
-
-
-<h2>Hobbywing ESC Enable (ESC_HW_ENABLE)</h2>
-
-<p>Enable Hobbywing ESC telemetry</p>
-<ul>
-<table><th>Value</th><th>Meaning</th>
-<tr><td>0</td><td>Disabled</td></tr>
-<tr><td>1</td><td>Enabled</td></tr>
-</table>
-</ul>
-
-
-<h2>Hobbywing ESC motor poles (ESC_HW_POLES)</h2>
-
-<p>Number of motor poles for eRPM scaling</p>
-<ul>
-<li>Range: 1 50</li>
-</ul>
-
-
-<h2>Hobbywing ESC motor offset (ESC_HW_OFS)</h2>
-
-<p>Motor number offset of first ESC</p>
-<ul>
-<li>Range: 0 31</li>
+<li>Bitmask: 0:LogAllFrames</li>
 </ul>
 
 

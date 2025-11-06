@@ -607,6 +607,231 @@
       <param humanName="Battery estimator coefficient3" name="BATT_SOC4_C3" documentation="Battery estimator coefficient3" user="Standard">
         <field name="Range">0.01 0.5</field>
       </param>
+      <param humanName="MAV_SYSID must be set" name="ARM_SYSID" documentation="Check that MAV_SYSID (or SYDID_THISMAV) has been set. 3 or less to prevent arming. -1 to disable." user="Standard">
+        <values>
+          <value code="-1">Disabled</value>
+          <value code="0">Emergency(PreArm)</value>
+          <value code="1">Alert(PreArm)</value>
+          <value code="2">Critical(PreArm)</value>
+          <value code="3">Error(PreArm)</value>
+          <value code="4">Warning</value>
+          <value code="5">Notice</value>
+          <value code="6">Info</value>
+          <value code="7">Debug</value>
+        </values>
+      </param>
+      <param humanName="FOLL_SYSID must be set " name="ARM_FOLL_SYSID" documentation="If FOLL_ENABLE = 1, check that FOLL_SYSID has been set. 3 or less to prevent arming. -1 to disable." user="Standard">
+        <values>
+          <value code="-1">Disabled</value>
+          <value code="0">Emergency(PreArm)</value>
+          <value code="1">Alert(PreArm)</value>
+          <value code="2">Critical(PreArm)</value>
+          <value code="3">Error(PreArm)</value>
+          <value code="4">Warning</value>
+          <value code="5">Notice</value>
+          <value code="6">Info</value>
+          <value code="7">Debug</value>
+        </values>
+      </param>
+      <param humanName="Vehicle should not follow itself" name="ARM_FOLL_SYSID_X" documentation="If FOLL_ENABLE = 1, check that FOLL_SYSID is different to MAV_SYSID. 3 or less to prevent arming. -1 to disable." user="Standard">
+        <values>
+          <value code="-1">Disabled</value>
+          <value code="0">Emergency(PreArm)</value>
+          <value code="1">Alert(PreArm)</value>
+          <value code="2">Critical(PreArm)</value>
+          <value code="3">Error(PreArm)</value>
+          <value code="4">Warning</value>
+          <value code="5">Notice</value>
+          <value code="6">Info</value>
+          <value code="7">Debug</value>
+        </values>
+      </param>
+      <param humanName="Follow Offsets defaulted" name="ARM_FOLL_OFS_DEF" documentation="Follow offsets should not be left as default (zero) if FOLL_ENABLE = 1. 3 or less to prevent arming. -1 to disable." user="Standard">
+        <values>
+          <value code="-1">Disabled</value>
+          <value code="0">Emergency(PreArm)</value>
+          <value code="1">Alert(PreArm)</value>
+          <value code="2">Critical(PreArm)</value>
+          <value code="3">Error(PreArm)</value>
+          <value code="4">Warning</value>
+          <value code="5">Notice</value>
+          <value code="6">Info</value>
+          <value code="7">Debug</value>
+        </values>
+      </param>
+      <param humanName="Follow and Mount should follow the same vehicle" name="ARM_MNTX_SYSID" documentation="If FOLL_ENABLE = 1 and MNTx_SYSID_DEFLT is set, check that FOLL_SYSID is equal MNTx. 3 or less to prevent arming. -1 to disable." user="Standard">
+        <values>
+          <value code="-1">Disabled</value>
+          <value code="0">Emergency(PreArm)</value>
+          <value code="1">Alert(PreArm)</value>
+          <value code="2">Critical(PreArm)</value>
+          <value code="3">Error(PreArm)</value>
+          <value code="4">Warning</value>
+          <value code="5">Notice</value>
+          <value code="6">Info</value>
+          <value code="7">Debug</value>
+        </values>
+      </param>
+      <param humanName="RTL_CLIMB_MIN should be a valid value" name="ARM_RTL_CLIMB" documentation="RTL_CLIMB_MIN should be &lt; 120m (400ft). 3 or less to prevent arming. -1 to disable." user="Standard">
+        <values>
+          <value code="-1">Disabled</value>
+          <value code="0">Emergency(PreArm)</value>
+          <value code="1">Alert(PreArm)</value>
+          <value code="2">Critical(PreArm)</value>
+          <value code="3">Error(PreArm)</value>
+          <value code="4">Warning</value>
+          <value code="5">Notice</value>
+          <value code="6">Info</value>
+          <value code="7">Debug</value>
+        </values>
+      </param>
+      <param humanName="Motors EStopped" name="ARM_ESTOP" documentation="Emergency Stop disables arming. 3 or less to prevent arming. -1 to disable." user="Standard">
+        <values>
+          <value code="-1">Disabled</value>
+          <value code="0">Emergency(PreArm)</value>
+          <value code="1">Alert(PreArm)</value>
+          <value code="2">Critical(PreArm)</value>
+          <value code="3">Error(PreArm)</value>
+          <value code="4">Warning</value>
+          <value code="5">Notice</value>
+          <value code="6">Info</value>
+          <value code="7">Debug</value>
+        </values>
+      </param>
+      <param humanName="Fence not enabled" name="ARM_FENCE" documentation="Fences loaded but no fence enabled. 3 or less to prevent arming. -1 to disable." user="Standard">
+        <values>
+          <value code="-1">Disabled</value>
+          <value code="0">Emergency(PreArm)</value>
+          <value code="1">Alert(PreArm)</value>
+          <value code="2">Critical(PreArm)</value>
+          <value code="3">Error(PreArm)</value>
+          <value code="4">Warning</value>
+          <value code="5">Notice</value>
+          <value code="6">Info</value>
+          <value code="7">Debug</value>
+        </values>
+      </param>
+      <param humanName="Rally too far" name="ARM_RALLY" documentation="Rally Point more than RALLY_LIMIT_KM kilometers away. 3 or less to prevent arming. -1 to disable." user="Standard">
+        <values>
+          <value code="-1">Disabled</value>
+          <value code="0">Emergency(PreArm)</value>
+          <value code="1">Alert(PreArm)</value>
+          <value code="2">Critical(PreArm)</value>
+          <value code="3">Error(PreArm)</value>
+          <value code="4">Warning</value>
+          <value code="5">Notice</value>
+          <value code="6">Info</value>
+          <value code="7">Debug</value>
+        </values>
+      </param>
+      <param humanName="RTL_ALT should be a valid value" name="ARM_C_RTL_ALT" documentation="RTL_ALT should be &lt; 120m (400ft). 3 or less to prevent arming. -1 to disable." user="Standard">
+        <values>
+          <value code="-1">Disabled</value>
+          <value code="0">Emergency(PreArm)</value>
+          <value code="1">Alert(PreArm)</value>
+          <value code="2">Critical(PreArm)</value>
+          <value code="3">Error(PreArm)</value>
+          <value code="4">Warning</value>
+          <value code="5">Notice</value>
+          <value code="6">Info</value>
+          <value code="7">Debug</value>
+        </values>
+      </param>
+      <param humanName="Warn if Q failsafe will land" name="ARM_P_Q_FS_LAND" documentation="Notify the user that on failsafe a QuadPlan will land. 3 or less to prevent arming. -1 to disable." user="Standard">
+        <values>
+          <value code="-1">Disabled</value>
+          <value code="0">Emergency(PreArm)</value>
+          <value code="1">Alert(PreArm)</value>
+          <value code="2">Critical(PreArm)</value>
+          <value code="3">Error(PreArm)</value>
+          <value code="4">Warning</value>
+          <value code="5">Notice</value>
+          <value code="6">Info</value>
+          <value code="7">Debug</value>
+        </values>
+      </param>
+      <param humanName="Warn if Q failsafe will QRTL" name="ARM_P_Q_FS_RTL" documentation="Notify the user that on failsafe a QuadPlan will QRTL. 3 or less to prevent arming. -1 to disable." user="Standard">
+        <values>
+          <value code="-1">Disabled</value>
+          <value code="0">Emergency(PreArm)</value>
+          <value code="1">Alert(PreArm)</value>
+          <value code="2">Critical(PreArm)</value>
+          <value code="3">Error(PreArm)</value>
+          <value code="4">Warning</value>
+          <value code="5">Notice</value>
+          <value code="6">Info</value>
+          <value code="7">Debug</value>
+        </values>
+      </param>
+      <param humanName="Check AIRSPEED_ parameters" name="ARM_P_AIRSPEED" documentation="Validate that AIRSPEED_STALL(if set) &lt; MIN &lt; CRUISE &lt; MAX d. 3 or less to prevent arming. -1 to disable." user="Standard">
+        <values>
+          <value code="-1">Disabled</value>
+          <value code="0">Emergency(PreArm)</value>
+          <value code="1">Alert(PreArm)</value>
+          <value code="2">Critical(PreArm)</value>
+          <value code="3">Error(PreArm)</value>
+          <value code="4">Warning</value>
+          <value code="5">Notice</value>
+          <value code="6">Info</value>
+          <value code="7">Debug</value>
+        </values>
+      </param>
+      <param humanName="AIRSPEED_MIN should be 25% above STALL" name="ARM_P_STALL" documentation="Validate that AIRSPEED_MIN is at least 25% above AIRSPEED_STALL(if set). 3 or less to prevent arming. -1 to disable." user="Standard">
+        <values>
+          <value code="-1">Disabled</value>
+          <value code="0">Emergency(PreArm)</value>
+          <value code="1">Alert(PreArm)</value>
+          <value code="2">Critical(PreArm)</value>
+          <value code="3">Error(PreArm)</value>
+          <value code="4">Warning</value>
+          <value code="5">Notice</value>
+          <value code="6">Info</value>
+          <value code="7">Debug</value>
+        </values>
+      </param>
+      <param humanName="SCALING_SPEED valid" name="ARM_P_SCALING" documentation="Validate that SCALING_SPEED is within 20% of AIRSPEED_CRUISE. If SCALING_SPEED changes the vehicle may need to be retuned. 3 or less to prevent arming. -1 to disable." user="Standard">
+        <values>
+          <value code="-1">Disabled</value>
+          <value code="0">Emergency(PreArm)</value>
+          <value code="1">Alert(PreArm)</value>
+          <value code="2">Critical(PreArm)</value>
+          <value code="3">Error(PreArm)</value>
+          <value code="4">Warning</value>
+          <value code="5">Notice</value>
+          <value code="6">Info</value>
+          <value code="7">Debug</value>
+        </values>
+      </param>
+      <param humanName="RTL_ALTITUDE should be a valid value" name="ARM_P_RTL_ALT" documentation="RTL_ALTITITUDE should be &lt; 120m (400ft). 3 or less to prevent arming. -1 to disable." user="Standard">
+        <values>
+          <value code="-1">Disabled</value>
+          <value code="0">Emergency(PreArm)</value>
+          <value code="1">Alert(PreArm)</value>
+          <value code="2">Critical(PreArm)</value>
+          <value code="3">Error(PreArm)</value>
+          <value code="4">Warning</value>
+          <value code="5">Notice</value>
+          <value code="6">Info</value>
+          <value code="7">Debug</value>
+        </values>
+      </param>
+      <param humanName="Q_RTL_ALT should be a valid value" name="ARM_P_QRTL_ALT" documentation="Q_RTL_ALT should be &lt; 120m (400ft). 3 or less to prevent arming. -1 to disable." user="Standard">
+        <values>
+          <value code="-1">Disabled</value>
+          <value code="0">Emergency(PreArm)</value>
+          <value code="1">Alert(PreArm)</value>
+          <value code="2">Critical(PreArm)</value>
+          <value code="3">Error(PreArm)</value>
+          <value code="4">Warning</value>
+          <value code="5">Notice</value>
+          <value code="6">Info</value>
+          <value code="7">Debug</value>
+        </values>
+      </param>
+      <param humanName="Legal max altitude" name="ARM_V_ALT_LEGAL" documentation="Legal max altitude for UAV/RPAS/drones in your jurisdiction" user="Standard">
+        <field name="Units">m</field>
+        <field name="UnitText">meters</field>
+      </param>
       <param humanName="Quicktune enable" name="QUIK_ENABLE" documentation="Enable quicktune system" user="Standard">
         <values>
           <value code="0">Disabled</value>
@@ -807,6 +1032,67 @@
       </param>
       <param humanName="param reversion RC function" name="PREV_RC_FUNC" documentation="RCn_OPTION number to used to trigger parameter reversion" user="Standard">
 </param>
+      <param humanName="Activation Function for Terrain Avoidance" name="TA_ACT_FN" documentation="Setting an RC channel's _OPTION to this value will use it for Terrain Avoidance enable/disable">
+        <field name="Range">300 307</field>
+      </param>
+      <param humanName="down distance minimum for Pitching" name="TA_PTCH_DWN_MIN" documentation="If the downward distance is less than this value then start Pitching up to gain altitude.">
+        <field name="Units">m</field>
+        <field name="UnitText">meters</field>
+      </param>
+      <param humanName="forward distance minimum for Pitching" name="TA_PTCH_FWD_MIN" documentation="If the farwardward distance is less than this value then start Pitching up to gain altitude.">
+        <field name="Units">m</field>
+        <field name="UnitText">meters</field>
+      </param>
+      <param humanName="Downward distance minimum Quading" name="TA_QUAD_DWN_MIN" documentation="If the downward distance is less than this value then start Quading up to gain altitude.">
+        <field name="Units">m</field>
+        <field name="UnitText">meters</field>
+      </param>
+      <param humanName="minimum forward distance for Quading" name="TA_QUAD_FWD_MIN" documentation="If the farwardward distance is less than this value then start Quading up to gain altitude.">
+        <field name="Units">m</field>
+        <field name="UnitText">meters</field>
+      </param>
+      <param humanName="minimum ground speed for Pitching" name="TA_PTCH_GSP_MIN" documentation="Minimum Groundspeed (not airspeed) to be flying for Pitching to be used.">
+        <field name="Units">m/s</field>
+        <field name="UnitText">meters per second</field>
+      </param>
+      <param humanName="timeout Pitching" name="TA_PTCH_TIMEOUT" documentation="Minimum down or forward distance must be triggered for more than this many seconds to start Pitching">
+        <field name="Units">s</field>
+        <field name="UnitText">seconds</field>
+      </param>
+      <param humanName="safe distance around home" name="TA_HOME_DIST" documentation="Terrain avoidance will not be applied if the vehicle is less than this distance from home">
+        <field name="Units">m</field>
+        <field name="UnitText">meters</field>
+      </param>
+      <param humanName="ceiling for pitching/quading" name="TA_ALT_MAX" documentation="This is a limit on how high the terrain avoidane will take the vehicle. It acts a failsafe to prevent vertical flyaways.">
+        <field name="Range">20 1000</field>
+        <field name="Units">m</field>
+        <field name="UnitText">meters</field>
+      </param>
+      <param humanName="Maximum Groundspeed" name="TA_GSP_MAX" documentation="This is a limit on how fast in groundspeeed terrain avoidance will take the vehicle. This is to allow for reliable sensor readings. -1 for disabled.">
+        <field name="Range">10 40</field>
+        <field name="Units">m/s</field>
+        <field name="UnitText">meters per second</field>
+      </param>
+      <param humanName="Groudspeed Airbrake limt" name="TA_GSP_AIRBRAKE" documentation="This is the limit for triggering airbrake to slow groundspeed as a difference between the airspeed and groundspeed. -1 for disabled.">
+        <field name="Range">-1 -10</field>
+        <field name="Units">m/s</field>
+        <field name="UnitText">meters per second</field>
+      </param>
+      <param humanName="CMTC Height" name="TA_CMTC_HGT" documentation="The minimum Height above terrain to maintain when following an AUTO mission or RTL. If zero(0) use TA_PTCH_DOW_MIN.">
+        <field name="Units">m</field>
+        <field name="UnitText">meters</field>
+      </param>
+      <param humanName="CMTC Enable" name="TA_CMTC_ENABLE" documentation="Whether to enable Can't Make That Climb while running Terrain Avoidance">
+        <field name="Range">0 1</field>
+      </param>
+      <param humanName="Frequency to process avoidance" name="TA_UPDATE_RATE" documentation="Avoidance processing rate">
+        <field name="Units">Hz</field>
+        <field name="UnitText">hertz</field>
+      </param>
+      <param humanName="CMTC loiter radius" name="TA_CMTC_RAD" documentation="Use this radius for the loiter when trying to gain altitude. If not set or &lt;=0 use WP_LOITER_RAD">
+        <field name="Units">m</field>
+        <field name="UnitText">meters</field>
+      </param>
       <param humanName="Camera1 Video Stream Camera Model" name="VID1_CAMMODEL" documentation="Video stream camera model" user="Standard">
         <values>
           <value code="0">Unknown</value>
@@ -1792,8 +2078,9 @@
         <bitmask>
           <bit code="0">Disable prearm display</bit>
           <bit code="1">Do not send status text on state change</bit>
+          <bit code="2">Skip IMU consistency checks when ICE motor running</bit>
         </bitmask>
-        <field name="Bitmask">0:Disable prearm display,1:Do not send status text on state change</field>
+        <field name="Bitmask">0:Disable prearm display,1:Do not send status text on state change,2:Skip IMU consistency checks when ICE motor running</field>
       </param>
       <param humanName="Compass magnetic field strength error threshold vs earth magnetic model" name="ARMING_MAGTHRESH" documentation="Compass magnetic field strength error threshold vs earth magnetic model.  X and y axis are compared using this threhold, Z axis uses 2x this threshold.  0 to disable check" user="Advanced">
         <field name="Units">mGauss</field>
@@ -14235,13 +14522,14 @@
           <value code="14">14</value>
         </values>
       </param>
-      <param humanName="MSP OSD Options" name="MSP_OPTIONS" documentation="A bitmask to set some MSP specific options: EnableTelemetryMode-allows &quot;push&quot; mode telemetry when only rx line of OSD ic connected to autopilot,  EnableBTFLFonts-uses indexes corresponding to Betaflight fonts if OSD uses those instead of ArduPilot fonts." user="Standard">
+      <param humanName="MSP OSD Options" name="MSP_OPTIONS" documentation="A bitmask to set some MSP specific options: EnableTelemetryMode-allows &quot;push&quot; mode telemetry when only rx line of OSD ic connected to autopilot,  EnableBTFLFonts-uses indexes corresponding to Betaflight fonts if OSD uses those instead of ArduPilot fonts. EnableINAVFonts uses INAV fonts and overrides EnableBTFLFonts if that option is enabled." user="Standard">
         <bitmask>
           <bit code="0">EnableTelemetryMode</bit>
           <bit code="1">unused</bit>
           <bit code="2">EnableBTFLFonts</bit>
+          <bit code="3">EnableINAVFonts</bit>
         </bitmask>
-        <field name="Bitmask">0:EnableTelemetryMode, 1: unused, 2:EnableBTFLFonts</field>
+        <field name="Bitmask">0:EnableTelemetryMode, 1: unused, 2:EnableBTFLFonts, 3:EnableINAVFonts</field>
       </param>
     </parameters>
     <parameters name="NET_">

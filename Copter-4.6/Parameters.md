@@ -886,11 +886,11 @@ Altitude during Landing at which vehicle slows to LAND_SPEED
 
 ## TUNE_MIN: Tuning minimum
 
-Minimum value that the parameter currently being tuned with the transmitter's channel 6 knob will be set to
+Transmitter Tuning minum value. The parameter being tuned will have its value set to this minimum value when the tuning knob is at its lowest position
 
 ## TUNE_MAX: Tuning maximum
 
-Maximum value that the parameter currently being tuned with the transmitter's channel 6 knob will be set to
+Transmitter Tuning maximum value. The parameter being tuned will have its value set to this maximum value when the tuning knob is at its highest position
 
 ## FS_VIBE_ENABLE: Vibration Failsafe enable
 
@@ -1470,6 +1470,284 @@ Battery estimator coefficient3
 
 - Range: 0.01 0.5
 
+## ARM_SYSID: MAV_SYSID must be set
+
+Check that MAV_SYSID (or SYDID_THISMAV) has been set. 3 or less to prevent arming. -1 to disable.
+
+|Value|Meaning|
+|:---:|:---:|
+|-1|Disabled|
+|0|Emergency(PreArm)|
+|1|Alert(PreArm)|
+|2|Critical(PreArm)|
+|3|Error(PreArm)|
+|4|Warning|
+|5|Notice|
+|6|Info|
+|7|Debug|
+
+## ARM_FOLL_SYSID: FOLL_SYSID must be set 
+
+If FOLL_ENABLE = 1, check that FOLL_SYSID has been set. 3 or less to prevent arming. -1 to disable.
+
+|Value|Meaning|
+|:---:|:---:|
+|-1|Disabled|
+|0|Emergency(PreArm)|
+|1|Alert(PreArm)|
+|2|Critical(PreArm)|
+|3|Error(PreArm)|
+|4|Warning|
+|5|Notice|
+|6|Info|
+|7|Debug|
+
+## ARM_FOLL_SYSID_X: Vehicle should not follow itself
+
+If FOLL_ENABLE = 1, check that FOLL_SYSID is different to MAV_SYSID. 3 or less to prevent arming. -1 to disable.
+
+|Value|Meaning|
+|:---:|:---:|
+|-1|Disabled|
+|0|Emergency(PreArm)|
+|1|Alert(PreArm)|
+|2|Critical(PreArm)|
+|3|Error(PreArm)|
+|4|Warning|
+|5|Notice|
+|6|Info|
+|7|Debug|
+
+## ARM_FOLL_OFS_DEF: Follow Offsets defaulted
+
+Follow offsets should not be left as default (zero) if FOLL_ENABLE = 1. 3 or less to prevent arming. -1 to disable.
+
+|Value|Meaning|
+|:---:|:---:|
+|-1|Disabled|
+|0|Emergency(PreArm)|
+|1|Alert(PreArm)|
+|2|Critical(PreArm)|
+|3|Error(PreArm)|
+|4|Warning|
+|5|Notice|
+|6|Info|
+|7|Debug|
+
+## ARM_MNTX_SYSID: Follow and Mount should follow the same vehicle
+
+If FOLL_ENABLE = 1 and MNTx_SYSID_DEFLT is set, check that FOLL_SYSID is equal MNTx. 3 or less to prevent arming. -1 to disable.
+
+|Value|Meaning|
+|:---:|:---:|
+|-1|Disabled|
+|0|Emergency(PreArm)|
+|1|Alert(PreArm)|
+|2|Critical(PreArm)|
+|3|Error(PreArm)|
+|4|Warning|
+|5|Notice|
+|6|Info|
+|7|Debug|
+
+## ARM_RTL_CLIMB: RTL_CLIMB_MIN should be a valid value
+
+RTL_CLIMB_MIN should be < 120m (400ft). 3 or less to prevent arming. -1 to disable.
+
+|Value|Meaning|
+|:---:|:---:|
+|-1|Disabled|
+|0|Emergency(PreArm)|
+|1|Alert(PreArm)|
+|2|Critical(PreArm)|
+|3|Error(PreArm)|
+|4|Warning|
+|5|Notice|
+|6|Info|
+|7|Debug|
+
+## ARM_ESTOP: Motors EStopped
+
+Emergency Stop disables arming. 3 or less to prevent arming. -1 to disable.
+
+|Value|Meaning|
+|:---:|:---:|
+|-1|Disabled|
+|0|Emergency(PreArm)|
+|1|Alert(PreArm)|
+|2|Critical(PreArm)|
+|3|Error(PreArm)|
+|4|Warning|
+|5|Notice|
+|6|Info|
+|7|Debug|
+
+## ARM_FENCE: Fence not enabled
+
+Fences loaded but no fence enabled. 3 or less to prevent arming. -1 to disable.
+
+|Value|Meaning|
+|:---:|:---:|
+|-1|Disabled|
+|0|Emergency(PreArm)|
+|1|Alert(PreArm)|
+|2|Critical(PreArm)|
+|3|Error(PreArm)|
+|4|Warning|
+|5|Notice|
+|6|Info|
+|7|Debug|
+
+## ARM_RALLY: Rally too far
+
+Rally Point more than RALLY_LIMIT_KM kilometers away. 3 or less to prevent arming. -1 to disable.
+
+|Value|Meaning|
+|:---:|:---:|
+|-1|Disabled|
+|0|Emergency(PreArm)|
+|1|Alert(PreArm)|
+|2|Critical(PreArm)|
+|3|Error(PreArm)|
+|4|Warning|
+|5|Notice|
+|6|Info|
+|7|Debug|
+
+## ARM_C_RTL_ALT: RTL_ALT should be a valid value
+
+RTL_ALT should be < 120m (400ft). 3 or less to prevent arming. -1 to disable.
+
+|Value|Meaning|
+|:---:|:---:|
+|-1|Disabled|
+|0|Emergency(PreArm)|
+|1|Alert(PreArm)|
+|2|Critical(PreArm)|
+|3|Error(PreArm)|
+|4|Warning|
+|5|Notice|
+|6|Info|
+|7|Debug|
+
+## ARM_P_Q_FS_LAND: Warn if Q failsafe will land
+
+Notify the user that on failsafe a QuadPlan will land. 3 or less to prevent arming. -1 to disable.
+
+|Value|Meaning|
+|:---:|:---:|
+|-1|Disabled|
+|0|Emergency(PreArm)|
+|1|Alert(PreArm)|
+|2|Critical(PreArm)|
+|3|Error(PreArm)|
+|4|Warning|
+|5|Notice|
+|6|Info|
+|7|Debug|
+
+## ARM_P_Q_FS_RTL: Warn if Q failsafe will QRTL
+
+Notify the user that on failsafe a QuadPlan will QRTL. 3 or less to prevent arming. -1 to disable.
+
+|Value|Meaning|
+|:---:|:---:|
+|-1|Disabled|
+|0|Emergency(PreArm)|
+|1|Alert(PreArm)|
+|2|Critical(PreArm)|
+|3|Error(PreArm)|
+|4|Warning|
+|5|Notice|
+|6|Info|
+|7|Debug|
+
+## ARM_P_AIRSPEED: Check AIRSPEED_ parameters
+
+Validate that AIRSPEED_STALL(if set) < MIN < CRUISE < MAX d. 3 or less to prevent arming. -1 to disable.
+
+|Value|Meaning|
+|:---:|:---:|
+|-1|Disabled|
+|0|Emergency(PreArm)|
+|1|Alert(PreArm)|
+|2|Critical(PreArm)|
+|3|Error(PreArm)|
+|4|Warning|
+|5|Notice|
+|6|Info|
+|7|Debug|
+
+## ARM_P_STALL: AIRSPEED_MIN should be 25% above STALL
+
+Validate that AIRSPEED_MIN is at least 25% above AIRSPEED_STALL(if set). 3 or less to prevent arming. -1 to disable.
+
+|Value|Meaning|
+|:---:|:---:|
+|-1|Disabled|
+|0|Emergency(PreArm)|
+|1|Alert(PreArm)|
+|2|Critical(PreArm)|
+|3|Error(PreArm)|
+|4|Warning|
+|5|Notice|
+|6|Info|
+|7|Debug|
+
+## ARM_P_SCALING: SCALING_SPEED valid
+
+Validate that SCALING_SPEED is within 20% of AIRSPEED_CRUISE. If SCALING_SPEED changes the vehicle may need to be retuned. 3 or less to prevent arming. -1 to disable.
+
+|Value|Meaning|
+|:---:|:---:|
+|-1|Disabled|
+|0|Emergency(PreArm)|
+|1|Alert(PreArm)|
+|2|Critical(PreArm)|
+|3|Error(PreArm)|
+|4|Warning|
+|5|Notice|
+|6|Info|
+|7|Debug|
+
+## ARM_P_RTL_ALT: RTL_ALTITUDE should be a valid value
+
+RTL_ALTITITUDE should be < 120m (400ft). 3 or less to prevent arming. -1 to disable.
+
+|Value|Meaning|
+|:---:|:---:|
+|-1|Disabled|
+|0|Emergency(PreArm)|
+|1|Alert(PreArm)|
+|2|Critical(PreArm)|
+|3|Error(PreArm)|
+|4|Warning|
+|5|Notice|
+|6|Info|
+|7|Debug|
+
+## ARM_P_QRTL_ALT: Q_RTL_ALT should be a valid value
+
+Q_RTL_ALT should be < 120m (400ft). 3 or less to prevent arming. -1 to disable.
+
+|Value|Meaning|
+|:---:|:---:|
+|-1|Disabled|
+|0|Emergency(PreArm)|
+|1|Alert(PreArm)|
+|2|Critical(PreArm)|
+|3|Error(PreArm)|
+|4|Warning|
+|5|Notice|
+|6|Info|
+|7|Debug|
+
+## ARM_V_ALT_LEGAL: Legal max altitude
+
+Legal max altitude for UAV/RPAS/drones in your jurisdiction
+
+- Units: m
+
 ## QUIK_ENABLE: Quicktune enable
 
 Enable quicktune system
@@ -1793,6 +2071,102 @@ Enable parameter reversion system
 ## PREV_RC_FUNC: param reversion RC function
 
 RCn_OPTION number to used to trigger parameter reversion
+
+## TA_ACT_FN: Activation Function for Terrain Avoidance
+
+Setting an RC channel's _OPTION to this value will use it for Terrain Avoidance enable/disable
+
+- Range: 300 307
+
+## TA_PTCH_DWN_MIN: down distance minimum for Pitching
+
+If the downward distance is less than this value then start Pitching up to gain altitude.
+
+- Units: m
+
+## TA_PTCH_FWD_MIN: forward distance minimum for Pitching
+
+If the farwardward distance is less than this value then start Pitching up to gain altitude.
+
+- Units: m
+
+## TA_QUAD_DWN_MIN: Downward distance minimum Quading
+
+If the downward distance is less than this value then start Quading up to gain altitude.
+
+- Units: m
+
+## TA_QUAD_FWD_MIN: minimum forward distance for Quading
+
+If the farwardward distance is less than this value then start Quading up to gain altitude.
+
+- Units: m
+
+## TA_PTCH_GSP_MIN: minimum ground speed for Pitching
+
+Minimum Groundspeed (not airspeed) to be flying for Pitching to be used.
+
+- Units: m/s
+
+## TA_PTCH_TIMEOUT: timeout Pitching
+
+Minimum down or forward distance must be triggered for more than this many seconds to start Pitching
+
+- Units: s
+
+## TA_HOME_DIST: safe distance around home
+
+Terrain avoidance will not be applied if the vehicle is less than this distance from home
+
+- Units: m
+
+## TA_ALT_MAX: ceiling for pitching/quading
+
+This is a limit on how high the terrain avoidane will take the vehicle. It acts a failsafe to prevent vertical flyaways.
+
+- Range: 20 1000
+
+- Units: m
+
+## TA_GSP_MAX: Maximum Groundspeed
+
+This is a limit on how fast in groundspeeed terrain avoidance will take the vehicle. This is to allow for reliable sensor readings. -1 for disabled.
+
+- Range: 10 40
+
+- Units: m/s
+
+## TA_GSP_AIRBRAKE: Groudspeed Airbrake limt
+
+This is the limit for triggering airbrake to slow groundspeed as a difference between the airspeed and groundspeed. -1 for disabled.
+
+- Range: -1 -10
+
+- Units: m/s
+
+## TA_CMTC_HGT: CMTC Height
+
+The minimum Height above terrain to maintain when following an AUTO mission or RTL. If zero(0) use TA_PTCH_DOW_MIN.
+
+- Units: m
+
+## TA_CMTC_ENABLE: CMTC Enable
+
+Whether to enable Can't Make That Climb while running Terrain Avoidance
+
+- Range: 0 1
+
+## TA_UPDATE_RATE: Frequency to process avoidance
+
+Avoidance processing rate
+
+- Units: Hz
+
+## TA_CMTC_RAD: CMTC loiter radius
+
+Use this radius for the loiter when trying to gain altitude. If not set or <=0 use WP_LOITER_RAD
+
+- Units: m
 
 ## VID1_CAMMODEL: Camera1 Video Stream Camera Model
 
@@ -3459,7 +3833,7 @@ Checks prior to arming motor. This is a bitmask of checks that will be performed
 
 Options that can be applied to change arming behaviour
 
-- Bitmask: 0:Disable prearm display,1:Do not send status text on state change
+- Bitmask: 0:Disable prearm display,1:Do not send status text on state change,2:Skip IMU consistency checks when ICE motor running
 
 ## ARMING_MAGTHRESH: Compass magnetic field strength error threshold vs earth magnetic model
 
@@ -24338,9 +24712,9 @@ Used for average cell voltage calculation
 
 ## MSP_OPTIONS: MSP OSD Options
 
-A bitmask to set some MSP specific options: EnableTelemetryMode-allows "push" mode telemetry when only rx line of OSD ic connected to autopilot,  EnableBTFLFonts-uses indexes corresponding to Betaflight fonts if OSD uses those instead of ArduPilot fonts.
+A bitmask to set some MSP specific options: EnableTelemetryMode-allows "push" mode telemetry when only rx line of OSD ic connected to autopilot,  EnableBTFLFonts-uses indexes corresponding to Betaflight fonts if OSD uses those instead of ArduPilot fonts. EnableINAVFonts uses INAV fonts and overrides EnableBTFLFonts if that option is enabled.
 
-- Bitmask: 0:EnableTelemetryMode, 1: unused, 2:EnableBTFLFonts
+- Bitmask: 0:EnableTelemetryMode, 1: unused, 2:EnableBTFLFonts, 3:EnableINAVFonts
 
 # NET Parameters
 

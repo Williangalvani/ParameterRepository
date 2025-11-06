@@ -991,6 +991,320 @@ DO NOT EDIT
 </ul>
 
 
+<h2>MAV_SYSID must be set (ARM_SYSID)</h2>
+
+<p>Check that MAV_SYSID (or SYDID_THISMAV) has been set. 3 or less to prevent arming. -1 to disable.</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>-1</td><td>Disabled</td></tr>
+<tr><td>0</td><td>Emergency(PreArm)</td></tr>
+<tr><td>1</td><td>Alert(PreArm)</td></tr>
+<tr><td>2</td><td>Critical(PreArm)</td></tr>
+<tr><td>3</td><td>Error(PreArm)</td></tr>
+<tr><td>4</td><td>Warning</td></tr>
+<tr><td>5</td><td>Notice</td></tr>
+<tr><td>6</td><td>Info</td></tr>
+<tr><td>7</td><td>Debug</td></tr>
+</table>
+</ul>
+
+
+<h2>FOLL_SYSID must be set  (ARM_FOLL_SYSID)</h2>
+
+<p>If FOLL_ENABLE = 1, check that FOLL_SYSID has been set. 3 or less to prevent arming. -1 to disable.</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>-1</td><td>Disabled</td></tr>
+<tr><td>0</td><td>Emergency(PreArm)</td></tr>
+<tr><td>1</td><td>Alert(PreArm)</td></tr>
+<tr><td>2</td><td>Critical(PreArm)</td></tr>
+<tr><td>3</td><td>Error(PreArm)</td></tr>
+<tr><td>4</td><td>Warning</td></tr>
+<tr><td>5</td><td>Notice</td></tr>
+<tr><td>6</td><td>Info</td></tr>
+<tr><td>7</td><td>Debug</td></tr>
+</table>
+</ul>
+
+
+<h2>Vehicle should not follow itself (ARM_FOLL_SYSID_X)</h2>
+
+<p>If FOLL_ENABLE = 1, check that FOLL_SYSID is different to MAV_SYSID. 3 or less to prevent arming. -1 to disable.</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>-1</td><td>Disabled</td></tr>
+<tr><td>0</td><td>Emergency(PreArm)</td></tr>
+<tr><td>1</td><td>Alert(PreArm)</td></tr>
+<tr><td>2</td><td>Critical(PreArm)</td></tr>
+<tr><td>3</td><td>Error(PreArm)</td></tr>
+<tr><td>4</td><td>Warning</td></tr>
+<tr><td>5</td><td>Notice</td></tr>
+<tr><td>6</td><td>Info</td></tr>
+<tr><td>7</td><td>Debug</td></tr>
+</table>
+</ul>
+
+
+<h2>Follow Offsets defaulted (ARM_FOLL_OFS_DEF)</h2>
+
+<p>Follow offsets should not be left as default (zero) if FOLL_ENABLE = 1. 3 or less to prevent arming. -1 to disable.</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>-1</td><td>Disabled</td></tr>
+<tr><td>0</td><td>Emergency(PreArm)</td></tr>
+<tr><td>1</td><td>Alert(PreArm)</td></tr>
+<tr><td>2</td><td>Critical(PreArm)</td></tr>
+<tr><td>3</td><td>Error(PreArm)</td></tr>
+<tr><td>4</td><td>Warning</td></tr>
+<tr><td>5</td><td>Notice</td></tr>
+<tr><td>6</td><td>Info</td></tr>
+<tr><td>7</td><td>Debug</td></tr>
+</table>
+</ul>
+
+
+<h2>Follow and Mount should follow the same vehicle (ARM_MNTX_SYSID)</h2>
+
+<p>If FOLL_ENABLE = 1 and MNTx_SYSID_DEFLT is set, check that FOLL_SYSID is equal MNTx. 3 or less to prevent arming. -1 to disable.</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>-1</td><td>Disabled</td></tr>
+<tr><td>0</td><td>Emergency(PreArm)</td></tr>
+<tr><td>1</td><td>Alert(PreArm)</td></tr>
+<tr><td>2</td><td>Critical(PreArm)</td></tr>
+<tr><td>3</td><td>Error(PreArm)</td></tr>
+<tr><td>4</td><td>Warning</td></tr>
+<tr><td>5</td><td>Notice</td></tr>
+<tr><td>6</td><td>Info</td></tr>
+<tr><td>7</td><td>Debug</td></tr>
+</table>
+</ul>
+
+
+<h2>RTL_CLIMB_MIN should be a valid value (ARM_RTL_CLIMB)</h2>
+
+<p>RTL_CLIMB_MIN should be &lt; 120m (400ft). 3 or less to prevent arming. -1 to disable.</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>-1</td><td>Disabled</td></tr>
+<tr><td>0</td><td>Emergency(PreArm)</td></tr>
+<tr><td>1</td><td>Alert(PreArm)</td></tr>
+<tr><td>2</td><td>Critical(PreArm)</td></tr>
+<tr><td>3</td><td>Error(PreArm)</td></tr>
+<tr><td>4</td><td>Warning</td></tr>
+<tr><td>5</td><td>Notice</td></tr>
+<tr><td>6</td><td>Info</td></tr>
+<tr><td>7</td><td>Debug</td></tr>
+</table>
+</ul>
+
+
+<h2>Motors EStopped (ARM_ESTOP)</h2>
+
+<p>Emergency Stop disables arming. 3 or less to prevent arming. -1 to disable.</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>-1</td><td>Disabled</td></tr>
+<tr><td>0</td><td>Emergency(PreArm)</td></tr>
+<tr><td>1</td><td>Alert(PreArm)</td></tr>
+<tr><td>2</td><td>Critical(PreArm)</td></tr>
+<tr><td>3</td><td>Error(PreArm)</td></tr>
+<tr><td>4</td><td>Warning</td></tr>
+<tr><td>5</td><td>Notice</td></tr>
+<tr><td>6</td><td>Info</td></tr>
+<tr><td>7</td><td>Debug</td></tr>
+</table>
+</ul>
+
+
+<h2>Fence not enabled (ARM_FENCE)</h2>
+
+<p>Fences loaded but no fence enabled. 3 or less to prevent arming. -1 to disable.</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>-1</td><td>Disabled</td></tr>
+<tr><td>0</td><td>Emergency(PreArm)</td></tr>
+<tr><td>1</td><td>Alert(PreArm)</td></tr>
+<tr><td>2</td><td>Critical(PreArm)</td></tr>
+<tr><td>3</td><td>Error(PreArm)</td></tr>
+<tr><td>4</td><td>Warning</td></tr>
+<tr><td>5</td><td>Notice</td></tr>
+<tr><td>6</td><td>Info</td></tr>
+<tr><td>7</td><td>Debug</td></tr>
+</table>
+</ul>
+
+
+<h2>Rally too far (ARM_RALLY)</h2>
+
+<p>Rally Point more than RALLY_LIMIT_KM kilometers away. 3 or less to prevent arming. -1 to disable.</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>-1</td><td>Disabled</td></tr>
+<tr><td>0</td><td>Emergency(PreArm)</td></tr>
+<tr><td>1</td><td>Alert(PreArm)</td></tr>
+<tr><td>2</td><td>Critical(PreArm)</td></tr>
+<tr><td>3</td><td>Error(PreArm)</td></tr>
+<tr><td>4</td><td>Warning</td></tr>
+<tr><td>5</td><td>Notice</td></tr>
+<tr><td>6</td><td>Info</td></tr>
+<tr><td>7</td><td>Debug</td></tr>
+</table>
+</ul>
+
+
+<h2>RTL_ALT should be a valid value (ARM_C_RTL_ALT)</h2>
+
+<p>RTL_ALT should be &lt; 120m (400ft). 3 or less to prevent arming. -1 to disable.</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>-1</td><td>Disabled</td></tr>
+<tr><td>0</td><td>Emergency(PreArm)</td></tr>
+<tr><td>1</td><td>Alert(PreArm)</td></tr>
+<tr><td>2</td><td>Critical(PreArm)</td></tr>
+<tr><td>3</td><td>Error(PreArm)</td></tr>
+<tr><td>4</td><td>Warning</td></tr>
+<tr><td>5</td><td>Notice</td></tr>
+<tr><td>6</td><td>Info</td></tr>
+<tr><td>7</td><td>Debug</td></tr>
+</table>
+</ul>
+
+
+<h2>Warn if Q failsafe will land (ARM_P_Q_FS_LAND)</h2>
+
+<p>Notify the user that on failsafe a QuadPlan will land. 3 or less to prevent arming. -1 to disable.</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>-1</td><td>Disabled</td></tr>
+<tr><td>0</td><td>Emergency(PreArm)</td></tr>
+<tr><td>1</td><td>Alert(PreArm)</td></tr>
+<tr><td>2</td><td>Critical(PreArm)</td></tr>
+<tr><td>3</td><td>Error(PreArm)</td></tr>
+<tr><td>4</td><td>Warning</td></tr>
+<tr><td>5</td><td>Notice</td></tr>
+<tr><td>6</td><td>Info</td></tr>
+<tr><td>7</td><td>Debug</td></tr>
+</table>
+</ul>
+
+
+<h2>Warn if Q failsafe will QRTL (ARM_P_Q_FS_RTL)</h2>
+
+<p>Notify the user that on failsafe a QuadPlan will QRTL. 3 or less to prevent arming. -1 to disable.</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>-1</td><td>Disabled</td></tr>
+<tr><td>0</td><td>Emergency(PreArm)</td></tr>
+<tr><td>1</td><td>Alert(PreArm)</td></tr>
+<tr><td>2</td><td>Critical(PreArm)</td></tr>
+<tr><td>3</td><td>Error(PreArm)</td></tr>
+<tr><td>4</td><td>Warning</td></tr>
+<tr><td>5</td><td>Notice</td></tr>
+<tr><td>6</td><td>Info</td></tr>
+<tr><td>7</td><td>Debug</td></tr>
+</table>
+</ul>
+
+
+<h2>Check AIRSPEED_ parameters (ARM_P_AIRSPEED)</h2>
+
+<p>Validate that AIRSPEED_STALL(if set) &lt; MIN &lt; CRUISE &lt; MAX d. 3 or less to prevent arming. -1 to disable.</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>-1</td><td>Disabled</td></tr>
+<tr><td>0</td><td>Emergency(PreArm)</td></tr>
+<tr><td>1</td><td>Alert(PreArm)</td></tr>
+<tr><td>2</td><td>Critical(PreArm)</td></tr>
+<tr><td>3</td><td>Error(PreArm)</td></tr>
+<tr><td>4</td><td>Warning</td></tr>
+<tr><td>5</td><td>Notice</td></tr>
+<tr><td>6</td><td>Info</td></tr>
+<tr><td>7</td><td>Debug</td></tr>
+</table>
+</ul>
+
+
+<h2>AIRSPEED_MIN should be 25% above STALL (ARM_P_STALL)</h2>
+
+<p>Validate that AIRSPEED_MIN is at least 25% above AIRSPEED_STALL(if set). 3 or less to prevent arming. -1 to disable.</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>-1</td><td>Disabled</td></tr>
+<tr><td>0</td><td>Emergency(PreArm)</td></tr>
+<tr><td>1</td><td>Alert(PreArm)</td></tr>
+<tr><td>2</td><td>Critical(PreArm)</td></tr>
+<tr><td>3</td><td>Error(PreArm)</td></tr>
+<tr><td>4</td><td>Warning</td></tr>
+<tr><td>5</td><td>Notice</td></tr>
+<tr><td>6</td><td>Info</td></tr>
+<tr><td>7</td><td>Debug</td></tr>
+</table>
+</ul>
+
+
+<h2>SCALING_SPEED valid (ARM_P_SCALING)</h2>
+
+<p>Validate that SCALING_SPEED is within 20% of AIRSPEED_CRUISE. If SCALING_SPEED changes the vehicle may need to be retuned. 3 or less to prevent arming. -1 to disable.</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>-1</td><td>Disabled</td></tr>
+<tr><td>0</td><td>Emergency(PreArm)</td></tr>
+<tr><td>1</td><td>Alert(PreArm)</td></tr>
+<tr><td>2</td><td>Critical(PreArm)</td></tr>
+<tr><td>3</td><td>Error(PreArm)</td></tr>
+<tr><td>4</td><td>Warning</td></tr>
+<tr><td>5</td><td>Notice</td></tr>
+<tr><td>6</td><td>Info</td></tr>
+<tr><td>7</td><td>Debug</td></tr>
+</table>
+</ul>
+
+
+<h2>RTL_ALTITUDE should be a valid value (ARM_P_RTL_ALT)</h2>
+
+<p>RTL_ALTITITUDE should be &lt; 120m (400ft). 3 or less to prevent arming. -1 to disable.</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>-1</td><td>Disabled</td></tr>
+<tr><td>0</td><td>Emergency(PreArm)</td></tr>
+<tr><td>1</td><td>Alert(PreArm)</td></tr>
+<tr><td>2</td><td>Critical(PreArm)</td></tr>
+<tr><td>3</td><td>Error(PreArm)</td></tr>
+<tr><td>4</td><td>Warning</td></tr>
+<tr><td>5</td><td>Notice</td></tr>
+<tr><td>6</td><td>Info</td></tr>
+<tr><td>7</td><td>Debug</td></tr>
+</table>
+</ul>
+
+
+<h2>Q_RTL_ALT should be a valid value (ARM_P_QRTL_ALT)</h2>
+
+<p>Q_RTL_ALT should be &lt; 120m (400ft). 3 or less to prevent arming. -1 to disable.</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>-1</td><td>Disabled</td></tr>
+<tr><td>0</td><td>Emergency(PreArm)</td></tr>
+<tr><td>1</td><td>Alert(PreArm)</td></tr>
+<tr><td>2</td><td>Critical(PreArm)</td></tr>
+<tr><td>3</td><td>Error(PreArm)</td></tr>
+<tr><td>4</td><td>Warning</td></tr>
+<tr><td>5</td><td>Notice</td></tr>
+<tr><td>6</td><td>Info</td></tr>
+<tr><td>7</td><td>Debug</td></tr>
+</table>
+</ul>
+
+
+<h2>Legal max altitude (ARM_V_ALT_LEGAL)</h2>
+
+<p>Legal max altitude for UAV/RPAS/drones in your jurisdiction</p>
+<ul>
+<li>Units: meters</li>
+</ul>
+
+
 <h2>Quicktune enable (QUIK_ENABLE)</h2>
 
 <p>Enable quicktune system</p>
@@ -1379,6 +1693,129 @@ DO NOT EDIT
 
 <p>RCn_OPTION number to used to trigger parameter reversion</p>
 <ul>
+</ul>
+
+
+<h2>Activation Function for Terrain Avoidance (TA_ACT_FN)</h2>
+
+<p>Setting an RC channel&#x27;s _OPTION to this value will use it for Terrain Avoidance enable/disable</p>
+<ul>
+<li>Range: 300 307</li>
+</ul>
+
+
+<h2>down distance minimum for Pitching (TA_PTCH_DWN_MIN)</h2>
+
+<p>If the downward distance is less than this value then start Pitching up to gain altitude.</p>
+<ul>
+<li>Units: meters</li>
+</ul>
+
+
+<h2>forward distance minimum for Pitching (TA_PTCH_FWD_MIN)</h2>
+
+<p>If the farwardward distance is less than this value then start Pitching up to gain altitude.</p>
+<ul>
+<li>Units: meters</li>
+</ul>
+
+
+<h2>Downward distance minimum Quading (TA_QUAD_DWN_MIN)</h2>
+
+<p>If the downward distance is less than this value then start Quading up to gain altitude.</p>
+<ul>
+<li>Units: meters</li>
+</ul>
+
+
+<h2>minimum forward distance for Quading (TA_QUAD_FWD_MIN)</h2>
+
+<p>If the farwardward distance is less than this value then start Quading up to gain altitude.</p>
+<ul>
+<li>Units: meters</li>
+</ul>
+
+
+<h2>minimum ground speed for Pitching (TA_PTCH_GSP_MIN)</h2>
+
+<p>Minimum Groundspeed (not airspeed) to be flying for Pitching to be used.</p>
+<ul>
+<li>Units: meters per second</li>
+</ul>
+
+
+<h2>timeout Pitching (TA_PTCH_TIMEOUT)</h2>
+
+<p>Minimum down or forward distance must be triggered for more than this many seconds to start Pitching</p>
+<ul>
+<li>Units: seconds</li>
+</ul>
+
+
+<h2>safe distance around home (TA_HOME_DIST)</h2>
+
+<p>Terrain avoidance will not be applied if the vehicle is less than this distance from home</p>
+<ul>
+<li>Units: meters</li>
+</ul>
+
+
+<h2>ceiling for pitching/quading (TA_ALT_MAX)</h2>
+
+<p>This is a limit on how high the terrain avoidane will take the vehicle. It acts a failsafe to prevent vertical flyaways.</p>
+<ul>
+<li>Range: 20 1000</li>
+<li>Units: meters</li>
+</ul>
+
+
+<h2>Maximum Groundspeed (TA_GSP_MAX)</h2>
+
+<p>This is a limit on how fast in groundspeeed terrain avoidance will take the vehicle. This is to allow for reliable sensor readings. -1 for disabled.</p>
+<ul>
+<li>Range: 10 40</li>
+<li>Units: meters per second</li>
+</ul>
+
+
+<h2>Groudspeed Airbrake limt (TA_GSP_AIRBRAKE)</h2>
+
+<p>This is the limit for triggering airbrake to slow groundspeed as a difference between the airspeed and groundspeed. -1 for disabled.</p>
+<ul>
+<li>Range: -1 -10</li>
+<li>Units: meters per second</li>
+</ul>
+
+
+<h2>CMTC Height (TA_CMTC_HGT)</h2>
+
+<p>The minimum Height above terrain to maintain when following an AUTO mission or RTL. If zero(0) use TA_PTCH_DOW_MIN.</p>
+<ul>
+<li>Units: meters</li>
+</ul>
+
+
+<h2>CMTC Enable (TA_CMTC_ENABLE)</h2>
+
+<p>Whether to enable Can&#x27;t Make That Climb while running Terrain Avoidance</p>
+<ul>
+<li>Range: 0 1</li>
+</ul>
+
+
+<h2>Frequency to process avoidance (TA_UPDATE_RATE)</h2>
+
+<p>Avoidance processing rate</p>
+<ul>
+<li>Units: hertz</li>
+</ul>
+
+
+<h2>CMTC loiter radius (TA_CMTC_RAD)</h2>
+
+<p>Use this radius for the loiter when trying to gain altitude. If not set or &lt;=0 use WP_LOITER_RAD</p>
+<ul>
+<li>Units: meters</li>
 </ul>
 
 
@@ -3114,7 +3551,7 @@ DO NOT EDIT
 
 <p>Options that can be applied to change arming behaviour</p>
 <ul>
-<li>Bitmask: 0:Disable prearm display,1:Do not send status text on state change</li>
+<li>Bitmask: 0:Disable prearm display,1:Do not send status text on state change,2:Skip IMU consistency checks when ICE motor running</li>
 </ul>
 
 
@@ -21670,9 +22107,9 @@ DO NOT EDIT
 
 <h2>MSP OSD Options (MSP_OPTIONS)</h2>
 
-<p>A bitmask to set some MSP specific options: EnableTelemetryMode-allows &quot;push&quot; mode telemetry when only rx line of OSD ic connected to autopilot,  EnableBTFLFonts-uses indexes corresponding to Betaflight fonts if OSD uses those instead of ArduPilot fonts.</p>
+<p>A bitmask to set some MSP specific options: EnableTelemetryMode-allows &quot;push&quot; mode telemetry when only rx line of OSD ic connected to autopilot,  EnableBTFLFonts-uses indexes corresponding to Betaflight fonts if OSD uses those instead of ArduPilot fonts. EnableINAVFonts uses INAV fonts and overrides EnableBTFLFonts if that option is enabled.</p>
 <ul>
-<li>Bitmask: 0:EnableTelemetryMode, 1: unused, 2:EnableBTFLFonts</li>
+<li>Bitmask: 0:EnableTelemetryMode, 1: unused, 2:EnableBTFLFonts, 3:EnableINAVFonts</li>
 </ul>
 
 

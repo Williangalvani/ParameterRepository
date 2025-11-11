@@ -2207,20 +2207,24 @@ Automatically detect a crash during AUTO flight and perform the bitmask selected
 
 .. _RNGFND_LANDING:
 
-RNGFND\_LANDING: Enable rangefinder for landing
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+RNGFND\_LANDING: Enable use of rangefinder
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-This enables the use of a rangefinder for automatic landing\. The rangefinder will be used both on the landing approach and for final flare
+Sets the use of a rangefinder for automatic landing and other use cases\. When enabled for landing and takeoff the rangefinder will be used both on the landing approach and for final flare as well as as VTOL landing and for takeoffs and throttle suppression when close to the ground\. When enabled for assist the rangefinder will be used for VTOL assistance\. When enabled for climb the rangefinder will be used for the initial climb in QRTL and AUTO\. Set to 0 to disable use of the rangefinder\.
 
 
-+-------+----------+
-| Value | Meaning  |
-+=======+==========+
-| 0     | Disabled |
-+-------+----------+
-| 1     | Enabled  |
-+-------+----------+
++-----+-------------------+
+| Bit | Meaning           |
++=====+===================+
+| 0   | All               |
++-----+-------------------+
+| 1   | TakeoffAndLanding |
++-----+-------------------+
+| 2   | Assist            |
++-----+-------------------+
+| 3   | InitialClimb      |
++-----+-------------------+
 
 
 
@@ -3479,6 +3483,602 @@ Battery estimator coefficient3
 
 
 
+.. _ARM_SYSID:
+
+ARM\_SYSID: MAV\_SYSID must be set
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Check that MAV\_SYSID \(or SYDID\_THISMAV\) has been set\. 3 or less to prevent arming\. \-1 to disable\.
+
+
++-------+-------------------+
+| Value | Meaning           |
++=======+===================+
+| -1    | Disabled          |
++-------+-------------------+
+| 0     | Emergency(PreArm) |
++-------+-------------------+
+| 1     | Alert(PreArm)     |
++-------+-------------------+
+| 2     | Critical(PreArm)  |
++-------+-------------------+
+| 3     | Error(PreArm)     |
++-------+-------------------+
+| 4     | Warning           |
++-------+-------------------+
+| 5     | Notice            |
++-------+-------------------+
+| 6     | Info              |
++-------+-------------------+
+| 7     | Debug             |
++-------+-------------------+
+
+
+
+
+.. _ARM_FOLL_SYSID:
+
+ARM\_FOLL\_SYSID: FOLL\_SYSID must be set
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+If FOLL\_ENABLE \= 1\, check that FOLL\_SYSID has been set\. 3 or less to prevent arming\. \-1 to disable\.
+
+
++-------+-------------------+
+| Value | Meaning           |
++=======+===================+
+| -1    | Disabled          |
++-------+-------------------+
+| 0     | Emergency(PreArm) |
++-------+-------------------+
+| 1     | Alert(PreArm)     |
++-------+-------------------+
+| 2     | Critical(PreArm)  |
++-------+-------------------+
+| 3     | Error(PreArm)     |
++-------+-------------------+
+| 4     | Warning           |
++-------+-------------------+
+| 5     | Notice            |
++-------+-------------------+
+| 6     | Info              |
++-------+-------------------+
+| 7     | Debug             |
++-------+-------------------+
+
+
+
+
+.. _ARM_FOLL_SYSID_X:
+
+ARM\_FOLL\_SYSID\_X: Vehicle should not follow itself
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+If FOLL\_ENABLE \= 1\, check that FOLL\_SYSID is different to MAV\_SYSID\. 3 or less to prevent arming\. \-1 to disable\.
+
+
++-------+-------------------+
+| Value | Meaning           |
++=======+===================+
+| -1    | Disabled          |
++-------+-------------------+
+| 0     | Emergency(PreArm) |
++-------+-------------------+
+| 1     | Alert(PreArm)     |
++-------+-------------------+
+| 2     | Critical(PreArm)  |
++-------+-------------------+
+| 3     | Error(PreArm)     |
++-------+-------------------+
+| 4     | Warning           |
++-------+-------------------+
+| 5     | Notice            |
++-------+-------------------+
+| 6     | Info              |
++-------+-------------------+
+| 7     | Debug             |
++-------+-------------------+
+
+
+
+
+.. _ARM_FOLL_OFS_DEF:
+
+ARM\_FOLL\_OFS\_DEF: Follow Offsets defaulted
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Follow offsets should not be left as default \(zero\) if FOLL\_ENABLE \= 1\. 3 or less to prevent arming\. \-1 to disable\.
+
+
++-------+-------------------+
+| Value | Meaning           |
++=======+===================+
+| -1    | Disabled          |
++-------+-------------------+
+| 0     | Emergency(PreArm) |
++-------+-------------------+
+| 1     | Alert(PreArm)     |
++-------+-------------------+
+| 2     | Critical(PreArm)  |
++-------+-------------------+
+| 3     | Error(PreArm)     |
++-------+-------------------+
+| 4     | Warning           |
++-------+-------------------+
+| 5     | Notice            |
++-------+-------------------+
+| 6     | Info              |
++-------+-------------------+
+| 7     | Debug             |
++-------+-------------------+
+
+
+
+
+.. _ARM_MNTX_SYSID:
+
+ARM\_MNTX\_SYSID: Follow and Mount should follow the same vehicle
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+If FOLL\_ENABLE \= 1 and MNTx\_SYSID\_DEFLT is set\, check that FOLL\_SYSID is equal MNTx\. 3 or less to prevent arming\. \-1 to disable\.
+
+
++-------+-------------------+
+| Value | Meaning           |
++=======+===================+
+| -1    | Disabled          |
++-------+-------------------+
+| 0     | Emergency(PreArm) |
++-------+-------------------+
+| 1     | Alert(PreArm)     |
++-------+-------------------+
+| 2     | Critical(PreArm)  |
++-------+-------------------+
+| 3     | Error(PreArm)     |
++-------+-------------------+
+| 4     | Warning           |
++-------+-------------------+
+| 5     | Notice            |
++-------+-------------------+
+| 6     | Info              |
++-------+-------------------+
+| 7     | Debug             |
++-------+-------------------+
+
+
+
+
+.. _ARM_RTL_CLIMB:
+
+ARM\_RTL\_CLIMB: RTL\_CLIMB\_MIN should be a valid value
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+RTL\_CLIMB\_MIN should be \< 120m \(400ft\)\. 3 or less to prevent arming\. \-1 to disable\.
+
+
++-------+-------------------+
+| Value | Meaning           |
++=======+===================+
+| -1    | Disabled          |
++-------+-------------------+
+| 0     | Emergency(PreArm) |
++-------+-------------------+
+| 1     | Alert(PreArm)     |
++-------+-------------------+
+| 2     | Critical(PreArm)  |
++-------+-------------------+
+| 3     | Error(PreArm)     |
++-------+-------------------+
+| 4     | Warning           |
++-------+-------------------+
+| 5     | Notice            |
++-------+-------------------+
+| 6     | Info              |
++-------+-------------------+
+| 7     | Debug             |
++-------+-------------------+
+
+
+
+
+.. _ARM_ESTOP:
+
+ARM\_ESTOP: Motors EStopped
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Emergency Stop disables arming\. 3 or less to prevent arming\. \-1 to disable\.
+
+
++-------+-------------------+
+| Value | Meaning           |
++=======+===================+
+| -1    | Disabled          |
++-------+-------------------+
+| 0     | Emergency(PreArm) |
++-------+-------------------+
+| 1     | Alert(PreArm)     |
++-------+-------------------+
+| 2     | Critical(PreArm)  |
++-------+-------------------+
+| 3     | Error(PreArm)     |
++-------+-------------------+
+| 4     | Warning           |
++-------+-------------------+
+| 5     | Notice            |
++-------+-------------------+
+| 6     | Info              |
++-------+-------------------+
+| 7     | Debug             |
++-------+-------------------+
+
+
+
+
+.. _ARM_FENCE:
+
+ARM\_FENCE: Fence not enabled
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Fences loaded but no fence enabled\. 3 or less to prevent arming\. \-1 to disable\.
+
+
++-------+-------------------+
+| Value | Meaning           |
++=======+===================+
+| -1    | Disabled          |
++-------+-------------------+
+| 0     | Emergency(PreArm) |
++-------+-------------------+
+| 1     | Alert(PreArm)     |
++-------+-------------------+
+| 2     | Critical(PreArm)  |
++-------+-------------------+
+| 3     | Error(PreArm)     |
++-------+-------------------+
+| 4     | Warning           |
++-------+-------------------+
+| 5     | Notice            |
++-------+-------------------+
+| 6     | Info              |
++-------+-------------------+
+| 7     | Debug             |
++-------+-------------------+
+
+
+
+
+.. _ARM_RALLY:
+
+ARM\_RALLY: Rally too far
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Rally Point more than RALLY\_LIMIT\_KM kilometers away\. 3 or less to prevent arming\. \-1 to disable\.
+
+
++-------+-------------------+
+| Value | Meaning           |
++=======+===================+
+| -1    | Disabled          |
++-------+-------------------+
+| 0     | Emergency(PreArm) |
++-------+-------------------+
+| 1     | Alert(PreArm)     |
++-------+-------------------+
+| 2     | Critical(PreArm)  |
++-------+-------------------+
+| 3     | Error(PreArm)     |
++-------+-------------------+
+| 4     | Warning           |
++-------+-------------------+
+| 5     | Notice            |
++-------+-------------------+
+| 6     | Info              |
++-------+-------------------+
+| 7     | Debug             |
++-------+-------------------+
+
+
+
+
+.. _ARM_C_RTL_ALT:
+
+ARM\_C\_RTL\_ALT: RTL\_ALT should be a valid value
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+RTL\_ALT should be \< 120m \(400ft\)\. 3 or less to prevent arming\. \-1 to disable\.
+
+
++-------+-------------------+
+| Value | Meaning           |
++=======+===================+
+| -1    | Disabled          |
++-------+-------------------+
+| 0     | Emergency(PreArm) |
++-------+-------------------+
+| 1     | Alert(PreArm)     |
++-------+-------------------+
+| 2     | Critical(PreArm)  |
++-------+-------------------+
+| 3     | Error(PreArm)     |
++-------+-------------------+
+| 4     | Warning           |
++-------+-------------------+
+| 5     | Notice            |
++-------+-------------------+
+| 6     | Info              |
++-------+-------------------+
+| 7     | Debug             |
++-------+-------------------+
+
+
+
+
+.. _ARM_P_Q_FS_LAND:
+
+ARM\_P\_Q\_FS\_LAND: Warn if Q failsafe will land
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Notify the user that on failsafe a QuadPlan will land\. 3 or less to prevent arming\. \-1 to disable\.
+
+
++-------+-------------------+
+| Value | Meaning           |
++=======+===================+
+| -1    | Disabled          |
++-------+-------------------+
+| 0     | Emergency(PreArm) |
++-------+-------------------+
+| 1     | Alert(PreArm)     |
++-------+-------------------+
+| 2     | Critical(PreArm)  |
++-------+-------------------+
+| 3     | Error(PreArm)     |
++-------+-------------------+
+| 4     | Warning           |
++-------+-------------------+
+| 5     | Notice            |
++-------+-------------------+
+| 6     | Info              |
++-------+-------------------+
+| 7     | Debug             |
++-------+-------------------+
+
+
+
+
+.. _ARM_P_Q_FS_RTL:
+
+ARM\_P\_Q\_FS\_RTL: Warn if Q failsafe will QRTL
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Notify the user that on failsafe a QuadPlan will QRTL\. 3 or less to prevent arming\. \-1 to disable\.
+
+
++-------+-------------------+
+| Value | Meaning           |
++=======+===================+
+| -1    | Disabled          |
++-------+-------------------+
+| 0     | Emergency(PreArm) |
++-------+-------------------+
+| 1     | Alert(PreArm)     |
++-------+-------------------+
+| 2     | Critical(PreArm)  |
++-------+-------------------+
+| 3     | Error(PreArm)     |
++-------+-------------------+
+| 4     | Warning           |
++-------+-------------------+
+| 5     | Notice            |
++-------+-------------------+
+| 6     | Info              |
++-------+-------------------+
+| 7     | Debug             |
++-------+-------------------+
+
+
+
+
+.. _ARM_P_AIRSPEED:
+
+ARM\_P\_AIRSPEED: Check AIRSPEED\_ parameters
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Validate that AIRSPEED\_STALL\(if set\) \< MIN \< CRUISE \< MAX d\. 3 or less to prevent arming\. \-1 to disable\.
+
+
++-------+-------------------+
+| Value | Meaning           |
++=======+===================+
+| -1    | Disabled          |
++-------+-------------------+
+| 0     | Emergency(PreArm) |
++-------+-------------------+
+| 1     | Alert(PreArm)     |
++-------+-------------------+
+| 2     | Critical(PreArm)  |
++-------+-------------------+
+| 3     | Error(PreArm)     |
++-------+-------------------+
+| 4     | Warning           |
++-------+-------------------+
+| 5     | Notice            |
++-------+-------------------+
+| 6     | Info              |
++-------+-------------------+
+| 7     | Debug             |
++-------+-------------------+
+
+
+
+
+.. _ARM_P_STALL:
+
+ARM\_P\_STALL: AIRSPEED\_MIN should be 25\% above STALL
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Validate that AIRSPEED\_MIN is at least 25\% above AIRSPEED\_STALL\(if set\)\. 3 or less to prevent arming\. \-1 to disable\.
+
+
++-------+-------------------+
+| Value | Meaning           |
++=======+===================+
+| -1    | Disabled          |
++-------+-------------------+
+| 0     | Emergency(PreArm) |
++-------+-------------------+
+| 1     | Alert(PreArm)     |
++-------+-------------------+
+| 2     | Critical(PreArm)  |
++-------+-------------------+
+| 3     | Error(PreArm)     |
++-------+-------------------+
+| 4     | Warning           |
++-------+-------------------+
+| 5     | Notice            |
++-------+-------------------+
+| 6     | Info              |
++-------+-------------------+
+| 7     | Debug             |
++-------+-------------------+
+
+
+
+
+.. _ARM_P_SCALING:
+
+ARM\_P\_SCALING: SCALING\_SPEED valid
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Validate that SCALING\_SPEED is within 20\% of AIRSPEED\_CRUISE\. If SCALING\_SPEED changes the vehicle may need to be retuned\. 3 or less to prevent arming\. \-1 to disable\.
+
+
++-------+-------------------+
+| Value | Meaning           |
++=======+===================+
+| -1    | Disabled          |
++-------+-------------------+
+| 0     | Emergency(PreArm) |
++-------+-------------------+
+| 1     | Alert(PreArm)     |
++-------+-------------------+
+| 2     | Critical(PreArm)  |
++-------+-------------------+
+| 3     | Error(PreArm)     |
++-------+-------------------+
+| 4     | Warning           |
++-------+-------------------+
+| 5     | Notice            |
++-------+-------------------+
+| 6     | Info              |
++-------+-------------------+
+| 7     | Debug             |
++-------+-------------------+
+
+
+
+
+.. _ARM_P_RTL_ALT:
+
+ARM\_P\_RTL\_ALT: RTL\_ALTITUDE should be a valid value
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+RTL\_ALTITITUDE should be \< 120m \(400ft\)\. 3 or less to prevent arming\. \-1 to disable\.
+
+
++-------+-------------------+
+| Value | Meaning           |
++=======+===================+
+| -1    | Disabled          |
++-------+-------------------+
+| 0     | Emergency(PreArm) |
++-------+-------------------+
+| 1     | Alert(PreArm)     |
++-------+-------------------+
+| 2     | Critical(PreArm)  |
++-------+-------------------+
+| 3     | Error(PreArm)     |
++-------+-------------------+
+| 4     | Warning           |
++-------+-------------------+
+| 5     | Notice            |
++-------+-------------------+
+| 6     | Info              |
++-------+-------------------+
+| 7     | Debug             |
++-------+-------------------+
+
+
+
+
+.. _ARM_P_QRTL_ALT:
+
+ARM\_P\_QRTL\_ALT: Q\_RTL\_ALT should be a valid value
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Q\_RTL\_ALT should be \< 120m \(400ft\)\. 3 or less to prevent arming\. \-1 to disable\.
+
+
++-------+-------------------+
+| Value | Meaning           |
++=======+===================+
+| -1    | Disabled          |
++-------+-------------------+
+| 0     | Emergency(PreArm) |
++-------+-------------------+
+| 1     | Alert(PreArm)     |
++-------+-------------------+
+| 2     | Critical(PreArm)  |
++-------+-------------------+
+| 3     | Error(PreArm)     |
++-------+-------------------+
+| 4     | Warning           |
++-------+-------------------+
+| 5     | Notice            |
++-------+-------------------+
+| 6     | Info              |
++-------+-------------------+
+| 7     | Debug             |
++-------+-------------------+
+
+
+
+
+.. _ARM_V_ALT_LEGAL:
+
+ARM\_V\_ALT\_LEGAL: Legal max altitude
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Legal max altitude for UAV\/RPAS\/drones in your jurisdiction
+
+
++--------+
+| Units  |
++========+
+| meters |
++--------+
+
+
+
+
 .. _QUIK_ENABLE:
 
 QUIK\_ENABLE: Quicktune enable
@@ -4281,6 +4881,276 @@ PREV\_RC\_FUNC: param reversion RC function
 
 
 RCn\_OPTION number to used to trigger parameter reversion
+
+
+.. _TA_ACT_FN:
+
+TA\_ACT\_FN: Activation Function for Terrain Avoidance
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Setting an RC channel\'s \_OPTION to this value will use it for Terrain Avoidance enable\/disable
+
+
++------------+
+| Range      |
++============+
+| 300 to 307 |
++------------+
+
+
+
+
+.. _TA_PTCH_DWN_MIN:
+
+TA\_PTCH\_DWN\_MIN: down distance minimum for Pitching
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+If the downward distance is less than this value then start Pitching up to gain altitude\.
+
+
++--------+
+| Units  |
++========+
+| meters |
++--------+
+
+
+
+
+.. _TA_PTCH_FWD_MIN:
+
+TA\_PTCH\_FWD\_MIN: forward distance minimum for Pitching
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+If the farwardward distance is less than this value then start Pitching up to gain altitude\.
+
+
++--------+
+| Units  |
++========+
+| meters |
++--------+
+
+
+
+
+.. _TA_QUAD_DWN_MIN:
+
+TA\_QUAD\_DWN\_MIN: Downward distance minimum Quading
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+If the downward distance is less than this value then start Quading up to gain altitude\.
+
+
++--------+
+| Units  |
++========+
+| meters |
++--------+
+
+
+
+
+.. _TA_QUAD_FWD_MIN:
+
+TA\_QUAD\_FWD\_MIN: minimum forward distance for Quading
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+If the farwardward distance is less than this value then start Quading up to gain altitude\.
+
+
++--------+
+| Units  |
++========+
+| meters |
++--------+
+
+
+
+
+.. _TA_PTCH_GSP_MIN:
+
+TA\_PTCH\_GSP\_MIN: minimum ground speed for Pitching
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Minimum Groundspeed \(not airspeed\) to be flying for Pitching to be used\.
+
+
++-------------------+
+| Units             |
++===================+
+| meters per second |
++-------------------+
+
+
+
+
+.. _TA_PTCH_TIMEOUT:
+
+TA\_PTCH\_TIMEOUT: timeout Pitching
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Minimum down or forward distance must be triggered for more than this many seconds to start Pitching
+
+
++---------+
+| Units   |
++=========+
+| seconds |
++---------+
+
+
+
+
+.. _TA_HOME_DIST:
+
+TA\_HOME\_DIST: safe distance around home
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Terrain avoidance will not be applied if the vehicle is less than this distance from home
+
+
++--------+
+| Units  |
++========+
+| meters |
++--------+
+
+
+
+
+.. _TA_ALT_MAX:
+
+TA\_ALT\_MAX: ceiling for pitching\/quading
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+This is a limit on how high the terrain avoidane will take the vehicle\. It acts a failsafe to prevent vertical flyaways\.
+
+
++------------+--------+
+| Range      | Units  |
++============+========+
+| 20 to 1000 | meters |
++------------+--------+
+
+
+
+
+.. _TA_GSP_MAX:
+
+TA\_GSP\_MAX: Maximum Groundspeed
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+This is a limit on how fast in groundspeeed terrain avoidance will take the vehicle\. This is to allow for reliable sensor readings\. \-1 for disabled\.
+
+
++----------+-------------------+
+| Range    | Units             |
++==========+===================+
+| 10 to 40 | meters per second |
++----------+-------------------+
+
+
+
+
+.. _TA_GSP_AIRBRAKE:
+
+TA\_GSP\_AIRBRAKE: Groudspeed Airbrake limt
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+This is the limit for triggering airbrake to slow groundspeed as a difference between the airspeed and groundspeed\. \-1 for disabled\.
+
+
++-----------+-------------------+
+| Range     | Units             |
++===========+===================+
+| -1 to -10 | meters per second |
++-----------+-------------------+
+
+
+
+
+.. _TA_CMTC_HGT:
+
+TA\_CMTC\_HGT: CMTC Height
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+The minimum Height above terrain to maintain when following an AUTO mission or RTL\. If zero\(0\) use TA\_PTCH\_DOW\_MIN\.
+
+
++--------+
+| Units  |
++========+
+| meters |
++--------+
+
+
+
+
+.. _TA_CMTC_ENABLE:
+
+TA\_CMTC\_ENABLE: CMTC Enable
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Whether to enable Can\'t Make That Climb while running Terrain Avoidance
+
+
++--------+
+| Range  |
++========+
+| 0 to 1 |
++--------+
+
+
+
+
+.. _TA_UPDATE_RATE:
+
+TA\_UPDATE\_RATE: Frequency to process avoidance
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Avoidance processing rate
+
+
++-------+
+| Units |
++=======+
+| hertz |
++-------+
+
+
+
+
+.. _TA_CMTC_RAD:
+
+TA\_CMTC\_RAD: CMTC loiter radius
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Use this radius for the loiter when trying to gain altitude\. If not set or \<\=0 use WP\_LOITER\_RAD
+
+
++--------+
+| Units  |
++========+
+| meters |
++--------+
+
+
 
 
 .. _VID1_CAMMODEL:
@@ -8271,13 +9141,15 @@ ARMING\_OPTIONS: Arming options
 Options that can be applied to change arming behaviour
 
 
-+-----+-----------------------------------------+
-| Bit | Meaning                                 |
-+=====+=========================================+
-| 0   | Disable prearm display                  |
-+-----+-----------------------------------------+
-| 1   | Do not send status text on state change |
-+-----+-----------------------------------------+
++-----+----------------------------------------------------+
+| Bit | Meaning                                            |
++=====+====================================================+
+| 0   | Disable prearm display                             |
++-----+----------------------------------------------------+
+| 1   | Do not send status text on state change            |
++-----+----------------------------------------------------+
+| 2   | Skip IMU consistency checks when ICE motor running |
++-----+----------------------------------------------------+
 
 
 
@@ -49030,7 +49902,7 @@ MSP\_OPTIONS: MSP OSD Options
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-A bitmask to set some MSP specific options\: EnableTelemetryMode\-allows \"push\" mode telemetry when only rx line of OSD ic connected to autopilot\,  EnableBTFLFonts\-uses indexes corresponding to Betaflight fonts if OSD uses those instead of ArduPilot fonts\.
+A bitmask to set some MSP specific options\: EnableTelemetryMode\-allows \"push\" mode telemetry when only rx line of OSD ic connected to autopilot\,  EnableBTFLFonts\-uses indexes corresponding to Betaflight fonts if OSD uses those instead of ArduPilot fonts\. EnableINAVFonts uses INAV fonts and overrides EnableBTFLFonts if that option is enabled\.
 
 
 +-----+---------------------+
@@ -49041,6 +49913,8 @@ A bitmask to set some MSP specific options\: EnableTelemetryMode\-allows \"push\
 | 1   | unused              |
 +-----+---------------------+
 | 2   | EnableBTFLFonts     |
++-----+---------------------+
+| 3   | EnableINAVFonts     |
 +-----+---------------------+
 
 

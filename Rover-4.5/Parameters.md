@@ -723,6 +723,138 @@ Copter switch to this mode after GPS recovers or DR_FLY_TIMEOUT has elapsed.  De
 |21|Smart_RTL|
 |27|Auto RTL|
 
+## POI_DIST_MAX: Mount POI distance max
+
+POI's max distance (in meters) from the vehicle
+
+- Range: 0 10000
+
+## BATT_SOC_COUNT: Count of SOC estimators
+
+Number of battery SOC estimators
+
+- Range: 0 4
+
+## BATT_SOC1_IDX: Battery estimator index
+
+Battery estimator index
+
+- Range: 0 4
+
+## BATT_SOC1_NCELL: Battery estimator cell count
+
+Battery estimator cell count
+
+- Range: 0 48
+
+## BATT_SOC1_C1: Battery estimator coefficient1
+
+Battery estimator coefficient1
+
+- Range: 100 200
+
+## BATT_SOC1_C2: Battery estimator coefficient2
+
+Battery estimator coefficient2
+
+- Range: 2 5
+
+## BATT_SOC1_C3: Battery estimator coefficient3
+
+Battery estimator coefficient3
+
+- Range: 0.01 0.5
+
+## BATT_SOC2_IDX: Battery estimator index
+
+Battery estimator index
+
+- Range: 0 4
+
+## BATT_SOC2_NCELL: Battery estimator cell count
+
+Battery estimator cell count
+
+- Range: 0 48
+
+## BATT_SOC2_C1: Battery estimator coefficient1
+
+Battery estimator coefficient1
+
+- Range: 100 200
+
+## BATT_SOC2_C2: Battery estimator coefficient2
+
+Battery estimator coefficient2
+
+- Range: 2 5
+
+## BATT_SOC2_C3: Battery estimator coefficient3
+
+Battery estimator coefficient3
+
+- Range: 0.01 0.5
+
+## BATT_SOC3_IDX: Battery estimator index
+
+Battery estimator index
+
+- Range: 0 4
+
+## BATT_SOC3_NCELL: Battery estimator cell count
+
+Battery estimator cell count
+
+- Range: 0 48
+
+## BATT_SOC3_C1: Battery estimator coefficient1
+
+Battery estimator coefficient1
+
+- Range: 100 200
+
+## BATT_SOC3_C2: Battery estimator coefficient2
+
+Battery estimator coefficient2
+
+- Range: 2 5
+
+## BATT_SOC3_C3: Battery estimator coefficient3
+
+Battery estimator coefficient3
+
+- Range: 0.01 0.5
+
+## BATT_SOC4_IDX: Battery estimator index
+
+Battery estimator index
+
+- Range: 0 4
+
+## BATT_SOC4_NCELL: Battery estimator cell count
+
+Battery estimator cell count
+
+- Range: 0 48
+
+## BATT_SOC4_C1: Battery estimator coefficient1
+
+Battery estimator coefficient1
+
+- Range: 100 200
+
+## BATT_SOC4_C2: Battery estimator coefficient2
+
+Battery estimator coefficient2
+
+- Range: 2 5
+
+## BATT_SOC4_C3: Battery estimator coefficient3
+
+Battery estimator coefficient3
+
+- Range: 0.01 0.5
+
 ## QUIK_ENABLE: Quicktune enable
 
 Enable quicktune system
@@ -853,131 +985,31 @@ OpticalFlow may be used if rangefinder distance is below this threshold
 
 - Units: m
 
-## BATT_SOC_COUNT: Count of SOC estimators
+## SHIP_ENABLE: Ship landing enable
 
-Number of battery SOC estimators
+Enable ship landing system
 
-- Range: 0 4
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
 
-## BATT_SOC1_IDX: Battery estimator index
+## SHIP_LAND_ANGLE: Ship landing angle
 
-Battery estimator index
+Angle from the stern of the ship for landing approach. Use this to ensure that on a go-around that ship superstructure and cables are avoided. A value of zero means to approach from the rear of the ship. A value of 90 means the landing will approach from the port (left) side of the ship. A value of -90 will mean approaching from the starboard (right) side of the ship. A value of 180 will approach from the bow of the ship. This parameter is combined with the sign of the RTL_RADIUS parameter to determine the holdoff pattern. If RTL_RADIUS is positive then a clockwise loiter is performed, if RTL_RADIUS is negative then a counter-clockwise loiter is used.
 
-- Range: 0 4
+- Range: -180 180
 
-## BATT_SOC1_NCELL: Battery estimator cell count
+- Units: deg
 
-Battery estimator cell count
+## SHIP_AUTO_OFS: Ship automatic offset trigger
 
-- Range: 0 48
+Settings this parameter to one triggers an automatic follow offset calculation based on current position of the vehicle and the landing target. NOTE: This parameter will auto-reset to zero once the offset has been calculated.
 
-## BATT_SOC1_C1: Battery estimator coefficient1
-
-Battery estimator coefficient1
-
-- Range: 100 200
-
-## BATT_SOC1_C2: Battery estimator coefficient2
-
-Battery estimator coefficient2
-
-- Range: 2 5
-
-## BATT_SOC1_C3: Battery estimator coefficient3
-
-Battery estimator coefficient3
-
-- Range: 0.01 0.5
-
-## BATT_SOC2_IDX: Battery estimator index
-
-Battery estimator index
-
-- Range: 0 4
-
-## BATT_SOC2_NCELL: Battery estimator cell count
-
-Battery estimator cell count
-
-- Range: 0 48
-
-## BATT_SOC2_C1: Battery estimator coefficient1
-
-Battery estimator coefficient1
-
-- Range: 100 200
-
-## BATT_SOC2_C2: Battery estimator coefficient2
-
-Battery estimator coefficient2
-
-- Range: 2 5
-
-## BATT_SOC2_C3: Battery estimator coefficient3
-
-Battery estimator coefficient3
-
-- Range: 0.01 0.5
-
-## BATT_SOC3_IDX: Battery estimator index
-
-Battery estimator index
-
-- Range: 0 4
-
-## BATT_SOC3_NCELL: Battery estimator cell count
-
-Battery estimator cell count
-
-- Range: 0 48
-
-## BATT_SOC3_C1: Battery estimator coefficient1
-
-Battery estimator coefficient1
-
-- Range: 100 200
-
-## BATT_SOC3_C2: Battery estimator coefficient2
-
-Battery estimator coefficient2
-
-- Range: 2 5
-
-## BATT_SOC3_C3: Battery estimator coefficient3
-
-Battery estimator coefficient3
-
-- Range: 0.01 0.5
-
-## BATT_SOC4_IDX: Battery estimator index
-
-Battery estimator index
-
-- Range: 0 4
-
-## BATT_SOC4_NCELL: Battery estimator cell count
-
-Battery estimator cell count
-
-- Range: 0 48
-
-## BATT_SOC4_C1: Battery estimator coefficient1
-
-Battery estimator coefficient1
-
-- Range: 100 200
-
-## BATT_SOC4_C2: Battery estimator coefficient2
-
-Battery estimator coefficient2
-
-- Range: 2 5
-
-## BATT_SOC4_C3: Battery estimator coefficient3
-
-Battery estimator coefficient3
-
-- Range: 0.01 0.5
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Trigger|
 
 ## WEB_ENABLE: enable web server
 
@@ -1031,38 +1063,69 @@ sendfile is an offloading mechanism for faster file download. If this is non-zer
 
 - Range: 0 10000000
 
-## POI_DIST_MAX: Mount POI distance max
+## PREV_ENABLE: parameter reversion enable
 
-POI's max distance (in meters) from the vehicle
-
-- Range: 0 10000
-
-## WINCH_RATE_UP: WinchControl Rate Up
-
-Maximum rate when retracting line
-
-- Range: 0.1 5.0
-
-## WINCH_RATE_DN: WinchControl Rate Down
-
-Maximum rate when releasing line
-
-- Range: 0.1 5.0
-
-## WINCH_RC_FUNC: Winch Rate Control RC function
-
-RCn_OPTION number to use to control winch rate
+Enable parameter reversion system
 
 |Value|Meaning|
 |:---:|:---:|
-|300|Scripting1|
-|301|Scripting2|
-|302|Scripting3|
-|303|Scripting4|
-|304|Scripting5|
-|305|Scripting6|
-|306|Scripting7|
-|307|Scripting8|
+|0|Disabled|
+|1|Enabled|
+
+## PREV_RC_FUNC: param reversion RC function
+
+RCn_OPTION number to used to trigger parameter reversion
+
+## RCK_FORCEHL: Force enable High Latency mode
+
+Automatically enables High Latency mode if not already enabled
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
+
+## RCK_PERIOD: Update rate
+
+When in High Latency mode, send Rockblock updates every N seconds
+
+- Range: 0 600
+
+- Units: s
+
+## RCK_DEBUG: Display Rockblock debugging text
+
+Sends Rockblock debug text to GCS via statustexts
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
+
+## RCK_ENABLE: Enable Message transmission
+
+Enables the Rockblock sending and recieving
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
+
+## PLND_ALT_CUTOFF: Precland altitude cutoff
+
+The altitude (rangefinder distance) below which we stop using the precision landing sensor and continue landing
+
+- Range: 0 20
+
+- Units: m
+
+## DIST_CUTOFF: Precland distance cutoff
+
+The distance from target beyond which the target is ignored
+
+- Range: 0 100
+
+- Units: m
 
 ## RTUN_ENABLE: Rover Quicktune enable
 
@@ -1145,95 +1208,32 @@ RCn_OPTION number to use to control tuning stop/start/save
 |306|Scripting7|
 |307|Scripting8|
 
-## RCK_FORCEHL: Force enable High Latency mode
+## WINCH_RATE_UP: WinchControl Rate Up
 
-Automatically enables High Latency mode if not already enabled
+Maximum rate when retracting line
 
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|Enabled|
+- Range: 0.1 5.0
 
-## RCK_PERIOD: Update rate
+## WINCH_RATE_DN: WinchControl Rate Down
 
-When in High Latency mode, send Rockblock updates every N seconds
+Maximum rate when releasing line
 
-- Range: 0 600
+- Range: 0.1 5.0
 
-- Units: s
+## WINCH_RC_FUNC: Winch Rate Control RC function
 
-## RCK_DEBUG: Display Rockblock debugging text
-
-Sends Rockblock debug text to GCS via statustexts
+RCn_OPTION number to use to control winch rate
 
 |Value|Meaning|
 |:---:|:---:|
-|0|Disabled|
-|1|Enabled|
-
-## RCK_ENABLE: Enable Message transmission
-
-Enables the Rockblock sending and recieving
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|Enabled|
-
-## PREV_ENABLE: parameter reversion enable
-
-Enable parameter reversion system
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|Enabled|
-
-## PREV_RC_FUNC: param reversion RC function
-
-RCn_OPTION number to used to trigger parameter reversion
-
-## PLND_ALT_CUTOFF: Precland altitude cutoff
-
-The altitude (rangefinder distance) below which we stop using the precision landing sensor and continue landing
-
-- Range: 0 20
-
-- Units: m
-
-## DIST_CUTOFF: Precland distance cutoff
-
-The distance from target beyond which the target is ignored
-
-- Range: 0 100
-
-- Units: m
-
-## SHIP_ENABLE: Ship landing enable
-
-Enable ship landing system
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|Enabled|
-
-## SHIP_LAND_ANGLE: Ship landing angle
-
-Angle from the stern of the ship for landing approach. Use this to ensure that on a go-around that ship superstructure and cables are avoided. A value of zero means to approach from the rear of the ship. A value of 90 means the landing will approach from the port (left) side of the ship. A value of -90 will mean approaching from the starboard (right) side of the ship. A value of 180 will approach from the bow of the ship. This parameter is combined with the sign of the RTL_RADIUS parameter to determine the holdoff pattern. If RTL_RADIUS is positive then a clockwise loiter is performed, if RTL_RADIUS is negative then a counter-clockwise loiter is used.
-
-- Range: -180 180
-
-- Units: deg
-
-## SHIP_AUTO_OFS: Ship automatic offset trigger
-
-Settings this parameter to one triggers an automatic follow offset calculation based on current position of the vehicle and the landing target. NOTE: This parameter will auto-reset to zero once the offset has been calculated.
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|Trigger|
+|300|Scripting1|
+|301|Scripting2|
+|302|Scripting3|
+|303|Scripting4|
+|304|Scripting5|
+|305|Scripting6|
+|306|Scripting7|
+|307|Scripting8|
 
 ## AEROM_ANG_ACCEL: Angular acceleration limit
 
@@ -1423,6 +1423,44 @@ Number of tricks which can be selected over the range of the trik selection RC c
 
 - Range: 1 11
 
+## EFI_DLA_ENABLE: EFI DLA enable
+
+Enable EFI DLA driver
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
+
+## EFI_DLA_LPS: EFI DLA fuel scale
+
+EFI DLA litres of fuel per second of injection time
+
+- Range: 0.00001 1
+
+- Units: litres
+
+## ESC_HW_ENABLE: Hobbywing ESC Enable
+
+Enable Hobbywing ESC telemetry
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
+
+## ESC_HW_POLES: Hobbywing ESC motor poles
+
+Number of motor poles for eRPM scaling
+
+- Range: 1 50
+
+## ESC_HW_OFS: Hobbywing ESC motor offset
+
+Motor number offset of first ESC
+
+- Range: 0 31
+
 ## EFI_H6K_ENABLE: Enable Halo6000 EFI driver
 
 Enable Halo6000 EFI driver
@@ -1467,125 +1505,6 @@ The rate that additional generator telemetry is sent
 ## EFI_H6K_FUELTOT: Halo6000 total fuel capacity
 
 The capacity of the tank in litres
-
-- Units: litres
-
-## EFI_SVF_ENABLE: Generator SVFFI enable
-
-Enable SVFFI generator support
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|Enabled|
-
-## EFI_SVF_ARMCHECK: Generator SVFFI arming check
-
-Check for Generator ARM state before arming
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|Enabled|
-
-## BATT_ANX_ENABLE: Enable ANX battery support
-
-Enable ANX battery support
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|Enabled|
-
-## BATT_ANX_CANDRV: Set ANX CAN driver
-
-Set ANX CAN driver
-
-|Value|Meaning|
-|:---:|:---:|
-|0|None|
-|1|1stCANDriver|
-|2|2ndCanDriver|
-
-## BATT_ANX_INDEX: ANX CAN battery index
-
-ANX CAN battery index
-
-- Range: 1 10
-
-## BATT_ANX_OPTIONS: ANX CAN battery options
-
-*Note: This parameter is for advanced users*
-
-ANX CAN battery options
-
-- Bitmask: 0:LogAllFrames
-
-## ESC_HW_ENABLE: Hobbywing ESC Enable
-
-Enable Hobbywing ESC telemetry
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|Enabled|
-
-## ESC_HW_POLES: Hobbywing ESC motor poles
-
-Number of motor poles for eRPM scaling
-
-- Range: 1 50
-
-## ESC_HW_OFS: Hobbywing ESC motor offset
-
-Motor number offset of first ESC
-
-- Range: 0 31
-
-## DJIR_DEBUG: DJIRS2 debug
-
-*Note: This parameter is for advanced users*
-
-Enable DJIRS2 debug
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|Enabled|
-|2|Enabled with attitude reporting|
-
-## DJIR_UPSIDEDOWN: DJIRS2 upside down
-
-DJIRS2 upside down
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Right side up|
-|1|Upside down|
-
-## EFI_INF_ENABLE: EFI INF-Inject enable
-
-Enable EFI INF-Inject driver
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|Enabled|
-
-## EFI_DLA_ENABLE: EFI DLA enable
-
-Enable EFI DLA driver
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|Enabled|
-
-## EFI_DLA_LPS: EFI DLA fuel scale
-
-EFI DLA litres of fuel per second of injection time
-
-- Range: 0.00001 1
 
 - Units: litres
 
@@ -1801,6 +1720,87 @@ SkyPower EFI restart time. If engine should be running and it has stopped for th
 - Range: 0 10
 
 - Units: s
+
+## EFI_SVF_ENABLE: Generator SVFFI enable
+
+Enable SVFFI generator support
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
+
+## EFI_SVF_ARMCHECK: Generator SVFFI arming check
+
+Check for Generator ARM state before arming
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
+
+## BATT_ANX_ENABLE: Enable ANX battery support
+
+Enable ANX battery support
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
+
+## BATT_ANX_CANDRV: Set ANX CAN driver
+
+Set ANX CAN driver
+
+|Value|Meaning|
+|:---:|:---:|
+|0|None|
+|1|1stCANDriver|
+|2|2ndCanDriver|
+
+## BATT_ANX_INDEX: ANX CAN battery index
+
+ANX CAN battery index
+
+- Range: 1 10
+
+## BATT_ANX_OPTIONS: ANX CAN battery options
+
+*Note: This parameter is for advanced users*
+
+ANX CAN battery options
+
+- Bitmask: 0:LogAllFrames
+
+## DJIR_DEBUG: DJIRS2 debug
+
+*Note: This parameter is for advanced users*
+
+Enable DJIRS2 debug
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
+|2|Enabled with attitude reporting|
+
+## DJIR_UPSIDEDOWN: DJIRS2 upside down
+
+DJIRS2 upside down
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Right side up|
+|1|Upside down|
+
+## EFI_INF_ENABLE: EFI INF-Inject enable
+
+Enable EFI INF-Inject driver
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
 
 ## TOFSENSE_S1_PRX: TOFSENSE-M to be used as Proximity sensor
 

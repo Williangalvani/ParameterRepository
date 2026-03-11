@@ -1611,6 +1611,44 @@ Third TOFSENSE-M sensor ID. This cannot be 0. You can change ID of sensor from N
 
 - Range: 1 255
 
+# ACTUATOR Parameters
+
+## ACTUATOR1_INC: Increment step for actuator 1
+
+ Initial increment step for changing the actuator's PWM
+
+- Units: us
+
+## ACTUATOR2_INC: Increment step for actuator 2
+
+ Initial increment step for changing the actuator's PWM
+
+- Units: us
+
+## ACTUATOR3_INC: Increment step for actuator 3
+
+ Initial increment step for changing the actuator's PWM
+
+- Units: us
+
+## ACTUATOR4_INC: Increment step for actuator 4
+
+ Initial increment step for changing the actuator's PWM
+
+- Units: us
+
+## ACTUATOR5_INC: Increment step for actuator 5
+
+ Initial increment step for changing the actuator's PWM
+
+- Units: us
+
+## ACTUATOR6_INC: Increment step for actuator 6
+
+ Initial increment step for changing the actuator's PWM
+
+- Units: us
+
 # AHRS Parameters
 
 ## AHRS_GPS_GAIN: AHRS GPS gain
@@ -9883,33 +9921,33 @@ Set to 0 to disable or choose a function
 |57|relay_3_on|
 |58|relay_3_off|
 |59|relay_3_toggle|
-|61|servo_1_inc|
-|62|servo_1_dec|
-|63|servo_1_min|
-|64|servo_1_max|
-|65|servo_1_center|
-|66|servo_2_inc|
-|67|servo_2_dec|
-|68|servo_2_min|
-|69|servo_2_max|
-|70|servo_2_center|
-|71|servo_3_inc|
-|72|servo_3_dec|
-|73|servo_3_min|
-|74|servo_3_max|
-|75|servo_3_center|
-|76|servo_1_min_momentary|
-|77|servo_1_max_momentary|
-|78|servo_1_min_toggle|
-|79|servo_1_max_toggle|
-|80|servo_2_min_momentary|
-|81|servo_2_max_momentary|
-|82|servo_2_min_toggle|
-|83|servo_2_max_toggle|
-|84|servo_3_min_momentary|
-|85|servo_3_max_momentary|
-|86|servo_3_min_toggle|
-|87|servo_3_max_toggle|
+|61|actuator_1_inc|
+|62|actuator_1_dec|
+|63|actuator_1_min|
+|64|actuator_1_max|
+|65|actuator_1_center|
+|66|actuator_2_inc|
+|67|actuator_2_dec|
+|68|actuator_2_min|
+|69|actuator_2_max|
+|70|actuator_2_center|
+|71|actuator_3_inc|
+|72|actuator_3_dec|
+|73|actuator_3_min|
+|74|actuator_3_max|
+|75|actuator_3_center|
+|76|actuator_1_min_momentary|
+|77|actuator_1_max_momentary|
+|78|actuator_1_min_toggle|
+|79|actuator_1_max_toggle|
+|80|actuator_2_min_momentary|
+|81|actuator_2_max_momentary|
+|82|actuator_2_min_toggle|
+|83|actuator_2_max_toggle|
+|84|actuator_3_min_momentary|
+|85|actuator_3_max_momentary|
+|86|actuator_3_min_toggle|
+|87|actuator_3_max_toggle|
 |91|custom_1|
 |92|custom_2|
 |93|custom_3|
@@ -9927,6 +9965,33 @@ Set to 0 to disable or choose a function
 |109|script_2|
 |110|script_3|
 |111|script_4|
+|112|actuator_4_min|
+|113|actuator_4_max|
+|114|actuator_4_center|
+|115|actuator_4_inc|
+|116|actuator_4_dec|
+|117|actuator_4_min_momentary|
+|118|actuator_4_max_momentary|
+|119|actuator_4_min_toggle|
+|120|actuator_4_max_toggle|
+|121|actuator_5_min|
+|122|actuator_5_max|
+|123|actuator_5_center|
+|124|actuator_5_inc|
+|125|actuator_5_dec|
+|126|actuator_5_min_momentary|
+|127|actuator_5_max_momentary|
+|128|actuator_5_min_toggle|
+|129|actuator_5_max_toggle|
+|130|actuator_6_min|
+|131|actuator_6_max|
+|132|actuator_6_center|
+|133|actuator_6_inc|
+|134|actuator_6_dec|
+|135|actuator_6_min_momentary|
+|136|actuator_6_max_momentary|
+|137|actuator_6_min_toggle|
+|138|actuator_6_max_toggle|
 
 ## BTNn_SFUNCTION: Function for button when the shift mode is toggled on
 
@@ -9979,33 +10044,33 @@ Set to 0 to disable or choose a function
 |57|relay_3_on|
 |58|relay_3_off|
 |59|relay_3_toggle|
-|61|servo_1_inc|
-|62|servo_1_dec|
-|63|servo_1_min|
-|64|servo_1_max|
-|65|servo_1_center|
-|66|servo_2_inc|
-|67|servo_2_dec|
-|68|servo_2_min|
-|69|servo_2_max|
-|70|servo_2_center|
-|71|servo_3_inc|
-|72|servo_3_dec|
-|73|servo_3_min|
-|74|servo_3_max|
-|75|servo_3_center|
-|76|servo_1_min_momentary|
-|77|servo_1_max_momentary|
-|78|servo_1_min_toggle|
-|79|servo_1_max_toggle|
-|80|servo_2_min_momentary|
-|81|servo_2_max_momentary|
-|82|servo_2_min_toggle|
-|83|servo_2_max_toggle|
-|84|servo_3_min_momentary|
-|85|servo_3_max_momentary|
-|86|servo_3_min_toggle|
-|87|servo_3_max_toggle|
+|61|actuator_1_inc|
+|62|actuator_1_dec|
+|63|actuator_1_min|
+|64|actuator_1_max|
+|65|actuator_1_center|
+|66|actuator_2_inc|
+|67|actuator_2_dec|
+|68|actuator_2_min|
+|69|actuator_2_max|
+|70|actuator_2_center|
+|71|actuator_3_inc|
+|72|actuator_3_dec|
+|73|actuator_3_min|
+|74|actuator_3_max|
+|75|actuator_3_center|
+|76|actuator_1_min_momentary|
+|77|actuator_1_max_momentary|
+|78|actuator_1_min_toggle|
+|79|actuator_1_max_toggle|
+|80|actuator_2_min_momentary|
+|81|actuator_2_max_momentary|
+|82|actuator_2_min_toggle|
+|83|actuator_2_max_toggle|
+|84|actuator_3_min_momentary|
+|85|actuator_3_max_momentary|
+|86|actuator_3_min_toggle|
+|87|actuator_3_max_toggle|
 |91|custom_1|
 |92|custom_2|
 |93|custom_3|
@@ -10023,6 +10088,33 @@ Set to 0 to disable or choose a function
 |109|script_2|
 |110|script_3|
 |111|script_4|
+|112|actuator_4_min|
+|113|actuator_4_max|
+|114|actuator_4_center|
+|115|actuator_4_inc|
+|116|actuator_4_dec|
+|117|actuator_4_min_momentary|
+|118|actuator_4_max_momentary|
+|119|actuator_4_min_toggle|
+|120|actuator_4_max_toggle|
+|121|actuator_5_min|
+|122|actuator_5_max|
+|123|actuator_5_center|
+|124|actuator_5_inc|
+|125|actuator_5_dec|
+|126|actuator_5_min_momentary|
+|127|actuator_5_max_momentary|
+|128|actuator_5_min_toggle|
+|129|actuator_5_max_toggle|
+|130|actuator_6_min|
+|131|actuator_6_max|
+|132|actuator_6_center|
+|133|actuator_6_inc|
+|134|actuator_6_dec|
+|135|actuator_6_min_momentary|
+|136|actuator_6_max_momentary|
+|137|actuator_6_min_toggle|
+|138|actuator_6_max_toggle|
 
 # CAM Parameters
 
@@ -19353,6 +19445,7 @@ This selects the output PWM type, allowing for normal PWM continuous output, One
 |6|DShot600|
 |7|DShot1200|
 |8|PWMRange|
+|9|PWMAngle|
 
 - RebootRequired: True
 
@@ -26577,33 +26670,11 @@ Function assigned to this servo. Setting this to Disabled(0) will setup this out
 |-1|GPIO|
 |0|Disabled|
 |1|RCPassThru|
-|2|Flap|
-|3|FlapAuto|
-|4|Aileron|
 |6|Mount1Yaw|
 |7|Mount1Pitch|
 |8|Mount1Roll|
 |9|Mount1Retract|
-|10|CameraTrigger|
-|12|Mount2Yaw|
-|13|Mount2Pitch|
-|14|Mount2Roll|
-|15|Mount2Retract|
-|16|DifferentialSpoilerLeft1|
-|17|DifferentialSpoilerRight1|
-|19|Elevator|
-|21|Rudder|
-|22|SprayerPump|
-|23|SprayerSpinner|
-|24|FlaperonLeft|
-|25|FlaperonRight|
-|26|GroundSteering|
-|27|Parachute|
 |28|Gripper|
-|29|LandingGear|
-|30|EngineRunEnable|
-|31|HeliRSC|
-|32|HeliTailRSC|
 |33|Motor1|
 |34|Motor2|
 |35|Motor3|
@@ -26612,18 +26683,14 @@ Function assigned to this servo. Setting this to Disabled(0) will setup this out
 |38|Motor6|
 |39|Motor7|
 |40|Motor8|
-|41|TiltMotorsFront|
-|45|TiltMotorsRear|
-|46|TiltMotorRearLeft|
-|47|TiltMotorRearRight|
-|51|RCIN1|
-|52|RCIN2|
-|53|RCIN3|
-|54|RCIN4|
-|55|RCIN5|
-|56|RCIN6|
-|57|RCIN7|
-|58|RCIN8|
+|51|RCIN1/Pitch|
+|52|RCIN2/Roll|
+|53|RCIN3/HeaveVertical|
+|54|RCIN4/YawTurn|
+|55|RCIN5/SurgeForward|
+|56|RCIN6/SwayLateral|
+|57|RCIN7/CameraPan|
+|58|RCIN8/CameraTilt|
 |59|RCIN9|
 |60|RCIN10|
 |61|RCIN11|
@@ -26632,28 +26699,11 @@ Function assigned to this servo. Setting this to Disabled(0) will setup this out
 |64|RCIN14|
 |65|RCIN15|
 |66|RCIN16|
-|67|Ignition|
-|69|Starter|
-|70|Throttle|
-|71|TrackerYaw|
-|72|TrackerPitch|
-|73|ThrottleLeft|
-|74|ThrottleRight|
-|75|TiltMotorFrontLeft|
-|76|TiltMotorFrontRight|
-|77|ElevonLeft|
-|78|ElevonRight|
-|79|VTailLeft|
-|80|VTailRight|
-|81|BoostThrottle|
 |82|Motor9|
 |83|Motor10|
 |84|Motor11|
 |85|Motor12|
-|86|DifferentialSpoilerLeft2|
-|87|DifferentialSpoilerRight2|
 |88|Winch|
-|89|Main Sail|
 |90|CameraISO|
 |91|CameraAperture|
 |92|CameraFocus|
@@ -26678,38 +26728,19 @@ Function assigned to this servo. Setting this to Disabled(0) will setup this out
 |121|NeoPixel2|
 |122|NeoPixel3|
 |123|NeoPixel4|
-|124|RateRoll|
-|125|RatePitch|
-|126|RateThrust|
-|127|RateYaw|
-|128|WingSailElevator|
-|129|ProfiLED1|
-|130|ProfiLED2|
-|131|ProfiLED3|
-|132|ProfiLEDClock|
-|133|Winch Clutch|
 |134|SERVOn_MIN|
 |135|SERVOn_TRIM|
 |136|SERVOn_MAX|
-|137|SailMastRotation|
-|138|Alarm|
-|139|Alarm Inverted|
-|140|RCIN1Scaled|
-|141|RCIN2Scaled|
-|142|RCIN3Scaled|
-|143|RCIN4Scaled|
-|144|RCIN5Scaled|
-|145|RCIN6Scaled|
-|146|RCIN7Scaled|
-|147|RCIN8Scaled|
-|148|RCIN9Scaled|
-|149|RCIN10Scaled|
-|150|RCIN11Scaled|
-|151|RCIN12Scaled|
-|152|RCIN13Scaled|
-|153|RCIN14Scaled|
-|154|RCIN15Scaled|
-|155|RCIN16Scaled|
+|180|CameraZoom|
+|181|Lights1|
+|182|Lights2|
+|183|VideoSwitch|
+|184|Actuator1|
+|185|Actuator2|
+|186|Actuator3|
+|187|Actuator4|
+|188|Actuator5|
+|189|Actuator6|
 
 - RebootRequired: True
 

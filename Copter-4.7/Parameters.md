@@ -1190,6 +1190,15 @@ Bitmask of flight modes to disable for GCS selection. Mode can still be accessed
 
 # Lua Script Parameters
 
+## PARAM_LOCK_ENAB: Param Lockdown enable
+
+Param Lockdown enable
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
+
 ## DR_ENABLE: Deadreckoning Enable
 
 Deadreckoning Enable
@@ -1480,15 +1489,6 @@ OpticalFlow may be used if rangefinder distance is below this threshold
 - Range: 0 50
 
 - Units: m
-
-## PARAM_SET_ENABLE: Param Set enable
-
-Param Set enable
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|Enabled|
 
 ## FOLLP_FAIL_MODE: Plane Follow lost target mode
 
@@ -20018,6 +20018,7 @@ Type of AHRS device
 |1|VectorNav|
 |2|MicroStrain5|
 |5|InertialLabs|
+|6|Trimble GSOF|
 |7|MicroStrain7|
 |8|SBG|
 
@@ -41015,20 +41016,6 @@ Vehicle will continue landing vertically until this height if target is not foun
 Precision Landing Extra Options
 
 - Bitmask: 0: Moving Landing Target, 1: Allow Precision Landing after manual reposition, 2: Maintain high speed in final descent
-
-## PLND_ORIENT: Camera Orientation
-
-*Note: This parameter is for advanced users*
-
-Orientation of camera/sensor on body
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Forward|
-|4|Back|
-|25|Down|
-
-- RebootRequired: True
 
 # PRX Parameters
 

@@ -1000,6 +1000,12 @@
       </param>
     </parameters>
     <parameters name="Lua Script">
+      <param humanName="Param Lockdown enable" name="PARAM_LOCK_ENAB" documentation="Param Lockdown enable" user="Standard">
+        <values>
+          <value code="0">Disabled</value>
+          <value code="1">Enabled</value>
+        </values>
+      </param>
       <param humanName="Deadreckoning Enable" name="DR_ENABLE" documentation="Deadreckoning Enable" user="Standard">
         <values>
           <value code="0">Disabled</value>
@@ -1182,12 +1188,6 @@
         <field name="Range">0 50</field>
         <field name="Units">m</field>
         <field name="UnitText">meters</field>
-      </param>
-      <param humanName="Param Set enable" name="PARAM_SET_ENABLE" documentation="Param Set enable" user="Standard">
-        <values>
-          <value code="0">Disabled</value>
-          <value code="1">Enabled</value>
-        </values>
       </param>
       <param humanName="Plane Follow lost target mode" name="FOLLP_FAIL_MODE" documentation="Mode to switch to if the target is lost (no signal or &gt; FOLL_DIST_MAX)." user="Standard">
 </param>
@@ -13199,6 +13199,7 @@
           <value code="1">VectorNav</value>
           <value code="2">MicroStrain5</value>
           <value code="5">InertialLabs</value>
+          <value code="6">Trimble GSOF</value>
           <value code="7">MicroStrain7</value>
           <value code="8">SBG</value>
         </values>

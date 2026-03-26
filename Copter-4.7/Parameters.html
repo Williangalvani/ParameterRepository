@@ -1260,6 +1260,17 @@ DO NOT EDIT
 <h1>Lua Script Parameters</h1>
 
 
+<h2>Param Lockdown enable (PARAM_LOCK_ENAB)</h2>
+
+<p>Param Lockdown enable</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>0</td><td>Disabled</td></tr>
+<tr><td>1</td><td>Enabled</td></tr>
+</table>
+</ul>
+
+
 <h2>Deadreckoning Enable (DR_ENABLE)</h2>
 
 <p>Deadreckoning Enable</p>
@@ -1617,17 +1628,6 @@ DO NOT EDIT
 <ul>
 <li>Range: 0 50</li>
 <li>Units: meters</li>
-</ul>
-
-
-<h2>Param Set enable (PARAM_SET_ENABLE)</h2>
-
-<p>Param Set enable</p>
-<ul>
-<table><th>Value</th><th>Meaning</th>
-<tr><td>0</td><td>Disabled</td></tr>
-<tr><td>1</td><td>Enabled</td></tr>
-</table>
 </ul>
 
 
@@ -20837,6 +20837,7 @@ DO NOT EDIT
 <tr><td>1</td><td>VectorNav</td></tr>
 <tr><td>2</td><td>MicroStrain5</td></tr>
 <tr><td>5</td><td>InertialLabs</td></tr>
+<tr><td>6</td><td>Trimble GSOF</td></tr>
 <tr><td>7</td><td>MicroStrain7</td></tr>
 <tr><td>8</td><td>SBG</td></tr>
 </table>
@@ -42875,19 +42876,6 @@ DO NOT EDIT
 <p>Precision Landing Extra Options</p>
 <ul>
 <li>Bitmask: 0: Moving Landing Target, 1: Allow Precision Landing after manual reposition, 2: Maintain high speed in final descent</li>
-</ul>
-
-
-<h2>Camera Orientation (PLND_ORIENT)</h2><em>Note: This parameter is for advanced users</em><br>
-
-<p>Orientation of camera/sensor on body</p>
-<ul>
-<table><th>Value</th><th>Meaning</th>
-<tr><td>0</td><td>Forward</td></tr>
-<tr><td>4</td><td>Back</td></tr>
-<tr><td>25</td><td>Down</td></tr>
-</table>
-<li>RebootRequired: True</li>
 </ul>
 
 

@@ -598,6 +598,15 @@ Bitmask of flight modes to disable for GCS selection. Mode can still be accessed
 
 # Lua Script Parameters
 
+## PARAM_LOCK_ENAB: Param Lockdown enable
+
+Param Lockdown enable
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
+
 ## DR_ENABLE: Deadreckoning Enable
 
 Deadreckoning Enable
@@ -888,15 +897,6 @@ OpticalFlow may be used if rangefinder distance is below this threshold
 - Range: 0 50
 
 - Units: m
-
-## PARAM_SET_ENABLE: Param Set enable
-
-Param Set enable
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|Enabled|
 
 ## FOLLP_FAIL_MODE: Plane Follow lost target mode
 
@@ -18473,6 +18473,7 @@ Type of AHRS device
 |1|VectorNav|
 |2|MicroStrain5|
 |5|InertialLabs|
+|6|Trimble GSOF|
 |7|MicroStrain7|
 |8|SBG|
 

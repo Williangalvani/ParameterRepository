@@ -1302,6 +1302,26 @@ Lua Script Parameters
 ---------------------
 
 
+.. _PARAM_LOCK_ENAB:
+
+PARAM\_LOCK\_ENAB: Param Lockdown enable
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Param Lockdown enable
+
+
++-------+----------+
+| Value | Meaning  |
++=======+==========+
+| 0     | Disabled |
++-------+----------+
+| 1     | Enabled  |
++-------+----------+
+
+
+
+
 .. _DR_ENABLE:
 
 DR\_ENABLE: Deadreckoning Enable
@@ -2048,26 +2068,6 @@ OpticalFlow may be used if rangefinder distance is below this threshold
 +=========+========+
 | 0 to 50 | meters |
 +---------+--------+
-
-
-
-
-.. _PARAM_SET_ENABLE:
-
-PARAM\_SET\_ENABLE: Param Set enable
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Param Set enable
-
-
-+-------+----------+
-| Value | Meaning  |
-+=======+==========+
-| 0     | Disabled |
-+-------+----------+
-| 1     | Enabled  |
-+-------+----------+
 
 
 
@@ -42673,6 +42673,8 @@ Type of AHRS device
 | 2     | MicroStrain5 |
 +-------+--------------+
 | 5     | InertialLabs |
++-------+--------------+
+| 6     | Trimble GSOF |
 +-------+--------------+
 | 7     | MicroStrain7 |
 +-------+--------------+

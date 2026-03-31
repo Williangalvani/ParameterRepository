@@ -634,135 +634,131 @@ Bitmask of flight modes to disable for GCS selection. Mode can still be accessed
 
 # Lua Script Parameters
 
-## DR_ENABLE: Deadreckoning Enable
+## TERR_BRK_ENABLE: terrain brake enable
 
-Deadreckoning Enable
+terrain brake enable
 
 |Value|Meaning|
 |:---:|:---:|
 |0|Disabled|
 |1|Enabled|
 
-## DR_ENABLE_DIST: Deadreckoning Enable Distance
+## TERR_BRK_ALT: terrain brake altitude
 
-Distance from home (in meters) beyond which the dead reckoning will be enabled
+terrain brake altitude. The altitude above the ground below which BRAKE mode will be engaged if in LOITER mode.
 
-- Units: m
-
-## DR_GPS_SACC_MAX: Deadreckoning GPS speed accuracy maximum threshold
-
-GPS speed accuracy maximum, above which deadreckoning home will begin (default is 0.8).  Lower values trigger with good GPS quality, higher values will allow poorer GPS before triggering. Set to 0 to disable use of GPS speed accuracy
-
-- Range: 0 10
-
-## DR_GPS_SAT_MIN: Deadreckoning GPS satellite count min threshold
-
-GPS satellite count threshold below which deadreckoning home will begin (default is 6).  Higher values trigger with good GPS quality, Lower values trigger with worse GPS quality. Set to 0 to disable use of GPS satellite count
-
-- Range: 0 30
-
-## DR_GPS_TRIGG_SEC: Deadreckoning GPS check trigger seconds
-
-GPS checks must fail for this many seconds before dead reckoning will be triggered
-
-- Units: s
-
-## DR_FLY_ANGLE: Deadreckoning Lean Angle
-
-lean angle (in degrees) during deadreckoning
-
-- Units: deg
-
-- Range: 0 45
-
-## DR_FLY_ALT_MIN: Deadreckoning Altitude Min
-
-Copter will fly at at least this altitude (in meters) above home during deadreckoning
+- Range: 1 100
 
 - Units: m
+
+## TERR_BRK_HDIST: terrain brake home distance
+
+terrain brake home distance. The distance from home where the auto BRAKE will be enabled. When within this distance of home the script will not activate
 
 - Range: 0 1000
 
-## DR_FLY_TIMEOUT: Deadreckoning flight timeout
+- Units: m
 
-Copter will attempt to switch to NEXT_MODE after this many seconds of deadreckoning.  If it cannot switch modes it will continue in Guided_NoGPS.  Set to 0 to disable timeout
+## TERR_BRK_SPD: terrain brake speed threshold
 
-- Units: s
+terrain brake speed threshold. Don't trigger BRAKE if both horizontal speed and descent rate are below this threshold. By setting this to a small value this can be used to allow the user to climb up to a safe altitude in LOITER mode. A value of 0.5 is recommended if you want to use LOITER to recover from an emergency terrain BRAKE mode change.
 
-## DR_NEXT_MODE: Deadreckoning Next Mode
+- Range: 0 5
 
-Copter switch to this mode after GPS recovers or DR_FLY_TIMEOUT has elapsed.  Default is 6/RTL.  Set to -1 to return to mode used before deadreckoning was triggered
+- Units: m/s
 
-|Value|Meaning|
-|:---:|:---:|
-|2|AltHold|
-|3|Auto|
-|4|Guided|
-|5|Loiter|
-|6|RTL|
-|7|Circle|
-|9|Land|
-|16|PosHold|
-|17|Brake|
-|20|Guided_NoGPS|
-|21|Smart_RTL|
-|27|Auto RTL|
+## WEB_ENABLE: enable web server
 
-## SLUP_ENABLE: Slung Payload enable
-
-Slung Payload enable
+enable web server
 
 |Value|Meaning|
 |:---:|:---:|
 |0|Disabled|
 |1|Enabled|
 
-## SLUP_VEL_P: Slung Payload Velocity P gain
+## WEB_BIND_PORT: web server TCP port
 
-Slung Payload Velocity P gain, higher values will result in faster movements in sync with payload
+web server TCP port
 
-- Range: 0 0.8
+- Range: 1 65535
 
-## SLUP_DIST_MAX: Slung Payload horizontal distance max
-
-Oscillation is suppressed when vehicle and payload are no more than this distance horizontally.  Set to 0 to always suppress
-
-- Range: 0 30
-
-## SLUP_SYSID: Slung Payload mavlink system id
-
-Slung Payload mavlink system id.  0 to use any/all system ids
-
-- Range: 0 255
-
-## SLUP_WP_POS_P: Slung Payload return to WP position P gain
-
-WP position P gain. higher values will result in vehicle moving more quickly back to the original waypoint
-
-- Range: 0 1
-
-## SLUP_RESTOFS_TC: Slung Payload resting offset estimate filter time constant
-
-payload's position estimator's time constant used to compensate for GPS errors and wind.  Higher values result in smoother estimate but slower response
-
-- Range: 1 20
-
-## SLUP_DEBUG: Slung Payload debug output
-
-Slung payload debug output, set to 1 to enable debug
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|Enabled|
-
-## CGA_RATIO: CoG adjustment ratio
+## WEB_DEBUG: web server debugging
 
 *Note: This parameter is for advanced users*
 
-The ratio between the front and back motor outputs during steady-state hover. Positive when the CoG is in front of the motors midpoint (front motors work harder).
+web server debugging
 
-- Range: 0.5 2
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
+
+## WEB_BLOCK_SIZE: web server block size
+
+*Note: This parameter is for advanced users*
+
+web server block size for download
+
+- Range: 1 65535
+
+## WEB_TIMEOUT: web server timeout
+
+*Note: This parameter is for advanced users*
+
+timeout for inactive connections
+
+- Units: s
+
+- Range: 0.1 60
+
+## WEB_SENDFILE_MIN: web server minimum file size for sendfile
+
+*Note: This parameter is for advanced users*
+
+sendfile is an offloading mechanism for faster file download. If this is non-zero and the file is larger than this size then sendfile will be used for file download
+
+- Range: 0 10000000
+
+## CAM1_THERM_PAL: Camera1 Thermal Palette
+
+thermal image colour palette
+
+|Value|Meaning|
+|:---:|:---:|
+|-1|Leave Unchanged|
+|0|WhiteHot|
+|2|Sepia|
+|3|IronBow|
+|4|Rainbow|
+|5|Night|
+|6|Aurora|
+|7|RedHot|
+|8|Jungle|
+|9|Medical|
+|10|BlackHot|
+|11|GloryHot|
+
+## CAM1_THERM_GAIN: Camera1 Thermal Gain
+
+thermal image temperature range
+
+|Value|Meaning|
+|:---:|:---:|
+|-1|Leave Unchanged|
+|0|LowGain (50C to 550C)|
+|1|HighGain (-20C to 150C)|
+
+## CAM1_THERM_RAW: Camera1 Thermal Raw Data
+
+save images with raw temperatures
+
+|Value|Meaning|
+|:---:|:---:|
+|-1|Leave Unchanged|
+|0|Disabled (30fps)|
+|1|Enabled (25 fps)|
+
+- Units: m
 
 ## QUIK_ENABLE: Quicktune enable
 
@@ -864,41 +860,79 @@ If while tuning the angle error goes over this limit then the tune will aborts t
 
 - Units: deg
 
-## ESRC_EXTN_THRESH: EKF Source ExternalNav Innovation Threshold
+## DR_ENABLE: Deadreckoning Enable
 
-ExternalNav may be used if innovations are below this threshold
+Deadreckoning Enable
 
-- Range: 0 1
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
 
-## ESRC_EXTN_QUAL: EKF Source ExternalNav Quality Threshold
+## DR_ENABLE_DIST: Deadreckoning Enable Distance
 
-ExternalNav may be used if quality is above this threshold
-
-- Range: 0 100
-
-- Units: %
-
-## ESRC_FLOW_THRESH: EKF Source OpticalFlow Innovation Threshold
-
-OpticalFlow may be used if innovations are below this threshold
-
-- Range: 0 1
-
-## ESRC_FLOW_QUAL: EKF Source OpticalFlow Quality Threshold
-
-OpticalFlow may be used if quality is above this threshold
-
-- Range: 0 100
-
-- Units: %
-
-## ESRC_RNGFND_MAX: EKF Source Rangefinder Max
-
-OpticalFlow may be used if rangefinder distance is below this threshold
-
-- Range: 0 50
+Distance from home (in meters) beyond which the dead reckoning will be enabled
 
 - Units: m
+
+## DR_GPS_SACC_MAX: Deadreckoning GPS speed accuracy maximum threshold
+
+GPS speed accuracy maximum, above which deadreckoning home will begin (default is 0.8).  Lower values trigger with good GPS quality, higher values will allow poorer GPS before triggering. Set to 0 to disable use of GPS speed accuracy
+
+- Range: 0 10
+
+## DR_GPS_SAT_MIN: Deadreckoning GPS satellite count min threshold
+
+GPS satellite count threshold below which deadreckoning home will begin (default is 6).  Higher values trigger with good GPS quality, Lower values trigger with worse GPS quality. Set to 0 to disable use of GPS satellite count
+
+- Range: 0 30
+
+## DR_GPS_TRIGG_SEC: Deadreckoning GPS check trigger seconds
+
+GPS checks must fail for this many seconds before dead reckoning will be triggered
+
+- Units: s
+
+## DR_FLY_ANGLE: Deadreckoning Lean Angle
+
+lean angle (in degrees) during deadreckoning
+
+- Units: deg
+
+- Range: 0 45
+
+## DR_FLY_ALT_MIN: Deadreckoning Altitude Min
+
+Copter will fly at at least this altitude (in meters) above home during deadreckoning
+
+- Units: m
+
+- Range: 0 1000
+
+## DR_FLY_TIMEOUT: Deadreckoning flight timeout
+
+Copter will attempt to switch to NEXT_MODE after this many seconds of deadreckoning.  If it cannot switch modes it will continue in Guided_NoGPS.  Set to 0 to disable timeout
+
+- Units: s
+
+## DR_NEXT_MODE: Deadreckoning Next Mode
+
+Copter switch to this mode after GPS recovers or DR_FLY_TIMEOUT has elapsed.  Default is 6/RTL.  Set to -1 to return to mode used before deadreckoning was triggered
+
+|Value|Meaning|
+|:---:|:---:|
+|2|AltHold|
+|3|Auto|
+|4|Guided|
+|5|Loiter|
+|6|RTL|
+|7|Circle|
+|9|Land|
+|16|PosHold|
+|17|Brake|
+|20|Guided_NoGPS|
+|21|Smart_RTL|
+|27|Auto RTL|
 
 ## BATT_SOC_COUNT: Count of SOC estimators
 
@@ -1025,254 +1059,6 @@ Battery estimator coefficient2
 Battery estimator coefficient3
 
 - Range: 0.01 0.5
-
-## TERR_BRK_ENABLE: terrain brake enable
-
-terrain brake enable
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|Enabled|
-
-## TERR_BRK_ALT: terrain brake altitude
-
-terrain brake altitude. The altitude above the ground below which BRAKE mode will be engaged if in LOITER mode.
-
-- Range: 1 100
-
-- Units: m
-
-## TERR_BRK_HDIST: terrain brake home distance
-
-terrain brake home distance. The distance from home where the auto BRAKE will be enabled. When within this distance of home the script will not activate
-
-- Range: 0 1000
-
-- Units: m
-
-## TERR_BRK_SPD: terrain brake speed threshold
-
-terrain brake speed threshold. Don't trigger BRAKE if both horizontal speed and descent rate are below this threshold. By setting this to a small value this can be used to allow the user to climb up to a safe altitude in LOITER mode. A value of 0.5 is recommended if you want to use LOITER to recover from an emergency terrain BRAKE mode change.
-
-- Range: 0 5
-
-- Units: m/s
-
-## WEB_ENABLE: enable web server
-
-enable web server
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|Enabled|
-
-## WEB_BIND_PORT: web server TCP port
-
-web server TCP port
-
-- Range: 1 65535
-
-## WEB_DEBUG: web server debugging
-
-*Note: This parameter is for advanced users*
-
-web server debugging
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|Enabled|
-
-## WEB_BLOCK_SIZE: web server block size
-
-*Note: This parameter is for advanced users*
-
-web server block size for download
-
-- Range: 1 65535
-
-## WEB_TIMEOUT: web server timeout
-
-*Note: This parameter is for advanced users*
-
-timeout for inactive connections
-
-- Units: s
-
-- Range: 0.1 60
-
-## WEB_SENDFILE_MIN: web server minimum file size for sendfile
-
-*Note: This parameter is for advanced users*
-
-sendfile is an offloading mechanism for faster file download. If this is non-zero and the file is larger than this size then sendfile will be used for file download
-
-- Range: 0 10000000
-
-## POI_DIST_MAX: Mount POI distance max
-
-POI's max distance (in meters) from the vehicle
-
-- Range: 0 10000
-
-## CAM1_THERM_PAL: Camera1 Thermal Palette
-
-thermal image colour palette
-
-|Value|Meaning|
-|:---:|:---:|
-|-1|Leave Unchanged|
-|0|WhiteHot|
-|2|Sepia|
-|3|IronBow|
-|4|Rainbow|
-|5|Night|
-|6|Aurora|
-|7|RedHot|
-|8|Jungle|
-|9|Medical|
-|10|BlackHot|
-|11|GloryHot|
-
-## CAM1_THERM_GAIN: Camera1 Thermal Gain
-
-thermal image temperature range
-
-|Value|Meaning|
-|:---:|:---:|
-|-1|Leave Unchanged|
-|0|LowGain (50C to 550C)|
-|1|HighGain (-20C to 150C)|
-
-## CAM1_THERM_RAW: Camera1 Thermal Raw Data
-
-save images with raw temperatures
-
-|Value|Meaning|
-|:---:|:---:|
-|-1|Leave Unchanged|
-|0|Disabled (30fps)|
-|1|Enabled (25 fps)|
-
-- Units: m
-
-## WINCH_RATE_UP: WinchControl Rate Up
-
-Maximum rate when retracting line
-
-- Range: 0.1 5.0
-
-## WINCH_RATE_DN: WinchControl Rate Down
-
-Maximum rate when releasing line
-
-- Range: 0.1 5.0
-
-## WINCH_RC_FUNC: Winch Rate Control RC function
-
-RCn_OPTION number to use to control winch rate
-
-|Value|Meaning|
-|:---:|:---:|
-|300|Scripting1|
-|301|Scripting2|
-|302|Scripting3|
-|303|Scripting4|
-|304|Scripting5|
-|305|Scripting6|
-|306|Scripting7|
-|307|Scripting8|
-
-## RTUN_ENABLE: Rover Quicktune enable
-
-Enable quicktune system
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|Enabled|
-
-## RTUN_AXES: Rover Quicktune axes
-
-axes to tune
-
-- Bitmask: 0:Steering,1:Speed
-
-## RTUN_STR_FFRATIO: Rover Quicktune Steering Rate FeedForward ratio
-
-Ratio between measured response and FF gain. Raise this to get a higher FF gain
-
-- Range: 0 1.0
-
-## RTUN_STR_P_RATIO: Rover Quicktune Steering FF to P ratio
-
-Ratio between steering FF and P gains. Raise this to get a higher P gain, 0 to leave P unchanged
-
-- Range: 0 2.0
-
-## RTUN_STR_I_RATIO: Rover Quicktune Steering FF to I ratio
-
-Ratio between steering FF and I gains. Raise this to get a higher I gain, 0 to leave I unchanged
-
-- Range: 0 2.0
-
-## RTUN_SPD_FFRATIO: Rover Quicktune Speed FeedForward (equivalent) ratio
-
-Ratio between measured response and CRUISE_THROTTLE value. Raise this to get a higher CRUISE_THROTTLE value
-
-- Range: 0 1.0
-
-## RTUN_SPD_P_RATIO: Rover Quicktune Speed FF to P ratio
-
-Ratio between speed FF and P gain. Raise this to get a higher P gain, 0 to leave P unchanged
-
-- Range: 0 2.0
-
-## RTUN_SPD_I_RATIO: Rover Quicktune Speed FF to I ratio
-
-Ratio between speed FF and I gain. Raise this to get a higher I gain, 0 to leave I unchanged
-
-- Range: 0 2.0
-
-## RTUN_AUTO_FILTER: Rover Quicktune auto filter enable
-
-When enabled the PID filter settings are automatically set based on INS_GYRO_FILTER
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|Enabled|
-
-## RTUN_AUTO_SAVE: Rover Quicktune auto save
-
-Number of seconds after completion of tune to auto-save. This is useful when using a 2 position switch for quicktune
-
-- Units: s
-
-## RTUN_RC_FUNC: Rover Quicktune RC function
-
-RCn_OPTION number to use to control tuning stop/start/save
-
-|Value|Meaning|
-|:---:|:---:|
-|300|Scripting1|
-|301|Scripting2|
-|302|Scripting3|
-|303|Scripting4|
-|304|Scripting5|
-|305|Scripting6|
-|306|Scripting7|
-|307|Scripting8|
-
-## RTUN_SPEED_MIN: Rover Quicktune minimum speed for tuning
-
-The mimimum speed in m/s required for tuning to start
-
-- Units: m/s
-
-- Range: 0.1 0.5
 
 ## ARM_SYSID: MAV_SYSID must be set
 
@@ -1552,6 +1338,12 @@ Legal max altitude for UAV/RPAS/drones in your jurisdiction
 
 - Units: m
 
+## POI_DIST_MAX: Mount POI distance max
+
+POI's max distance (in meters) from the vehicle
+
+- Range: 0 10000
+
 ## TA_ACT_FN: Activation Function for Terrain Avoidance
 
 Setting an RC channel's _OPTION to this value will use it for Terrain Avoidance enable/disable
@@ -1683,6 +1475,81 @@ Enables the Rockblock sending and recieving
 |0|Disabled|
 |1|Enabled|
 
+## WINCH_RATE_UP: WinchControl Rate Up
+
+Maximum rate when retracting line
+
+- Range: 0.1 5.0
+
+## WINCH_RATE_DN: WinchControl Rate Down
+
+Maximum rate when releasing line
+
+- Range: 0.1 5.0
+
+## WINCH_RC_FUNC: Winch Rate Control RC function
+
+RCn_OPTION number to use to control winch rate
+
+|Value|Meaning|
+|:---:|:---:|
+|300|Scripting1|
+|301|Scripting2|
+|302|Scripting3|
+|303|Scripting4|
+|304|Scripting5|
+|305|Scripting6|
+|306|Scripting7|
+|307|Scripting8|
+
+## SLUP_ENABLE: Slung Payload enable
+
+Slung Payload enable
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
+
+## SLUP_VEL_P: Slung Payload Velocity P gain
+
+Slung Payload Velocity P gain, higher values will result in faster movements in sync with payload
+
+- Range: 0 0.8
+
+## SLUP_DIST_MAX: Slung Payload horizontal distance max
+
+Oscillation is suppressed when vehicle and payload are no more than this distance horizontally.  Set to 0 to always suppress
+
+- Range: 0 30
+
+## SLUP_SYSID: Slung Payload mavlink system id
+
+Slung Payload mavlink system id.  0 to use any/all system ids
+
+- Range: 0 255
+
+## SLUP_WP_POS_P: Slung Payload return to WP position P gain
+
+WP position P gain. higher values will result in vehicle moving more quickly back to the original waypoint
+
+- Range: 0 1
+
+## SLUP_RESTOFS_TC: Slung Payload resting offset estimate filter time constant
+
+payload's position estimator's time constant used to compensate for GPS errors and wind.  Higher values result in smoother estimate but slower response
+
+- Range: 1 20
+
+## SLUP_DEBUG: Slung Payload debug output
+
+Slung payload debug output, set to 1 to enable debug
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
+
 ## PREV_ENABLE: parameter reversion enable
 
 Enable parameter reversion system
@@ -1711,6 +1578,14 @@ The distance from target beyond which the target is ignored
 - Range: 0 100
 
 - Units: m
+
+## CGA_RATIO: CoG adjustment ratio
+
+*Note: This parameter is for advanced users*
+
+The ratio between the front and back motor outputs during steady-state hover. Positive when the CoG is in front of the motors midpoint (front motors work harder).
+
+- Range: 0.5 2
 
 ## VID1_CAMMODEL: Camera1 Video Stream Camera Model
 
@@ -1826,6 +1701,95 @@ Video stream IP Address Port
 
 - Range: 0 65535
 
+## RTUN_ENABLE: Rover Quicktune enable
+
+Enable quicktune system
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
+
+## RTUN_AXES: Rover Quicktune axes
+
+axes to tune
+
+- Bitmask: 0:Steering,1:Speed
+
+## RTUN_STR_FFRATIO: Rover Quicktune Steering Rate FeedForward ratio
+
+Ratio between measured response and FF gain. Raise this to get a higher FF gain
+
+- Range: 0 1.0
+
+## RTUN_STR_P_RATIO: Rover Quicktune Steering FF to P ratio
+
+Ratio between steering FF and P gains. Raise this to get a higher P gain, 0 to leave P unchanged
+
+- Range: 0 2.0
+
+## RTUN_STR_I_RATIO: Rover Quicktune Steering FF to I ratio
+
+Ratio between steering FF and I gains. Raise this to get a higher I gain, 0 to leave I unchanged
+
+- Range: 0 2.0
+
+## RTUN_SPD_FFRATIO: Rover Quicktune Speed FeedForward (equivalent) ratio
+
+Ratio between measured response and CRUISE_THROTTLE value. Raise this to get a higher CRUISE_THROTTLE value
+
+- Range: 0 1.0
+
+## RTUN_SPD_P_RATIO: Rover Quicktune Speed FF to P ratio
+
+Ratio between speed FF and P gain. Raise this to get a higher P gain, 0 to leave P unchanged
+
+- Range: 0 2.0
+
+## RTUN_SPD_I_RATIO: Rover Quicktune Speed FF to I ratio
+
+Ratio between speed FF and I gain. Raise this to get a higher I gain, 0 to leave I unchanged
+
+- Range: 0 2.0
+
+## RTUN_AUTO_FILTER: Rover Quicktune auto filter enable
+
+When enabled the PID filter settings are automatically set based on INS_GYRO_FILTER
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
+
+## RTUN_AUTO_SAVE: Rover Quicktune auto save
+
+Number of seconds after completion of tune to auto-save. This is useful when using a 2 position switch for quicktune
+
+- Units: s
+
+## RTUN_RC_FUNC: Rover Quicktune RC function
+
+RCn_OPTION number to use to control tuning stop/start/save
+
+|Value|Meaning|
+|:---:|:---:|
+|300|Scripting1|
+|301|Scripting2|
+|302|Scripting3|
+|303|Scripting4|
+|304|Scripting5|
+|305|Scripting6|
+|306|Scripting7|
+|307|Scripting8|
+
+## RTUN_SPEED_MIN: Rover Quicktune minimum speed for tuning
+
+The mimimum speed in m/s required for tuning to start
+
+- Units: m/s
+
+- Range: 0.1 0.5
+
 ## SHIP_ENABLE: Ship landing enable
 
 Enable ship landing system
@@ -1851,6 +1815,42 @@ Settings this parameter to one triggers an automatic follow offset calculation b
 |:---:|:---:|
 |0|Disabled|
 |1|Trigger|
+
+## ESRC_EXTN_THRESH: EKF Source ExternalNav Innovation Threshold
+
+ExternalNav may be used if innovations are below this threshold
+
+- Range: 0 1
+
+## ESRC_EXTN_QUAL: EKF Source ExternalNav Quality Threshold
+
+ExternalNav may be used if quality is above this threshold
+
+- Range: 0 100
+
+- Units: %
+
+## ESRC_FLOW_THRESH: EKF Source OpticalFlow Innovation Threshold
+
+OpticalFlow may be used if innovations are below this threshold
+
+- Range: 0 1
+
+## ESRC_FLOW_QUAL: EKF Source OpticalFlow Quality Threshold
+
+OpticalFlow may be used if quality is above this threshold
+
+- Range: 0 100
+
+- Units: %
+
+## ESRC_RNGFND_MAX: EKF Source Rangefinder Max
+
+OpticalFlow may be used if rangefinder distance is below this threshold
+
+- Range: 0 50
+
+- Units: m
 
 ## AEROM_ANG_ACCEL: Angular acceleration limit
 
@@ -2040,48 +2040,39 @@ Number of tricks which can be selected over the range of the trik selection RC c
 
 - Range: 1 11
 
-## UM_SERVO_MASK: Mask of UltraMotion servos
+## ESC_HW_ENABLE: Hobbywing ESC Enable
 
-Mask of UltraMotion servos
-
-- Bitmask: 0:SERVO1,1:SERVO2,2:SERVO3,3:SERVO4,4:SERVO5,5:SERVO6,6:SERVO7,7:SERVO8,8:SERVO9,9:SERVO10,10:SERVO11,11:SERVO12
-
-## UM_CANDRV: Set CAN driver
-
-Set CAN driver
-
-|Value|Meaning|
-|:---:|:---:|
-|0|None|
-|1|1stCANDriver|
-|2|2ndCanDriver|
-
-## UM_RATE_HZ: Update rate for UltraMotion servos
-
-Update rate for UltraMotion servos
-
-- Units: Hz
-
-- Range: 1 400
-
-## UM_OPTIONS: Optional settings
-
-Optional settings
-
-- Bitmask: 0:LogAllFrames,1:ParseTelemetry,2:SendPosAsNamedValueFloat
-
-## EFI_H6K_ENABLE: Enable Halo6000 EFI driver
-
-Enable Halo6000 EFI driver
+Enable Hobbywing ESC telemetry
 
 |Value|Meaning|
 |:---:|:---:|
 |0|Disabled|
 |1|Enabled|
 
-## EFI_H6K_CANDRV: Halo6000 CAN driver
+## ESC_HW_POLES: Hobbywing ESC motor poles
 
-Halo6000 CAN driver. Use 1 for first CAN scripting driver, 2 for 2nd driver
+Number of motor poles for eRPM scaling
+
+- Range: 1 50
+
+## ESC_HW_OFS: Hobbywing ESC motor offset
+
+Motor number offset of first ESC
+
+- Range: 0 31
+
+## EFI_2K_ENABLE: Enable NMEA 2000 EFI driver
+
+Enable NMEA 2000 EFI driver
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
+
+## EFI_2K_CANDRV: NMEA 2000 CAN driver
+
+NMEA 2000 CAN driver. Use 1 for first CAN scripting driver, 2 for 2nd driver
 
 |Value|Meaning|
 |:---:|:---:|
@@ -2089,57 +2080,38 @@ Halo6000 CAN driver. Use 1 for first CAN scripting driver, 2 for 2nd driver
 |1|FirstCAN|
 |2|SecondCAN|
 
-## EFI_H6K_START_FN: Halo6000 start auxilliary function
+## EFI_2K_OPTIONS: NMEA 2000 options
 
-The RC auxilliary function number for start/stop of the generator. Zero to disable start function
+NMEA 2000 driver options
+
+- Bitmask: 0:EnableLogging
+
+## EFI_INF_ENABLE: EFI INF-Inject enable
+
+Enable EFI INF-Inject driver
 
 |Value|Meaning|
 |:---:|:---:|
 |0|Disabled|
-|300|300|
-|301|301|
-|302|302|
-|303|303|
-|304|304|
-|305|305|
-|306|306|
-|307|307|
+|1|Enabled|
 
-## EFI_H6K_TELEM_RT: Halo6000 telemetry rate
+## EFI_INF_OPTIONS: EFI INF-Inject options
 
-The rate that additional generator telemetry is sent
+EFI INF driver options
+
+- Bitmask: 0:EnableLogging
+
+## EFI_INF_THR_HZ: EFI INF-Inject throttle rate
+
+EFI INF throttle output rate
+
+- Range: 0 50
 
 - Units: Hz
 
-## EFI_H6K_FUELTOT: Halo6000 total fuel capacity
+## EFI_INF_IGN_AUX: EFI INF-Inject ignition aux function
 
-The capacity of the tank in litres
-
-- Units: litres
-
-## EFI_H6K_OPTIONS: Halo6000 options
-
-Halo6000 options
-
-- Bitmask: 0:LogAllCanPackets
-
-## EFI_SVF_ENABLE: Generator SVFFI enable
-
-Enable SVFFI generator support
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|Enabled|
-
-## EFI_SVF_ARMCHECK: Generator SVFFI arming check
-
-Check for Generator ARM state before arming
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|Enabled|
+EFI INF throttle ignition aux function
 
 ## BATT_ANX_ENABLE: Enable ANX battery support
 
@@ -2174,91 +2146,23 @@ ANX CAN battery options
 
 - Bitmask: 0:LogAllFrames
 
-## ESC_HW_ENABLE: Hobbywing ESC Enable
+## EFI_SVF_ENABLE: Generator SVFFI enable
 
-Enable Hobbywing ESC telemetry
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|Enabled|
-
-## ESC_HW_POLES: Hobbywing ESC motor poles
-
-Number of motor poles for eRPM scaling
-
-- Range: 1 50
-
-## ESC_HW_OFS: Hobbywing ESC motor offset
-
-Motor number offset of first ESC
-
-- Range: 0 31
-
-## DJIR_DEBUG: DJIRS2 debug
-
-*Note: This parameter is for advanced users*
-
-Enable DJIRS2 debug
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|Enabled|
-|2|Enabled with attitude reporting|
-
-## DJIR_UPSIDEDOWN: DJIRS2 upside down
-
-DJIRS2 upside down
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Right side up|
-|1|Upside down|
-
-## EFI_INF_ENABLE: EFI INF-Inject enable
-
-Enable EFI INF-Inject driver
+Enable SVFFI generator support
 
 |Value|Meaning|
 |:---:|:---:|
 |0|Disabled|
 |1|Enabled|
 
-## EFI_INF_OPTIONS: EFI INF-Inject options
+## EFI_SVF_ARMCHECK: Generator SVFFI arming check
 
-EFI INF driver options
-
-- Bitmask: 0:EnableLogging
-
-## EFI_INF_THR_HZ: EFI INF-Inject throttle rate
-
-EFI INF throttle output rate
-
-- Range: 0 50
-
-- Units: Hz
-
-## EFI_INF_IGN_AUX: EFI INF-Inject ignition aux function
-
-EFI INF throttle ignition aux function
-
-## EFI_DLA_ENABLE: EFI DLA enable
-
-Enable EFI DLA driver
+Check for Generator ARM state before arming
 
 |Value|Meaning|
 |:---:|:---:|
 |0|Disabled|
 |1|Enabled|
-
-## EFI_DLA_LPS: EFI DLA fuel scale
-
-EFI DLA litres of fuel per second of injection time
-
-- Range: 0.00001 1
-
-- Units: litres
 
 ## VIEP_DEBUG: ViewPro debug
 
@@ -2328,6 +2232,80 @@ ViewPro Zoom Speed.  Higher numbers result in faster zooming
 ViewPro Zoom Times Max
 
 - Range: 0 30
+
+## DJIR_DEBUG: DJIRS2 debug
+
+*Note: This parameter is for advanced users*
+
+Enable DJIRS2 debug
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
+|2|Enabled with attitude reporting|
+
+## DJIR_UPSIDEDOWN: DJIRS2 upside down
+
+DJIRS2 upside down
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Right side up|
+|1|Upside down|
+
+## EFI_H6K_ENABLE: Enable Halo6000 EFI driver
+
+Enable Halo6000 EFI driver
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
+
+## EFI_H6K_CANDRV: Halo6000 CAN driver
+
+Halo6000 CAN driver. Use 1 for first CAN scripting driver, 2 for 2nd driver
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|FirstCAN|
+|2|SecondCAN|
+
+## EFI_H6K_START_FN: Halo6000 start auxilliary function
+
+The RC auxilliary function number for start/stop of the generator. Zero to disable start function
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|300|300|
+|301|301|
+|302|302|
+|303|303|
+|304|304|
+|305|305|
+|306|306|
+|307|307|
+
+## EFI_H6K_TELEM_RT: Halo6000 telemetry rate
+
+The rate that additional generator telemetry is sent
+
+- Units: Hz
+
+## EFI_H6K_FUELTOT: Halo6000 total fuel capacity
+
+The capacity of the tank in litres
+
+- Units: litres
+
+## EFI_H6K_OPTIONS: Halo6000 options
+
+Halo6000 options
+
+- Bitmask: 0:LogAllCanPackets
 
 ## EFI_SP_ENABLE: Enable SkyPower EFI support
 
@@ -2473,30 +2451,52 @@ SkyPower EFI restart time. If engine should be running and it has stopped for th
 
 - Units: s
 
-## EFI_2K_ENABLE: Enable NMEA 2000 EFI driver
+## UM_SERVO_MASK: Mask of UltraMotion servos
 
-Enable NMEA 2000 EFI driver
+Mask of UltraMotion servos
+
+- Bitmask: 0:SERVO1,1:SERVO2,2:SERVO3,3:SERVO4,4:SERVO5,5:SERVO6,6:SERVO7,7:SERVO8,8:SERVO9,9:SERVO10,10:SERVO11,11:SERVO12
+
+## UM_CANDRV: Set CAN driver
+
+Set CAN driver
+
+|Value|Meaning|
+|:---:|:---:|
+|0|None|
+|1|1stCANDriver|
+|2|2ndCanDriver|
+
+## UM_RATE_HZ: Update rate for UltraMotion servos
+
+Update rate for UltraMotion servos
+
+- Units: Hz
+
+- Range: 1 400
+
+## UM_OPTIONS: Optional settings
+
+Optional settings
+
+- Bitmask: 0:LogAllFrames,1:ParseTelemetry,2:SendPosAsNamedValueFloat
+
+## EFI_DLA_ENABLE: EFI DLA enable
+
+Enable EFI DLA driver
 
 |Value|Meaning|
 |:---:|:---:|
 |0|Disabled|
 |1|Enabled|
 
-## EFI_2K_CANDRV: NMEA 2000 CAN driver
+## EFI_DLA_LPS: EFI DLA fuel scale
 
-NMEA 2000 CAN driver. Use 1 for first CAN scripting driver, 2 for 2nd driver
+EFI DLA litres of fuel per second of injection time
 
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|FirstCAN|
-|2|SecondCAN|
+- Range: 0.00001 1
 
-## EFI_2K_OPTIONS: NMEA 2000 options
-
-NMEA 2000 driver options
-
-- Bitmask: 0:EnableLogging
+- Units: litres
 
 ## TOFSENSE_S1_PRX: TOFSENSE-M to be used as Proximity sensor
 

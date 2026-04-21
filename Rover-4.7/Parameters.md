@@ -15122,13 +15122,13 @@ The available features of the attached RunCam device. If 0 then the RunCam devic
 
 Time it takes for the RunCam to become fully ready in ms. If this is too short then commands can get out of sync.
 
-## CAM1_RC_BTN_DELAY: RunCam button delay before allowing further button presses
+## CAM1_RC_BTN_DELY: RunCam button delay before allowing further button presses
 
 *Note: This parameter is for advanced users*
 
 Time it takes for the a RunCam button press to be actived in ms. If this is too short then commands can get out of sync.
 
-## CAM1_RC_MDE_DELAY: RunCam mode delay before allowing further button presses
+## CAM1_RC_MDE_DELY: RunCam mode delay before allowing further button presses
 
 *Note: This parameter is for advanced users*
 
@@ -15291,13 +15291,13 @@ The available features of the attached RunCam device. If 0 then the RunCam devic
 
 Time it takes for the RunCam to become fully ready in ms. If this is too short then commands can get out of sync.
 
-## CAM2_RC_BTN_DELAY: RunCam button delay before allowing further button presses
+## CAM2_RC_BTN_DELY: RunCam button delay before allowing further button presses
 
 *Note: This parameter is for advanced users*
 
 Time it takes for the a RunCam button press to be actived in ms. If this is too short then commands can get out of sync.
 
-## CAM2_RC_MDE_DELAY: RunCam mode delay before allowing further button presses
+## CAM2_RC_MDE_DELY: RunCam mode delay before allowing further button presses
 
 *Note: This parameter is for advanced users*
 
@@ -18476,6 +18476,7 @@ Type of AHRS device
 |6|Trimble GSOF|
 |7|MicroStrain7|
 |8|SBG|
+|11|SensAItion|
 
 ## EAHRS_RATE: AHRS data rate
 
@@ -18487,7 +18488,7 @@ Requested rate for AHRS device
 
 External AHRS options bitmask
 
-- Bitmask: 0:Vector Nav use uncompensated values for accel gyro and mag., 1:SBG uses EKF as GNSS.
+- Bitmask: 0:Vector Nav use uncompensated values for accel gyro and mag, 1:SBG uses EKF as GNSS, 2:SensAItion used as AHRS
 
 ## EAHRS_SENSORS: External AHRS sensors
 
@@ -20264,6 +20265,32 @@ Distance that autopilot's should maintain from the fence in the horizontal plane
 - Units: m
 
 - Range: 0 50
+
+## FENCE_ALT_MAX_TP: Altitude max frame type
+
+*Note: This parameter is for advanced users*
+
+The altitude reference frame for the maximum altitude fence. Can be AMSL, home-relative, origin relative or AGL.
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Above sea level|
+|1|Above Home|
+|2|Above Origin|
+|3|Above Terrain|
+
+## FENCE_ALT_MIN_TP: Altitude min frame type
+
+*Note: This parameter is for advanced users*
+
+The altitude reference frame for the minimum altitude fence. Can be AMSL, home-relative, origin relative or AGL.
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Above sea level|
+|1|Above Home|
+|2|Above Origin|
+|3|Above Terrain|
 
 # FFT Parameters
 

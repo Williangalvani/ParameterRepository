@@ -16331,14 +16331,14 @@ DO NOT EDIT
 </ul>
 
 
-<h2>RunCam button delay before allowing further button presses (CAM1_RC_BTN_DELAY)</h2><em>Note: This parameter is for advanced users</em><br>
+<h2>RunCam button delay before allowing further button presses (CAM1_RC_BTN_DELY)</h2><em>Note: This parameter is for advanced users</em><br>
 
 <p>Time it takes for the a RunCam button press to be actived in ms. If this is too short then commands can get out of sync.</p>
 <ul>
 </ul>
 
 
-<h2>RunCam mode delay before allowing further button presses (CAM1_RC_MDE_DELAY)</h2><em>Note: This parameter is for advanced users</em><br>
+<h2>RunCam mode delay before allowing further button presses (CAM1_RC_MDE_DELY)</h2><em>Note: This parameter is for advanced users</em><br>
 
 <p>Time it takes for the a RunCam mode button press to be actived in ms. If a mode change first requires a video recording change then double this value is used. If this is too short then commands can get out of sync.</p>
 <ul>
@@ -16525,14 +16525,14 @@ DO NOT EDIT
 </ul>
 
 
-<h2>RunCam button delay before allowing further button presses (CAM2_RC_BTN_DELAY)</h2><em>Note: This parameter is for advanced users</em><br>
+<h2>RunCam button delay before allowing further button presses (CAM2_RC_BTN_DELY)</h2><em>Note: This parameter is for advanced users</em><br>
 
 <p>Time it takes for the a RunCam button press to be actived in ms. If this is too short then commands can get out of sync.</p>
 <ul>
 </ul>
 
 
-<h2>RunCam mode delay before allowing further button presses (CAM2_RC_MDE_DELAY)</h2><em>Note: This parameter is for advanced users</em><br>
+<h2>RunCam mode delay before allowing further button presses (CAM2_RC_MDE_DELY)</h2><em>Note: This parameter is for advanced users</em><br>
 
 <p>Time it takes for the a RunCam mode button press to be actived in ms. If a mode change first requires a video recording change then double this value is used. If this is too short then commands can get out of sync.</p>
 <ul>
@@ -19637,6 +19637,7 @@ DO NOT EDIT
 <tr><td>6</td><td>Trimble GSOF</td></tr>
 <tr><td>7</td><td>MicroStrain7</td></tr>
 <tr><td>8</td><td>SBG</td></tr>
+<tr><td>11</td><td>SensAItion</td></tr>
 </table>
 </ul>
 
@@ -19653,7 +19654,7 @@ DO NOT EDIT
 
 <p>External AHRS options bitmask</p>
 <ul>
-<li>Bitmask: 0:Vector Nav use uncompensated values for accel gyro and mag., 1:SBG uses EKF as GNSS.</li>
+<li>Bitmask: 0:Vector Nav use uncompensated values for accel gyro and mag, 1:SBG uses EKF as GNSS, 2:SensAItion used as AHRS</li>
 </ul>
 
 
@@ -21229,7 +21230,7 @@ DO NOT EDIT
 
 <h2>Fence Maximum Altitude (FENCE_ALT_MAX)</h2>
 
-<p>Maximum altitude allowed before geofence triggers</p>
+<p>Maximum altitude allowed before geofence triggers. See FENCE_ALT_MAX_TP for reference frame.</p>
 <ul>
 <li>Units: meters</li>
 <li>Range: 10 1000</li>
@@ -21265,7 +21266,7 @@ DO NOT EDIT
 
 <h2>Fence Minimum Altitude (FENCE_ALT_MIN)</h2>
 
-<p>Minimum altitude allowed before geofence triggers</p>
+<p>Minimum altitude allowed before geofence triggers. See FENCE_ALT_MIN_TP for reference frame.</p>
 <ul>
 <li>Units: meters</li>
 <li>Range: -100 100</li>
@@ -21334,6 +21335,32 @@ DO NOT EDIT
 <ul>
 <li>Units: meters</li>
 <li>Range: 0 50</li>
+</ul>
+
+
+<h2>Altitude max frame type (FENCE_ALT_MAX_TP)</h2><em>Note: This parameter is for advanced users</em><br>
+
+<p>The altitude reference frame for the maximum altitude fence. Can be AMSL, home-relative, origin relative or AGL.</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>0</td><td>Above sea level</td></tr>
+<tr><td>1</td><td>Above Home</td></tr>
+<tr><td>2</td><td>Above Origin</td></tr>
+<tr><td>3</td><td>Above Terrain</td></tr>
+</table>
+</ul>
+
+
+<h2>Altitude min frame type (FENCE_ALT_MIN_TP)</h2><em>Note: This parameter is for advanced users</em><br>
+
+<p>The altitude reference frame for the minimum altitude fence. Can be AMSL, home-relative, origin relative or AGL.</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>0</td><td>Above sea level</td></tr>
+<tr><td>1</td><td>Above Home</td></tr>
+<tr><td>2</td><td>Above Origin</td></tr>
+<tr><td>3</td><td>Above Terrain</td></tr>
+</table>
 </ul>
 
 

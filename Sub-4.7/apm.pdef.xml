@@ -16908,9 +16908,9 @@
       </param>
       <param humanName="RunCam boot delay before allowing updates" name="CAM1_RC_BT_DELAY" documentation="Time it takes for the RunCam to become fully ready in ms. If this is too short then commands can get out of sync." user="Advanced">
 </param>
-      <param humanName="RunCam button delay before allowing further button presses" name="CAM1_RC_BTN_DELAY" documentation="Time it takes for the a RunCam button press to be actived in ms. If this is too short then commands can get out of sync." user="Advanced">
+      <param humanName="RunCam button delay before allowing further button presses" name="CAM1_RC_BTN_DELY" documentation="Time it takes for the a RunCam button press to be actived in ms. If this is too short then commands can get out of sync." user="Advanced">
 </param>
-      <param humanName="RunCam mode delay before allowing further button presses" name="CAM1_RC_MDE_DELAY" documentation="Time it takes for the a RunCam mode button press to be actived in ms. If a mode change first requires a video recording change then double this value is used. If this is too short then commands can get out of sync." user="Advanced">
+      <param humanName="RunCam mode delay before allowing further button presses" name="CAM1_RC_MDE_DELY" documentation="Time it takes for the a RunCam mode button press to be actived in ms. If a mode change first requires a video recording change then double this value is used. If this is too short then commands can get out of sync." user="Advanced">
 </param>
       <param humanName="RunCam control option" name="CAM1_RC_CONTROL" documentation="Specifies the allowed actions required to enter the OSD menu and other option like autorecording" user="Advanced">
         <bitmask>
@@ -17032,9 +17032,9 @@
       </param>
       <param humanName="RunCam boot delay before allowing updates" name="CAM2_RC_BT_DELAY" documentation="Time it takes for the RunCam to become fully ready in ms. If this is too short then commands can get out of sync." user="Advanced">
 </param>
-      <param humanName="RunCam button delay before allowing further button presses" name="CAM2_RC_BTN_DELAY" documentation="Time it takes for the a RunCam button press to be actived in ms. If this is too short then commands can get out of sync." user="Advanced">
+      <param humanName="RunCam button delay before allowing further button presses" name="CAM2_RC_BTN_DELY" documentation="Time it takes for the a RunCam button press to be actived in ms. If this is too short then commands can get out of sync." user="Advanced">
 </param>
-      <param humanName="RunCam mode delay before allowing further button presses" name="CAM2_RC_MDE_DELAY" documentation="Time it takes for the a RunCam mode button press to be actived in ms. If a mode change first requires a video recording change then double this value is used. If this is too short then commands can get out of sync." user="Advanced">
+      <param humanName="RunCam mode delay before allowing further button presses" name="CAM2_RC_MDE_DELY" documentation="Time it takes for the a RunCam mode button press to be actived in ms. If a mode change first requires a video recording change then double this value is used. If this is too short then commands can get out of sync." user="Advanced">
 </param>
       <param humanName="RunCam control option" name="CAM2_RC_CONTROL" documentation="Specifies the allowed actions required to enter the OSD menu and other option like autorecording" user="Advanced">
         <bitmask>
@@ -19552,6 +19552,7 @@
           <value code="6">Trimble GSOF</value>
           <value code="7">MicroStrain7</value>
           <value code="8">SBG</value>
+          <value code="11">SensAItion</value>
         </values>
       </param>
       <param humanName="AHRS data rate" name="EAHRS_RATE" documentation="Requested rate for AHRS device" user="Standard">
@@ -19560,10 +19561,11 @@
       </param>
       <param humanName="External AHRS options" name="EAHRS_OPTIONS" documentation="External AHRS options bitmask" user="Standard">
         <bitmask>
-          <bit code="0">Vector Nav use uncompensated values for accel gyro and mag.</bit>
-          <bit code="1">SBG uses EKF as GNSS.</bit>
+          <bit code="0">Vector Nav use uncompensated values for accel gyro and mag</bit>
+          <bit code="1">SBG uses EKF as GNSS</bit>
+          <bit code="2">SensAItion used as AHRS</bit>
         </bitmask>
-        <field name="Bitmask">0:Vector Nav use uncompensated values for accel gyro and mag., 1:SBG uses EKF as GNSS.</field>
+        <field name="Bitmask">0:Vector Nav use uncompensated values for accel gyro and mag, 1:SBG uses EKF as GNSS, 2:SensAItion used as AHRS</field>
       </param>
       <param humanName="External AHRS sensors" name="EAHRS_SENSORS" documentation="External AHRS sensors bitmask" user="Advanced">
         <bitmask>
@@ -20564,7 +20566,7 @@
           <value code="1">RTL or Land</value>
         </values>
       </param>
-      <param humanName="Fence Maximum Altitude" name="FENCE_ALT_MAX" documentation="Maximum altitude allowed before geofence triggers" user="Standard">
+      <param humanName="Fence Maximum Altitude" name="FENCE_ALT_MAX" documentation="Maximum altitude allowed before geofence triggers. See FENCE_ALT_MAX_TP for reference frame." user="Standard">
         <field name="Units">m</field>
         <field name="UnitText">meters</field>
         <field name="Range">10 1000</field>
@@ -20583,7 +20585,7 @@
       <param humanName="Fence polygon point total" name="FENCE_TOTAL" documentation="Number of polygon points saved in eeprom (do not update manually)" user="Standard">
         <field name="Range">1 20</field>
       </param>
-      <param humanName="Fence Minimum Altitude" name="FENCE_ALT_MIN" documentation="Minimum altitude allowed before geofence triggers" user="Standard">
+      <param humanName="Fence Minimum Altitude" name="FENCE_ALT_MIN" documentation="Minimum altitude allowed before geofence triggers. See FENCE_ALT_MIN_TP for reference frame." user="Standard">
         <field name="Units">m</field>
         <field name="UnitText">meters</field>
         <field name="Range">-100 100</field>
@@ -20606,6 +20608,22 @@
         <field name="Units">m</field>
         <field name="UnitText">meters</field>
         <field name="Range">0 50</field>
+      </param>
+      <param humanName="Altitude max frame type" name="FENCE_ALT_MAX_TP" documentation="The altitude reference frame for the maximum altitude fence. Can be AMSL, home-relative, origin relative or AGL." user="Advanced">
+        <values>
+          <value code="0">Above sea level</value>
+          <value code="1">Above Home</value>
+          <value code="2">Above Origin</value>
+          <value code="3">Above Terrain</value>
+        </values>
+      </param>
+      <param humanName="Altitude min frame type" name="FENCE_ALT_MIN_TP" documentation="The altitude reference frame for the minimum altitude fence. Can be AMSL, home-relative, origin relative or AGL." user="Advanced">
+        <values>
+          <value code="0">Above sea level</value>
+          <value code="1">Above Home</value>
+          <value code="2">Above Origin</value>
+          <value code="3">Above Terrain</value>
+        </values>
       </param>
     </parameters>
     <parameters name="FFT_">

@@ -13755,10 +13755,9 @@
           <bit code="19">MMC5XX3</bit>
           <bit code="20">QMC5883P</bit>
           <bit code="21">BMM350</bit>
-          <bit code="22">IIS2MDC</bit>
-          <bit code="23">LIS2MDL</bit>
+          <bit code="22">IIS2MDC or LIS2MDL</bit>
         </bitmask>
-        <field name="Bitmask">0:HMC5883,1:LSM303D,2:AK8963,3:BMM150,4:LSM9DS1,5:LIS3MDL,6:AK0991x,7:IST8310,8:ICM20948,9:MMC3416,11:DroneCAN,12:QMC5883,14:MAG3110,15:IST8308,16:RM3100,17:MSP,18:ExternalAHRS,19:MMC5XX3,20:QMC5883P,21:BMM350,22:IIS2MDC,23:LIS2MDL</field>
+        <field name="Bitmask">0:HMC5883,1:LSM303D,2:AK8963,3:BMM150,4:LSM9DS1,5:LIS3MDL,6:AK0991x,7:IST8310,8:ICM20948,9:MMC3416,11:DroneCAN,12:QMC5883,14:MAG3110,15:IST8308,16:RM3100,17:MSP,18:ExternalAHRS,19:MMC5XX3,20:QMC5883P,21:BMM350,22:IIS2MDC or LIS2MDL</field>
       </param>
       <param humanName="Range in which sample is accepted" name="COMPASS_FLTR_RNG" documentation="This sets the range around the average value that new samples must be within to be accepted. This can help reduce the impact of noise on sensors that are on long I2C cables. The value is a percentage from the average value. A value of zero disables this filter.">
         <field name="Units">%</field>
@@ -30542,6 +30541,7 @@
           <value code="3">LidarLite-I2C</value>
           <value code="15">LidarLiteV3-I2C</value>
           <value code="45">LightWare-GRF</value>
+          <value code="48">LightWare-GRF-I2C</value>
           <value code="7">LightWareI2C</value>
           <value code="8">LightWareSerial</value>
           <value code="36">Lua_Scripting</value>
@@ -30709,6 +30709,8 @@
       <param humanName="RangeFinder Minimum signal strength" name="RNGFND1_SNR_MIN" documentation="RangeFinder Minimum signal strength (SNR) to accept distance" user="Advanced">
         <field name="Range">0 65535</field>
       </param>
+    </parameters>
+    <parameters name="RNGFND1_GRF_">
       <param humanName="LightWare GRF Distance Return Type" name="RNGFND1_GRF_RET" documentation="Selects which single return to use." user="Standard">
         <values>
           <value code="0">FirstRaw</value>
@@ -30722,7 +30724,26 @@
         <field name="Range">0 255</field>
         <field name="RebootRequired">True</field>
       </param>
-      <param humanName="LightWare GRF Update Rate" name="RNGFND1_GRF_RATE" documentation="The update rate of the sensor in Hz. Must match the" user="Advanced">
+      <param humanName="LightWare GRF Update Rate" name="RNGFND1_GRF_RATE" documentation="The update rate of the sensor in Hz." user="Advanced">
+        <field name="Range">1 50</field>
+        <field name="RebootRequired">True</field>
+      </param>
+    </parameters>
+    <parameters name="RNGFND1_GRF_">
+      <param humanName="LightWare GRF Distance Return Type" name="RNGFND1_GRF_RET" documentation="Selects which single return to use." user="Standard">
+        <values>
+          <value code="0">FirstRaw</value>
+          <value code="1">FirstFiltered</value>
+          <value code="2">LastRaw</value>
+          <value code="3">LastFiltered</value>
+        </values>
+        <field name="RebootRequired">True</field>
+      </param>
+      <param humanName="LightWare GRF Minimum Return Strength" name="RNGFND1_GRF_ST" documentation="Minimum acceptable return signal strength in dB. Returns weaker than this will be ignored. Set to 0 to disable filtering." user="Advanced">
+        <field name="Range">0 255</field>
+        <field name="RebootRequired">True</field>
+      </param>
+      <param humanName="LightWare GRF Update Rate" name="RNGFND1_GRF_RATE" documentation="The update rate of the sensor in Hz." user="Advanced">
         <field name="Range">1 50</field>
         <field name="RebootRequired">True</field>
       </param>
@@ -30755,6 +30776,7 @@
           <value code="3">LidarLite-I2C</value>
           <value code="15">LidarLiteV3-I2C</value>
           <value code="45">LightWare-GRF</value>
+          <value code="48">LightWare-GRF-I2C</value>
           <value code="7">LightWareI2C</value>
           <value code="8">LightWareSerial</value>
           <value code="36">Lua_Scripting</value>
@@ -30922,6 +30944,8 @@
       <param humanName="RangeFinder Minimum signal strength" name="RNGFND2_SNR_MIN" documentation="RangeFinder Minimum signal strength (SNR) to accept distance" user="Advanced">
         <field name="Range">0 65535</field>
       </param>
+    </parameters>
+    <parameters name="RNGFND2_GRF_">
       <param humanName="LightWare GRF Distance Return Type" name="RNGFND2_GRF_RET" documentation="Selects which single return to use." user="Standard">
         <values>
           <value code="0">FirstRaw</value>
@@ -30935,7 +30959,26 @@
         <field name="Range">0 255</field>
         <field name="RebootRequired">True</field>
       </param>
-      <param humanName="LightWare GRF Update Rate" name="RNGFND2_GRF_RATE" documentation="The update rate of the sensor in Hz. Must match the" user="Advanced">
+      <param humanName="LightWare GRF Update Rate" name="RNGFND2_GRF_RATE" documentation="The update rate of the sensor in Hz." user="Advanced">
+        <field name="Range">1 50</field>
+        <field name="RebootRequired">True</field>
+      </param>
+    </parameters>
+    <parameters name="RNGFND2_GRF_">
+      <param humanName="LightWare GRF Distance Return Type" name="RNGFND2_GRF_RET" documentation="Selects which single return to use." user="Standard">
+        <values>
+          <value code="0">FirstRaw</value>
+          <value code="1">FirstFiltered</value>
+          <value code="2">LastRaw</value>
+          <value code="3">LastFiltered</value>
+        </values>
+        <field name="RebootRequired">True</field>
+      </param>
+      <param humanName="LightWare GRF Minimum Return Strength" name="RNGFND2_GRF_ST" documentation="Minimum acceptable return signal strength in dB. Returns weaker than this will be ignored. Set to 0 to disable filtering." user="Advanced">
+        <field name="Range">0 255</field>
+        <field name="RebootRequired">True</field>
+      </param>
+      <param humanName="LightWare GRF Update Rate" name="RNGFND2_GRF_RATE" documentation="The update rate of the sensor in Hz." user="Advanced">
         <field name="Range">1 50</field>
         <field name="RebootRequired">True</field>
       </param>
@@ -30968,6 +31011,7 @@
           <value code="3">LidarLite-I2C</value>
           <value code="15">LidarLiteV3-I2C</value>
           <value code="45">LightWare-GRF</value>
+          <value code="48">LightWare-GRF-I2C</value>
           <value code="7">LightWareI2C</value>
           <value code="8">LightWareSerial</value>
           <value code="36">Lua_Scripting</value>
@@ -31135,6 +31179,8 @@
       <param humanName="RangeFinder Minimum signal strength" name="RNGFND3_SNR_MIN" documentation="RangeFinder Minimum signal strength (SNR) to accept distance" user="Advanced">
         <field name="Range">0 65535</field>
       </param>
+    </parameters>
+    <parameters name="RNGFND3_GRF_">
       <param humanName="LightWare GRF Distance Return Type" name="RNGFND3_GRF_RET" documentation="Selects which single return to use." user="Standard">
         <values>
           <value code="0">FirstRaw</value>
@@ -31148,7 +31194,26 @@
         <field name="Range">0 255</field>
         <field name="RebootRequired">True</field>
       </param>
-      <param humanName="LightWare GRF Update Rate" name="RNGFND3_GRF_RATE" documentation="The update rate of the sensor in Hz. Must match the" user="Advanced">
+      <param humanName="LightWare GRF Update Rate" name="RNGFND3_GRF_RATE" documentation="The update rate of the sensor in Hz." user="Advanced">
+        <field name="Range">1 50</field>
+        <field name="RebootRequired">True</field>
+      </param>
+    </parameters>
+    <parameters name="RNGFND3_GRF_">
+      <param humanName="LightWare GRF Distance Return Type" name="RNGFND3_GRF_RET" documentation="Selects which single return to use." user="Standard">
+        <values>
+          <value code="0">FirstRaw</value>
+          <value code="1">FirstFiltered</value>
+          <value code="2">LastRaw</value>
+          <value code="3">LastFiltered</value>
+        </values>
+        <field name="RebootRequired">True</field>
+      </param>
+      <param humanName="LightWare GRF Minimum Return Strength" name="RNGFND3_GRF_ST" documentation="Minimum acceptable return signal strength in dB. Returns weaker than this will be ignored. Set to 0 to disable filtering." user="Advanced">
+        <field name="Range">0 255</field>
+        <field name="RebootRequired">True</field>
+      </param>
+      <param humanName="LightWare GRF Update Rate" name="RNGFND3_GRF_RATE" documentation="The update rate of the sensor in Hz." user="Advanced">
         <field name="Range">1 50</field>
         <field name="RebootRequired">True</field>
       </param>
@@ -31181,6 +31246,7 @@
           <value code="3">LidarLite-I2C</value>
           <value code="15">LidarLiteV3-I2C</value>
           <value code="45">LightWare-GRF</value>
+          <value code="48">LightWare-GRF-I2C</value>
           <value code="7">LightWareI2C</value>
           <value code="8">LightWareSerial</value>
           <value code="36">Lua_Scripting</value>
@@ -31348,6 +31414,8 @@
       <param humanName="RangeFinder Minimum signal strength" name="RNGFND4_SNR_MIN" documentation="RangeFinder Minimum signal strength (SNR) to accept distance" user="Advanced">
         <field name="Range">0 65535</field>
       </param>
+    </parameters>
+    <parameters name="RNGFND4_GRF_">
       <param humanName="LightWare GRF Distance Return Type" name="RNGFND4_GRF_RET" documentation="Selects which single return to use." user="Standard">
         <values>
           <value code="0">FirstRaw</value>
@@ -31361,7 +31429,26 @@
         <field name="Range">0 255</field>
         <field name="RebootRequired">True</field>
       </param>
-      <param humanName="LightWare GRF Update Rate" name="RNGFND4_GRF_RATE" documentation="The update rate of the sensor in Hz. Must match the" user="Advanced">
+      <param humanName="LightWare GRF Update Rate" name="RNGFND4_GRF_RATE" documentation="The update rate of the sensor in Hz." user="Advanced">
+        <field name="Range">1 50</field>
+        <field name="RebootRequired">True</field>
+      </param>
+    </parameters>
+    <parameters name="RNGFND4_GRF_">
+      <param humanName="LightWare GRF Distance Return Type" name="RNGFND4_GRF_RET" documentation="Selects which single return to use." user="Standard">
+        <values>
+          <value code="0">FirstRaw</value>
+          <value code="1">FirstFiltered</value>
+          <value code="2">LastRaw</value>
+          <value code="3">LastFiltered</value>
+        </values>
+        <field name="RebootRequired">True</field>
+      </param>
+      <param humanName="LightWare GRF Minimum Return Strength" name="RNGFND4_GRF_ST" documentation="Minimum acceptable return signal strength in dB. Returns weaker than this will be ignored. Set to 0 to disable filtering." user="Advanced">
+        <field name="Range">0 255</field>
+        <field name="RebootRequired">True</field>
+      </param>
+      <param humanName="LightWare GRF Update Rate" name="RNGFND4_GRF_RATE" documentation="The update rate of the sensor in Hz." user="Advanced">
         <field name="Range">1 50</field>
         <field name="RebootRequired">True</field>
       </param>
@@ -31394,6 +31481,7 @@
           <value code="3">LidarLite-I2C</value>
           <value code="15">LidarLiteV3-I2C</value>
           <value code="45">LightWare-GRF</value>
+          <value code="48">LightWare-GRF-I2C</value>
           <value code="7">LightWareI2C</value>
           <value code="8">LightWareSerial</value>
           <value code="36">Lua_Scripting</value>
@@ -31561,6 +31649,8 @@
       <param humanName="RangeFinder Minimum signal strength" name="RNGFND5_SNR_MIN" documentation="RangeFinder Minimum signal strength (SNR) to accept distance" user="Advanced">
         <field name="Range">0 65535</field>
       </param>
+    </parameters>
+    <parameters name="RNGFND5_GRF_">
       <param humanName="LightWare GRF Distance Return Type" name="RNGFND5_GRF_RET" documentation="Selects which single return to use." user="Standard">
         <values>
           <value code="0">FirstRaw</value>
@@ -31574,7 +31664,26 @@
         <field name="Range">0 255</field>
         <field name="RebootRequired">True</field>
       </param>
-      <param humanName="LightWare GRF Update Rate" name="RNGFND5_GRF_RATE" documentation="The update rate of the sensor in Hz. Must match the" user="Advanced">
+      <param humanName="LightWare GRF Update Rate" name="RNGFND5_GRF_RATE" documentation="The update rate of the sensor in Hz." user="Advanced">
+        <field name="Range">1 50</field>
+        <field name="RebootRequired">True</field>
+      </param>
+    </parameters>
+    <parameters name="RNGFND5_GRF_">
+      <param humanName="LightWare GRF Distance Return Type" name="RNGFND5_GRF_RET" documentation="Selects which single return to use." user="Standard">
+        <values>
+          <value code="0">FirstRaw</value>
+          <value code="1">FirstFiltered</value>
+          <value code="2">LastRaw</value>
+          <value code="3">LastFiltered</value>
+        </values>
+        <field name="RebootRequired">True</field>
+      </param>
+      <param humanName="LightWare GRF Minimum Return Strength" name="RNGFND5_GRF_ST" documentation="Minimum acceptable return signal strength in dB. Returns weaker than this will be ignored. Set to 0 to disable filtering." user="Advanced">
+        <field name="Range">0 255</field>
+        <field name="RebootRequired">True</field>
+      </param>
+      <param humanName="LightWare GRF Update Rate" name="RNGFND5_GRF_RATE" documentation="The update rate of the sensor in Hz." user="Advanced">
         <field name="Range">1 50</field>
         <field name="RebootRequired">True</field>
       </param>
@@ -31607,6 +31716,7 @@
           <value code="3">LidarLite-I2C</value>
           <value code="15">LidarLiteV3-I2C</value>
           <value code="45">LightWare-GRF</value>
+          <value code="48">LightWare-GRF-I2C</value>
           <value code="7">LightWareI2C</value>
           <value code="8">LightWareSerial</value>
           <value code="36">Lua_Scripting</value>
@@ -31774,6 +31884,8 @@
       <param humanName="RangeFinder Minimum signal strength" name="RNGFND6_SNR_MIN" documentation="RangeFinder Minimum signal strength (SNR) to accept distance" user="Advanced">
         <field name="Range">0 65535</field>
       </param>
+    </parameters>
+    <parameters name="RNGFND6_GRF_">
       <param humanName="LightWare GRF Distance Return Type" name="RNGFND6_GRF_RET" documentation="Selects which single return to use." user="Standard">
         <values>
           <value code="0">FirstRaw</value>
@@ -31787,7 +31899,26 @@
         <field name="Range">0 255</field>
         <field name="RebootRequired">True</field>
       </param>
-      <param humanName="LightWare GRF Update Rate" name="RNGFND6_GRF_RATE" documentation="The update rate of the sensor in Hz. Must match the" user="Advanced">
+      <param humanName="LightWare GRF Update Rate" name="RNGFND6_GRF_RATE" documentation="The update rate of the sensor in Hz." user="Advanced">
+        <field name="Range">1 50</field>
+        <field name="RebootRequired">True</field>
+      </param>
+    </parameters>
+    <parameters name="RNGFND6_GRF_">
+      <param humanName="LightWare GRF Distance Return Type" name="RNGFND6_GRF_RET" documentation="Selects which single return to use." user="Standard">
+        <values>
+          <value code="0">FirstRaw</value>
+          <value code="1">FirstFiltered</value>
+          <value code="2">LastRaw</value>
+          <value code="3">LastFiltered</value>
+        </values>
+        <field name="RebootRequired">True</field>
+      </param>
+      <param humanName="LightWare GRF Minimum Return Strength" name="RNGFND6_GRF_ST" documentation="Minimum acceptable return signal strength in dB. Returns weaker than this will be ignored. Set to 0 to disable filtering." user="Advanced">
+        <field name="Range">0 255</field>
+        <field name="RebootRequired">True</field>
+      </param>
+      <param humanName="LightWare GRF Update Rate" name="RNGFND6_GRF_RATE" documentation="The update rate of the sensor in Hz." user="Advanced">
         <field name="Range">1 50</field>
         <field name="RebootRequired">True</field>
       </param>
@@ -31820,6 +31951,7 @@
           <value code="3">LidarLite-I2C</value>
           <value code="15">LidarLiteV3-I2C</value>
           <value code="45">LightWare-GRF</value>
+          <value code="48">LightWare-GRF-I2C</value>
           <value code="7">LightWareI2C</value>
           <value code="8">LightWareSerial</value>
           <value code="36">Lua_Scripting</value>
@@ -31987,6 +32119,8 @@
       <param humanName="RangeFinder Minimum signal strength" name="RNGFND7_SNR_MIN" documentation="RangeFinder Minimum signal strength (SNR) to accept distance" user="Advanced">
         <field name="Range">0 65535</field>
       </param>
+    </parameters>
+    <parameters name="RNGFND7_GRF_">
       <param humanName="LightWare GRF Distance Return Type" name="RNGFND7_GRF_RET" documentation="Selects which single return to use." user="Standard">
         <values>
           <value code="0">FirstRaw</value>
@@ -32000,7 +32134,26 @@
         <field name="Range">0 255</field>
         <field name="RebootRequired">True</field>
       </param>
-      <param humanName="LightWare GRF Update Rate" name="RNGFND7_GRF_RATE" documentation="The update rate of the sensor in Hz. Must match the" user="Advanced">
+      <param humanName="LightWare GRF Update Rate" name="RNGFND7_GRF_RATE" documentation="The update rate of the sensor in Hz." user="Advanced">
+        <field name="Range">1 50</field>
+        <field name="RebootRequired">True</field>
+      </param>
+    </parameters>
+    <parameters name="RNGFND7_GRF_">
+      <param humanName="LightWare GRF Distance Return Type" name="RNGFND7_GRF_RET" documentation="Selects which single return to use." user="Standard">
+        <values>
+          <value code="0">FirstRaw</value>
+          <value code="1">FirstFiltered</value>
+          <value code="2">LastRaw</value>
+          <value code="3">LastFiltered</value>
+        </values>
+        <field name="RebootRequired">True</field>
+      </param>
+      <param humanName="LightWare GRF Minimum Return Strength" name="RNGFND7_GRF_ST" documentation="Minimum acceptable return signal strength in dB. Returns weaker than this will be ignored. Set to 0 to disable filtering." user="Advanced">
+        <field name="Range">0 255</field>
+        <field name="RebootRequired">True</field>
+      </param>
+      <param humanName="LightWare GRF Update Rate" name="RNGFND7_GRF_RATE" documentation="The update rate of the sensor in Hz." user="Advanced">
         <field name="Range">1 50</field>
         <field name="RebootRequired">True</field>
       </param>
@@ -32033,6 +32186,7 @@
           <value code="3">LidarLite-I2C</value>
           <value code="15">LidarLiteV3-I2C</value>
           <value code="45">LightWare-GRF</value>
+          <value code="48">LightWare-GRF-I2C</value>
           <value code="7">LightWareI2C</value>
           <value code="8">LightWareSerial</value>
           <value code="36">Lua_Scripting</value>
@@ -32200,6 +32354,8 @@
       <param humanName="RangeFinder Minimum signal strength" name="RNGFND8_SNR_MIN" documentation="RangeFinder Minimum signal strength (SNR) to accept distance" user="Advanced">
         <field name="Range">0 65535</field>
       </param>
+    </parameters>
+    <parameters name="RNGFND8_GRF_">
       <param humanName="LightWare GRF Distance Return Type" name="RNGFND8_GRF_RET" documentation="Selects which single return to use." user="Standard">
         <values>
           <value code="0">FirstRaw</value>
@@ -32213,7 +32369,26 @@
         <field name="Range">0 255</field>
         <field name="RebootRequired">True</field>
       </param>
-      <param humanName="LightWare GRF Update Rate" name="RNGFND8_GRF_RATE" documentation="The update rate of the sensor in Hz. Must match the" user="Advanced">
+      <param humanName="LightWare GRF Update Rate" name="RNGFND8_GRF_RATE" documentation="The update rate of the sensor in Hz." user="Advanced">
+        <field name="Range">1 50</field>
+        <field name="RebootRequired">True</field>
+      </param>
+    </parameters>
+    <parameters name="RNGFND8_GRF_">
+      <param humanName="LightWare GRF Distance Return Type" name="RNGFND8_GRF_RET" documentation="Selects which single return to use." user="Standard">
+        <values>
+          <value code="0">FirstRaw</value>
+          <value code="1">FirstFiltered</value>
+          <value code="2">LastRaw</value>
+          <value code="3">LastFiltered</value>
+        </values>
+        <field name="RebootRequired">True</field>
+      </param>
+      <param humanName="LightWare GRF Minimum Return Strength" name="RNGFND8_GRF_ST" documentation="Minimum acceptable return signal strength in dB. Returns weaker than this will be ignored. Set to 0 to disable filtering." user="Advanced">
+        <field name="Range">0 255</field>
+        <field name="RebootRequired">True</field>
+      </param>
+      <param humanName="LightWare GRF Update Rate" name="RNGFND8_GRF_RATE" documentation="The update rate of the sensor in Hz." user="Advanced">
         <field name="Range">1 50</field>
         <field name="RebootRequired">True</field>
       </param>
@@ -32246,6 +32421,7 @@
           <value code="3">LidarLite-I2C</value>
           <value code="15">LidarLiteV3-I2C</value>
           <value code="45">LightWare-GRF</value>
+          <value code="48">LightWare-GRF-I2C</value>
           <value code="7">LightWareI2C</value>
           <value code="8">LightWareSerial</value>
           <value code="36">Lua_Scripting</value>
@@ -32413,6 +32589,8 @@
       <param humanName="RangeFinder Minimum signal strength" name="RNGFND9_SNR_MIN" documentation="RangeFinder Minimum signal strength (SNR) to accept distance" user="Advanced">
         <field name="Range">0 65535</field>
       </param>
+    </parameters>
+    <parameters name="RNGFND9_GRF_">
       <param humanName="LightWare GRF Distance Return Type" name="RNGFND9_GRF_RET" documentation="Selects which single return to use." user="Standard">
         <values>
           <value code="0">FirstRaw</value>
@@ -32426,7 +32604,26 @@
         <field name="Range">0 255</field>
         <field name="RebootRequired">True</field>
       </param>
-      <param humanName="LightWare GRF Update Rate" name="RNGFND9_GRF_RATE" documentation="The update rate of the sensor in Hz. Must match the" user="Advanced">
+      <param humanName="LightWare GRF Update Rate" name="RNGFND9_GRF_RATE" documentation="The update rate of the sensor in Hz." user="Advanced">
+        <field name="Range">1 50</field>
+        <field name="RebootRequired">True</field>
+      </param>
+    </parameters>
+    <parameters name="RNGFND9_GRF_">
+      <param humanName="LightWare GRF Distance Return Type" name="RNGFND9_GRF_RET" documentation="Selects which single return to use." user="Standard">
+        <values>
+          <value code="0">FirstRaw</value>
+          <value code="1">FirstFiltered</value>
+          <value code="2">LastRaw</value>
+          <value code="3">LastFiltered</value>
+        </values>
+        <field name="RebootRequired">True</field>
+      </param>
+      <param humanName="LightWare GRF Minimum Return Strength" name="RNGFND9_GRF_ST" documentation="Minimum acceptable return signal strength in dB. Returns weaker than this will be ignored. Set to 0 to disable filtering." user="Advanced">
+        <field name="Range">0 255</field>
+        <field name="RebootRequired">True</field>
+      </param>
+      <param humanName="LightWare GRF Update Rate" name="RNGFND9_GRF_RATE" documentation="The update rate of the sensor in Hz." user="Advanced">
         <field name="Range">1 50</field>
         <field name="RebootRequired">True</field>
       </param>
@@ -32459,6 +32656,7 @@
           <value code="3">LidarLite-I2C</value>
           <value code="15">LidarLiteV3-I2C</value>
           <value code="45">LightWare-GRF</value>
+          <value code="48">LightWare-GRF-I2C</value>
           <value code="7">LightWareI2C</value>
           <value code="8">LightWareSerial</value>
           <value code="36">Lua_Scripting</value>
@@ -32626,6 +32824,8 @@
       <param humanName="RangeFinder Minimum signal strength" name="RNGFNDA_SNR_MIN" documentation="RangeFinder Minimum signal strength (SNR) to accept distance" user="Advanced">
         <field name="Range">0 65535</field>
       </param>
+    </parameters>
+    <parameters name="RNGFNDA_GRF_">
       <param humanName="LightWare GRF Distance Return Type" name="RNGFNDA_GRF_RET" documentation="Selects which single return to use." user="Standard">
         <values>
           <value code="0">FirstRaw</value>
@@ -32639,7 +32839,26 @@
         <field name="Range">0 255</field>
         <field name="RebootRequired">True</field>
       </param>
-      <param humanName="LightWare GRF Update Rate" name="RNGFNDA_GRF_RATE" documentation="The update rate of the sensor in Hz. Must match the" user="Advanced">
+      <param humanName="LightWare GRF Update Rate" name="RNGFNDA_GRF_RATE" documentation="The update rate of the sensor in Hz." user="Advanced">
+        <field name="Range">1 50</field>
+        <field name="RebootRequired">True</field>
+      </param>
+    </parameters>
+    <parameters name="RNGFNDA_GRF_">
+      <param humanName="LightWare GRF Distance Return Type" name="RNGFNDA_GRF_RET" documentation="Selects which single return to use." user="Standard">
+        <values>
+          <value code="0">FirstRaw</value>
+          <value code="1">FirstFiltered</value>
+          <value code="2">LastRaw</value>
+          <value code="3">LastFiltered</value>
+        </values>
+        <field name="RebootRequired">True</field>
+      </param>
+      <param humanName="LightWare GRF Minimum Return Strength" name="RNGFNDA_GRF_ST" documentation="Minimum acceptable return signal strength in dB. Returns weaker than this will be ignored. Set to 0 to disable filtering." user="Advanced">
+        <field name="Range">0 255</field>
+        <field name="RebootRequired">True</field>
+      </param>
+      <param humanName="LightWare GRF Update Rate" name="RNGFNDA_GRF_RATE" documentation="The update rate of the sensor in Hz." user="Advanced">
         <field name="Range">1 50</field>
         <field name="RebootRequired">True</field>
       </param>

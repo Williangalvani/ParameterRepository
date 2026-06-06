@@ -18677,7 +18677,7 @@ DO NOT EDIT
 
 <p>This is a bitmask of driver types to disable. If a driver type is set in this mask then that driver will not try to find a sensor at startup</p>
 <ul>
-<li>Bitmask: 0:HMC5883,1:LSM303D,2:AK8963,3:BMM150,4:LSM9DS1,5:LIS3MDL,6:AK0991x,7:IST8310,8:ICM20948,9:MMC3416,11:DroneCAN,12:QMC5883,14:MAG3110,15:IST8308,16:RM3100,17:MSP,18:ExternalAHRS,19:MMC5XX3,20:QMC5883P,21:BMM350,22:IIS2MDC,23:LIS2MDL</li>
+<li>Bitmask: 0:HMC5883,1:LSM303D,2:AK8963,3:BMM150,4:LSM9DS1,5:LIS3MDL,6:AK0991x,7:IST8310,8:ICM20948,9:MMC3416,11:DroneCAN,12:QMC5883,14:MAG3110,15:IST8308,16:RM3100,17:MSP,18:ExternalAHRS,19:MMC5XX3,20:QMC5883P,21:BMM350,22:IIS2MDC or LIS2MDL</li>
 </ul>
 
 
@@ -45055,6 +45055,7 @@ DO NOT EDIT
 <tr><td>45</td><td>LightWare-GRF</td></tr>
 <tr><td>46</td><td>BenewakeTFS20L</td></tr>
 <tr><td>47</td><td>DTS6012M</td></tr>
+<tr><td>48</td><td>LightWare-GRF-I2C</td></tr>
 <tr><td>100</td><td>SITL</td></tr>
 </table>
 </ul>
@@ -45308,6 +45309,9 @@ DO NOT EDIT
 </ul>
 
 
+<h1>RNGFND1_GRF_ Parameters</h1>
+
+
 <h2>LightWare GRF Distance Return Type (RNGFND1_GRF_RET)</h2>
 
 <p>Selects which single return to use.</p>
@@ -45333,7 +45337,42 @@ DO NOT EDIT
 
 <h2>LightWare GRF Update Rate (RNGFND1_GRF_RATE)</h2><em>Note: This parameter is for advanced users</em><br>
 
-<p>The update rate of the sensor in Hz. Must match the</p>
+<p>The update rate of the sensor in Hz.</p>
+<ul>
+<li>Range: 1 50</li>
+<li>RebootRequired: True</li>
+</ul>
+
+
+<h1>RNGFND1_GRF_ Parameters</h1>
+
+
+<h2>LightWare GRF Distance Return Type (RNGFND1_GRF_RET)</h2>
+
+<p>Selects which single return to use.</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>0</td><td>FirstRaw</td></tr>
+<tr><td>1</td><td>FirstFiltered</td></tr>
+<tr><td>2</td><td>LastRaw</td></tr>
+<tr><td>3</td><td>LastFiltered</td></tr>
+</table>
+<li>RebootRequired: True</li>
+</ul>
+
+
+<h2>LightWare GRF Minimum Return Strength (RNGFND1_GRF_ST)</h2><em>Note: This parameter is for advanced users</em><br>
+
+<p>Minimum acceptable return signal strength in dB. Returns weaker than this will be ignored. Set to 0 to disable filtering.</p>
+<ul>
+<li>Range: 0 255</li>
+<li>RebootRequired: True</li>
+</ul>
+
+
+<h2>LightWare GRF Update Rate (RNGFND1_GRF_RATE)</h2><em>Note: This parameter is for advanced users</em><br>
+
+<p>The update rate of the sensor in Hz.</p>
 <ul>
 <li>Range: 1 50</li>
 <li>RebootRequired: True</li>
@@ -45395,6 +45434,7 @@ DO NOT EDIT
 <tr><td>45</td><td>LightWare-GRF</td></tr>
 <tr><td>46</td><td>BenewakeTFS20L</td></tr>
 <tr><td>47</td><td>DTS6012M</td></tr>
+<tr><td>48</td><td>LightWare-GRF-I2C</td></tr>
 <tr><td>100</td><td>SITL</td></tr>
 </table>
 </ul>
@@ -45648,6 +45688,9 @@ DO NOT EDIT
 </ul>
 
 
+<h1>RNGFND2_GRF_ Parameters</h1>
+
+
 <h2>LightWare GRF Distance Return Type (RNGFND2_GRF_RET)</h2>
 
 <p>Selects which single return to use.</p>
@@ -45673,7 +45716,42 @@ DO NOT EDIT
 
 <h2>LightWare GRF Update Rate (RNGFND2_GRF_RATE)</h2><em>Note: This parameter is for advanced users</em><br>
 
-<p>The update rate of the sensor in Hz. Must match the</p>
+<p>The update rate of the sensor in Hz.</p>
+<ul>
+<li>Range: 1 50</li>
+<li>RebootRequired: True</li>
+</ul>
+
+
+<h1>RNGFND2_GRF_ Parameters</h1>
+
+
+<h2>LightWare GRF Distance Return Type (RNGFND2_GRF_RET)</h2>
+
+<p>Selects which single return to use.</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>0</td><td>FirstRaw</td></tr>
+<tr><td>1</td><td>FirstFiltered</td></tr>
+<tr><td>2</td><td>LastRaw</td></tr>
+<tr><td>3</td><td>LastFiltered</td></tr>
+</table>
+<li>RebootRequired: True</li>
+</ul>
+
+
+<h2>LightWare GRF Minimum Return Strength (RNGFND2_GRF_ST)</h2><em>Note: This parameter is for advanced users</em><br>
+
+<p>Minimum acceptable return signal strength in dB. Returns weaker than this will be ignored. Set to 0 to disable filtering.</p>
+<ul>
+<li>Range: 0 255</li>
+<li>RebootRequired: True</li>
+</ul>
+
+
+<h2>LightWare GRF Update Rate (RNGFND2_GRF_RATE)</h2><em>Note: This parameter is for advanced users</em><br>
+
+<p>The update rate of the sensor in Hz.</p>
 <ul>
 <li>Range: 1 50</li>
 <li>RebootRequired: True</li>
@@ -45735,6 +45813,7 @@ DO NOT EDIT
 <tr><td>45</td><td>LightWare-GRF</td></tr>
 <tr><td>46</td><td>BenewakeTFS20L</td></tr>
 <tr><td>47</td><td>DTS6012M</td></tr>
+<tr><td>48</td><td>LightWare-GRF-I2C</td></tr>
 <tr><td>100</td><td>SITL</td></tr>
 </table>
 </ul>
@@ -45988,6 +46067,9 @@ DO NOT EDIT
 </ul>
 
 
+<h1>RNGFND3_GRF_ Parameters</h1>
+
+
 <h2>LightWare GRF Distance Return Type (RNGFND3_GRF_RET)</h2>
 
 <p>Selects which single return to use.</p>
@@ -46013,7 +46095,42 @@ DO NOT EDIT
 
 <h2>LightWare GRF Update Rate (RNGFND3_GRF_RATE)</h2><em>Note: This parameter is for advanced users</em><br>
 
-<p>The update rate of the sensor in Hz. Must match the</p>
+<p>The update rate of the sensor in Hz.</p>
+<ul>
+<li>Range: 1 50</li>
+<li>RebootRequired: True</li>
+</ul>
+
+
+<h1>RNGFND3_GRF_ Parameters</h1>
+
+
+<h2>LightWare GRF Distance Return Type (RNGFND3_GRF_RET)</h2>
+
+<p>Selects which single return to use.</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>0</td><td>FirstRaw</td></tr>
+<tr><td>1</td><td>FirstFiltered</td></tr>
+<tr><td>2</td><td>LastRaw</td></tr>
+<tr><td>3</td><td>LastFiltered</td></tr>
+</table>
+<li>RebootRequired: True</li>
+</ul>
+
+
+<h2>LightWare GRF Minimum Return Strength (RNGFND3_GRF_ST)</h2><em>Note: This parameter is for advanced users</em><br>
+
+<p>Minimum acceptable return signal strength in dB. Returns weaker than this will be ignored. Set to 0 to disable filtering.</p>
+<ul>
+<li>Range: 0 255</li>
+<li>RebootRequired: True</li>
+</ul>
+
+
+<h2>LightWare GRF Update Rate (RNGFND3_GRF_RATE)</h2><em>Note: This parameter is for advanced users</em><br>
+
+<p>The update rate of the sensor in Hz.</p>
 <ul>
 <li>Range: 1 50</li>
 <li>RebootRequired: True</li>
@@ -46075,6 +46192,7 @@ DO NOT EDIT
 <tr><td>45</td><td>LightWare-GRF</td></tr>
 <tr><td>46</td><td>BenewakeTFS20L</td></tr>
 <tr><td>47</td><td>DTS6012M</td></tr>
+<tr><td>48</td><td>LightWare-GRF-I2C</td></tr>
 <tr><td>100</td><td>SITL</td></tr>
 </table>
 </ul>
@@ -46328,6 +46446,9 @@ DO NOT EDIT
 </ul>
 
 
+<h1>RNGFND4_GRF_ Parameters</h1>
+
+
 <h2>LightWare GRF Distance Return Type (RNGFND4_GRF_RET)</h2>
 
 <p>Selects which single return to use.</p>
@@ -46353,7 +46474,42 @@ DO NOT EDIT
 
 <h2>LightWare GRF Update Rate (RNGFND4_GRF_RATE)</h2><em>Note: This parameter is for advanced users</em><br>
 
-<p>The update rate of the sensor in Hz. Must match the</p>
+<p>The update rate of the sensor in Hz.</p>
+<ul>
+<li>Range: 1 50</li>
+<li>RebootRequired: True</li>
+</ul>
+
+
+<h1>RNGFND4_GRF_ Parameters</h1>
+
+
+<h2>LightWare GRF Distance Return Type (RNGFND4_GRF_RET)</h2>
+
+<p>Selects which single return to use.</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>0</td><td>FirstRaw</td></tr>
+<tr><td>1</td><td>FirstFiltered</td></tr>
+<tr><td>2</td><td>LastRaw</td></tr>
+<tr><td>3</td><td>LastFiltered</td></tr>
+</table>
+<li>RebootRequired: True</li>
+</ul>
+
+
+<h2>LightWare GRF Minimum Return Strength (RNGFND4_GRF_ST)</h2><em>Note: This parameter is for advanced users</em><br>
+
+<p>Minimum acceptable return signal strength in dB. Returns weaker than this will be ignored. Set to 0 to disable filtering.</p>
+<ul>
+<li>Range: 0 255</li>
+<li>RebootRequired: True</li>
+</ul>
+
+
+<h2>LightWare GRF Update Rate (RNGFND4_GRF_RATE)</h2><em>Note: This parameter is for advanced users</em><br>
+
+<p>The update rate of the sensor in Hz.</p>
 <ul>
 <li>Range: 1 50</li>
 <li>RebootRequired: True</li>
@@ -46415,6 +46571,7 @@ DO NOT EDIT
 <tr><td>45</td><td>LightWare-GRF</td></tr>
 <tr><td>46</td><td>BenewakeTFS20L</td></tr>
 <tr><td>47</td><td>DTS6012M</td></tr>
+<tr><td>48</td><td>LightWare-GRF-I2C</td></tr>
 <tr><td>100</td><td>SITL</td></tr>
 </table>
 </ul>
@@ -46668,6 +46825,9 @@ DO NOT EDIT
 </ul>
 
 
+<h1>RNGFND5_GRF_ Parameters</h1>
+
+
 <h2>LightWare GRF Distance Return Type (RNGFND5_GRF_RET)</h2>
 
 <p>Selects which single return to use.</p>
@@ -46693,7 +46853,42 @@ DO NOT EDIT
 
 <h2>LightWare GRF Update Rate (RNGFND5_GRF_RATE)</h2><em>Note: This parameter is for advanced users</em><br>
 
-<p>The update rate of the sensor in Hz. Must match the</p>
+<p>The update rate of the sensor in Hz.</p>
+<ul>
+<li>Range: 1 50</li>
+<li>RebootRequired: True</li>
+</ul>
+
+
+<h1>RNGFND5_GRF_ Parameters</h1>
+
+
+<h2>LightWare GRF Distance Return Type (RNGFND5_GRF_RET)</h2>
+
+<p>Selects which single return to use.</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>0</td><td>FirstRaw</td></tr>
+<tr><td>1</td><td>FirstFiltered</td></tr>
+<tr><td>2</td><td>LastRaw</td></tr>
+<tr><td>3</td><td>LastFiltered</td></tr>
+</table>
+<li>RebootRequired: True</li>
+</ul>
+
+
+<h2>LightWare GRF Minimum Return Strength (RNGFND5_GRF_ST)</h2><em>Note: This parameter is for advanced users</em><br>
+
+<p>Minimum acceptable return signal strength in dB. Returns weaker than this will be ignored. Set to 0 to disable filtering.</p>
+<ul>
+<li>Range: 0 255</li>
+<li>RebootRequired: True</li>
+</ul>
+
+
+<h2>LightWare GRF Update Rate (RNGFND5_GRF_RATE)</h2><em>Note: This parameter is for advanced users</em><br>
+
+<p>The update rate of the sensor in Hz.</p>
 <ul>
 <li>Range: 1 50</li>
 <li>RebootRequired: True</li>
@@ -46755,6 +46950,7 @@ DO NOT EDIT
 <tr><td>45</td><td>LightWare-GRF</td></tr>
 <tr><td>46</td><td>BenewakeTFS20L</td></tr>
 <tr><td>47</td><td>DTS6012M</td></tr>
+<tr><td>48</td><td>LightWare-GRF-I2C</td></tr>
 <tr><td>100</td><td>SITL</td></tr>
 </table>
 </ul>
@@ -47008,6 +47204,9 @@ DO NOT EDIT
 </ul>
 
 
+<h1>RNGFND6_GRF_ Parameters</h1>
+
+
 <h2>LightWare GRF Distance Return Type (RNGFND6_GRF_RET)</h2>
 
 <p>Selects which single return to use.</p>
@@ -47033,7 +47232,42 @@ DO NOT EDIT
 
 <h2>LightWare GRF Update Rate (RNGFND6_GRF_RATE)</h2><em>Note: This parameter is for advanced users</em><br>
 
-<p>The update rate of the sensor in Hz. Must match the</p>
+<p>The update rate of the sensor in Hz.</p>
+<ul>
+<li>Range: 1 50</li>
+<li>RebootRequired: True</li>
+</ul>
+
+
+<h1>RNGFND6_GRF_ Parameters</h1>
+
+
+<h2>LightWare GRF Distance Return Type (RNGFND6_GRF_RET)</h2>
+
+<p>Selects which single return to use.</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>0</td><td>FirstRaw</td></tr>
+<tr><td>1</td><td>FirstFiltered</td></tr>
+<tr><td>2</td><td>LastRaw</td></tr>
+<tr><td>3</td><td>LastFiltered</td></tr>
+</table>
+<li>RebootRequired: True</li>
+</ul>
+
+
+<h2>LightWare GRF Minimum Return Strength (RNGFND6_GRF_ST)</h2><em>Note: This parameter is for advanced users</em><br>
+
+<p>Minimum acceptable return signal strength in dB. Returns weaker than this will be ignored. Set to 0 to disable filtering.</p>
+<ul>
+<li>Range: 0 255</li>
+<li>RebootRequired: True</li>
+</ul>
+
+
+<h2>LightWare GRF Update Rate (RNGFND6_GRF_RATE)</h2><em>Note: This parameter is for advanced users</em><br>
+
+<p>The update rate of the sensor in Hz.</p>
 <ul>
 <li>Range: 1 50</li>
 <li>RebootRequired: True</li>
@@ -47095,6 +47329,7 @@ DO NOT EDIT
 <tr><td>45</td><td>LightWare-GRF</td></tr>
 <tr><td>46</td><td>BenewakeTFS20L</td></tr>
 <tr><td>47</td><td>DTS6012M</td></tr>
+<tr><td>48</td><td>LightWare-GRF-I2C</td></tr>
 <tr><td>100</td><td>SITL</td></tr>
 </table>
 </ul>
@@ -47348,6 +47583,9 @@ DO NOT EDIT
 </ul>
 
 
+<h1>RNGFND7_GRF_ Parameters</h1>
+
+
 <h2>LightWare GRF Distance Return Type (RNGFND7_GRF_RET)</h2>
 
 <p>Selects which single return to use.</p>
@@ -47373,7 +47611,42 @@ DO NOT EDIT
 
 <h2>LightWare GRF Update Rate (RNGFND7_GRF_RATE)</h2><em>Note: This parameter is for advanced users</em><br>
 
-<p>The update rate of the sensor in Hz. Must match the</p>
+<p>The update rate of the sensor in Hz.</p>
+<ul>
+<li>Range: 1 50</li>
+<li>RebootRequired: True</li>
+</ul>
+
+
+<h1>RNGFND7_GRF_ Parameters</h1>
+
+
+<h2>LightWare GRF Distance Return Type (RNGFND7_GRF_RET)</h2>
+
+<p>Selects which single return to use.</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>0</td><td>FirstRaw</td></tr>
+<tr><td>1</td><td>FirstFiltered</td></tr>
+<tr><td>2</td><td>LastRaw</td></tr>
+<tr><td>3</td><td>LastFiltered</td></tr>
+</table>
+<li>RebootRequired: True</li>
+</ul>
+
+
+<h2>LightWare GRF Minimum Return Strength (RNGFND7_GRF_ST)</h2><em>Note: This parameter is for advanced users</em><br>
+
+<p>Minimum acceptable return signal strength in dB. Returns weaker than this will be ignored. Set to 0 to disable filtering.</p>
+<ul>
+<li>Range: 0 255</li>
+<li>RebootRequired: True</li>
+</ul>
+
+
+<h2>LightWare GRF Update Rate (RNGFND7_GRF_RATE)</h2><em>Note: This parameter is for advanced users</em><br>
+
+<p>The update rate of the sensor in Hz.</p>
 <ul>
 <li>Range: 1 50</li>
 <li>RebootRequired: True</li>
@@ -47435,6 +47708,7 @@ DO NOT EDIT
 <tr><td>45</td><td>LightWare-GRF</td></tr>
 <tr><td>46</td><td>BenewakeTFS20L</td></tr>
 <tr><td>47</td><td>DTS6012M</td></tr>
+<tr><td>48</td><td>LightWare-GRF-I2C</td></tr>
 <tr><td>100</td><td>SITL</td></tr>
 </table>
 </ul>
@@ -47688,6 +47962,9 @@ DO NOT EDIT
 </ul>
 
 
+<h1>RNGFND8_GRF_ Parameters</h1>
+
+
 <h2>LightWare GRF Distance Return Type (RNGFND8_GRF_RET)</h2>
 
 <p>Selects which single return to use.</p>
@@ -47713,7 +47990,42 @@ DO NOT EDIT
 
 <h2>LightWare GRF Update Rate (RNGFND8_GRF_RATE)</h2><em>Note: This parameter is for advanced users</em><br>
 
-<p>The update rate of the sensor in Hz. Must match the</p>
+<p>The update rate of the sensor in Hz.</p>
+<ul>
+<li>Range: 1 50</li>
+<li>RebootRequired: True</li>
+</ul>
+
+
+<h1>RNGFND8_GRF_ Parameters</h1>
+
+
+<h2>LightWare GRF Distance Return Type (RNGFND8_GRF_RET)</h2>
+
+<p>Selects which single return to use.</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>0</td><td>FirstRaw</td></tr>
+<tr><td>1</td><td>FirstFiltered</td></tr>
+<tr><td>2</td><td>LastRaw</td></tr>
+<tr><td>3</td><td>LastFiltered</td></tr>
+</table>
+<li>RebootRequired: True</li>
+</ul>
+
+
+<h2>LightWare GRF Minimum Return Strength (RNGFND8_GRF_ST)</h2><em>Note: This parameter is for advanced users</em><br>
+
+<p>Minimum acceptable return signal strength in dB. Returns weaker than this will be ignored. Set to 0 to disable filtering.</p>
+<ul>
+<li>Range: 0 255</li>
+<li>RebootRequired: True</li>
+</ul>
+
+
+<h2>LightWare GRF Update Rate (RNGFND8_GRF_RATE)</h2><em>Note: This parameter is for advanced users</em><br>
+
+<p>The update rate of the sensor in Hz.</p>
 <ul>
 <li>Range: 1 50</li>
 <li>RebootRequired: True</li>
@@ -47775,6 +48087,7 @@ DO NOT EDIT
 <tr><td>45</td><td>LightWare-GRF</td></tr>
 <tr><td>46</td><td>BenewakeTFS20L</td></tr>
 <tr><td>47</td><td>DTS6012M</td></tr>
+<tr><td>48</td><td>LightWare-GRF-I2C</td></tr>
 <tr><td>100</td><td>SITL</td></tr>
 </table>
 </ul>
@@ -48028,6 +48341,9 @@ DO NOT EDIT
 </ul>
 
 
+<h1>RNGFND9_GRF_ Parameters</h1>
+
+
 <h2>LightWare GRF Distance Return Type (RNGFND9_GRF_RET)</h2>
 
 <p>Selects which single return to use.</p>
@@ -48053,7 +48369,42 @@ DO NOT EDIT
 
 <h2>LightWare GRF Update Rate (RNGFND9_GRF_RATE)</h2><em>Note: This parameter is for advanced users</em><br>
 
-<p>The update rate of the sensor in Hz. Must match the</p>
+<p>The update rate of the sensor in Hz.</p>
+<ul>
+<li>Range: 1 50</li>
+<li>RebootRequired: True</li>
+</ul>
+
+
+<h1>RNGFND9_GRF_ Parameters</h1>
+
+
+<h2>LightWare GRF Distance Return Type (RNGFND9_GRF_RET)</h2>
+
+<p>Selects which single return to use.</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>0</td><td>FirstRaw</td></tr>
+<tr><td>1</td><td>FirstFiltered</td></tr>
+<tr><td>2</td><td>LastRaw</td></tr>
+<tr><td>3</td><td>LastFiltered</td></tr>
+</table>
+<li>RebootRequired: True</li>
+</ul>
+
+
+<h2>LightWare GRF Minimum Return Strength (RNGFND9_GRF_ST)</h2><em>Note: This parameter is for advanced users</em><br>
+
+<p>Minimum acceptable return signal strength in dB. Returns weaker than this will be ignored. Set to 0 to disable filtering.</p>
+<ul>
+<li>Range: 0 255</li>
+<li>RebootRequired: True</li>
+</ul>
+
+
+<h2>LightWare GRF Update Rate (RNGFND9_GRF_RATE)</h2><em>Note: This parameter is for advanced users</em><br>
+
+<p>The update rate of the sensor in Hz.</p>
 <ul>
 <li>Range: 1 50</li>
 <li>RebootRequired: True</li>
@@ -48115,6 +48466,7 @@ DO NOT EDIT
 <tr><td>45</td><td>LightWare-GRF</td></tr>
 <tr><td>46</td><td>BenewakeTFS20L</td></tr>
 <tr><td>47</td><td>DTS6012M</td></tr>
+<tr><td>48</td><td>LightWare-GRF-I2C</td></tr>
 <tr><td>100</td><td>SITL</td></tr>
 </table>
 </ul>
@@ -48368,6 +48720,9 @@ DO NOT EDIT
 </ul>
 
 
+<h1>RNGFNDA_GRF_ Parameters</h1>
+
+
 <h2>LightWare GRF Distance Return Type (RNGFNDA_GRF_RET)</h2>
 
 <p>Selects which single return to use.</p>
@@ -48393,7 +48748,42 @@ DO NOT EDIT
 
 <h2>LightWare GRF Update Rate (RNGFNDA_GRF_RATE)</h2><em>Note: This parameter is for advanced users</em><br>
 
-<p>The update rate of the sensor in Hz. Must match the</p>
+<p>The update rate of the sensor in Hz.</p>
+<ul>
+<li>Range: 1 50</li>
+<li>RebootRequired: True</li>
+</ul>
+
+
+<h1>RNGFNDA_GRF_ Parameters</h1>
+
+
+<h2>LightWare GRF Distance Return Type (RNGFNDA_GRF_RET)</h2>
+
+<p>Selects which single return to use.</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>0</td><td>FirstRaw</td></tr>
+<tr><td>1</td><td>FirstFiltered</td></tr>
+<tr><td>2</td><td>LastRaw</td></tr>
+<tr><td>3</td><td>LastFiltered</td></tr>
+</table>
+<li>RebootRequired: True</li>
+</ul>
+
+
+<h2>LightWare GRF Minimum Return Strength (RNGFNDA_GRF_ST)</h2><em>Note: This parameter is for advanced users</em><br>
+
+<p>Minimum acceptable return signal strength in dB. Returns weaker than this will be ignored. Set to 0 to disable filtering.</p>
+<ul>
+<li>Range: 0 255</li>
+<li>RebootRequired: True</li>
+</ul>
+
+
+<h2>LightWare GRF Update Rate (RNGFNDA_GRF_RATE)</h2><em>Note: This parameter is for advanced users</em><br>
+
+<p>The update rate of the sensor in Hz.</p>
 <ul>
 <li>Range: 1 50</li>
 <li>RebootRequired: True</li>

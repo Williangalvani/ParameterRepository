@@ -1013,6 +1013,683 @@ Lua Script Parameters
 ---------------------
 
 
+.. _PREV_ENABLE:
+
+PREV\_ENABLE: parameter reversion enable
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Enable parameter reversion system
+
+
++-------+----------+
+| Value | Meaning  |
++=======+==========+
+| 0     | Disabled |
++-------+----------+
+| 1     | Enabled  |
++-------+----------+
+
+
+
+
+.. _PREV_RC_FUNC:
+
+PREV\_RC\_FUNC: param reversion RC function
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+RCn\_OPTION number to used to trigger parameter reversion
+
+
+.. _WEB_ENABLE:
+
+WEB\_ENABLE: enable web server
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+enable web server
+
+
++-------+----------+
+| Value | Meaning  |
++=======+==========+
+| 0     | Disabled |
++-------+----------+
+| 1     | Enabled  |
++-------+----------+
+
+
+
+
+.. _WEB_BIND_PORT:
+
+WEB\_BIND\_PORT: web server TCP port
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+web server TCP port
+
+
++------------+
+| Range      |
++============+
+| 1 to 65535 |
++------------+
+
+
+
+
+.. _WEB_DEBUG:
+
+WEB\_DEBUG: web server debugging
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+| *Note: This parameter is for advanced users*
+
+web server debugging
+
+
++-------+----------+
+| Value | Meaning  |
++=======+==========+
+| 0     | Disabled |
++-------+----------+
+| 1     | Enabled  |
++-------+----------+
+
+
+
+
+.. _WEB_BLOCK_SIZE:
+
+WEB\_BLOCK\_SIZE: web server block size
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+| *Note: This parameter is for advanced users*
+
+web server block size for download
+
+
++------------+
+| Range      |
++============+
+| 1 to 65535 |
++------------+
+
+
+
+
+.. _WEB_TIMEOUT:
+
+WEB\_TIMEOUT: web server timeout
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+| *Note: This parameter is for advanced users*
+
+timeout for inactive connections
+
+
++-----------+---------+
+| Range     | Units   |
++===========+=========+
+| 0.1 to 60 | seconds |
++-----------+---------+
+
+
+
+
+.. _WEB_SENDFILE_MIN:
+
+WEB\_SENDFILE\_MIN: web server minimum file size for sendfile
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+| *Note: This parameter is for advanced users*
+
+sendfile is an offloading mechanism for faster file download\. If this is non\-zero and the file is larger than this size then sendfile will be used for file download
+
+
++---------------+
+| Range         |
++===============+
+| 0 to 10000000 |
++---------------+
+
+
+
+
+.. _POI_DIST_MAX:
+
+POI\_DIST\_MAX: Mount POI distance max
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+POI\'s max distance \(in meters\) from the vehicle
+
+
++------------+
+| Range      |
++============+
+| 0 to 10000 |
++------------+
+
+
+
+
+.. _RCK_FORCEHL:
+
+RCK\_FORCEHL: Force enable High Latency mode
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Automatically enables High Latency mode if not already enabled
+
+
++-------+----------+
+| Value | Meaning  |
++=======+==========+
+| 0     | Disabled |
++-------+----------+
+| 1     | Enabled  |
++-------+----------+
+
+
+
+
+.. _RCK_PERIOD:
+
+RCK\_PERIOD: Update rate
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+When in High Latency mode\, send Rockblock updates every N seconds
+
+
++----------+---------+
+| Range    | Units   |
++==========+=========+
+| 0 to 600 | seconds |
++----------+---------+
+
+
+
+
+.. _RCK_DEBUG:
+
+RCK\_DEBUG: Display Rockblock debugging text
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Sends Rockblock debug text to GCS via statustexts
+
+
++-------+----------+
+| Value | Meaning  |
++=======+==========+
+| 0     | Disabled |
++-------+----------+
+| 1     | Enabled  |
++-------+----------+
+
+
+
+
+.. _RCK_ENABLE:
+
+RCK\_ENABLE: Enable Message transmission
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Enables the Rockblock sending and recieving
+
+
++-------+----------+
+| Value | Meaning  |
++=======+==========+
+| 0     | Disabled |
++-------+----------+
+| 1     | Enabled  |
++-------+----------+
+
+
+
+
+.. _BATT_SOC_COUNT:
+
+BATT\_SOC\_COUNT: Count of SOC estimators
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Number of battery SOC estimators
+
+
++--------+
+| Range  |
++========+
+| 0 to 4 |
++--------+
+
+
+
+
+.. _BATT_SOC1_IDX:
+
+BATT\_SOC1\_IDX: Battery estimator index
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Battery estimator index
+
+
++--------+
+| Range  |
++========+
+| 0 to 4 |
++--------+
+
+
+
+
+.. _BATT_SOC1_NCELL:
+
+BATT\_SOC1\_NCELL: Battery estimator cell count
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Battery estimator cell count
+
+
++---------+
+| Range   |
++=========+
+| 0 to 48 |
++---------+
+
+
+
+
+.. _BATT_SOC1_C1:
+
+BATT\_SOC1\_C1: Battery estimator coefficient1
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Battery estimator coefficient1
+
+
++------------+
+| Range      |
++============+
+| 100 to 200 |
++------------+
+
+
+
+
+.. _BATT_SOC1_C2:
+
+BATT\_SOC1\_C2: Battery estimator coefficient2
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Battery estimator coefficient2
+
+
++--------+
+| Range  |
++========+
+| 2 to 5 |
++--------+
+
+
+
+
+.. _BATT_SOC1_C3:
+
+BATT\_SOC1\_C3: Battery estimator coefficient3
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Battery estimator coefficient3
+
+
++-------------+
+| Range       |
++=============+
+| 0.01 to 0.5 |
++-------------+
+
+
+
+
+.. _BATT_SOC2_IDX:
+
+BATT\_SOC2\_IDX: Battery estimator index
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Battery estimator index
+
+
++--------+
+| Range  |
++========+
+| 0 to 4 |
++--------+
+
+
+
+
+.. _BATT_SOC2_NCELL:
+
+BATT\_SOC2\_NCELL: Battery estimator cell count
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Battery estimator cell count
+
+
++---------+
+| Range   |
++=========+
+| 0 to 48 |
++---------+
+
+
+
+
+.. _BATT_SOC2_C1:
+
+BATT\_SOC2\_C1: Battery estimator coefficient1
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Battery estimator coefficient1
+
+
++------------+
+| Range      |
++============+
+| 100 to 200 |
++------------+
+
+
+
+
+.. _BATT_SOC2_C2:
+
+BATT\_SOC2\_C2: Battery estimator coefficient2
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Battery estimator coefficient2
+
+
++--------+
+| Range  |
++========+
+| 2 to 5 |
++--------+
+
+
+
+
+.. _BATT_SOC2_C3:
+
+BATT\_SOC2\_C3: Battery estimator coefficient3
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Battery estimator coefficient3
+
+
++-------------+
+| Range       |
++=============+
+| 0.01 to 0.5 |
++-------------+
+
+
+
+
+.. _BATT_SOC3_IDX:
+
+BATT\_SOC3\_IDX: Battery estimator index
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Battery estimator index
+
+
++--------+
+| Range  |
++========+
+| 0 to 4 |
++--------+
+
+
+
+
+.. _BATT_SOC3_NCELL:
+
+BATT\_SOC3\_NCELL: Battery estimator cell count
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Battery estimator cell count
+
+
++---------+
+| Range   |
++=========+
+| 0 to 48 |
++---------+
+
+
+
+
+.. _BATT_SOC3_C1:
+
+BATT\_SOC3\_C1: Battery estimator coefficient1
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Battery estimator coefficient1
+
+
++------------+
+| Range      |
++============+
+| 100 to 200 |
++------------+
+
+
+
+
+.. _BATT_SOC3_C2:
+
+BATT\_SOC3\_C2: Battery estimator coefficient2
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Battery estimator coefficient2
+
+
++--------+
+| Range  |
++========+
+| 2 to 5 |
++--------+
+
+
+
+
+.. _BATT_SOC3_C3:
+
+BATT\_SOC3\_C3: Battery estimator coefficient3
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Battery estimator coefficient3
+
+
++-------------+
+| Range       |
++=============+
+| 0.01 to 0.5 |
++-------------+
+
+
+
+
+.. _BATT_SOC4_IDX:
+
+BATT\_SOC4\_IDX: Battery estimator index
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Battery estimator index
+
+
++--------+
+| Range  |
++========+
+| 0 to 4 |
++--------+
+
+
+
+
+.. _BATT_SOC4_NCELL:
+
+BATT\_SOC4\_NCELL: Battery estimator cell count
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Battery estimator cell count
+
+
++---------+
+| Range   |
++=========+
+| 0 to 48 |
++---------+
+
+
+
+
+.. _BATT_SOC4_C1:
+
+BATT\_SOC4\_C1: Battery estimator coefficient1
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Battery estimator coefficient1
+
+
++------------+
+| Range      |
++============+
+| 100 to 200 |
++------------+
+
+
+
+
+.. _BATT_SOC4_C2:
+
+BATT\_SOC4\_C2: Battery estimator coefficient2
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Battery estimator coefficient2
+
+
++--------+
+| Range  |
++========+
+| 2 to 5 |
++--------+
+
+
+
+
+.. _BATT_SOC4_C3:
+
+BATT\_SOC4\_C3: Battery estimator coefficient3
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Battery estimator coefficient3
+
+
++-------------+
+| Range       |
++=============+
+| 0.01 to 0.5 |
++-------------+
+
+
+
+
+.. _SHIP_ENABLE:
+
+SHIP\_ENABLE: Ship landing enable
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Enable ship landing system
+
+
++-------+----------+
+| Value | Meaning  |
++=======+==========+
+| 0     | Disabled |
++-------+----------+
+| 1     | Enabled  |
++-------+----------+
+
+
+
+
+.. _SHIP_LAND_ANGLE:
+
+SHIP\_LAND\_ANGLE: Ship landing angle
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Angle from the stern of the ship for landing approach\. Use this to ensure that on a go\-around that ship superstructure and cables are avoided\. A value of zero means to approach from the rear of the ship\. A value of 90 means the landing will approach from the port \(left\) side of the ship\. A value of \-90 will mean approaching from the starboard \(right\) side of the ship\. A value of 180 will approach from the bow of the ship\. This parameter is combined with the sign of the RTL\_RADIUS parameter to determine the holdoff pattern\. If RTL\_RADIUS is positive then a clockwise loiter is performed\, if RTL\_RADIUS is negative then a counter\-clockwise loiter is used\.
+
+
++-------------+---------+
+| Range       | Units   |
++=============+=========+
+| -180 to 180 | degrees |
++-------------+---------+
+
+
+
+
+.. _SHIP_AUTO_OFS:
+
+SHIP\_AUTO\_OFS: Ship automatic offset trigger
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Settings this parameter to one triggers an automatic follow offset calculation based on current position of the vehicle and the landing target\. NOTE\: This parameter will auto\-reset to zero once the offset has been calculated\.
+
+
++-------+----------+
+| Value | Meaning  |
++=======+==========+
+| 0     | Disabled |
++-------+----------+
+| 1     | Trigger  |
++-------+----------+
+
+
+
+
 .. _QUIK_ENABLE:
 
 QUIK\_ENABLE: Quicktune enable
@@ -1264,60 +1941,70 @@ Additional options\. When the Two Position Switch option is enabled then a high 
 
 
 
-.. _SHIP_ENABLE:
+.. _WINCH_RATE_UP:
 
-SHIP\_ENABLE: Ship landing enable
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Enable ship landing system
-
-
-+-------+----------+
-| Value | Meaning  |
-+=======+==========+
-| 0     | Disabled |
-+-------+----------+
-| 1     | Enabled  |
-+-------+----------+
-
-
-
-
-.. _SHIP_LAND_ANGLE:
-
-SHIP\_LAND\_ANGLE: Ship landing angle
+WINCH\_RATE\_UP: WinchControl Rate Up
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-Angle from the stern of the ship for landing approach\. Use this to ensure that on a go\-around that ship superstructure and cables are avoided\. A value of zero means to approach from the rear of the ship\. A value of 90 means the landing will approach from the port \(left\) side of the ship\. A value of \-90 will mean approaching from the starboard \(right\) side of the ship\. A value of 180 will approach from the bow of the ship\. This parameter is combined with the sign of the RTL\_RADIUS parameter to determine the holdoff pattern\. If RTL\_RADIUS is positive then a clockwise loiter is performed\, if RTL\_RADIUS is negative then a counter\-clockwise loiter is used\.
+Maximum rate when retracting line
 
 
-+-------------+---------+
-| Range       | Units   |
-+=============+=========+
-| -180 to 180 | degrees |
-+-------------+---------+
++------------+
+| Range      |
++============+
+| 0.1 to 5.0 |
++------------+
 
 
 
 
-.. _SHIP_AUTO_OFS:
+.. _WINCH_RATE_DN:
 
-SHIP\_AUTO\_OFS: Ship automatic offset trigger
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Settings this parameter to one triggers an automatic follow offset calculation based on current position of the vehicle and the landing target\. NOTE\: This parameter will auto\-reset to zero once the offset has been calculated\.
+WINCH\_RATE\_DN: WinchControl Rate Down
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-+-------+----------+
-| Value | Meaning  |
-+=======+==========+
-| 0     | Disabled |
-+-------+----------+
-| 1     | Trigger  |
-+-------+----------+
+Maximum rate when releasing line
+
+
++------------+
+| Range      |
++============+
+| 0.1 to 5.0 |
++------------+
+
+
+
+
+.. _WINCH_RC_FUNC:
+
+WINCH\_RC\_FUNC: Winch Rate Control RC function
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+RCn\_OPTION number to use to control winch rate
+
+
++-------+------------+
+| Value | Meaning    |
++=======+============+
+| 300   | Scripting1 |
++-------+------------+
+| 301   | Scripting2 |
++-------+------------+
+| 302   | Scripting3 |
++-------+------------+
+| 303   | Scripting4 |
++-------+------------+
+| 304   | Scripting5 |
++-------+------------+
+| 305   | Scripting6 |
++-------+------------+
+| 306   | Scripting7 |
++-------+------------+
+| 307   | Scripting8 |
++-------+------------+
 
 
 
@@ -1722,693 +2409,6 @@ Copter switch to this mode after GPS recovers or DR\_FLY\_TIMEOUT has elapsed\. 
 +-------+--------------+
 | 27    | Auto RTL     |
 +-------+--------------+
-
-
-
-
-.. _WINCH_RATE_UP:
-
-WINCH\_RATE\_UP: WinchControl Rate Up
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Maximum rate when retracting line
-
-
-+------------+
-| Range      |
-+============+
-| 0.1 to 5.0 |
-+------------+
-
-
-
-
-.. _WINCH_RATE_DN:
-
-WINCH\_RATE\_DN: WinchControl Rate Down
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Maximum rate when releasing line
-
-
-+------------+
-| Range      |
-+============+
-| 0.1 to 5.0 |
-+------------+
-
-
-
-
-.. _WINCH_RC_FUNC:
-
-WINCH\_RC\_FUNC: Winch Rate Control RC function
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-RCn\_OPTION number to use to control winch rate
-
-
-+-------+------------+
-| Value | Meaning    |
-+=======+============+
-| 300   | Scripting1 |
-+-------+------------+
-| 301   | Scripting2 |
-+-------+------------+
-| 302   | Scripting3 |
-+-------+------------+
-| 303   | Scripting4 |
-+-------+------------+
-| 304   | Scripting5 |
-+-------+------------+
-| 305   | Scripting6 |
-+-------+------------+
-| 306   | Scripting7 |
-+-------+------------+
-| 307   | Scripting8 |
-+-------+------------+
-
-
-
-
-.. _POI_DIST_MAX:
-
-POI\_DIST\_MAX: Mount POI distance max
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-POI\'s max distance \(in meters\) from the vehicle
-
-
-+------------+
-| Range      |
-+============+
-| 0 to 10000 |
-+------------+
-
-
-
-
-.. _BATT_SOC_COUNT:
-
-BATT\_SOC\_COUNT: Count of SOC estimators
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Number of battery SOC estimators
-
-
-+--------+
-| Range  |
-+========+
-| 0 to 4 |
-+--------+
-
-
-
-
-.. _BATT_SOC1_IDX:
-
-BATT\_SOC1\_IDX: Battery estimator index
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Battery estimator index
-
-
-+--------+
-| Range  |
-+========+
-| 0 to 4 |
-+--------+
-
-
-
-
-.. _BATT_SOC1_NCELL:
-
-BATT\_SOC1\_NCELL: Battery estimator cell count
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Battery estimator cell count
-
-
-+---------+
-| Range   |
-+=========+
-| 0 to 48 |
-+---------+
-
-
-
-
-.. _BATT_SOC1_C1:
-
-BATT\_SOC1\_C1: Battery estimator coefficient1
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Battery estimator coefficient1
-
-
-+------------+
-| Range      |
-+============+
-| 100 to 200 |
-+------------+
-
-
-
-
-.. _BATT_SOC1_C2:
-
-BATT\_SOC1\_C2: Battery estimator coefficient2
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Battery estimator coefficient2
-
-
-+--------+
-| Range  |
-+========+
-| 2 to 5 |
-+--------+
-
-
-
-
-.. _BATT_SOC1_C3:
-
-BATT\_SOC1\_C3: Battery estimator coefficient3
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Battery estimator coefficient3
-
-
-+-------------+
-| Range       |
-+=============+
-| 0.01 to 0.5 |
-+-------------+
-
-
-
-
-.. _BATT_SOC2_IDX:
-
-BATT\_SOC2\_IDX: Battery estimator index
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Battery estimator index
-
-
-+--------+
-| Range  |
-+========+
-| 0 to 4 |
-+--------+
-
-
-
-
-.. _BATT_SOC2_NCELL:
-
-BATT\_SOC2\_NCELL: Battery estimator cell count
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Battery estimator cell count
-
-
-+---------+
-| Range   |
-+=========+
-| 0 to 48 |
-+---------+
-
-
-
-
-.. _BATT_SOC2_C1:
-
-BATT\_SOC2\_C1: Battery estimator coefficient1
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Battery estimator coefficient1
-
-
-+------------+
-| Range      |
-+============+
-| 100 to 200 |
-+------------+
-
-
-
-
-.. _BATT_SOC2_C2:
-
-BATT\_SOC2\_C2: Battery estimator coefficient2
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Battery estimator coefficient2
-
-
-+--------+
-| Range  |
-+========+
-| 2 to 5 |
-+--------+
-
-
-
-
-.. _BATT_SOC2_C3:
-
-BATT\_SOC2\_C3: Battery estimator coefficient3
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Battery estimator coefficient3
-
-
-+-------------+
-| Range       |
-+=============+
-| 0.01 to 0.5 |
-+-------------+
-
-
-
-
-.. _BATT_SOC3_IDX:
-
-BATT\_SOC3\_IDX: Battery estimator index
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Battery estimator index
-
-
-+--------+
-| Range  |
-+========+
-| 0 to 4 |
-+--------+
-
-
-
-
-.. _BATT_SOC3_NCELL:
-
-BATT\_SOC3\_NCELL: Battery estimator cell count
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Battery estimator cell count
-
-
-+---------+
-| Range   |
-+=========+
-| 0 to 48 |
-+---------+
-
-
-
-
-.. _BATT_SOC3_C1:
-
-BATT\_SOC3\_C1: Battery estimator coefficient1
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Battery estimator coefficient1
-
-
-+------------+
-| Range      |
-+============+
-| 100 to 200 |
-+------------+
-
-
-
-
-.. _BATT_SOC3_C2:
-
-BATT\_SOC3\_C2: Battery estimator coefficient2
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Battery estimator coefficient2
-
-
-+--------+
-| Range  |
-+========+
-| 2 to 5 |
-+--------+
-
-
-
-
-.. _BATT_SOC3_C3:
-
-BATT\_SOC3\_C3: Battery estimator coefficient3
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Battery estimator coefficient3
-
-
-+-------------+
-| Range       |
-+=============+
-| 0.01 to 0.5 |
-+-------------+
-
-
-
-
-.. _BATT_SOC4_IDX:
-
-BATT\_SOC4\_IDX: Battery estimator index
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Battery estimator index
-
-
-+--------+
-| Range  |
-+========+
-| 0 to 4 |
-+--------+
-
-
-
-
-.. _BATT_SOC4_NCELL:
-
-BATT\_SOC4\_NCELL: Battery estimator cell count
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Battery estimator cell count
-
-
-+---------+
-| Range   |
-+=========+
-| 0 to 48 |
-+---------+
-
-
-
-
-.. _BATT_SOC4_C1:
-
-BATT\_SOC4\_C1: Battery estimator coefficient1
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Battery estimator coefficient1
-
-
-+------------+
-| Range      |
-+============+
-| 100 to 200 |
-+------------+
-
-
-
-
-.. _BATT_SOC4_C2:
-
-BATT\_SOC4\_C2: Battery estimator coefficient2
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Battery estimator coefficient2
-
-
-+--------+
-| Range  |
-+========+
-| 2 to 5 |
-+--------+
-
-
-
-
-.. _BATT_SOC4_C3:
-
-BATT\_SOC4\_C3: Battery estimator coefficient3
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Battery estimator coefficient3
-
-
-+-------------+
-| Range       |
-+=============+
-| 0.01 to 0.5 |
-+-------------+
-
-
-
-
-.. _PREV_ENABLE:
-
-PREV\_ENABLE: parameter reversion enable
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Enable parameter reversion system
-
-
-+-------+----------+
-| Value | Meaning  |
-+=======+==========+
-| 0     | Disabled |
-+-------+----------+
-| 1     | Enabled  |
-+-------+----------+
-
-
-
-
-.. _PREV_RC_FUNC:
-
-PREV\_RC\_FUNC: param reversion RC function
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-RCn\_OPTION number to used to trigger parameter reversion
-
-
-.. _WEB_ENABLE:
-
-WEB\_ENABLE: enable web server
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-enable web server
-
-
-+-------+----------+
-| Value | Meaning  |
-+=======+==========+
-| 0     | Disabled |
-+-------+----------+
-| 1     | Enabled  |
-+-------+----------+
-
-
-
-
-.. _WEB_BIND_PORT:
-
-WEB\_BIND\_PORT: web server TCP port
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-web server TCP port
-
-
-+------------+
-| Range      |
-+============+
-| 1 to 65535 |
-+------------+
-
-
-
-
-.. _WEB_DEBUG:
-
-WEB\_DEBUG: web server debugging
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-| *Note: This parameter is for advanced users*
-
-web server debugging
-
-
-+-------+----------+
-| Value | Meaning  |
-+=======+==========+
-| 0     | Disabled |
-+-------+----------+
-| 1     | Enabled  |
-+-------+----------+
-
-
-
-
-.. _WEB_BLOCK_SIZE:
-
-WEB\_BLOCK\_SIZE: web server block size
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-| *Note: This parameter is for advanced users*
-
-web server block size for download
-
-
-+------------+
-| Range      |
-+============+
-| 1 to 65535 |
-+------------+
-
-
-
-
-.. _WEB_TIMEOUT:
-
-WEB\_TIMEOUT: web server timeout
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-| *Note: This parameter is for advanced users*
-
-timeout for inactive connections
-
-
-+-----------+---------+
-| Range     | Units   |
-+===========+=========+
-| 0.1 to 60 | seconds |
-+-----------+---------+
-
-
-
-
-.. _WEB_SENDFILE_MIN:
-
-WEB\_SENDFILE\_MIN: web server minimum file size for sendfile
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-| *Note: This parameter is for advanced users*
-
-sendfile is an offloading mechanism for faster file download\. If this is non\-zero and the file is larger than this size then sendfile will be used for file download
-
-
-+---------------+
-| Range         |
-+===============+
-| 0 to 10000000 |
-+---------------+
-
-
-
-
-.. _RCK_FORCEHL:
-
-RCK\_FORCEHL: Force enable High Latency mode
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Automatically enables High Latency mode if not already enabled
-
-
-+-------+----------+
-| Value | Meaning  |
-+=======+==========+
-| 0     | Disabled |
-+-------+----------+
-| 1     | Enabled  |
-+-------+----------+
-
-
-
-
-.. _RCK_PERIOD:
-
-RCK\_PERIOD: Update rate
-~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-When in High Latency mode\, send Rockblock updates every N seconds
-
-
-+----------+---------+
-| Range    | Units   |
-+==========+=========+
-| 0 to 600 | seconds |
-+----------+---------+
-
-
-
-
-.. _RCK_DEBUG:
-
-RCK\_DEBUG: Display Rockblock debugging text
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Sends Rockblock debug text to GCS via statustexts
-
-
-+-------+----------+
-| Value | Meaning  |
-+=======+==========+
-| 0     | Disabled |
-+-------+----------+
-| 1     | Enabled  |
-+-------+----------+
-
-
-
-
-.. _RCK_ENABLE:
-
-RCK\_ENABLE: Enable Message transmission
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Enables the Rockblock sending and recieving
-
-
-+-------+----------+
-| Value | Meaning  |
-+=======+==========+
-| 0     | Disabled |
-+-------+----------+
-| 1     | Enabled  |
-+-------+----------+
 
 
 
@@ -2966,6 +2966,372 @@ Number of tricks which can be selected over the range of the trik selection RC c
 
 
 
+.. _DJIR_DEBUG:
+
+DJIR\_DEBUG: DJIRS2 debug
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+| *Note: This parameter is for advanced users*
+
+Enable DJIRS2 debug
+
+
++-------+---------------------------------+
+| Value | Meaning                         |
++=======+=================================+
+| 0     | Disabled                        |
++-------+---------------------------------+
+| 1     | Enabled                         |
++-------+---------------------------------+
+| 2     | Enabled with attitude reporting |
++-------+---------------------------------+
+
+
+
+
+.. _DJIR_UPSIDEDOWN:
+
+DJIR\_UPSIDEDOWN: DJIRS2 upside down
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+DJIRS2 upside down
+
+
++-------+---------------+
+| Value | Meaning       |
++=======+===============+
+| 0     | Right side up |
++-------+---------------+
+| 1     | Upside down   |
++-------+---------------+
+
+
+
+
+.. _ESC_HW_ENABLE:
+
+ESC\_HW\_ENABLE: Hobbywing ESC Enable
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Enable Hobbywing ESC telemetry
+
+
++-------+----------+
+| Value | Meaning  |
++=======+==========+
+| 0     | Disabled |
++-------+----------+
+| 1     | Enabled  |
++-------+----------+
+
+
+
+
+.. _ESC_HW_POLES:
+
+ESC\_HW\_POLES: Hobbywing ESC motor poles
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Number of motor poles for eRPM scaling
+
+
++---------+
+| Range   |
++=========+
+| 1 to 50 |
++---------+
+
+
+
+
+.. _ESC_HW_OFS:
+
+ESC\_HW\_OFS: Hobbywing ESC motor offset
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Motor number offset of first ESC
+
+
++---------+
+| Range   |
++=========+
+| 0 to 31 |
++---------+
+
+
+
+
+.. _VIEP_DEBUG:
+
+VIEP\_DEBUG: ViewPro debug
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+| *Note: This parameter is for advanced users*
+
+ViewPro debug
+
+
++-------+--------------------------------------+
+| Value | Meaning                              |
++=======+======================================+
+| 0     | Disabled                             |
++-------+--------------------------------------+
+| 1     | Enabled                              |
++-------+--------------------------------------+
+| 2     | Enabled including attitude reporting |
++-------+--------------------------------------+
+
+
+
+
+.. _VIEP_CAM_SWLOW:
+
+VIEP\_CAM\_SWLOW: ViewPro Camera For Switch Low
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Camera selection when switch is in low position
+
+
++-------+-------------------------------+
+| Value | Meaning                       |
++=======+===============================+
+| 0     | No change in camera selection |
++-------+-------------------------------+
+| 1     | EO1                           |
++-------+-------------------------------+
+| 2     | IR thermal                    |
++-------+-------------------------------+
+| 3     | EO1 + IR Picture-in-picture   |
++-------+-------------------------------+
+| 4     | IR + EO1 Picture-in-picture   |
++-------+-------------------------------+
+| 5     | Fusion                        |
++-------+-------------------------------+
+| 6     | IR1 13mm                      |
++-------+-------------------------------+
+| 7     | IR2 52mm                      |
++-------+-------------------------------+
+
+
+
+
+.. _VIEP_CAM_SWMID:
+
+VIEP\_CAM\_SWMID: ViewPro Camera For Switch Mid
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Camera selection when switch is in middle position
+
+
++-------+-------------------------------+
+| Value | Meaning                       |
++=======+===============================+
+| 0     | No change in camera selection |
++-------+-------------------------------+
+| 1     | EO1                           |
++-------+-------------------------------+
+| 2     | IR thermal                    |
++-------+-------------------------------+
+| 3     | EO1 + IR Picture-in-picture   |
++-------+-------------------------------+
+| 4     | IR + EO1 Picture-in-picture   |
++-------+-------------------------------+
+| 5     | Fusion                        |
++-------+-------------------------------+
+| 6     | IR1 13mm                      |
++-------+-------------------------------+
+| 7     | IR2 52mm                      |
++-------+-------------------------------+
+
+
+
+
+.. _VIEP_CAM_SWHIGH:
+
+VIEP\_CAM\_SWHIGH: ViewPro Camera For Switch High
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Camera selection when switch is in high position
+
+
++-------+-------------------------------+
+| Value | Meaning                       |
++=======+===============================+
+| 0     | No change in camera selection |
++-------+-------------------------------+
+| 1     | EO1                           |
++-------+-------------------------------+
+| 2     | IR thermal                    |
++-------+-------------------------------+
+| 3     | EO1 + IR Picture-in-picture   |
++-------+-------------------------------+
+| 4     | IR + EO1 Picture-in-picture   |
++-------+-------------------------------+
+| 5     | Fusion                        |
++-------+-------------------------------+
+| 6     | IR1 13mm                      |
++-------+-------------------------------+
+| 7     | IR2 52mm                      |
++-------+-------------------------------+
+
+
+
+
+.. _VIEP_ZOOM_SPEED:
+
+VIEP\_ZOOM\_SPEED: ViewPro Zoom Speed
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+ViewPro Zoom Speed\.  Higher numbers result in faster zooming
+
+
++--------+
+| Range  |
++========+
+| 0 to 7 |
++--------+
+
+
+
+
+.. _VIEP_ZOOM_MAX:
+
+VIEP\_ZOOM\_MAX: ViewPro Zoom Times Max
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+ViewPro Zoom Times Max
+
+
++---------+
+| Range   |
++=========+
+| 0 to 30 |
++---------+
+
+
+
+
+.. _EFI_H6K_ENABLE:
+
+EFI\_H6K\_ENABLE: Enable Halo6000 EFI driver
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Enable Halo6000 EFI driver
+
+
++-------+----------+
+| Value | Meaning  |
++=======+==========+
+| 0     | Disabled |
++-------+----------+
+| 1     | Enabled  |
++-------+----------+
+
+
+
+
+.. _EFI_H6K_CANDRV:
+
+EFI\_H6K\_CANDRV: Halo6000 CAN driver
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Halo6000 CAN driver\. Use 1 for first CAN scripting driver\, 2 for 2nd driver
+
+
++-------+-----------+
+| Value | Meaning   |
++=======+===========+
+| 0     | Disabled  |
++-------+-----------+
+| 1     | FirstCAN  |
++-------+-----------+
+| 2     | SecondCAN |
++-------+-----------+
+
+
+
+
+.. _EFI_H6K_START_FN:
+
+EFI\_H6K\_START\_FN: Halo6000 start auxilliary function
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+The RC auxilliary function number for start\/stop of the generator\. Zero to disable start function
+
+
++-------+----------+
+| Value | Meaning  |
++=======+==========+
+| 0     | Disabled |
++-------+----------+
+| 300   | 300      |
++-------+----------+
+| 301   | 301      |
++-------+----------+
+| 302   | 302      |
++-------+----------+
+| 303   | 303      |
++-------+----------+
+| 304   | 304      |
++-------+----------+
+| 305   | 305      |
++-------+----------+
+| 306   | 306      |
++-------+----------+
+| 307   | 307      |
++-------+----------+
+
+
+
+
+.. _EFI_H6K_TELEM_RT:
+
+EFI\_H6K\_TELEM\_RT: Halo6000 telemetry rate
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+The rate that additional generator telemetry is sent
+
+
++-------+
+| Units |
++=======+
+| hertz |
++-------+
+
+
+
+
+.. _EFI_H6K_FUELTOT:
+
+EFI\_H6K\_FUELTOT: Halo6000 total fuel capacity
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+The capacity of the tank in litres
+
+
++--------+
+| Units  |
++========+
+| litres |
++--------+
+
+
+
+
 .. _EFI_SP_ENABLE:
 
 EFI\_SP\_ENABLE: Enable SkyPower EFI support
@@ -3271,294 +3637,42 @@ SkyPower EFI restart time\. If engine should be running and it has stopped for t
 
 
 
-.. _EFI_DLA_ENABLE:
+.. _EFI_SVF_ENABLE:
 
-EFI\_DLA\_ENABLE: EFI DLA enable
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Enable EFI DLA driver
-
-
-+-------+----------+
-| Value | Meaning  |
-+=======+==========+
-| 0     | Disabled |
-+-------+----------+
-| 1     | Enabled  |
-+-------+----------+
-
-
-
-
-.. _EFI_DLA_LPS:
-
-EFI\_DLA\_LPS: EFI DLA fuel scale
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-EFI DLA litres of fuel per second of injection time
-
-
-+--------------+--------+
-| Range        | Units  |
-+==============+========+
-| 0.00001 to 1 | litres |
-+--------------+--------+
-
-
-
-
-.. _DJIR_DEBUG:
-
-DJIR\_DEBUG: DJIRS2 debug
-~~~~~~~~~~~~~~~~~~~~~~~~~
-
-| *Note: This parameter is for advanced users*
-
-Enable DJIRS2 debug
-
-
-+-------+---------------------------------+
-| Value | Meaning                         |
-+=======+=================================+
-| 0     | Disabled                        |
-+-------+---------------------------------+
-| 1     | Enabled                         |
-+-------+---------------------------------+
-| 2     | Enabled with attitude reporting |
-+-------+---------------------------------+
-
-
-
-
-.. _DJIR_UPSIDEDOWN:
-
-DJIR\_UPSIDEDOWN: DJIRS2 upside down
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-DJIRS2 upside down
-
-
-+-------+---------------+
-| Value | Meaning       |
-+=======+===============+
-| 0     | Right side up |
-+-------+---------------+
-| 1     | Upside down   |
-+-------+---------------+
-
-
-
-
-.. _VIEP_DEBUG:
-
-VIEP\_DEBUG: ViewPro debug
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-| *Note: This parameter is for advanced users*
-
-ViewPro debug
-
-
-+-------+--------------------------------------+
-| Value | Meaning                              |
-+=======+======================================+
-| 0     | Disabled                             |
-+-------+--------------------------------------+
-| 1     | Enabled                              |
-+-------+--------------------------------------+
-| 2     | Enabled including attitude reporting |
-+-------+--------------------------------------+
-
-
-
-
-.. _VIEP_CAM_SWLOW:
-
-VIEP\_CAM\_SWLOW: ViewPro Camera For Switch Low
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Camera selection when switch is in low position
-
-
-+-------+-------------------------------+
-| Value | Meaning                       |
-+=======+===============================+
-| 0     | No change in camera selection |
-+-------+-------------------------------+
-| 1     | EO1                           |
-+-------+-------------------------------+
-| 2     | IR thermal                    |
-+-------+-------------------------------+
-| 3     | EO1 + IR Picture-in-picture   |
-+-------+-------------------------------+
-| 4     | IR + EO1 Picture-in-picture   |
-+-------+-------------------------------+
-| 5     | Fusion                        |
-+-------+-------------------------------+
-| 6     | IR1 13mm                      |
-+-------+-------------------------------+
-| 7     | IR2 52mm                      |
-+-------+-------------------------------+
-
-
-
-
-.. _VIEP_CAM_SWMID:
-
-VIEP\_CAM\_SWMID: ViewPro Camera For Switch Mid
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Camera selection when switch is in middle position
-
-
-+-------+-------------------------------+
-| Value | Meaning                       |
-+=======+===============================+
-| 0     | No change in camera selection |
-+-------+-------------------------------+
-| 1     | EO1                           |
-+-------+-------------------------------+
-| 2     | IR thermal                    |
-+-------+-------------------------------+
-| 3     | EO1 + IR Picture-in-picture   |
-+-------+-------------------------------+
-| 4     | IR + EO1 Picture-in-picture   |
-+-------+-------------------------------+
-| 5     | Fusion                        |
-+-------+-------------------------------+
-| 6     | IR1 13mm                      |
-+-------+-------------------------------+
-| 7     | IR2 52mm                      |
-+-------+-------------------------------+
-
-
-
-
-.. _VIEP_CAM_SWHIGH:
-
-VIEP\_CAM\_SWHIGH: ViewPro Camera For Switch High
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Camera selection when switch is in high position
-
-
-+-------+-------------------------------+
-| Value | Meaning                       |
-+=======+===============================+
-| 0     | No change in camera selection |
-+-------+-------------------------------+
-| 1     | EO1                           |
-+-------+-------------------------------+
-| 2     | IR thermal                    |
-+-------+-------------------------------+
-| 3     | EO1 + IR Picture-in-picture   |
-+-------+-------------------------------+
-| 4     | IR + EO1 Picture-in-picture   |
-+-------+-------------------------------+
-| 5     | Fusion                        |
-+-------+-------------------------------+
-| 6     | IR1 13mm                      |
-+-------+-------------------------------+
-| 7     | IR2 52mm                      |
-+-------+-------------------------------+
-
-
-
-
-.. _VIEP_ZOOM_SPEED:
-
-VIEP\_ZOOM\_SPEED: ViewPro Zoom Speed
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-ViewPro Zoom Speed\.  Higher numbers result in faster zooming
-
-
-+--------+
-| Range  |
-+========+
-| 0 to 7 |
-+--------+
-
-
-
-
-.. _VIEP_ZOOM_MAX:
-
-VIEP\_ZOOM\_MAX: ViewPro Zoom Times Max
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-ViewPro Zoom Times Max
-
-
-+---------+
-| Range   |
-+=========+
-| 0 to 30 |
-+---------+
-
-
-
-
-.. _ESC_HW_ENABLE:
-
-ESC\_HW\_ENABLE: Hobbywing ESC Enable
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Enable Hobbywing ESC telemetry
-
-
-+-------+----------+
-| Value | Meaning  |
-+=======+==========+
-| 0     | Disabled |
-+-------+----------+
-| 1     | Enabled  |
-+-------+----------+
-
-
-
-
-.. _ESC_HW_POLES:
-
-ESC\_HW\_POLES: Hobbywing ESC motor poles
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Number of motor poles for eRPM scaling
-
-
-+---------+
-| Range   |
-+=========+
-| 1 to 50 |
-+---------+
-
-
-
-
-.. _ESC_HW_OFS:
-
-ESC\_HW\_OFS: Hobbywing ESC motor offset
+EFI\_SVF\_ENABLE: Generator SVFFI enable
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-Motor number offset of first ESC
+Enable SVFFI generator support
 
 
-+---------+
-| Range   |
-+=========+
-| 0 to 31 |
-+---------+
++-------+----------+
+| Value | Meaning  |
++=======+==========+
+| 0     | Disabled |
++-------+----------+
+| 1     | Enabled  |
++-------+----------+
+
+
+
+
+.. _EFI_SVF_ARMCHECK:
+
+EFI\_SVF\_ARMCHECK: Generator SVFFI arming check
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Check for Generator ARM state before arming
+
+
++-------+----------+
+| Value | Meaning  |
++=======+==========+
+| 0     | Disabled |
++-------+----------+
+| 1     | Enabled  |
++-------+----------+
 
 
 
@@ -3642,125 +3756,13 @@ ANX CAN battery options
 
 
 
-.. _EFI_H6K_ENABLE:
+.. _EFI_DLA_ENABLE:
 
-EFI\_H6K\_ENABLE: Enable Halo6000 EFI driver
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Enable Halo6000 EFI driver
+EFI\_DLA\_ENABLE: EFI DLA enable
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-+-------+----------+
-| Value | Meaning  |
-+=======+==========+
-| 0     | Disabled |
-+-------+----------+
-| 1     | Enabled  |
-+-------+----------+
-
-
-
-
-.. _EFI_H6K_CANDRV:
-
-EFI\_H6K\_CANDRV: Halo6000 CAN driver
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Halo6000 CAN driver\. Use 1 for first CAN scripting driver\, 2 for 2nd driver
-
-
-+-------+-----------+
-| Value | Meaning   |
-+=======+===========+
-| 0     | Disabled  |
-+-------+-----------+
-| 1     | FirstCAN  |
-+-------+-----------+
-| 2     | SecondCAN |
-+-------+-----------+
-
-
-
-
-.. _EFI_H6K_START_FN:
-
-EFI\_H6K\_START\_FN: Halo6000 start auxilliary function
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-The RC auxilliary function number for start\/stop of the generator\. Zero to disable start function
-
-
-+-------+----------+
-| Value | Meaning  |
-+=======+==========+
-| 0     | Disabled |
-+-------+----------+
-| 300   | 300      |
-+-------+----------+
-| 301   | 301      |
-+-------+----------+
-| 302   | 302      |
-+-------+----------+
-| 303   | 303      |
-+-------+----------+
-| 304   | 304      |
-+-------+----------+
-| 305   | 305      |
-+-------+----------+
-| 306   | 306      |
-+-------+----------+
-| 307   | 307      |
-+-------+----------+
-
-
-
-
-.. _EFI_H6K_TELEM_RT:
-
-EFI\_H6K\_TELEM\_RT: Halo6000 telemetry rate
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-The rate that additional generator telemetry is sent
-
-
-+-------+
-| Units |
-+=======+
-| hertz |
-+-------+
-
-
-
-
-.. _EFI_H6K_FUELTOT:
-
-EFI\_H6K\_FUELTOT: Halo6000 total fuel capacity
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-The capacity of the tank in litres
-
-
-+--------+
-| Units  |
-+========+
-| litres |
-+--------+
-
-
-
-
-.. _EFI_SVF_ENABLE:
-
-EFI\_SVF\_ENABLE: Generator SVFFI enable
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Enable SVFFI generator support
+Enable EFI DLA driver
 
 
 +-------+----------+
@@ -3774,22 +3776,20 @@ Enable SVFFI generator support
 
 
 
-.. _EFI_SVF_ARMCHECK:
+.. _EFI_DLA_LPS:
 
-EFI\_SVF\_ARMCHECK: Generator SVFFI arming check
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Check for Generator ARM state before arming
+EFI\_DLA\_LPS: EFI DLA fuel scale
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-+-------+----------+
-| Value | Meaning  |
-+=======+==========+
-| 0     | Disabled |
-+-------+----------+
-| 1     | Enabled  |
-+-------+----------+
+EFI DLA litres of fuel per second of injection time
+
+
++--------------+--------+
+| Range        | Units  |
++==============+========+
+| 0.00001 to 1 | litres |
++--------------+--------+
 
 
 

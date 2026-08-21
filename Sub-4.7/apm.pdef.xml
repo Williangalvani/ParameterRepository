@@ -31230,13 +31230,13 @@
         <field name="Range">0 45</field>
         <field name="Increment">1</field>
       </param>
-      <param humanName="Jerk limit for the horizontal kinematic input shaping" name="PSC_JERK_NE" documentation="Jerk limit of the horizontal kinematic path generation used to determine how quickly the aircraft varies the acceleration target" user="Advanced">
+      <param humanName="Jerk limit for the horizontal kinematic input shaping" name="PSC_NE_JERK" documentation="Jerk limit of the horizontal kinematic path generation used to determine how quickly the aircraft varies the acceleration target" user="Advanced">
         <field name="Units">m/s/s/s</field>
         <field name="UnitText">meters per cubic second</field>
         <field name="Range">1 50</field>
         <field name="Increment">1</field>
       </param>
-      <param humanName="Jerk limit for the vertical kinematic input shaping" name="PSC_JERK_D" documentation="Jerk limit of the vertical kinematic path generation used to determine how quickly the aircraft varies the acceleration target" user="Advanced">
+      <param humanName="Jerk limit for the vertical kinematic input shaping" name="PSC_D_JERK" documentation="Jerk limit of the vertical kinematic path generation used to determine how quickly the aircraft varies the acceleration target" user="Advanced">
         <field name="Units">m/s/s/s</field>
         <field name="UnitText">meters per cubic second</field>
         <field name="Range">1 50</field>

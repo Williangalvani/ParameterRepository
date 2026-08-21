@@ -37757,7 +37757,7 @@ Maximum lean angle autopilot can request. Set to zero to use ANGLE_MAX parameter
 
 - Increment: 1
 
-## PSC_JERK_NE: Jerk limit for the horizontal kinematic input shaping
+## PSC_NE_JERK: Jerk limit for the horizontal kinematic input shaping
 
 *Note: This parameter is for advanced users*
 
@@ -37769,7 +37769,7 @@ Jerk limit of the horizontal kinematic path generation used to determine how qui
 
 - Increment: 1
 
-## PSC_JERK_D: Jerk limit for the vertical kinematic input shaping
+## PSC_D_JERK: Jerk limit for the vertical kinematic input shaping
 
 *Note: This parameter is for advanced users*
 

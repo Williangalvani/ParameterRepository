@@ -431,132 +431,6 @@ Minimum depth to engage SURFTRAK mode
 
 # Lua Script Parameters
 
-## BATT_SOC_COUNT: Count of SOC estimators
-
-Number of battery SOC estimators
-
-- Range: 0 4
-
-## BATT_SOC1_IDX: Battery estimator index
-
-Battery estimator index
-
-- Range: 0 4
-
-## BATT_SOC1_NCELL: Battery estimator cell count
-
-Battery estimator cell count
-
-- Range: 0 48
-
-## BATT_SOC1_C1: Battery estimator coefficient1
-
-Battery estimator coefficient1
-
-- Range: 100 200
-
-## BATT_SOC1_C2: Battery estimator coefficient2
-
-Battery estimator coefficient2
-
-- Range: 2 5
-
-## BATT_SOC1_C3: Battery estimator coefficient3
-
-Battery estimator coefficient3
-
-- Range: 0.01 0.5
-
-## BATT_SOC2_IDX: Battery estimator index
-
-Battery estimator index
-
-- Range: 0 4
-
-## BATT_SOC2_NCELL: Battery estimator cell count
-
-Battery estimator cell count
-
-- Range: 0 48
-
-## BATT_SOC2_C1: Battery estimator coefficient1
-
-Battery estimator coefficient1
-
-- Range: 100 200
-
-## BATT_SOC2_C2: Battery estimator coefficient2
-
-Battery estimator coefficient2
-
-- Range: 2 5
-
-## BATT_SOC2_C3: Battery estimator coefficient3
-
-Battery estimator coefficient3
-
-- Range: 0.01 0.5
-
-## BATT_SOC3_IDX: Battery estimator index
-
-Battery estimator index
-
-- Range: 0 4
-
-## BATT_SOC3_NCELL: Battery estimator cell count
-
-Battery estimator cell count
-
-- Range: 0 48
-
-## BATT_SOC3_C1: Battery estimator coefficient1
-
-Battery estimator coefficient1
-
-- Range: 100 200
-
-## BATT_SOC3_C2: Battery estimator coefficient2
-
-Battery estimator coefficient2
-
-- Range: 2 5
-
-## BATT_SOC3_C3: Battery estimator coefficient3
-
-Battery estimator coefficient3
-
-- Range: 0.01 0.5
-
-## BATT_SOC4_IDX: Battery estimator index
-
-Battery estimator index
-
-- Range: 0 4
-
-## BATT_SOC4_NCELL: Battery estimator cell count
-
-Battery estimator cell count
-
-- Range: 0 48
-
-## BATT_SOC4_C1: Battery estimator coefficient1
-
-Battery estimator coefficient1
-
-- Range: 100 200
-
-## BATT_SOC4_C2: Battery estimator coefficient2
-
-Battery estimator coefficient2
-
-- Range: 2 5
-
-## BATT_SOC4_C3: Battery estimator coefficient3
-
-Battery estimator coefficient3
-
-- Range: 0.01 0.5
-
 ## QUIK_ENABLE: Quicktune enable
 
 Enable quicktune system
@@ -650,6 +524,158 @@ This controls how much quicktune is allowed to lower gains from the original gai
 Additional options. When the Two Position Switch option is enabled then a high switch position will start the tune, low will disable the tune. you should also set a QUIK_AUTO_SAVE time so that you will be able to save the tune.
 
 - Bitmask: 0:UseTwoPositionSwitch
+
+## SHIP_ENABLE: Ship landing enable
+
+Enable ship landing system
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
+
+## SHIP_LAND_ANGLE: Ship landing angle
+
+Angle from the stern of the ship for landing approach. Use this to ensure that on a go-around that ship superstructure and cables are avoided. A value of zero means to approach from the rear of the ship. A value of 90 means the landing will approach from the port (left) side of the ship. A value of -90 will mean approaching from the starboard (right) side of the ship. A value of 180 will approach from the bow of the ship. This parameter is combined with the sign of the RTL_RADIUS parameter to determine the holdoff pattern. If RTL_RADIUS is positive then a clockwise loiter is performed, if RTL_RADIUS is negative then a counter-clockwise loiter is used.
+
+- Range: -180 180
+
+- Units: deg
+
+## SHIP_AUTO_OFS: Ship automatic offset trigger
+
+Settings this parameter to one triggers an automatic follow offset calculation based on current position of the vehicle and the landing target. NOTE: This parameter will auto-reset to zero once the offset has been calculated.
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Trigger|
+
+## DR_ENABLE: Deadreckoning Enable
+
+Deadreckoning Enable
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
+
+## DR_ENABLE_DIST: Deadreckoning Enable Distance
+
+Distance from home (in meters) beyond which the dead reckoning will be enabled
+
+- Units: m
+
+## DR_GPS_SACC_MAX: Deadreckoning GPS speed accuracy maximum threshold
+
+GPS speed accuracy maximum, above which deadreckoning home will begin (default is 0.8).  Lower values trigger with good GPS quality, higher values will allow poorer GPS before triggering. Set to 0 to disable use of GPS speed accuracy
+
+- Range: 0 10
+
+## DR_GPS_SAT_MIN: Deadreckoning GPS satellite count min threshold
+
+GPS satellite count threshold below which deadreckoning home will begin (default is 6).  Higher values trigger with good GPS quality, Lower values trigger with worse GPS quality. Set to 0 to disable use of GPS satellite count
+
+- Range: 0 30
+
+## DR_GPS_TRIGG_SEC: Deadreckoning GPS check trigger seconds
+
+GPS checks must fail for this many seconds before dead reckoning will be triggered
+
+- Units: s
+
+## DR_FLY_ANGLE: Deadreckoning Lean Angle
+
+lean angle (in degrees) during deadreckoning
+
+- Units: deg
+
+- Range: 0 45
+
+## DR_FLY_ALT_MIN: Deadreckoning Altitude Min
+
+Copter will fly at at least this altitude (in meters) above home during deadreckoning
+
+- Units: m
+
+- Range: 0 1000
+
+## DR_FLY_TIMEOUT: Deadreckoning flight timeout
+
+Copter will attempt to switch to NEXT_MODE after this many seconds of deadreckoning.  If it cannot switch modes it will continue in Guided_NoGPS.  Set to 0 to disable timeout
+
+- Units: s
+
+## DR_NEXT_MODE: Deadreckoning Next Mode
+
+Copter switch to this mode after GPS recovers or DR_FLY_TIMEOUT has elapsed.  Default is 6/RTL.  Set to -1 to return to mode used before deadreckoning was triggered
+
+|Value|Meaning|
+|:---:|:---:|
+|2|AltHold|
+|3|Auto|
+|4|Guided|
+|5|Loiter|
+|6|RTL|
+|7|Circle|
+|9|Land|
+|16|PosHold|
+|17|Brake|
+|20|Guided_NoGPS|
+|21|Smart_RTL|
+|27|Auto RTL|
+
+## WEB_ENABLE: enable web server
+
+enable web server
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
+
+## WEB_BIND_PORT: web server TCP port
+
+web server TCP port
+
+- Range: 1 65535
+
+## WEB_DEBUG: web server debugging
+
+*Note: This parameter is for advanced users*
+
+web server debugging
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
+
+## WEB_BLOCK_SIZE: web server block size
+
+*Note: This parameter is for advanced users*
+
+web server block size for download
+
+- Range: 1 65535
+
+## WEB_TIMEOUT: web server timeout
+
+*Note: This parameter is for advanced users*
+
+timeout for inactive connections
+
+- Units: s
+
+- Range: 0.1 60
+
+## WEB_SENDFILE_MIN: web server minimum file size for sendfile
+
+*Note: This parameter is for advanced users*
+
+sendfile is an offloading mechanism for faster file download. If this is non-zero and the file is larger than this size then sendfile will be used for file download
+
+- Range: 0 10000000
 
 ## WINCH_RATE_UP: WinchControl Rate Up
 
@@ -807,157 +833,131 @@ Enable parameter reversion system
 
 RCn_OPTION number to used to trigger parameter reversion
 
-## WEB_ENABLE: enable web server
+## BATT_SOC_COUNT: Count of SOC estimators
 
-enable web server
+Number of battery SOC estimators
 
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|Enabled|
+- Range: 0 4
 
-## WEB_BIND_PORT: web server TCP port
+## BATT_SOC1_IDX: Battery estimator index
 
-web server TCP port
+Battery estimator index
 
-- Range: 1 65535
+- Range: 0 4
 
-## WEB_DEBUG: web server debugging
+## BATT_SOC1_NCELL: Battery estimator cell count
 
-*Note: This parameter is for advanced users*
+Battery estimator cell count
 
-web server debugging
+- Range: 0 48
 
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|Enabled|
+## BATT_SOC1_C1: Battery estimator coefficient1
 
-## WEB_BLOCK_SIZE: web server block size
+Battery estimator coefficient1
 
-*Note: This parameter is for advanced users*
+- Range: 100 200
 
-web server block size for download
+## BATT_SOC1_C2: Battery estimator coefficient2
 
-- Range: 1 65535
+Battery estimator coefficient2
 
-## WEB_TIMEOUT: web server timeout
+- Range: 2 5
 
-*Note: This parameter is for advanced users*
+## BATT_SOC1_C3: Battery estimator coefficient3
 
-timeout for inactive connections
+Battery estimator coefficient3
 
-- Units: s
+- Range: 0.01 0.5
 
-- Range: 0.1 60
+## BATT_SOC2_IDX: Battery estimator index
 
-## WEB_SENDFILE_MIN: web server minimum file size for sendfile
+Battery estimator index
 
-*Note: This parameter is for advanced users*
+- Range: 0 4
 
-sendfile is an offloading mechanism for faster file download. If this is non-zero and the file is larger than this size then sendfile will be used for file download
+## BATT_SOC2_NCELL: Battery estimator cell count
 
-- Range: 0 10000000
+Battery estimator cell count
 
-## SHIP_ENABLE: Ship landing enable
+- Range: 0 48
 
-Enable ship landing system
+## BATT_SOC2_C1: Battery estimator coefficient1
 
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|Enabled|
+Battery estimator coefficient1
 
-## SHIP_LAND_ANGLE: Ship landing angle
+- Range: 100 200
 
-Angle from the stern of the ship for landing approach. Use this to ensure that on a go-around that ship superstructure and cables are avoided. A value of zero means to approach from the rear of the ship. A value of 90 means the landing will approach from the port (left) side of the ship. A value of -90 will mean approaching from the starboard (right) side of the ship. A value of 180 will approach from the bow of the ship. This parameter is combined with the sign of the RTL_RADIUS parameter to determine the holdoff pattern. If RTL_RADIUS is positive then a clockwise loiter is performed, if RTL_RADIUS is negative then a counter-clockwise loiter is used.
+## BATT_SOC2_C2: Battery estimator coefficient2
 
-- Range: -180 180
+Battery estimator coefficient2
 
-- Units: deg
+- Range: 2 5
 
-## SHIP_AUTO_OFS: Ship automatic offset trigger
+## BATT_SOC2_C3: Battery estimator coefficient3
 
-Settings this parameter to one triggers an automatic follow offset calculation based on current position of the vehicle and the landing target. NOTE: This parameter will auto-reset to zero once the offset has been calculated.
+Battery estimator coefficient3
 
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|Trigger|
+- Range: 0.01 0.5
 
-## DR_ENABLE: Deadreckoning Enable
+## BATT_SOC3_IDX: Battery estimator index
 
-Deadreckoning Enable
+Battery estimator index
 
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|Enabled|
+- Range: 0 4
 
-## DR_ENABLE_DIST: Deadreckoning Enable Distance
+## BATT_SOC3_NCELL: Battery estimator cell count
 
-Distance from home (in meters) beyond which the dead reckoning will be enabled
+Battery estimator cell count
 
-- Units: m
+- Range: 0 48
 
-## DR_GPS_SACC_MAX: Deadreckoning GPS speed accuracy maximum threshold
+## BATT_SOC3_C1: Battery estimator coefficient1
 
-GPS speed accuracy maximum, above which deadreckoning home will begin (default is 0.8).  Lower values trigger with good GPS quality, higher values will allow poorer GPS before triggering. Set to 0 to disable use of GPS speed accuracy
+Battery estimator coefficient1
 
-- Range: 0 10
+- Range: 100 200
 
-## DR_GPS_SAT_MIN: Deadreckoning GPS satellite count min threshold
+## BATT_SOC3_C2: Battery estimator coefficient2
 
-GPS satellite count threshold below which deadreckoning home will begin (default is 6).  Higher values trigger with good GPS quality, Lower values trigger with worse GPS quality. Set to 0 to disable use of GPS satellite count
+Battery estimator coefficient2
 
-- Range: 0 30
+- Range: 2 5
 
-## DR_GPS_TRIGG_SEC: Deadreckoning GPS check trigger seconds
+## BATT_SOC3_C3: Battery estimator coefficient3
 
-GPS checks must fail for this many seconds before dead reckoning will be triggered
+Battery estimator coefficient3
 
-- Units: s
+- Range: 0.01 0.5
 
-## DR_FLY_ANGLE: Deadreckoning Lean Angle
+## BATT_SOC4_IDX: Battery estimator index
 
-lean angle (in degrees) during deadreckoning
+Battery estimator index
 
-- Units: deg
+- Range: 0 4
 
-- Range: 0 45
+## BATT_SOC4_NCELL: Battery estimator cell count
 
-## DR_FLY_ALT_MIN: Deadreckoning Altitude Min
+Battery estimator cell count
 
-Copter will fly at at least this altitude (in meters) above home during deadreckoning
+- Range: 0 48
 
-- Units: m
+## BATT_SOC4_C1: Battery estimator coefficient1
 
-- Range: 0 1000
+Battery estimator coefficient1
 
-## DR_FLY_TIMEOUT: Deadreckoning flight timeout
+- Range: 100 200
 
-Copter will attempt to switch to NEXT_MODE after this many seconds of deadreckoning.  If it cannot switch modes it will continue in Guided_NoGPS.  Set to 0 to disable timeout
+## BATT_SOC4_C2: Battery estimator coefficient2
 
-- Units: s
+Battery estimator coefficient2
 
-## DR_NEXT_MODE: Deadreckoning Next Mode
+- Range: 2 5
 
-Copter switch to this mode after GPS recovers or DR_FLY_TIMEOUT has elapsed.  Default is 6/RTL.  Set to -1 to return to mode used before deadreckoning was triggered
+## BATT_SOC4_C3: Battery estimator coefficient3
 
-|Value|Meaning|
-|:---:|:---:|
-|2|AltHold|
-|3|Auto|
-|4|Guided|
-|5|Loiter|
-|6|RTL|
-|7|Circle|
-|9|Land|
-|16|PosHold|
-|17|Brake|
-|20|Guided_NoGPS|
-|21|Smart_RTL|
-|27|Auto RTL|
+Battery estimator coefficient3
+
+- Range: 0.01 0.5
 
 ## POI_DIST_MAX: Mount POI distance max
 
@@ -1153,89 +1153,101 @@ Number of tricks which can be selected over the range of the trik selection RC c
 
 - Range: 1 11
 
-## VIEP_DEBUG: ViewPro debug
+## EFI_SVF_ENABLE: Generator SVFFI enable
+
+Enable SVFFI generator support
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
+
+## EFI_SVF_ARMCHECK: Generator SVFFI arming check
+
+Check for Generator ARM state before arming
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
+
+## BATT_ANX_ENABLE: Enable ANX battery support
+
+Enable ANX battery support
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
+
+## BATT_ANX_CANDRV: Set ANX CAN driver
+
+Set ANX CAN driver
+
+|Value|Meaning|
+|:---:|:---:|
+|0|None|
+|1|1stCANDriver|
+|2|2ndCanDriver|
+
+## BATT_ANX_INDEX: ANX CAN battery index
+
+ANX CAN battery index
+
+- Range: 1 10
+
+## BATT_ANX_OPTIONS: ANX CAN battery options
 
 *Note: This parameter is for advanced users*
 
-ViewPro debug
+ANX CAN battery options
 
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|Enabled|
-|2|Enabled including attitude reporting|
+- Bitmask: 0:LogAllFrames
 
-## VIEP_CAM_SWLOW: ViewPro Camera For Switch Low
+## EFI_H6K_ENABLE: Enable Halo6000 EFI driver
 
-Camera selection when switch is in low position
-
-|Value|Meaning|
-|:---:|:---:|
-|0|No change in camera selection|
-|1|EO1|
-|2|IR thermal|
-|3|EO1 + IR Picture-in-picture|
-|4|IR + EO1 Picture-in-picture|
-|5|Fusion|
-|6|IR1 13mm|
-|7|IR2 52mm|
-
-## VIEP_CAM_SWMID: ViewPro Camera For Switch Mid
-
-Camera selection when switch is in middle position
-
-|Value|Meaning|
-|:---:|:---:|
-|0|No change in camera selection|
-|1|EO1|
-|2|IR thermal|
-|3|EO1 + IR Picture-in-picture|
-|4|IR + EO1 Picture-in-picture|
-|5|Fusion|
-|6|IR1 13mm|
-|7|IR2 52mm|
-
-## VIEP_CAM_SWHIGH: ViewPro Camera For Switch High
-
-Camera selection when switch is in high position
-
-|Value|Meaning|
-|:---:|:---:|
-|0|No change in camera selection|
-|1|EO1|
-|2|IR thermal|
-|3|EO1 + IR Picture-in-picture|
-|4|IR + EO1 Picture-in-picture|
-|5|Fusion|
-|6|IR1 13mm|
-|7|IR2 52mm|
-
-## VIEP_ZOOM_SPEED: ViewPro Zoom Speed
-
-ViewPro Zoom Speed.  Higher numbers result in faster zooming
-
-- Range: 0 7
-
-## VIEP_ZOOM_MAX: ViewPro Zoom Times Max
-
-ViewPro Zoom Times Max
-
-- Range: 0 30
-
-## EFI_DLA_ENABLE: EFI DLA enable
-
-Enable EFI DLA driver
+Enable Halo6000 EFI driver
 
 |Value|Meaning|
 |:---:|:---:|
 |0|Disabled|
 |1|Enabled|
 
-## EFI_DLA_LPS: EFI DLA fuel scale
+## EFI_H6K_CANDRV: Halo6000 CAN driver
 
-EFI DLA litres of fuel per second of injection time
+Halo6000 CAN driver. Use 1 for first CAN scripting driver, 2 for 2nd driver
 
-- Range: 0.00001 1
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|FirstCAN|
+|2|SecondCAN|
+
+## EFI_H6K_START_FN: Halo6000 start auxilliary function
+
+The RC auxilliary function number for start/stop of the generator. Zero to disable start function
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|300|300|
+|301|301|
+|302|302|
+|303|303|
+|304|304|
+|305|305|
+|306|306|
+|307|307|
+
+## EFI_H6K_TELEM_RT: Halo6000 telemetry rate
+
+The rate that additional generator telemetry is sent
+
+- Units: Hz
+
+## EFI_H6K_FUELTOT: Halo6000 total fuel capacity
+
+The capacity of the tank in litres
 
 - Units: litres
 
@@ -1259,6 +1271,32 @@ DJIRS2 upside down
 |:---:|:---:|
 |0|Right side up|
 |1|Upside down|
+
+## EFI_INF_ENABLE: EFI INF-Inject enable
+
+Enable EFI INF-Inject driver
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
+
+## EFI_DLA_ENABLE: EFI DLA enable
+
+Enable EFI DLA driver
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Enabled|
+
+## EFI_DLA_LPS: EFI DLA fuel scale
+
+EFI DLA litres of fuel per second of injection time
+
+- Range: 0.00001 1
+
+- Units: litres
 
 ## ESC_HW_ENABLE: Hobbywing ESC Enable
 
@@ -1425,112 +1463,74 @@ SkyPower EFI restart time. If engine should be running and it has stopped for th
 
 - Units: s
 
-## EFI_H6K_ENABLE: Enable Halo6000 EFI driver
-
-Enable Halo6000 EFI driver
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|Enabled|
-
-## EFI_H6K_CANDRV: Halo6000 CAN driver
-
-Halo6000 CAN driver. Use 1 for first CAN scripting driver, 2 for 2nd driver
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|FirstCAN|
-|2|SecondCAN|
-
-## EFI_H6K_START_FN: Halo6000 start auxilliary function
-
-The RC auxilliary function number for start/stop of the generator. Zero to disable start function
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|300|300|
-|301|301|
-|302|302|
-|303|303|
-|304|304|
-|305|305|
-|306|306|
-|307|307|
-
-## EFI_H6K_TELEM_RT: Halo6000 telemetry rate
-
-The rate that additional generator telemetry is sent
-
-- Units: Hz
-
-## EFI_H6K_FUELTOT: Halo6000 total fuel capacity
-
-The capacity of the tank in litres
-
-- Units: litres
-
-## BATT_ANX_ENABLE: Enable ANX battery support
-
-Enable ANX battery support
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|Enabled|
-
-## BATT_ANX_CANDRV: Set ANX CAN driver
-
-Set ANX CAN driver
-
-|Value|Meaning|
-|:---:|:---:|
-|0|None|
-|1|1stCANDriver|
-|2|2ndCanDriver|
-
-## BATT_ANX_INDEX: ANX CAN battery index
-
-ANX CAN battery index
-
-- Range: 1 10
-
-## BATT_ANX_OPTIONS: ANX CAN battery options
+## VIEP_DEBUG: ViewPro debug
 
 *Note: This parameter is for advanced users*
 
-ANX CAN battery options
-
-- Bitmask: 0:LogAllFrames
-
-## EFI_INF_ENABLE: EFI INF-Inject enable
-
-Enable EFI INF-Inject driver
+ViewPro debug
 
 |Value|Meaning|
 |:---:|:---:|
 |0|Disabled|
 |1|Enabled|
+|2|Enabled including attitude reporting|
 
-## EFI_SVF_ENABLE: Generator SVFFI enable
+## VIEP_CAM_SWLOW: ViewPro Camera For Switch Low
 
-Enable SVFFI generator support
-
-|Value|Meaning|
-|:---:|:---:|
-|0|Disabled|
-|1|Enabled|
-
-## EFI_SVF_ARMCHECK: Generator SVFFI arming check
-
-Check for Generator ARM state before arming
+Camera selection when switch is in low position
 
 |Value|Meaning|
 |:---:|:---:|
-|0|Disabled|
-|1|Enabled|
+|0|No change in camera selection|
+|1|EO1|
+|2|IR thermal|
+|3|EO1 + IR Picture-in-picture|
+|4|IR + EO1 Picture-in-picture|
+|5|Fusion|
+|6|IR1 13mm|
+|7|IR2 52mm|
+
+## VIEP_CAM_SWMID: ViewPro Camera For Switch Mid
+
+Camera selection when switch is in middle position
+
+|Value|Meaning|
+|:---:|:---:|
+|0|No change in camera selection|
+|1|EO1|
+|2|IR thermal|
+|3|EO1 + IR Picture-in-picture|
+|4|IR + EO1 Picture-in-picture|
+|5|Fusion|
+|6|IR1 13mm|
+|7|IR2 52mm|
+
+## VIEP_CAM_SWHIGH: ViewPro Camera For Switch High
+
+Camera selection when switch is in high position
+
+|Value|Meaning|
+|:---:|:---:|
+|0|No change in camera selection|
+|1|EO1|
+|2|IR thermal|
+|3|EO1 + IR Picture-in-picture|
+|4|IR + EO1 Picture-in-picture|
+|5|Fusion|
+|6|IR1 13mm|
+|7|IR2 52mm|
+
+## VIEP_ZOOM_SPEED: ViewPro Zoom Speed
+
+ViewPro Zoom Speed.  Higher numbers result in faster zooming
+
+- Range: 0 7
+
+## VIEP_ZOOM_MAX: ViewPro Zoom Times Max
+
+ViewPro Zoom Times Max
+
+- Range: 0 30
 
 ## TOFSENSE_S1_PRX: TOFSENSE-M to be used as Proximity sensor
 

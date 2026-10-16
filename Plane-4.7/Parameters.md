@@ -21367,7 +21367,7 @@ Enabled/disable following a target
 
 ## FOLL_SYSID: Follow target's mavlink system id
 
-Follow target's mavlink system id
+Follow target's mavlink system id. Zero means no target has been selected and following is inactive.
 
 - Range: 0 255
 
@@ -40574,8 +40574,6 @@ FF D Gain which produces an output that is proportional to the rate of change of
 Yaw Target notch filter index
 
 - Range: 1 8
-
-- Units: Hz
 
 ## Q_A_RAT_YAW_NEF: Yaw Error notch filter index
 

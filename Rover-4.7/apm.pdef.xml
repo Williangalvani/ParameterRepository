@@ -14124,7 +14124,7 @@
           <value code="1">Enabled</value>
         </values>
       </param>
-      <param humanName="Follow target's mavlink system id" name="FOLL_SYSID" documentation="Follow target's mavlink system id" user="Standard">
+      <param humanName="Follow target's mavlink system id" name="FOLL_SYSID" documentation="Follow target's mavlink system id. Zero means no target has been selected and following is inactive." user="Standard">
         <field name="Range">0 255</field>
       </param>
       <param humanName="Follow distance maximum" name="FOLL_DIST_MAX" documentation="Follow distance maximum. If exceeded, the follow estimate will be considered invalid. If zero there is no maximum." user="Standard">

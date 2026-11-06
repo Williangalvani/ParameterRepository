@@ -14209,6 +14209,22 @@ Camera vertical field of view. 0 if unknown
 
 - Range: 0 180
 
+## CAM1_ZOM_RAT_MAX: Camera zoom speed
+
+Speed at which the zoom output moves for continuous (rate) zoom commands. Only used by the Servo camera type. The default of 5%/s moves across the full range in 20 seconds
+
+- Units: %/s
+
+- Range: 0 100
+
+## CAM1_FOC_RAT_MAX: Camera focus speed
+
+Speed at which the focus output moves for continuous (rate) focus commands. Only used by the Servo camera type. The default of 5%/s moves across the full range in 20 seconds
+
+- Units: %/s
+
+- Range: 0 100
+
 # CAM1RC Parameters
 
 ## CAM1_RC_TYPE: RunCam device type
@@ -14377,6 +14393,22 @@ Camera vertical field of view. 0 if unknown
 - Units: deg
 
 - Range: 0 180
+
+## CAM2_ZOM_RAT_MAX: Camera zoom speed
+
+Speed at which the zoom output moves for continuous (rate) zoom commands. Only used by the Servo camera type. The default of 5%/s moves across the full range in 20 seconds
+
+- Units: %/s
+
+- Range: 0 100
+
+## CAM2_FOC_RAT_MAX: Camera focus speed
+
+Speed at which the focus output moves for continuous (rate) focus commands. Only used by the Servo camera type. The default of 5%/s moves across the full range in 20 seconds
+
+- Units: %/s
+
+- Range: 0 100
 
 # CAM2RC Parameters
 
@@ -17506,6 +17538,7 @@ Type of AHRS device
 |6|Trimble GSOF|
 |7|MicroStrain7|
 |8|SBG|
+|10|Aeron|
 |11|SensAItion|
 
 ## EAHRS_RATE: AHRS data rate

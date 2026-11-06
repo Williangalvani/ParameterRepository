@@ -16881,6 +16881,16 @@
         <field name="UnitText">degrees</field>
         <field name="Range">0 180</field>
       </param>
+      <param humanName="Camera zoom speed" name="CAM1_ZOM_RAT_MAX" documentation="Speed at which the zoom output moves for continuous (rate) zoom commands. Only used by the Servo camera type. The default of 5%/s moves across the full range in 20 seconds" user="Standard">
+        <field name="Units">%/s</field>
+        <field name="UnitText">percent per second</field>
+        <field name="Range">0 100</field>
+      </param>
+      <param humanName="Camera focus speed" name="CAM1_FOC_RAT_MAX" documentation="Speed at which the focus output moves for continuous (rate) focus commands. Only used by the Servo camera type. The default of 5%/s moves across the full range in 20 seconds" user="Standard">
+        <field name="Units">%/s</field>
+        <field name="UnitText">percent per second</field>
+        <field name="Range">0 100</field>
+      </param>
     </parameters>
     <parameters name="CAM1_RC_">
       <param humanName="RunCam device type" name="CAM1_RC_TYPE" documentation="RunCam device type used to determine OSD menu structure and shutter options.">
@@ -17004,6 +17014,16 @@
         <field name="Units">deg</field>
         <field name="UnitText">degrees</field>
         <field name="Range">0 180</field>
+      </param>
+      <param humanName="Camera zoom speed" name="CAM2_ZOM_RAT_MAX" documentation="Speed at which the zoom output moves for continuous (rate) zoom commands. Only used by the Servo camera type. The default of 5%/s moves across the full range in 20 seconds" user="Standard">
+        <field name="Units">%/s</field>
+        <field name="UnitText">percent per second</field>
+        <field name="Range">0 100</field>
+      </param>
+      <param humanName="Camera focus speed" name="CAM2_FOC_RAT_MAX" documentation="Speed at which the focus output moves for continuous (rate) focus commands. Only used by the Servo camera type. The default of 5%/s moves across the full range in 20 seconds" user="Standard">
+        <field name="Units">%/s</field>
+        <field name="UnitText">percent per second</field>
+        <field name="Range">0 100</field>
       </param>
     </parameters>
     <parameters name="CAM2_RC_">
@@ -19551,6 +19571,7 @@
           <value code="6">Trimble GSOF</value>
           <value code="7">MicroStrain7</value>
           <value code="8">SBG</value>
+          <value code="10">Aeron</value>
           <value code="11">SensAItion</value>
         </values>
       </param>
